@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Future Vision XPRIZE — Brand Guidelines</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
+  :root {
+    /* ── PRIMARY PALETTE ── */
+    --teal:       #1BBFE0;   /* Primary accent — buttons, highlights, key numbers */
+    --teal-mid:   #1498B3;   /* Hover states, secondary teal elements */
+    --teal-deep:  #10869E;   /* Tertiary, borders, subtle fills */
+    --teal-glow:  rgba(27, 191, 224, 0.12); /* Background tints */
+    --teal-dim:   rgba(27, 191, 224, 0.40); /* Muted teal accents */
+
+    /* ── NEUTRALS ── */
+    --black:      #0B0E0C;   /* Near-black background */
+    --dark:       #111411;   /* Surface dark */
+    --dark2:      #1A1D1A;   /* Surface darker */
+    --charcoal:   #2C3630;   /* Mid-dark text / borders */
+    --gray:       #6B6B6B;   /* Muted text */
+    --light-bg:   #EFF2F1;   /* Light section backgrounds */
+    --white:      #FFFFFF;   /* Pure white */
+    --off-white:  #F5F5F5;   /* Slightly warm white */
+
+    /* ── SEMANTIC ── */
+    --border-dark:  rgba(255,255,255,0.08);
+    --border-light: rgba(0,0,0,0.10);
+    --text-muted:   rgba(255,255,255,0.50);
+    --text-subtle:  rgba(255,255,255,0.30);
+
+    /* ── TYPOGRAPHY ── */
+    --font-display: 'Barlow', sans-serif;    /* Headlines — use weight 800-900, uppercase */
+    --font-body:    'Inter', sans-serif;     /* Body copy, UI — weight 300-600 */
+    --font-mono:    'Space Mono', monospace; /* Labels, badges, metadata */
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--light-bg);
+    color: var(--black);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--black);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    height: 56px;
+    border-bottom: 1px solid var(--border-dark);
+  }
+  .nav-brand {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-right: auto;
+  }
+  .nav a {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav a:hover { color: var(--teal); }
+
+  /* ── SECTIONS ── */
+  .section {
+    padding: 80px 72px;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .section.dark {
+    background: var(--black);
+    color: var(--white);
+    border-bottom-color: var(--border-dark);
+  }
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 48px;
+    letter-spacing: 0.02em;
+  }
+  .section.dark .section-title { color: var(--white); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--black);
+    padding: 96px 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(27,191,224,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: 80px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+    margin-bottom: 24px;
+  }
+  .hero h1 span { color: var(--teal); }
+  .hero p {
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    max-width: 520px;
+    line-height: 1.7;
+  }
+  .version-badge {
+    position: absolute;
+    top: 40px; right: 72px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* ── COLOR PALETTE ── */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .color-group {
+    margin-bottom: 40px;
+  }
+  .group-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 16px;
+  }
+  .color-swatch {
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+  .swatch-block {
+    height: 80px;
+  }
+  .swatch-info {
+    padding: 12px 14px;
+    background: var(--white);
+  }
+  .swatch-name {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 2px;
+  }
+  .swatch-hex {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--gray);
+  }
+  .swatch-use {
+    font-size: 11px;
+    color: var(--gray);
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .type-samples {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    margin-top: 8px;
+  }
+  .type-sample {
+    border-left: 2px solid var(--teal);
+    padding-left: 24px;
+  }
+  .type-meta {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 12px;
+  }
+  .type-example-display {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 72px;
+    text-transform: uppercase;
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+    color: var(--black);
+  }
+  .type-example-display-sm {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 48px;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    color: var(--black);
+  }
+  .type-example-body {
+    font-family: var(--font-body);
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1.75;
+    max-width: 560px;
+  }
+  .type-example-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+  .type-example-ui {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--black);
+  }
+  .type-specs {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--gray);
+    margin-top: 8px;
+  }
+
+  /* ── COMPONENTS ── */
+  .components-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 8px;
+  }
+  .component-block {
+    padding: 32px;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+  }
+  .component-block.dark {
+    background: var(--dark);
+    border-color: var(--border-dark);
+  }
+  .component-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 20px;
+  }
+  .component-block.dark .component-label { color: rgba(255,255,255,0.35); }
+
+  /* Buttons */
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; }
+  .btn {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 100px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    letter-spacing: 0.01em;
+    transition: all 0.2s;
+    border: none;
+  }
+  .btn-primary {
+    background: var(--teal);
+    color: var(--black);
+  }
+  .btn-primary:hover { background: var(--teal-mid); }
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .btn-outline:hover { border-color: var(--teal); color: var(--teal); }
+  .btn-ghost {
+    background: rgba(27,191,224,0.1);
+    color: var(--teal);
+    border: 1px solid rgba(27,191,224,0.25);
+  }
+
+  /* Tags/badges */
+  .badge {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    display: inline-block;
+  }
+  .badge-teal { background: rgba(27,191,224,0.12); color: var(--teal); border: 1px solid rgba(27,191,224,0.3); }
+  .badge-outline { background: transparent; color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.15); }
+
+  /* Stat block */
+  .stat-demo {
+    display: flex; gap: 32px;
+  }
+  .stat-item {}
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--teal);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-lbl {
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* Card */
+  .card-demo {
+    background: var(--dark2);
+    border: 1px solid var(--border-dark);
+    padding: 28px;
+    position: relative;
+  }
+  .card-demo-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 12px;
+  }
+  .card-demo h4 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 22px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .card-demo p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.65;
+  }
+
+  /* Highlight box */
+  .highlight-demo {
+    border-left: 2px solid var(--teal);
+    padding: 18px 22px;
+    background: var(--teal-glow);
+    margin-top: 16px;
+  }
+  .highlight-demo p {
+    font-size: 15px;
+    font-style: italic;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.6;
+  }
+
+  /* ── VOICE ── */
+  .voice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 8px;
+  }
+  .voice-card {
+    padding: 28px 32px;
+  }
+  .voice-card.do {
+    background: rgba(27,191,224,0.05);
+    border: 1px solid rgba(27,191,224,0.2);
+  }
+  .voice-card.dont {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .voice-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .voice-tag.do { color: var(--teal); }
+  .voice-tag.dont { color: rgba(255,255,255,0.3); }
+  .voice-example {
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.75);
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+  .voice-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.5;
+  }
+
+  /* ── USAGE ── */
+  .usage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--border-dark);
+    margin-top: 8px;
+  }
+  .usage-cell {
+    background: var(--dark);
+    padding: 32px;
+  }
+  .usage-icon {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  .usage-cell h4 {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .usage-cell p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--black);
+    padding: 48px 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-brand {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+  .footer-meta {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <span class="nav-brand">FVXP Brand Guidelines</span>
+  <a href="#colors">Colors</a>
+  <a href="#type">Typography</a>
+  <a href="#components">Components</a>
+  <a href="#voice">Voice</a>
+  <a href="#usage">Usage</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="version-badge">v1.0 · April 2026</div>
+  <div class="hero-label">Future Vision XPRIZE</div>
+  <h1>Brand<br><span>Guidelines</span></h1>
+  <p>The visual and verbal system for Future Vision XPRIZE and all associated properties — the Hackathon, the Gathering, and external sponsorship materials.</p>
+</div>
+
+<!-- ── COLORS ── -->
+<section class="section" id="colors">
+  <div class="section-label">01 · Colors</div>
+  <div class="section-title">Palette</div>
+
+  <div class="color-group">
+    <div class="group-label">Primary — Teal</div>
+    <div class="color-grid" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#1BBFE0;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Teal</div>
+          <div class="swatch-hex">#1BBFE0</div>
+          <div class="swatch-use">Buttons, highlights, key numbers, accent text</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#1498B3;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Teal Mid</div>
+          <div class="swatch-hex">#1498B3</div>
+          <div class="swatch-use">Hover states, secondary elements</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#10869E;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Teal Deep</div>
+          <div class="swatch-hex">#10869E</div>
+          <div class="swatch-use">Borders, subtle fills, tertiary</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:rgba(27,191,224,0.12); border: 1px solid rgba(27,191,224,0.2);"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Teal Glow</div>
+          <div class="swatch-hex">rgba(27,191,224,0.12)</div>
+          <div class="swatch-use">Background tints, card fills</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="color-group">
+    <div class="group-label">Neutrals — Dark</div>
+    <div class="color-grid" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#0B0E0C;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Black</div>
+          <div class="swatch-hex">#0B0E0C</div>
+          <div class="swatch-use">Primary background, hero sections</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#111411;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Dark</div>
+          <div class="swatch-hex">#111411</div>
+          <div class="swatch-use">Card backgrounds, surface</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#1A1D1A;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Dark 2</div>
+          <div class="swatch-hex">#1A1D1A</div>
+          <div class="swatch-use">Nested surfaces, hover states</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#2C3630;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Charcoal</div>
+          <div class="swatch-hex">#2C3630</div>
+          <div class="swatch-use">Borders on dark bg, mid-dark text</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="color-group">
+    <div class="group-label">Neutrals — Light</div>
+    <div class="color-grid" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#EFF2F1;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Light BG</div>
+          <div class="swatch-hex">#EFF2F1</div>
+          <div class="swatch-use">Section backgrounds, page base</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#F5F5F5;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Off White</div>
+          <div class="swatch-hex">#F5F5F5</div>
+          <div class="swatch-use">Card backgrounds on light sections</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#FFFFFF; border: 1px solid #eee;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">White</div>
+          <div class="swatch-hex">#FFFFFF</div>
+          <div class="swatch-use">Text on dark, pure white surfaces</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#6B6B6B;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Gray</div>
+          <div class="swatch-hex">#6B6B6B</div>
+          <div class="swatch-use">Supporting text, metadata, captions</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TYPOGRAPHY ── -->
+<section class="section" id="type">
+  <div class="section-label">02 · Typography</div>
+  <div class="section-title">Type System</div>
+
+  <div style="background:#f0f0f0; padding:20px 24px; border-left:3px solid var(--teal); margin-bottom:40px; font-size:14px; color:#333; line-height:1.6;">
+    <strong>Font stack:</strong> Barlow (display, wt 800–900) · Inter (body, wt 300–600) · Space Mono (labels/mono).<br>
+    <strong>Gotham Bold</strong> is the website's proprietary font. <strong>Barlow ExtraBold/Black</strong> is the approved open-source substitute for all decks and external materials.
+  </div>
+
+  <div class="type-samples">
+    <div class="type-sample">
+      <div class="type-meta">Display — H1 / Hero</div>
+      <div class="type-example-display">The Future<br>Is <span style="color:var(--teal)">Yours</span></div>
+      <div class="type-specs">Barlow · 900 weight · uppercase · letter-spacing 0.01em · line-height 0.95</div>
+    </div>
+    <div class="type-sample">
+      <div class="type-meta">Display — H2 / Section Titles</div>
+      <div class="type-example-display-sm">What You <span style="color:var(--teal)">Own</span></div>
+      <div class="type-specs">Barlow · 800–900 weight · uppercase · 40–64px · line-height 1.0</div>
+    </div>
+    <div class="type-sample">
+      <div class="type-meta">Body — Long-form</div>
+      <div class="type-example-body">The Future Vision XPRIZE challenges creators worldwide to produce 3-minute sci-fi trailers imagining optimistic futures for humanity. The public vote carries weight — it shapes who wins $2.5M to make their film.</div>
+      <div class="type-specs">Inter · 300 weight · 16–18px · line-height 1.7 · color rgba(0,0,0,0.65) on light / rgba(255,255,255,0.65) on dark</div>
+    </div>
+    <div class="type-sample">
+      <div class="type-meta">Label / Badge / Mono</div>
+      <div class="type-example-label">Crowd Voting Partnership · 2026</div>
+      <div class="type-specs">Space Mono · 400–700 weight · 10–12px · uppercase · letter-spacing 0.2em · teal on dark / gray on light</div>
+    </div>
+    <div class="type-sample">
+      <div class="type-meta">UI / Navigation / Buttons</div>
+      <div class="type-example-ui">Register Now → &nbsp;&nbsp;View Rules</div>
+      <div class="type-specs">Inter · 500–600 weight · 13–15px · sentence case for CTA labels</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMPONENTS ── -->
+<section class="section dark" id="components">
+  <div class="section-label">03 · Components</div>
+  <div class="section-title" style="color:var(--white);">Components</div>
+
+  <div class="components-grid">
+
+    <!-- Buttons -->
+    <div class="component-block dark">
+      <div class="component-label">Buttons</div>
+      <div class="btn-row">
+        <a class="btn btn-primary">Register Now →</a>
+        <a class="btn btn-outline">View Rules</a>
+        <a class="btn btn-ghost">Learn More</a>
+      </div>
+      <div style="font-size:12px; color:rgba(255,255,255,0.35); font-family:var(--font-mono); letter-spacing:0.1em; line-height:1.8;">
+        PRIMARY: teal fill · black text · 100px radius<br>
+        OUTLINE: transparent · white/teal border<br>
+        GHOST: teal-glow fill · teal text
+      </div>
+    </div>
+
+    <!-- Badges -->
+    <div class="component-block dark">
+      <div class="component-label">Badges / Tags</div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px;">
+        <span class="badge badge-teal">Exclusive</span>
+        <span class="badge badge-teal">Live Now</span>
+        <span class="badge badge-outline">Crowd Voting</span>
+        <span class="badge badge-outline">2026</span>
+      </div>
+      <div style="font-size:12px; color:rgba(255,255,255,0.35); font-family:var(--font-mono); letter-spacing:0.1em; line-height:1.8;">
+        Space Mono · 10px · uppercase · letter-spacing 0.15em
+      </div>
+    </div>
+
+    <!-- Stat block -->
+    <div class="component-block dark">
+      <div class="component-label">Stat Callouts</div>
+      <div class="stat-demo">
+        <div class="stat-item">
+          <div class="stat-num">$3.5M</div>
+          <div class="stat-lbl">Prize Pool</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">100K+</div>
+          <div class="stat-lbl">Creators</div>
+        </div>
+      </div>
+      <div style="font-size:12px; color:rgba(255,255,255,0.35); font-family:var(--font-mono); letter-spacing:0.1em; margin-top:16px; line-height:1.8;">
+        Barlow 900 · 42–56px · teal color<br>
+        Label: Inter 400 · 11px · uppercase · muted
+      </div>
+    </div>
+
+    <!-- Card -->
+    <div class="component-block dark">
+      <div class="component-label">Content Card</div>
+      <div class="card-demo">
+        <div class="card-demo-label">Brand Presence</div>
+        <h4>Voting Platform</h4>
+        <p>Your brand appears on xprize.siv.org — every page load, every vote cast through the full competition window.</p>
+      </div>
+      <div style="font-size:12px; color:rgba(255,255,255,0.35); font-family:var(--font-mono); letter-spacing:0.1em; margin-top:12px; line-height:1.8;">
+        Dark2 bg · border rgba(255,255,255,0.08)<br>
+        Teal mono label → Barlow 800 h4 → Inter 300 body
+      </div>
+    </div>
+
+    <!-- Highlight box -->
+    <div class="component-block dark" style="grid-column: span 2;">
+      <div class="component-label">Highlight / Pull Quote</div>
+      <div class="highlight-demo">
+        <p>"The voting platform is where passive audiences become active participants — the moment a global movement becomes measurable."</p>
+      </div>
+      <div style="font-size:12px; color:rgba(255,255,255,0.35); font-family:var(--font-mono); letter-spacing:0.1em; margin-top:12px; line-height:1.8;">
+        Left border 2px teal · background teal-glow · Inter italic 15px
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── VOICE ── -->
+<section class="section dark" id="voice">
+  <div class="section-label">04 · Voice & Tone</div>
+  <div class="section-title" style="color:var(--white);">Voice</div>
+
+  <div style="font-size:17px; font-weight:300; color:rgba(255,255,255,0.6); max-width:640px; line-height:1.75; margin-bottom:48px;">
+    Peer-to-peer. Direct. Ambitious without corporate posture. Punchy and minimal over verbose. Stories, not announcements.
+  </div>
+
+  <div class="voice-grid">
+    <div class="voice-card do">
+      <div class="voice-tag do">Do</div>
+      <div class="voice-example">"The crowd picks the future. Your brand powers the moment."</div>
+      <div class="voice-note">Short, active, punchy. Mission-forward. Makes the sponsor feel central.</div>
+    </div>
+    <div class="voice-card dont">
+      <div class="voice-tag dont">Don't</div>
+      <div class="voice-example">"We are pleased to offer a comprehensive sponsorship solution for your brand's strategic goals."</div>
+      <div class="voice-note">Corporate filler. Passive voice. Generic. No specificity.</div>
+    </div>
+    <div class="voice-card do">
+      <div class="voice-tag do">Do</div>
+      <div class="voice-example">"Fiction as blueprint — stories like Star Trek directly inspired real-world technology. This competition bets the same is true today."</div>
+      <div class="voice-note">Specific narrative hook. Connects history to now. Earned conviction.</div>
+    </div>
+    <div class="voice-card dont">
+      <div class="voice-tag dont">Don't</div>
+      <div class="voice-example">"Through innovative storytelling and cutting-edge technology, we are shaping tomorrow's landscape."</div>
+      <div class="voice-note">Vague buzzwords. No concrete claim. Could belong to any brand.</div>
+    </div>
+    <div class="voice-card do">
+      <div class="voice-tag do">Do</div>
+      <div class="voice-example">"Content can start in the dark. It just can't stay there."</div>
+      <div class="voice-note">Acknowledges complexity. Shows editorial maturity. Memorable.</div>
+    </div>
+    <div class="voice-card dont">
+      <div class="voice-tag dont">Don't</div>
+      <div class="voice-example">"Only positive, uplifting content about a bright and beautiful future."</div>
+      <div class="voice-note">Naive. Oversimplified. Doesn't match the actual competition ethos.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── USAGE ── -->
+<section class="section dark" id="usage">
+  <div class="section-label">05 · Usage Rules</div>
+  <div class="section-title" style="color:var(--white);">Rules</div>
+
+  <div class="usage-grid">
+    <div class="usage-cell">
+      <div class="usage-icon">🎨</div>
+      <h4>Don't swap teal for gold</h4>
+      <p>Teal (#1BBFE0) is the brand accent. Gold was used in early materials — it's off-brand. All new assets use teal.</p>
+    </div>
+    <div class="usage-cell">
+      <div class="usage-icon">🔠</div>
+      <h4>Headlines always uppercase</h4>
+      <p>Display type (Barlow 800–900) is always uppercase. Body and labels use normal casing. Never title-case a Barlow headline.</p>
+    </div>
+    <div class="usage-cell">
+      <div class="usage-icon">📋</div>
+      <h4>No bullets in partner-facing copy</h4>
+      <p>Peter Diamandis reads bullets as AI-generated. Any content he'll read or present must be flowing prose.</p>
+    </div>
+    <div class="usage-cell">
+      <div class="usage-icon">🤝</div>
+      <h4>XPRIZE brand approval workflow</h4>
+      <p>Co-branded materials require 5-day advance approval. Peter's organic social does NOT. Keep this distinction clean.</p>
+    </div>
+    <div class="usage-cell">
+      <div class="usage-icon">🏆</div>
+      <h4>Prize framing</h4>
+      <p>Grand prize is $2.5M equity investment + $100K cash = $2.6M+. Not a "cash payout." Frame as production funding.</p>
+    </div>
+    <div class="usage-cell">
+      <div class="usage-icon">📰</div>
+      <h4>Press channels</h4>
+      <p>Tech publications → McKenna. Hollywood trades → Range/Amia. Never cross-wire these two channels.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span class="footer-brand">Future Vision XPRIZE</span>
+  <span class="footer-meta">Brand Guidelines v1.0 · April 2026 · PHD Ventures</span>
+</div>
+
+</body>
+</html>
