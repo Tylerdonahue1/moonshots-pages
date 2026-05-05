@@ -599,6 +599,27 @@
     transform: scale(1.5);
   }
 
+  /* ── EXAMPLE VIDEO ── */
+  .example-video {
+    margin: 56px 0 0;
+    padding: 0;
+  }
+  .example-video video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--black);
+    display: block;
+    border: 1px solid var(--border);
+  }
+  .example-video figcaption {
+    margin-top: 14px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
   /* ── PAGE NUM ── */
   .page-num {
     position: absolute;
@@ -1124,6 +1145,17 @@
       <p class="body-text">SIV provides the verified, transparent voting infrastructure. Your sponsorship brands every touchpoint from launch through the live announcement on September 25, 2026 at the Moonshot Gathering in Los Angeles.</p>
     </div>
   </div>
+
+  <figure class="example-video">
+    <video
+      controls
+      preload="metadata"
+      playsinline
+      src="https://vfyx59yxvrzfuvy0.public.blob.vercel-storage.com/Draft%2010%20.mp4"
+    ></video>
+    <figcaption>Example submission — the kind of three-minute future the crowd will be voting on.</figcaption>
+  </figure>
+
   <div class="page-num">02 / 07</div>
 </section>
 
