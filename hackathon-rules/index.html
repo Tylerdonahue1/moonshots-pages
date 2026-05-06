@@ -639,25 +639,28 @@
         <span></span><span></span><span></span>
       </button>
     </div>
-
-    <!-- Mobile full-screen sheet -->
-    <div id="nav-sheet" class="nav-sheet" role="dialog" aria-modal="true" aria-hidden="true">
-      <div class="nav-sheet__head">
-        <button type="button" class="nav-sheet__close" id="nav-sheet-close" aria-label="Close menu">×</button>
-      </div>
-      <ul class="nav-sheet__list">
-        <li><a href="/hackathon#categories">Categories</a></li>
-        <li><a href="/hackathon#google-stack">Tools</a></li>
-        <li><a href="/hackathon#about-xprize">About</a></li>
-        <li><a href="/hackathon#prize">Prize &amp; dates</a></li>
-        <li><a href="/hackathon#faq">FAQ</a></li>
-        <li class="nav-sheet__rules">
-          <a href="/hackathon-rules" class="is-active" aria-current="page">Rules <span aria-hidden="true">↗</span></a>
-        </li>
-      </ul>
-      <a class="btn btn-primary nav-sheet__cta" href="https://xprize.devpost.com/" target="_blank" rel="noopener">Register →</a>
-    </div>
   </nav>
+
+  <!-- Mobile full-screen sheet — sibling of <nav>, NOT nested inside.
+       The nav uses backdrop-filter, which creates a containing block for
+       position:fixed descendants and would clamp this sheet to the nav's
+       bounding box. Keeping it outside the nav lets the sheet cover the viewport. -->
+  <div id="nav-sheet" class="nav-sheet" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="nav-sheet__head">
+      <button type="button" class="nav-sheet__close" id="nav-sheet-close" aria-label="Close menu">×</button>
+    </div>
+    <ul class="nav-sheet__list">
+      <li><a href="/hackathon#categories">Categories</a></li>
+      <li><a href="/hackathon#google-stack">Tools</a></li>
+      <li><a href="/hackathon#about-xprize">About</a></li>
+      <li><a href="/hackathon#prize">Prize &amp; dates</a></li>
+      <li><a href="/hackathon#faq">FAQ</a></li>
+      <li class="nav-sheet__rules">
+        <a href="/hackathon-rules" class="is-active" aria-current="page">Rules <span aria-hidden="true">↗</span></a>
+      </li>
+    </ul>
+    <a class="btn btn-primary nav-sheet__cta" href="https://xprize.devpost.com/" target="_blank" rel="noopener">Register →</a>
+  </div>
 
   <script>
     (function () {

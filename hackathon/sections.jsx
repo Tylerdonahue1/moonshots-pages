@@ -58,6 +58,7 @@ function Nav() {
   }, [sheetOpen]);
 
   return (
+    <>
     <nav className="site-nav">
       <div className="container site-nav__row">
         <a href="#top" className="site-nav__logo" aria-label="Gemini Moonshot XPRIZE — home">
@@ -92,43 +93,47 @@ function Nav() {
           <span /><span /><span />
         </button>
       </div>
+    </nav>
 
-      {/* Mobile full-screen sheet */}
-      <div
-        id="nav-sheet"
-        className={"nav-sheet" + (sheetOpen ? " is-open" : "")}
-        role="dialog"
-        aria-modal="true"
-        aria-hidden={!sheetOpen}>
-        <div className="nav-sheet__head">
-          <button
-            type="button"
-            className="nav-sheet__close"
-            aria-label="Close menu"
-            onClick={() => setSheetOpen(false)}>×</button>
-        </div>
-        <ul className="nav-sheet__list">
-          {links.map(([l, href]) =>
-          <li key={href}>
-            <a href={href} onClick={() => setSheetOpen(false)}>{l}</a>
-          </li>
-          )}
-          <li className="nav-sheet__rules">
-            <a href="/hackathon-rules" onClick={() => setSheetOpen(false)}>
-              Rules <span aria-hidden="true">↗</span>
-            </a>
-          </li>
-        </ul>
-        <a
-          className="btn btn-primary nav-sheet__cta"
-          href="https://xprize.devpost.com/"
-          target="_blank"
-          rel="noopener"
-          onClick={() => setSheetOpen(false)}>
-          Register →
-        </a>
+    {/* Mobile full-screen sheet — sibling of <nav>, NOT nested inside.
+        The nav uses backdrop-filter, which creates a containing block for
+        position:fixed descendants and would clamp this sheet to the nav's
+        bounding box. Keeping it outside the nav lets the sheet cover the viewport. */}
+    <div
+      id="nav-sheet"
+      className={"nav-sheet" + (sheetOpen ? " is-open" : "")}
+      role="dialog"
+      aria-modal="true"
+      aria-hidden={!sheetOpen}>
+      <div className="nav-sheet__head">
+        <button
+          type="button"
+          className="nav-sheet__close"
+          aria-label="Close menu"
+          onClick={() => setSheetOpen(false)}>×</button>
       </div>
-    </nav>);
+      <ul className="nav-sheet__list">
+        {links.map(([l, href]) =>
+        <li key={href}>
+          <a href={href} onClick={() => setSheetOpen(false)}>{l}</a>
+        </li>
+        )}
+        <li className="nav-sheet__rules">
+          <a href="/hackathon-rules" onClick={() => setSheetOpen(false)}>
+            Rules <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+      </ul>
+      <a
+        className="btn btn-primary nav-sheet__cta"
+        href="https://xprize.devpost.com/"
+        target="_blank"
+        rel="noopener"
+        onClick={() => setSheetOpen(false)}>
+        Register →
+      </a>
+    </div>
+    </>);
 
 }
 
@@ -233,8 +238,9 @@ function AuroraShader() {
       mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material);
       scene.add(mesh);
 
-      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
+      // The aurora is a slow, ambient effect — no strobe / parallax / motion-sickness risk.
+      // Many mobile users have "Reduce Motion" enabled by default; respecting it would
+      // freeze the hero on frame 1, which looks broken. We always animate.
       function resize() {
         const w = parent.clientWidth, h = parent.clientHeight;
         renderer.setSize(w, h, false);
@@ -247,7 +253,7 @@ function AuroraShader() {
         if (cancelled) return;
         material.uniforms.iTime.value += 0.016;
         renderer.render(scene, camera);
-        if (!reduced) raf = requestAnimationFrame(tick);
+        raf = requestAnimationFrame(tick);
       }
       tick();
     }
