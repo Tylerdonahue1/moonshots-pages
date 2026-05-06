@@ -35,7 +35,11 @@
     line-height: 1.5;
     letter-spacing: var(--tracking-tight);
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;             /* mobile safety: never allow horizontal scroll */
+    overflow-wrap: break-word;
+    -webkit-text-size-adjust: 100%; /* prevent iOS auto-zoom on landscape */
   }
+  img, picture, svg, video { max-width: 100%; height: auto; }
   ::selection { background: var(--cyan); color: var(--near-black); }
   a { color: inherit; text-decoration: none; }
 
@@ -249,7 +253,8 @@
 
   /* ───────── Mobile responsiveness ───────── */
   @media (max-width: 720px) {
-    /* Stack any inline-styled multi-column grid on mobile */
+    /* Stack any inline-styled multi-column grid on mobile (covers all variants in use) */
+    [style*="grid-template-columns"][style*="repeat(2"],
     [style*="grid-template-columns"][style*="repeat(3"],
     [style*="grid-template-columns"][style*="repeat(4"],
     [style*="grid-template-columns"][style*="repeat(5"],
@@ -258,20 +263,41 @@
     [style*="grid-template-columns: 1fr 1fr"],
     [style*="grid-template-columns: 1fr auto"],
     [style*="grid-template-columns: 1.1fr"],
+    [style*="grid-template-columns: 1.2fr"],
     [style*="grid-template-columns: 1.4fr"],
-    [style*="grid-template-columns: 120px"] {
+    [style*="grid-template-columns: 1.5fr"],
+    [style*="grid-template-columns: 120px"],
+    [style*="grid-template-columns: 80px"],
+    [style*="grid-template-columns: 56px"] {
       grid-template-columns: 1fr !important;
+      gap: 12px !important;
     }
     /* Hero shrinks on small screens */
     .hero-shell { min-height: 600px !important; }
     /* Section padding tightens */
     section { padding: 64px 0 !important; }
-    /* Reduce padding on prize / CTA / Ultra-access blocks */
-    [style*="padding: 48px"][style*="border-radius: 18px"] { padding: 28px !important; }
+    /* Tighter container at <420px */
+    /* Card / block padding compression — works because React serializes "padding: 32" as "padding: 32px" in the DOM */
+    [style*="padding: 48px"] { padding: 24px !important; }
+    [style*="padding: 40px"] { padding: 22px !important; }
+    [style*="padding: 36px"] { padding: 22px !important; }
+    [style*="padding: 32px"]:not(.btn):not(.btn-primary):not(.btn-ghost):not(.btn-secondary) { padding: 20px !important; }
+    [style*="padding: 28px"] { padding: 18px !important; }
+    [style*="padding: 24px"]:not(.btn):not(.btn-primary):not(.btn-ghost):not(.btn-secondary) { padding: 18px !important; }
+    /* Multi-axis padding patterns from inline JSX */
     [style*="padding: \"32px 40px\""],
-    [style*="padding: \"32px 36px\""] { padding: 24px !important; }
-    /* Hide the 7-col Google Stack phase header row on mobile (it's decorative) */
+    [style*="padding: \"32px 36px\""],
+    [style*="padding: \"24px 28px\""] { padding: 20px !important; }
+    /* Big number callouts: tame the largest fonts so they fit on 320–360px viewports */
+    [style*="font-size: \"clamp(80px, 14vw, 180px)\""] { font-size: clamp(64px, 22vw, 100px) !important; }
+    /* Hide the 7-col Google Stack phase header row on mobile (decorative) */
     [style*="grid-template-columns"][style*="repeat(7"] { display: none !important; }
+    /* FAQ tap-targets: ensure 44px+ buttons */
+    button[style*="grid-template-columns: 56px"] { padding: 18px 0 !important; }
+  }
+
+  @media (max-width: 420px) {
+    .container { padding: 0 16px !important; }
   }
 </style>
 
