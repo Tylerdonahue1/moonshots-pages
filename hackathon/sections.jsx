@@ -233,8 +233,13 @@ function AuroraShader() {
               float th=smoothstep(0.0,1.0,i/LOOPS)*0.6;
               o+=cc*(1.0+tn*0.8)*th;
             }
-            o=tanh4(pow(o/100.0,vec4(1.6)));
-            gl_FragColor=o*1.5;
+            // Defensive: c.r can go slightly negative (0.05 + 0.08*sin(.)),
+            // pow(negative, 1.6) is UNDEFINED in GLSL → NaN on mobile → red garbage.
+            // Clamp to ≥0 before pow, and clamp the final color to [0,1].
+            vec4 base = max(o / 100.0, vec4(0.0));
+            base = pow(base, vec4(1.6));
+            o = tanh4(base);
+            gl_FragColor = clamp(o * 1.5, vec4(0.0), vec4(1.0));
           }
         `
       });
