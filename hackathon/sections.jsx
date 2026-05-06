@@ -167,7 +167,14 @@ function AuroraShader() {
       if (!canvas) return;
       const parent = canvas.parentElement;
       const isMobile = window.matchMedia("(max-width: 720px)").matches;
-      renderer = new THREE.WebGLRenderer({ canvas, antialias: !isMobile });
+      try {
+        renderer = new THREE.WebGLRenderer({ canvas, antialias: !isMobile, powerPreference: "high-performance" });
+      } catch (err) {
+        // WebGL unavailable / blocked — leave the CSS gradient fallback on the parent
+        console.warn("AuroraShader: WebGL unavailable", err);
+        canvas.style.display = "none";
+        return;
+      }
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
       const w = parent.clientWidth, h = parent.clientHeight;
       renderer.setSize(w, h, false);
@@ -185,7 +192,14 @@ function AuroraShader() {
           uniform float iTime;
           uniform vec2 iResolution;
           #define NUM_OCTAVES 3
+          #define LOOPS_INT ${isMobile ? "20" : "35"}
           #define LOOPS ${isMobile ? "20.0" : "35.0"}
+          // tanh polyfill: tanh() is GLSL ES 3.0; not available in ES 1.0 (mobile WebGL 1).
+          // Using stable formula with clamped exponent to avoid overflow on weak GPUs.
+          vec4 tanh4(vec4 x){
+            vec4 e2x = exp(min(x*2.0, vec4(40.0)));
+            return (e2x - 1.0) / (e2x + 1.0);
+          }
           float rand(vec2 n){return fract(sin(dot(n,vec2(12.9898,4.1414)))*43758.5453);}
           float noise(vec2 p){vec2 ip=floor(p);vec2 u=fract(p);u=u*u*(3.0-2.0*u);
             float r=mix(mix(rand(ip),rand(ip+vec2(1.0,0.0)),u.x),
@@ -198,7 +212,9 @@ function AuroraShader() {
             vec2 p=((gl_FragCoord.xy+shake*iResolution.xy)-iResolution.xy*0.5)/iResolution.y*mat2(6.0,-4.0,4.0,6.0);
             vec2 v;vec4 o=vec4(0.0);
             float f=2.0+fbm(p+vec2(iTime*5.0,0.0))*0.5;
-            for(float i=0.0;i<LOOPS;i++){
+            // Integer loop counter — required for GLSL ES 1.0 conformance on iOS/Android.
+            for(int idx=0; idx<LOOPS_INT; idx++){
+              float i = float(idx);
               v=p+cos(i*i+(iTime+p.x*0.08)*0.025+i*vec2(13.0,11.0))*3.5
                 +vec2(sin(iTime*3.0+i)*0.003,cos(iTime*3.5-i)*0.003);
               float tn=fbm(v+vec2(iTime*0.5,i))*0.3*(1.0-(i/LOOPS));
@@ -209,7 +225,7 @@ function AuroraShader() {
               float th=smoothstep(0.0,1.0,i/LOOPS)*0.6;
               o+=cc*(1.0+tn*0.8)*th;
             }
-            o=tanh(pow(o/100.0,vec4(1.6)));
+            o=tanh4(pow(o/100.0,vec4(1.6)));
             gl_FragColor=o*1.5;
           }
         `
@@ -265,18 +281,17 @@ function Hero() {
       }}>
         <div className="container" style={{ position: "relative", width: "100%" }}>
 
-        <span style={{
-          display: "inline-flex", alignItems: "center", gap: 10,
-          fontFamily: "var(--font-pixel)",
-          color: "var(--cyan)", border: "1px solid var(--cyan)",
-          padding: "6px 14px", borderRadius: 999,
-          textTransform: "uppercase", marginBottom: 32, flexWrap: "wrap", fontSize: "clamp(13px, 2vw, 22px)",
-          background: "rgba(11,14,12,0.55)",
-          backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)"
-        }}>
-          <span style={{ width: 8, height: 8, background: "var(--cyan)", borderRadius: "50%", boxShadow: "0 0 12px var(--cyan)" }} />
-          $2,000,000 in prizes · The Gemini Moonshot XPRIZE · Launching at Google I/O · May 19, 2026
-        </span>
+        <div className="hero-eyebrow">
+          <span className="hero-pill">
+            <span className="hero-pill__dot" aria-hidden="true" />
+            <span className="hero-pill__amount">$2,000,000 in prizes</span>
+            <span className="hero-pill__rest">
+              <span aria-hidden="true"> · </span>The Gemini Moonshot XPRIZE
+              <span aria-hidden="true"> · </span>Launching at Google I/O · May 19, 2026
+            </span>
+          </span>
+          <span className="hero-eyebrow__sub">Launching at Google I/O · May 19, 2026</span>
+        </div>
 
         <h1 className="display-xl" style={{ maxWidth: "22ch", marginBottom: 28, fontSize: "clamp(36px, 7vw, 70px)", textShadow: "0 2px 20px rgba(0,0,0,0.5)" }}>
            <span className="accent" style={{ fontSize: "clamp(36px, 7vw, 70px)" }}>15 weeks</span> to build a profitable business with AI that solves a real problem. <span className="accent"></span>
@@ -587,25 +602,17 @@ function Moonshot() {
           Real product. Real revenue. <strong style={{ color: "var(--near-black)" }}>Or you don't qualify.</strong>
         </p>
 
-        <div style={{
-          display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 0,
-          border: "1px solid var(--border)", borderRadius: 14, overflow: "hidden",
-          marginBottom: 56, background: "var(--white)"
-        }}>
+        <div className="moonshot-steps">
           {[
           ["01", "Ideate", "Pick a real problem worth solving. AI helps you scope it."],
           ["02", "Build", "Prompt your way to a working prototype. No engineering team required."],
           ["03", "Ship", "Deploy the business. Real customers transacting in production."],
           ["04", "Sell", "Market it. Grow it. Show the revenue."]].
-          map(([n, t, d], i) =>
-          <div key={n} style={{
-            padding: 28,
-            borderLeft: i === 0 ? "none" : "1px solid var(--border)",
-            display: "flex", flexDirection: "column", gap: 10, minHeight: 200
-          }}>
-              <div style={{ fontFamily: "var(--font-pixel)", fontSize: 24, color: "var(--cyan)" }}>{n}</div>
-              <div style={{ fontSize: 22, fontWeight: 700, letterSpacing: "var(--tracking-tight)", color: "var(--near-black)" }}>{t}</div>
-              <div style={{ fontSize: 15, color: "var(--dark-gray)", lineHeight: 1.5, marginTop: "auto" }}>{d}</div>
+          map(([n, t, d]) =>
+          <div key={n} className="moonshot-step">
+              <div className="moonshot-step__num">{n}</div>
+              <div className="moonshot-step__title">{t}</div>
+              <div className="moonshot-step__desc">{d}</div>
             </div>
           )}
         </div>

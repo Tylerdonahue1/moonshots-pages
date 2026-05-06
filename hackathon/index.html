@@ -106,6 +106,85 @@
 
   .accent { color: var(--cyan); }
 
+  /* ───────── Hero (Aurora + fallback gradient) ───────── */
+  .hero-shell {
+    /* Static cyan-glow gradient sits behind the canvas. If the WebGL shader
+       fails to compile (e.g. iOS WebGL 1 quirks), the hero still looks intentional. */
+    background:
+      radial-gradient(ellipse 70% 45% at 75% 20%, rgba(27,191,224,0.22), transparent 70%),
+      radial-gradient(ellipse 55% 40% at 25% 85%, rgba(27,191,224,0.14), transparent 70%),
+      radial-gradient(ellipse 45% 30% at 50% 50%, rgba(27,191,224,0.06), transparent 75%),
+      var(--near-black);
+  }
+
+  /* ───────── Hero eyebrow / pill ───────── */
+  .hero-eyebrow { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; margin-bottom: 32px; }
+  .hero-pill {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--font-pixel);
+    color: var(--cyan); border: 1px solid var(--cyan);
+    padding: 8px 16px; border-radius: 999px;
+    text-transform: uppercase;
+    flex-wrap: wrap; font-size: clamp(15px, 1.6vw, 22px);
+    background: rgba(11,14,12,0.55);
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    line-height: 1.2;
+  }
+  .hero-pill__dot {
+    width: 8px; height: 8px; background: var(--cyan); border-radius: 50%;
+    box-shadow: 0 0 12px var(--cyan); flex-shrink: 0;
+  }
+  .hero-pill__amount { font-weight: 600; letter-spacing: 0.01em; }
+  .hero-pill__rest { display: inline; }
+  .hero-eyebrow__sub {
+    display: none;
+    font-family: var(--font-pixel);
+    font-size: 13px;
+    color: rgba(255,255,255,0.78);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.55);
+  }
+  @media (max-width: 720px) {
+    .hero-pill__rest { display: none; }
+    .hero-eyebrow__sub { display: block; }
+    .hero-pill { font-size: 15px; padding: 7px 14px; }
+  }
+
+  /* ───────── Moonshot phase cards (Ideate / Build / Ship / Sell) ───────── */
+  .moonshot-steps {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    border: 1px solid var(--border); border-radius: 14px;
+    overflow: hidden; margin-bottom: 56px; background: var(--white);
+  }
+  .moonshot-step {
+    padding: 28px;
+    display: flex; flex-direction: column; gap: 10px; min-height: 200px;
+  }
+  .moonshot-step + .moonshot-step { border-left: 1px solid var(--border); }
+  .moonshot-step__num { font-family: var(--font-pixel); font-size: 24px; color: var(--cyan); }
+  .moonshot-step__title { font-size: 22px; font-weight: 700; letter-spacing: var(--tracking-tight); color: var(--near-black); }
+  .moonshot-step__desc { font-size: 15px; color: var(--dark-gray); line-height: 1.5; margin-top: auto; }
+
+  @media (max-width: 880px) {
+    /* 2×2 grid reads better than 1×4 on mobile — keeps the timeline shape */
+    .moonshot-steps { grid-template-columns: 1fr 1fr; }
+    .moonshot-step + .moonshot-step { border-left: none; }
+    .moonshot-step:nth-child(2) { border-left: 1px solid var(--border); }
+    .moonshot-step:nth-child(3),
+    .moonshot-step:nth-child(4) { border-top: 1px solid var(--border); }
+    .moonshot-step:nth-child(4) { border-left: 1px solid var(--border); }
+    .moonshot-step { min-height: auto; padding: 22px; }
+  }
+  @media (max-width: 480px) {
+    /* Single column at very narrow widths — divider becomes top instead of left */
+    .moonshot-steps { grid-template-columns: 1fr; }
+    .moonshot-step { border-left: none !important; padding: 20px; min-height: auto; }
+    .moonshot-step + .moonshot-step { border-top: 1px solid var(--border); }
+    .moonshot-step__num { font-size: 20px; }
+    .moonshot-step__title { font-size: 20px; }
+  }
+
   /* ───────── Anchored sections ─────────
      Sticky nav is 68px; give scroll targets breathing room. */
   section, header[id] { scroll-margin-top: 80px; }
@@ -188,12 +267,11 @@
   .nav-hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
   .nav-hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  /* Full-screen sheet */
+  /* Full-screen sheet — light theme so it's clearly distinct from the dark page */
   .nav-sheet {
     position: fixed; inset: 0; z-index: 60;
-    background: rgba(11,14,12,0.97);
-    -webkit-backdrop-filter: blur(24px) saturate(140%);
-    backdrop-filter: blur(24px) saturate(140%);
+    background: #FFFFFF;
+    color: var(--near-black);
     display: flex; flex-direction: column;
     padding: 20px 28px 32px;
     opacity: 0; pointer-events: none;
@@ -207,10 +285,10 @@
   .nav-sheet__head {
     display: flex; justify-content: flex-end;
     height: 48px; align-items: center;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
   .nav-sheet__close {
-    background: transparent; border: none; color: var(--white);
+    background: transparent; border: none; color: var(--near-black);
     font-size: 38px; line-height: 1;
     width: 44px; height: 44px;
     cursor: pointer;
@@ -218,24 +296,30 @@
   .nav-sheet__list {
     list-style: none;
     display: flex; flex-direction: column;
-    gap: 4px; margin: 0;
+    gap: 0; margin: 0;
   }
   .nav-sheet__list li a {
     display: block;
-    padding: 14px 0;
-    font-size: 28px; font-weight: 600;
-    color: var(--white);
+    padding: 18px 4px;
+    font-size: 26px; font-weight: 600;
+    color: var(--near-black);
     letter-spacing: -0.03em;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid var(--border);
+    transition: color 0.15s ease;
   }
+  .nav-sheet__list li a:hover,
+  .nav-sheet__list li a:active { color: var(--cyan); }
   .nav-sheet__list li:last-child a { border-bottom: none; }
   .nav-sheet__rules a {
-    color: rgba(255,255,255,0.7) !important;
-    font-size: 22px !important;
+    color: var(--mid-gray) !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
   }
-  .nav-sheet__rules span { font-size: 18px; opacity: 0.85; margin-left: 4px; }
+  .nav-sheet__rules a:hover,
+  .nav-sheet__rules a:active { color: var(--cyan) !important; }
+  .nav-sheet__rules span { font-size: 16px; opacity: 0.9; margin-left: 4px; }
   .nav-sheet__cta {
-    margin-top: 32px;
+    margin-top: 28px;
     display: flex !important; justify-content: center;
     width: 100%; padding: 18px 24px !important;
     font-size: 17px !important;
