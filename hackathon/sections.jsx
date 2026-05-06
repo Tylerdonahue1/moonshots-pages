@@ -32,7 +32,7 @@ function Nav() {
             height: 28, width: "auto", display: "block"
           }} />
         </a>
-        <ul style={{ display: "flex", gap: 22, listStyle: "none" }}>
+        <ul className="nav-links" style={{ display: "flex", gap: 22, listStyle: "none" }}>
           {links.map(([l, href]) =>
           <li key={href}><a href={href} style={{
               color: "rgba(255,255,255,0.72)", fontSize: 14, fontWeight: 500
@@ -79,8 +79,9 @@ function AuroraShader() {
       const canvas = canvasRef.current;
       if (!canvas) return;
       const parent = canvas.parentElement;
-      renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      const isMobile = window.matchMedia("(max-width: 720px)").matches;
+      renderer = new THREE.WebGLRenderer({ canvas, antialias: !isMobile });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
       const w = parent.clientWidth, h = parent.clientHeight;
       renderer.setSize(w, h, false);
 
@@ -97,6 +98,7 @@ function AuroraShader() {
           uniform float iTime;
           uniform vec2 iResolution;
           #define NUM_OCTAVES 3
+          #define LOOPS ${isMobile ? "20.0" : "35.0"}
           float rand(vec2 n){return fract(sin(dot(n,vec2(12.9898,4.1414)))*43758.5453);}
           float noise(vec2 p){vec2 ip=floor(p);vec2 u=fract(p);u=u*u*(3.0-2.0*u);
             float r=mix(mix(rand(ip),rand(ip+vec2(1.0,0.0)),u.x),
@@ -109,15 +111,15 @@ function AuroraShader() {
             vec2 p=((gl_FragCoord.xy+shake*iResolution.xy)-iResolution.xy*0.5)/iResolution.y*mat2(6.0,-4.0,4.0,6.0);
             vec2 v;vec4 o=vec4(0.0);
             float f=2.0+fbm(p+vec2(iTime*5.0,0.0))*0.5;
-            for(float i=0.0;i<35.0;i++){
+            for(float i=0.0;i<LOOPS;i++){
               v=p+cos(i*i+(iTime+p.x*0.08)*0.025+i*vec2(13.0,11.0))*3.5
                 +vec2(sin(iTime*3.0+i)*0.003,cos(iTime*3.5-i)*0.003);
-              float tn=fbm(v+vec2(iTime*0.5,i))*0.3*(1.0-(i/35.0));
+              float tn=fbm(v+vec2(iTime*0.5,i))*0.3*(1.0-(i/LOOPS));
               vec4 c=vec4(0.05+0.08*sin(i*0.2+iTime*0.4),
                           0.5+0.3*cos(i*0.3+iTime*0.5),
                           0.7+0.3*sin(i*0.4+iTime*0.3),1.0);
               vec4 cc=c*exp(sin(i*i+iTime*0.8))/length(max(v,vec2(v.x*f*0.015,v.y*1.5)));
-              float th=smoothstep(0.0,1.0,i/35.0)*0.6;
+              float th=smoothstep(0.0,1.0,i/LOOPS)*0.6;
               o+=cc*(1.0+tn*0.8)*th;
             }
             o=tanh(pow(o/100.0,vec4(1.6)));
@@ -164,7 +166,7 @@ function AuroraShader() {
 
 function Hero() {
   return (
-    <header id="top" style={{
+    <header id="top" className="hero-shell" style={{
       position: "relative", overflow: "hidden",
       height: "100vh", minHeight: 720,
       background: "var(--near-black)"
@@ -181,20 +183,20 @@ function Hero() {
           fontFamily: "var(--font-pixel)",
           color: "var(--cyan)", border: "1px solid var(--cyan)",
           padding: "6px 14px", borderRadius: 999,
-          textTransform: "uppercase", marginBottom: 32, flexWrap: "wrap", fontSize: "22px",
+          textTransform: "uppercase", marginBottom: 32, flexWrap: "wrap", fontSize: "clamp(13px, 2vw, 22px)",
           background: "rgba(11,14,12,0.55)",
           backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)"
         }}>
           <span style={{ width: 8, height: 8, background: "var(--cyan)", borderRadius: "50%", boxShadow: "0 0 12px var(--cyan)" }} />
-          $1,500,000 in prizes · The Gemini Moonshot XPRIZE · Launching at Google I/O · May 19, 2026
+          $2,000,000 in prizes · The Gemini Moonshot XPRIZE · Launching at Google I/O · May 19, 2026
         </span>
 
-        <h1 className="display-xl" style={{ maxWidth: "22ch", marginBottom: 28, fontSize: "70px", textShadow: "0 2px 20px rgba(0,0,0,0.5)" }}>
-           <span className="accent" style={{ fontSize: "70px" }}>15 weeks</span> to build a profitable business with AI that solves a real problem. <span className="accent"></span>
+        <h1 className="display-xl" style={{ maxWidth: "22ch", marginBottom: 28, fontSize: "clamp(36px, 7vw, 70px)", textShadow: "0 2px 20px rgba(0,0,0,0.5)" }}>
+           <span className="accent" style={{ fontSize: "clamp(36px, 7vw, 70px)" }}>15 weeks</span> to build a profitable business with AI that solves a real problem. <span className="accent"></span>
         </h1>
 
-        <p style={{ color: "rgba(255,255,255,0.92)", maxWidth: "60ch", lineHeight: 1.4, marginBottom: 36, fontWeight: 500, fontSize: "30px", textShadow: "0 2px 14px rgba(0,0,0,0.5)" }}>
-          <strong style={{ color: "var(--cyan)", fontSize: "30px" }}>$1.5M</strong> in prizes. Build in whatever language you think in.
+        <p style={{ color: "rgba(255,255,255,0.92)", maxWidth: "60ch", lineHeight: 1.4, marginBottom: 36, fontWeight: 500, fontSize: "clamp(18px, 3vw, 30px)", textShadow: "0 2px 14px rgba(0,0,0,0.5)" }}>
+          <strong style={{ color: "var(--cyan)", fontSize: "clamp(18px, 3vw, 30px)" }}>$2M</strong> in prizes. Build in whatever language you think in.
         </p>
 
         <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 64, pointerEvents: "auto" }}>
@@ -209,7 +211,7 @@ function Hero() {
           paddingTop: 28, borderTop: "1px solid var(--border-dark)"
         }}>
           {[
-          ["Total prize", "$1,500,000"],
+          ["Total prize", "$2,000,000"],
           ["Build window", "~15 weeks"],
           ["Finals", "Sept 25 · LA"]].
           map(([k, v]) =>
@@ -389,7 +391,7 @@ function AboutXPRIZE() {
   ["2010", "Progressive Insurance", "$10M for a 100 MPGe production-capable car. Fueled the EV economy."],
   ["2020", "IBM Watson AI", "$5M to use AI to address humanity's grand challenges."],
   ["2024", "Carbon Removal", "$100M — the largest incentive prize in history."],
-  ["2026", "Gemini Moonshot XPRIZE", "$1.5M to prove anyone can build a profitable AI business."]];
+  ["2026", "Gemini Moonshot XPRIZE", "$2M to prove anyone can build a profitable AI business."]];
 
   return (
     <section id="about-xprize" className="light" data-screen-label="03 About XPRIZE">
@@ -679,9 +681,9 @@ function GoogleStack() {
 /* ─────────── PRIZE & SCHEDULE ─────────── */
 function Prize() {
   const grand = [
-  ["1st place", "$750,000"],
-  ["2nd place", "$350,000"],
-  ["3rd place", "$150,000"]];
+  ["1st place", "$1,000,000"],
+  ["2nd place", "$500,000"],
+  ["3rd place", "$200,000"]];
 
   const cats = [
   "Education & Human Potential",
@@ -718,11 +720,11 @@ function Prize() {
               ▢ TOTAL PRIZE POOL
             </div>
             <div style={{ fontSize: "clamp(80px, 14vw, 180px)", fontWeight: 700, letterSpacing: "-0.05em", lineHeight: 0.9 }}>
-              $1.5M
+              $2M
             </div>
           </div>
           <div style={{ fontSize: 18, color: "rgba(255,255,255,0.85)", lineHeight: 1.5, maxWidth: 420 }}>
-            Top 5 finalists pitch live at the Moonshot Summit on September 25 in Los Angeles. The winning team takes <strong style={{ color: "var(--cyan)" }}>$750,000</strong> — and proves that the next billion companies will be written, not coded.
+            Top 5 finalists pitch live at the Moonshot Summit on September 25 in Los Angeles. The winning team takes <strong style={{ color: "var(--cyan)" }}>$1,000,000</strong> — and proves that the next billion companies will be written, not coded.
           </div>
         </div>
 
@@ -730,7 +732,7 @@ function Prize() {
         <div style={{ marginTop: 48, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
           <div style={{ border: "1px solid var(--border-dark)", borderRadius: 14, padding: 32 }}>
             <div style={{ fontFamily: "var(--font-pixel)", fontSize: 16, color: "var(--cyan)", textTransform: "uppercase", marginBottom: 12 }}>
-              Grand Prize Pool · $1,250,000
+              Grand Prize Pool · $1,700,000
             </div>
             <div>
               {grand.map(([k, v]) =>
@@ -746,10 +748,10 @@ function Prize() {
           </div>
           <div style={{ border: "1px solid var(--border-dark)", borderRadius: 14, padding: 32 }}>
             <div style={{ fontFamily: "var(--font-pixel)", fontSize: 16, color: "var(--cyan)", textTransform: "uppercase", marginBottom: 12 }}>
-              Category Prizes · $250,000
+              Category Prizes · $300,000
             </div>
             <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", marginBottom: 12 }}>
-              Highest-grossing team in each category · $50,000 each
+              Highest-grossing team in each category · $60,000 each
             </div>
             <div>
               {cats.map((c) =>
@@ -759,7 +761,7 @@ function Prize() {
                 fontSize: 15
               }}>
                   <span>{c}</span>
-                  <span style={{ fontFamily: "var(--font-pixel)", color: "var(--cyan)" }}>$50,000</span>
+                  <span style={{ fontFamily: "var(--font-pixel)", color: "var(--cyan)" }}>$60,000</span>
                 </div>
               )}
             </div>
@@ -839,7 +841,7 @@ function Faq() {
     ["How does judging work?", "Two stages. Stage One — Pass/fail viability check: Devpost confirms the project fits the theme and reasonably applies the required APIs/SDKs. Stage Two — Official judging: a panel rates the surviving submissions from 1 to 5 stars on each criterion."],
     ["What are the judging criteria?", "Four criteria, equally weighted: Profitability — real business, real customers, sustainable margins. Opportunities Created — jobs and economic opportunities the business creates beyond the founding team. AI-Native Operations — AI agents genuinely running operations, with playbooks live in production. Category Impact — does the project meaningfully move the needle in its chosen category."],
     ["Who are the judges?", "Judging combines expert panels, peer review, and AI-driven analysis. Full panel announced at launch."],
-    ["What are the prizes?", "$1.5M total prize pool. Grand prize pool of $1,250,000 — 1st: $750K, 2nd: $350K, 3rd: $150K. Plus $250,000 in category prizes ($50K to the highest-scoring team in each of five categories). Each project is eligible for one prize."]]
+    ["What are the prizes?", "$2M total prize pool. Grand prize pool of $1,700,000 — 1st: $1M, 2nd: $500K, 3rd: $200K. Plus $300,000 in category prizes ($60K to the highest-scoring team in each of five categories). Each project is eligible for one prize."]]
 
   },
   {
@@ -950,8 +952,8 @@ function CTA() {
         `
       }} />
       <div className="container" style={{ position: "relative" }}>
-        <h2 className="display-xl" style={{ maxWidth: "20ch", marginBottom: 32, fontSize: "80px" }}>
-          The barrier to creating real impact <span className="accent" style={{ fontSize: "80px" }}>has collapsed.</span>
+        <h2 className="display-xl" style={{ maxWidth: "20ch", marginBottom: 32, fontSize: "clamp(40px, 9vw, 80px)" }}>
+          The barrier to creating real impact <span className="accent" style={{ fontSize: "clamp(40px, 9vw, 80px)" }}>has collapsed.</span>
         </h2>
         <p style={{ fontSize: 24, color: "rgba(255,255,255,0.85)", maxWidth: "50ch", lineHeight: 1.4, marginBottom: 40, fontWeight: 500 }}>
           Show us.

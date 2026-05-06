@@ -101,6 +101,35 @@
   }
 
   .accent { color: var(--cyan); }
+
+  /* ───────── Mobile responsiveness ───────── */
+  @media (max-width: 720px) {
+    /* Stack any inline-styled multi-column grid on mobile */
+    [style*="grid-template-columns"][style*="repeat(3"],
+    [style*="grid-template-columns"][style*="repeat(4"],
+    [style*="grid-template-columns"][style*="repeat(5"],
+    [style*="grid-template-columns"][style*="repeat(6"],
+    [style*="grid-template-columns"][style*="repeat(7"],
+    [style*="grid-template-columns: 1fr 1fr"],
+    [style*="grid-template-columns: 1fr auto"],
+    [style*="grid-template-columns: 1.1fr"],
+    [style*="grid-template-columns: 1.4fr"],
+    [style*="grid-template-columns: 120px"] {
+      grid-template-columns: 1fr !important;
+    }
+    /* Hide nav links on mobile, keep logo + Register CTA */
+    .nav-links { display: none !important; }
+    /* Hero shrinks on small screens */
+    .hero-shell { min-height: 600px !important; }
+    /* Section padding tightens (already covered above for <720px but enforce) */
+    section { padding: 64px 0 !important; }
+    /* Reduce padding on prize / CTA / Ultra-access blocks */
+    [style*="padding: 48px"][style*="border-radius: 18px"] { padding: 28px !important; }
+    [style*="padding: \"32px 40px\""],
+    [style*="padding: \"32px 36px\""] { padding: 24px !important; }
+    /* Hide the 7-col Google Stack phase header row on mobile (it's decorative) */
+    [style*="grid-template-columns"][style*="repeat(7"] { display: none !important; }
+  }
 </style>
 
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
