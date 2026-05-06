@@ -200,9 +200,12 @@ function AuroraShader() {
           #define LOOPS_INT ${isMobile ? "20" : "35"}
           #define LOOPS ${isMobile ? "20.0" : "35.0"}
           // tanh polyfill: tanh() is GLSL ES 3.0; not available in ES 1.0 (mobile WebGL 1).
-          // Using stable formula with clamped exponent to avoid overflow on weak GPUs.
+          // CRITICAL: mobile fragment shaders run at mediump (16-bit float, max ~65504).
+          // exp(40) ≈ 2.35e17 overflows mediump → NaN → garbage colors on mobile.
+          // Real tanh saturates by x≈3, so clamping x*2.0 to 10 (exp(10)≈22026) stays
+          // safely in range with zero visual loss.
           vec4 tanh4(vec4 x){
-            vec4 e2x = exp(min(x*2.0, vec4(40.0)));
+            vec4 e2x = exp(min(x*2.0, vec4(10.0)));
             return (e2x - 1.0) / (e2x + 1.0);
           }
           float rand(vec2 n){return fract(sin(dot(n,vec2(12.9898,4.1414)))*43758.5453);}
