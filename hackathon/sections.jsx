@@ -4,42 +4,129 @@ const { useEffect, useState, useRef } = React;
 /* ─────────── NAV ─────────── */
 function Nav() {
   const links = [
-  ["Demo", "#demo"],
-  ["Moonshot", "#moonshot"],
   ["Categories", "#categories"],
-  ["Google Stack", "#google-stack"],
-  ["Prize", "#prize"],
-  ["Rules", "/hackathon-rules"],
+  ["Tools", "#google-stack"],
+  ["About", "#about-xprize"],
+  ["Prize & dates", "#prize"],
   ["FAQ", "#faq"]];
 
+  const [active, setActive] = useState(null);
+  const [sheetOpen, setSheetOpen] = useState(false);
+
+  // Scroll-spy: track which section is in view
+  useEffect(() => {
+    const ids = links.map(([, h]) => h.replace("#", ""));
+    const els = ids.map((id) => document.getElementById(id)).filter(Boolean);
+    if (!els.length) return;
+
+    let visibleMap = new Map();
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) visibleMap.set(e.target.id, e.intersectionRatio);
+          else visibleMap.delete(e.target.id);
+        });
+        if (!visibleMap.size) { setActive(null); return; }
+        // Pick the highest-ratio visible section, in document order on tie
+        let best = null, bestRatio = -1;
+        for (const id of ids) {
+          if (visibleMap.has(id) && visibleMap.get(id) > bestRatio) {
+            best = id; bestRatio = visibleMap.get(id);
+          }
+        }
+        setActive(best ? "#" + best : null);
+      },
+      { rootMargin: "-30% 0px -55% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] }
+    );
+    els.forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
+
+  // Close sheet on resize back to desktop, and on Escape
+  useEffect(() => {
+    if (!sheetOpen) return;
+    const onResize = () => { if (window.innerWidth > 720) setSheetOpen(false); };
+    const onKey = (e) => { if (e.key === "Escape") setSheetOpen(false); };
+    window.addEventListener("resize", onResize);
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [sheetOpen]);
+
   return (
-    <nav style={{
-      position: "sticky", top: 0, zIndex: 50,
-      background: "rgba(11,14,12,0.85)",
-      backdropFilter: "blur(14px)",
-      WebkitBackdropFilter: "blur(14px)",
-      borderBottom: "1px solid var(--border-dark)"
-    }}>
-      <div className="container" style={{
-        display: "flex", alignItems: "center", justifyContent: "space-between",
-        height: 68, gap: 24
-      }}>
-        <a href="#top" style={{
-          display: "inline-flex", alignItems: "center",
-          textDecoration: "none"
-        }}>
-          <img src="assets/logo-lockup-new.png" alt="Gemini Moonshots XPRIZE" style={{
-            height: 28, width: "auto", display: "block"
-          }} />
+    <nav className="site-nav">
+      <div className="container site-nav__row">
+        <a href="#top" className="site-nav__logo" aria-label="Gemini Moonshot XPRIZE — home">
+          <img src="assets/logo-lockup-new.png" alt="Gemini Moonshot XPRIZE" />
         </a>
-        <ul className="nav-links" style={{ display: "flex", gap: 22, listStyle: "none" }}>
+
+        <ul className="nav-links">
           {links.map(([l, href]) =>
-          <li key={href}><a href={href} style={{
-              color: "rgba(255,255,255,0.72)", fontSize: 14, fontWeight: 500
-            }}>{l}</a></li>
+          <li key={href}>
+            <a href={href} className={active === href ? "is-active" : ""}>{l}</a>
+          </li>
           )}
+          <li className="nav-links__divider" aria-hidden="true" />
+          <li>
+            <a href="/hackathon-rules" className="nav-links__rules">
+              Rules <span aria-hidden="true" className="nav-links__arrow">↗</span>
+            </a>
+          </li>
         </ul>
-        <a className="btn btn-primary" href="https://xprize.devpost.com/" target="_blank" rel="noopener" style={{ fontSize: 14, padding: "10px 18px" }}>Register →</a>
+
+        <a className="btn btn-primary nav-register" href="https://xprize.devpost.com/" target="_blank" rel="noopener">
+          Register →
+        </a>
+
+        <button
+          type="button"
+          className="nav-hamburger"
+          aria-label={sheetOpen ? "Close menu" : "Open menu"}
+          aria-expanded={sheetOpen}
+          aria-controls="nav-sheet"
+          onClick={() => setSheetOpen((v) => !v)}>
+          <span /><span /><span />
+        </button>
+      </div>
+
+      {/* Mobile full-screen sheet */}
+      <div
+        id="nav-sheet"
+        className={"nav-sheet" + (sheetOpen ? " is-open" : "")}
+        role="dialog"
+        aria-modal="true"
+        aria-hidden={!sheetOpen}>
+        <div className="nav-sheet__head">
+          <button
+            type="button"
+            className="nav-sheet__close"
+            aria-label="Close menu"
+            onClick={() => setSheetOpen(false)}>×</button>
+        </div>
+        <ul className="nav-sheet__list">
+          {links.map(([l, href]) =>
+          <li key={href}>
+            <a href={href} onClick={() => setSheetOpen(false)}>{l}</a>
+          </li>
+          )}
+          <li className="nav-sheet__rules">
+            <a href="/hackathon-rules" onClick={() => setSheetOpen(false)}>
+              Rules <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+        </ul>
+        <a
+          className="btn btn-primary nav-sheet__cta"
+          href="https://xprize.devpost.com/"
+          target="_blank"
+          rel="noopener"
+          onClick={() => setSheetOpen(false)}>
+          Register →
+        </a>
       </div>
     </nav>);
 
