@@ -300,7 +300,7 @@ function Hero() {
             <span className="hero-pill__dot" aria-hidden="true" />
             <span className="hero-pill__amount">$2,000,000 in prizes</span>
             <span className="hero-pill__rest">
-              <span aria-hidden="true"> · </span>The Gemini Moonshot XPRIZE
+              <span aria-hidden="true"> · </span>Build with Gemini XPRIZE
               <span aria-hidden="true"> · </span>Launching at Google I/O · May 19, 2026
             </span>
           </span>
@@ -308,11 +308,11 @@ function Hero() {
         </div>
 
         <h1 className="display-xl" style={{ maxWidth: "22ch", marginBottom: 28, fontSize: "clamp(36px, 7vw, 70px)", textShadow: "0 2px 20px rgba(0,0,0,0.5)" }}>
-           <span className="accent" style={{ fontSize: "clamp(36px, 7vw, 70px)" }}>15 weeks</span> to build a profitable business with AI that solves a real problem. <span className="accent"></span>
+           <span className="accent" style={{ fontSize: "clamp(36px, 7vw, 70px)" }}>15 weeks.</span> Pick a problem worth solving. Build a profitable business with AI.
         </h1>
 
         <p style={{ color: "rgba(255,255,255,0.92)", maxWidth: "60ch", lineHeight: 1.4, marginBottom: 36, fontWeight: 500, fontSize: "clamp(18px, 3vw, 30px)", textShadow: "0 2px 14px rgba(0,0,0,0.5)" }}>
-          <strong style={{ color: "var(--cyan)", fontSize: "clamp(18px, 3vw, 30px)" }}>$2M</strong> in prizes. Build in whatever language you think in.
+          <strong style={{ color: "var(--cyan)", fontSize: "clamp(18px, 3vw, 30px)" }}>$2M</strong> in prizes. Powered by Gemini. All the AI you need to ship.
         </p>
 
         <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 64, pointerEvents: "auto" }}>
@@ -357,7 +357,7 @@ function Demo() {
         <span className="eyebrow"><span className="dot" /> The Constraint</span>
         <h2>Build software in your <span className="accent">natural language.</span></h2>
         <p className="lead" style={{ marginBottom: 32, maxWidth: "62ch" }}>
-          One rule, the same for everyone: your business has to be operated by AI agents reading plain English. No special syntax. No CS degree required. The constraint is the equalizer — it's how a teacher in Detroit competes head-to-head with a Stanford engineer.
+          One rule, same for everyone: your core operations run on AI agents reading plain English. Humans stay where humans matter — judgment calls, relationships, the messy edges. But the engine is plain English a machine can execute. No code. No CS degree.
         </p>
 
         <div style={{
@@ -516,10 +516,10 @@ function AboutXPRIZE() {
           <span className="dot" style={{ background: "var(--near-black)" }} /> About XPRIZE
         </span>
         <h2 style={{ marginBottom: 28, color: "var(--near-black)" }}>
-          30 years of <span className="accent">moonshots that worked.</span>
+          Over 30 years of <span className="accent">proving moonshots work.</span>
         </h2>
         <p className="lead" style={{ marginBottom: 56, maxWidth: "62ch", fontSize: 21, color: "var(--dark-gray)" }}>
-          XPRIZE designs and runs large-scale incentive competitions — public challenges with clear, verifiable goals that pull entire industries forward. From private spaceflight to carbon removal, we've used prize money to turn what looked impossible into what's now obvious.
+          XPRIZE designs and runs large-scale incentive competitions — public challenges with clear, verifiable goals that pull humanity and entire industries forward. From private spaceflight to carbon removal, we've used prize money to turn what looked impossible into what's now obvious.
         </p>
 
         <div style={{
@@ -692,7 +692,7 @@ function GoogleStack() {
   const tools = [
   { name: "Gemini app", use: "Think out loud. Develop your spec.", phase: "Idea" },
   { name: "AI Studio", use: "Prompt your way to a working prototype.", phase: "Prototype" },
-  { name: "Antigravity", use: "Agent-native development environment.", phase: "Build" },
+  { name: "Antigravity", use: "Agent-first development platform.", phase: "Build" },
   { name: "Cloud Run / GCP", use: "Deploy the business to production.", phase: "Ship" },
   { name: "Stitch", use: "Design what your customers see.", phase: "Design" },
   { name: "Flow", use: "Make the marketing video.", phase: "Launch" },
@@ -705,7 +705,7 @@ function GoogleStack() {
           <span className="dot" style={{ background: "var(--near-black)" }} /> Presenting Sponsor · Google
         </span>
         <h2 style={{ color: "var(--near-black)", marginBottom: 56 }}>
-          One stack. Idea to revenue. <span className="accent">Solo.</span>
+          One <span className="accent">Google</span> stack. Idea to revenue.
         </h2>
 
         <div style={{
@@ -772,14 +772,14 @@ function GoogleStack() {
               Registrant Perk · Limited
             </div>
             <div style={{ fontSize: 28, fontWeight: 700, letterSpacing: "var(--tracking-tight)", lineHeight: 1.15, marginBottom: 8 }}>
-              Get <span className="accent">~15 weeks of Gemini Ultra</span>, on us.
+              <span className="accent">Build with Gemini.</span>
             </div>
             <div style={{ fontSize: 16, color: "rgba(255,255,255,0.7)", lineHeight: 1.5, maxWidth: "60ch" }}>
-              Every registered team gets the full Google stack — Gemini Ultra, AI Studio, Antigravity — free for the entire build window. Plus the option to request $100 in Google Cloud credits via the registration form. The whole point is that the tools shouldn't be the gatekeeper.
+              A mix of credits, tools, and offerings will be made available to registered teams to support building on Google Cloud.
             </div>
           </div>
           <a className="btn btn-primary" href="https://xprize.devpost.com/" target="_blank" rel="noopener" style={{ whiteSpace: "nowrap" }}>
-            Claim Ultra access →
+            Register →
           </a>
         </div>
       </div>
@@ -791,7 +791,9 @@ function Prize() {
   const grand = [
   ["1st place", "$1,000,000"],
   ["2nd place", "$500,000"],
-  ["3rd place", "$200,000"]];
+  ["3rd place", "$200,000"],
+  ["Runner Up", "$50,000"],
+  ["Runner Up", "$50,000"]];
 
   const cats = [
   "Education & Human Potential",
@@ -840,11 +842,11 @@ function Prize() {
         <div style={{ marginTop: 48, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
           <div style={{ border: "1px solid var(--border-dark)", borderRadius: 14, padding: 32 }}>
             <div style={{ fontFamily: "var(--font-pixel)", fontSize: 16, color: "var(--cyan)", textTransform: "uppercase", marginBottom: 12 }}>
-              Grand Prize Pool · $1,700,000
+              Grand Prize Pool · $1,750,000
             </div>
             <div>
-              {grand.map(([k, v]) =>
-              <div key={k} style={{
+              {grand.map(([k, v], i) =>
+              <div key={i} style={{
                 display: "flex", justifyContent: "space-between", alignItems: "baseline",
                 padding: "16px 0", borderBottom: "1px solid var(--border-dark)"
               }}>
@@ -856,10 +858,10 @@ function Prize() {
           </div>
           <div style={{ border: "1px solid var(--border-dark)", borderRadius: 14, padding: 32 }}>
             <div style={{ fontFamily: "var(--font-pixel)", fontSize: 16, color: "var(--cyan)", textTransform: "uppercase", marginBottom: 12 }}>
-              Category Prizes · $300,000
+              Category Prizes · $250,000
             </div>
             <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", marginBottom: 12 }}>
-              Highest-grossing team in each category · $60,000 each
+              Highest-grossing team in each category · $50,000 each
             </div>
             <div>
               {cats.map((c) =>
@@ -869,7 +871,7 @@ function Prize() {
                 fontSize: 15
               }}>
                   <span>{c}</span>
-                  <span style={{ fontFamily: "var(--font-pixel)", color: "var(--cyan)" }}>$60,000</span>
+                  <span style={{ fontFamily: "var(--font-pixel)", color: "var(--cyan)" }}>$50,000</span>
                 </div>
               )}
             </div>
@@ -949,7 +951,7 @@ function Faq() {
     ["How does judging work?", "Two stages. Stage One — Pass/fail viability check: Devpost confirms the project fits the theme and reasonably applies the required APIs/SDKs. Stage Two — Official judging: a panel rates the surviving submissions from 1 to 5 stars on each criterion."],
     ["What are the judging criteria?", "Four criteria, equally weighted: Profitability — real business, real customers, sustainable margins. Opportunities Created — jobs and economic opportunities the business creates beyond the founding team. AI-Native Operations — AI agents genuinely running operations, with playbooks live in production. Category Impact — does the project meaningfully move the needle in its chosen category."],
     ["Who are the judges?", "Judging combines expert panels, peer review, and AI-driven analysis. Full panel announced at launch."],
-    ["What are the prizes?", "$2M total prize pool. Grand prize pool of $1,700,000 — 1st: $1M, 2nd: $500K, 3rd: $200K. Plus $300,000 in category prizes ($60K to the highest-scoring team in each of five categories). Each project is eligible for one prize."]]
+    ["What are the prizes?", "$2M total prize pool. Grand prize pool of $1,750,000 — 1st: $1M, 2nd: $500K, 3rd: $200K, plus two Runner Up prizes of $50K each. Plus $250,000 in category prizes ($50K to the highest-scoring team in each of five categories). Each project is eligible for one prize."]]
 
   },
   {
@@ -1067,7 +1069,7 @@ function CTA() {
           Show us.
         </p>
         <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-          <a className="btn btn-primary" href="https://xprize.devpost.com/" target="_blank" rel="noopener">Register on Devpost →</a>
+          <a className="btn btn-primary" href="https://xprize.devpost.com/" target="_blank" rel="noopener">Notify me at launch →</a>
           <a className="btn btn-ghost" href="#prize">See the prize</a>
         </div>
       </div>
@@ -1087,7 +1089,7 @@ function Footer() {
       <div className="container" style={{
         display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 16
       }}>
-        <span><Glyph size={16} color="var(--cyan)" /> &nbsp; Gemini Moonshot XPRIZE · Presented by XPRIZE × Google</span>
+        <span><Glyph size={16} color="var(--cyan)" /> &nbsp; Build with Gemini XPRIZE</span>
         <span>v.1 · Apr 2026</span>
       </div>
     </footer>);
