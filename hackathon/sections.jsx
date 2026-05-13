@@ -513,7 +513,7 @@ function AboutXPRIZE() {
   ["2010", "Progressive Insurance", "$10M for a 100 MPGe production-capable car. Fueled the EV economy."],
   ["2020", "IBM Watson AI", "$5M to use AI to address humanity's grand challenges."],
   ["2024", "Carbon Removal", "$100M — the largest incentive prize in history."],
-  ["2026", "Gemini Moonshot XPRIZE", "$2M to prove anyone can build a profitable AI business."]];
+  ["2026", "Build with Gemini XPRIZE", "$2M to prove anyone can build a profitable AI business."]];
 
   return (
     <section id="about-xprize" className="light" data-screen-label="03 About XPRIZE">
@@ -597,7 +597,7 @@ function AboutXPRIZE() {
               The pattern: <span className="accent">a clear technical hurdle, a verifiable result, a public race.</span>
             </div>
             <div style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", lineHeight: 1.5, maxWidth: "62ch" }}>
-              The Gemini Moonshot XPRIZE follows the same playbook. The hurdle: build a profitable business operated by AI agents reading plain English. The race: ~15 weeks. The proof: profit, opportunity created, AI running the operations.
+              Build with Gemini XPRIZE follows the same playbook. The hurdle: build a profitable business operated by AI agents reading plain English. The race: ~15 weeks. The proof: profit, opportunity created, AI running the operations.
             </div>
           </div>
           <a className="btn btn-primary" href="https://www.xprize.org" target="_blank" rel="noopener">
