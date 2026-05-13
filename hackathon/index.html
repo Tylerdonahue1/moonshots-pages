@@ -211,12 +211,15 @@
   /* Wordmark: explicit width/height attrs on the SVG handle base sizing;
      CSS only overrides for smaller viewports. flex-shrink:0 keeps it from
      being compressed by adjacent items. */
-  .site-nav__wordmark { display: block; flex-shrink: 0; }
+  .site-nav__wordmark { display: block; flex-shrink: 0; overflow: visible; }
   @media (max-width: 480px) {
-    .site-nav__wordmark { width: 195px; height: 18px; }
+    .site-nav__wordmark { width: 234px; height: 18px; }
   }
-  @media (max-width: 360px) {
-    .site-nav__wordmark { width: 168px; height: 15.5px; }
+  @media (max-width: 380px) {
+    .site-nav__wordmark { width: 202px; height: 15.5px; }
+  }
+  @media (max-width: 340px) {
+    .site-nav__wordmark { width: 178px; height: 13.5px; }
   }
 
   .nav-links {
@@ -416,8 +419,8 @@
 <body>
   <div id="root"></div>
 
-  <script type="text/babel" src="tweaks-panel.jsx?v=20260505k"></script>
-  <script type="text/babel" src="sections.jsx?v=20260505k"></script>
-  <script type="text/babel" src="app.jsx?v=20260505k"></script>
+  <script type="text/babel" src="tweaks-panel.jsx?v=20260505m"></script>
+  <script type="text/babel" src="sections.jsx?v=20260505m"></script>
+  <script type="text/babel" src="app.jsx?v=20260505m"></script>
 </body>
 </html>
