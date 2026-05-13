@@ -85,7 +85,7 @@ function Nav() {
           </li>
         </ul>
 
-        <a className="btn btn-primary nav-register" href="https://gemini-moonshot-xprize.devpost.com/" target="_blank" rel="noopener">
+        <a className="btn btn-primary nav-register" href="https://xprize.devpost.com/" target="_blank" rel="noopener">
           Register →
         </a>
 
@@ -132,7 +132,7 @@ function Nav() {
       </ul>
       <a
         className="btn btn-primary nav-sheet__cta"
-        href="https://gemini-moonshot-xprize.devpost.com/"
+        href="https://xprize.devpost.com/"
         target="_blank"
         rel="noopener"
         onClick={() => setSheetOpen(false)}>
@@ -322,7 +322,7 @@ function Hero() {
         </p>
 
         <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 64, pointerEvents: "auto" }}>
-          <a className="btn btn-primary" href="https://gemini-moonshot-xprize.devpost.com/" target="_blank" rel="noopener">Register →</a>
+          <a className="btn btn-primary" href="https://xprize.devpost.com/" target="_blank" rel="noopener">Register →</a>
           <a className="btn btn-ghost" href="/hackathon-rules">Read the rules</a>
         </div>
 
@@ -784,7 +784,7 @@ function GoogleStack() {
               A mix of credits, tools, and offerings will be made available to registered teams to support building on Google Cloud.
             </div>
           </div>
-          <a className="btn btn-primary" href="https://gemini-moonshot-xprize.devpost.com/" target="_blank" rel="noopener" style={{ whiteSpace: "nowrap" }}>
+          <a className="btn btn-primary" href="https://xprize.devpost.com/" target="_blank" rel="noopener" style={{ whiteSpace: "nowrap" }}>
             Register →
           </a>
         </div>
@@ -810,10 +810,10 @@ function Prize() {
 
   const schedule = [
   ["Launch", "May 19, 2026", "Google I/O"],
-  ["Build window", "May 19 – August 19, 2026", "~13 weeks"],
-  ["Submission deadline", "August 19, 2026", "1:00 pm PT"],
-  ["Top 100 finalists announced", "September 1, 2026", "—"],
-  ["Top 5 finalists announced", "September 16, 2026", "—"],
+  ["Build window", "May 19 – September 1, 2026", "~15 weeks"],
+  ["Submission deadline", "September 1, 2026", "1:00 pm PT"],
+  ["Top 100 finalists announced", "September 14, 2026", "—"],
+  ["Top 5 finalists announced", "September 22, 2026", "—"],
   ["Live finals at Moonshot Summit", "September 25, 2026", "Los Angeles"]];
 
   return (
@@ -970,7 +970,7 @@ function Faq() {
   {
     title: "Logistics",
     items: [
-    ["When does the hackathon run?", "Launch May 19, 2026 at Google I/O. ~13-week build window (May 19 to August 19). Live finals at the Moonshot Summit on September 25, 2026 in Los Angeles."],
+    ["When does the hackathon run?", "Launch May 19, 2026 at Google I/O. ~15-week build window (May 19 to September 1). Live finals at the Moonshot Summit on September 25, 2026 in Los Angeles."],
     ["What language do submissions need to be in?", "All submission materials must be in English."],
     ["Does my project need to be free?", "Yes — entrants must make the submitted project available free of charge and without restriction for judges and reviewers. This doesn't mean your business can't charge customers — in fact, it must, because profitability is one of the four equally-weighted ranking factors."],
     ["I still have questions. Who do I ask?", "A dedicated support channel will be published at launch."]]
@@ -1075,7 +1075,7 @@ function CTA() {
           Show us.
         </p>
         <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-          <a className="btn btn-primary" href="https://gemini-moonshot-xprize.devpost.com/" target="_blank" rel="noopener">Notify me at launch →</a>
+          <a className="btn btn-primary" href="https://xprize.devpost.com/" target="_blank" rel="noopener">Notify me at launch →</a>
           <a className="btn btn-ghost" href="#prize">See the prize</a>
         </div>
       </div>
