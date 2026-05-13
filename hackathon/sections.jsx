@@ -62,7 +62,7 @@ function Nav() {
     <nav className="site-nav">
       <div className="container site-nav__row">
         <a href="#top" className="site-nav__logo" aria-label="Build with Gemini XPRIZE — home">
-          <svg className="site-nav__wordmark" viewBox="0 0 1080 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Build with Gemini XPRIZE" fill="currentColor">
+          <svg className="site-nav__wordmark" width="238" height="22" viewBox="0 0 1080 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Build with Gemini XPRIZE" fill="currentColor" preserveAspectRatio="xMinYMid meet">
             <text y="78" fontFamily="Inter, -apple-system, BlinkMacSystemFont, system-ui, sans-serif" fontSize="90" letterSpacing="-2">
               <tspan x="0" fontWeight="500">BUILD WITH GEMINI</tspan>
               <tspan dx="26" fontWeight="300" opacity="0.55">|</tspan>

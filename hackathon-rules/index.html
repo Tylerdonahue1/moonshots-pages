@@ -64,14 +64,17 @@
   }
   .site-nav__logo {
     display: inline-flex; align-items: center;
-    color: var(--white);  /* drives the inline SVG via currentColor */
+    color: var(--white);
+    flex-shrink: 0;
+    min-width: 0;
   }
   .site-nav__logo img { height: 30px; width: auto; display: block; }
-  .site-nav__wordmark {
-    height: 22px; width: auto; display: block;
-  }
+  .site-nav__wordmark { display: block; flex-shrink: 0; }
   @media (max-width: 480px) {
-    .site-nav__wordmark { height: 18px; }
+    .site-nav__wordmark { width: 195px; height: 18px; }
+  }
+  @media (max-width: 360px) {
+    .site-nav__wordmark { width: 168px; height: 15.5px; }
   }
   .nav-links {
     display: flex; align-items: center; gap: 28px; list-style: none;
@@ -625,7 +628,7 @@
   <nav class="site-nav">
     <div class="container site-nav__row">
       <a href="/hackathon" class="site-nav__logo" aria-label="Build with Gemini XPRIZE — home">
-        <svg class="site-nav__wordmark" viewBox="0 0 1080 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Build with Gemini XPRIZE" fill="currentColor">
+        <svg class="site-nav__wordmark" width="238" height="22" viewBox="0 0 1080 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Build with Gemini XPRIZE" fill="currentColor" preserveAspectRatio="xMinYMid meet">
           <text y="78" font-family="Inter, -apple-system, BlinkMacSystemFont, system-ui, sans-serif" font-size="90" letter-spacing="-2">
             <tspan x="0" font-weight="500">BUILD WITH GEMINI</tspan>
             <tspan dx="26" font-weight="300" opacity="0.55">|</tspan>

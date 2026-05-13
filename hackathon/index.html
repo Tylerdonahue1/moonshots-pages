@@ -204,14 +204,19 @@
   .site-nav__logo {
     display: inline-flex; align-items: center;
     color: var(--white);  /* drives the inline SVG via currentColor */
+    flex-shrink: 0;       /* never let the flex row squeeze the logo */
+    min-width: 0;
   }
   .site-nav__logo img { height: 30px; width: auto; display: block; }
-  .site-nav__wordmark {
-    height: 22px; width: auto; display: block;
-    /* Slightly tightened tracking via SVG letter-spacing; size scales with viewBox */
-  }
+  /* Wordmark: explicit width/height attrs on the SVG handle base sizing;
+     CSS only overrides for smaller viewports. flex-shrink:0 keeps it from
+     being compressed by adjacent items. */
+  .site-nav__wordmark { display: block; flex-shrink: 0; }
   @media (max-width: 480px) {
-    .site-nav__wordmark { height: 18px; }
+    .site-nav__wordmark { width: 195px; height: 18px; }
+  }
+  @media (max-width: 360px) {
+    .site-nav__wordmark { width: 168px; height: 15.5px; }
   }
 
   .nav-links {
@@ -411,8 +416,8 @@
 <body>
   <div id="root"></div>
 
-  <script type="text/babel" src="tweaks-panel.jsx?v=20260505g"></script>
-  <script type="text/babel" src="sections.jsx?v=20260505g"></script>
-  <script type="text/babel" src="app.jsx?v=20260505g"></script>
+  <script type="text/babel" src="tweaks-panel.jsx?v=20260505h"></script>
+  <script type="text/babel" src="sections.jsx?v=20260505h"></script>
+  <script type="text/babel" src="app.jsx?v=20260505h"></script>
 </body>
 </html>
