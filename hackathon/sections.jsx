@@ -791,7 +791,7 @@ function Prize() {
   const grand = [
   ["1st place", "$1,000,000"],
   ["2nd place", "$500,000"],
-  ["3rd place", "$200,000"],
+  ["3rd place", "$150,000"],
   ["Runner Up", "$50,000"],
   ["Runner Up", "$50,000"]];
 
@@ -951,7 +951,7 @@ function Faq() {
     ["How does judging work?", "Two stages. Stage One — Pass/fail viability check: Devpost confirms the project fits the theme and reasonably applies the required APIs/SDKs. Stage Two — Official judging: a panel rates the surviving submissions from 1 to 5 stars on each criterion."],
     ["What are the judging criteria?", "Four criteria, equally weighted: Profitability — real business, real customers, sustainable margins. Opportunities Created — jobs and economic opportunities the business creates beyond the founding team. AI-Native Operations — AI agents genuinely running operations, with playbooks live in production. Category Impact — does the project meaningfully move the needle in its chosen category."],
     ["Who are the judges?", "Judging combines expert panels, peer review, and AI-driven analysis. Full panel announced at launch."],
-    ["What are the prizes?", "$2M total prize pool. Grand prize pool of $1,750,000 — 1st: $1M, 2nd: $500K, 3rd: $200K, plus two Runner Up prizes of $50K each. Plus $250,000 in category prizes ($50K to the highest-scoring team in each of five categories). Each project is eligible for one prize."]]
+    ["What are the prizes?", "$2M total prize pool across 10 winners. Grand prize pool of $1,750,000 — 1st: $1M, 2nd: $500K, 3rd: $150K, plus two Runner Up prizes of $50K each. Plus $250,000 in category prizes ($50K to the highest-scoring team in each of five categories). Each project is eligible for one prize."]]
 
   },
   {
