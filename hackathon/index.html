@@ -201,8 +201,18 @@
     display: flex; align-items: center; justify-content: space-between;
     height: 68px; gap: 24px;
   }
-  .site-nav__logo { display: inline-flex; align-items: center; }
+  .site-nav__logo {
+    display: inline-flex; align-items: center;
+    color: var(--white);  /* drives the inline SVG via currentColor */
+  }
   .site-nav__logo img { height: 30px; width: auto; display: block; }
+  .site-nav__wordmark {
+    height: 22px; width: auto; display: block;
+    /* Slightly tightened tracking via SVG letter-spacing; size scales with viewBox */
+  }
+  @media (max-width: 480px) {
+    .site-nav__wordmark { height: 18px; }
+  }
 
   .nav-links {
     display: flex; align-items: center; gap: 28px;
@@ -401,8 +411,8 @@
 <body>
   <div id="root"></div>
 
-  <script type="text/babel" src="tweaks-panel.jsx?v=20260505f"></script>
-  <script type="text/babel" src="sections.jsx?v=20260505f"></script>
-  <script type="text/babel" src="app.jsx?v=20260505f"></script>
+  <script type="text/babel" src="tweaks-panel.jsx?v=20260505g"></script>
+  <script type="text/babel" src="sections.jsx?v=20260505g"></script>
+  <script type="text/babel" src="app.jsx?v=20260505g"></script>
 </body>
 </html>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 100" role="img" aria-label="Build with Gemini XPRIZE" fill="currentColor">
+  <text y="78" font-family="Inter, -apple-system, BlinkMacSystemFont, system-ui, sans-serif" font-size="90" letter-spacing="-2">
+    <tspan x="0" font-weight="500">BUILD WITH GEMINI</tspan>
+    <tspan dx="26" font-weight="300" opacity="0.55">|</tspan>
+    <tspan dx="26" font-weight="800">XPRIZE</tspan>
+  </text>
+</svg>
