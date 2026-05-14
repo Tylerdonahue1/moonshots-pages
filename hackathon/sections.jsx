@@ -313,7 +313,7 @@ function Hero() {
         </div>
 
         <h1 className="display-xl" style={{ maxWidth: "22ch", marginBottom: 28, fontSize: "clamp(36px, 7vw, 70px)", textShadow: "0 2px 20px rgba(0,0,0,0.5)" }}>
-           <span className="accent" style={{ fontSize: "clamp(36px, 7vw, 70px)" }}>15 weeks.</span> Pick a problem worth solving. Build a profitable business with AI.
+           <span className="accent" style={{ fontSize: "clamp(36px, 7vw, 70px)" }}>90 days.</span> Pick a problem worth solving. Build a profitable business with AI.
         </h1>
 
         <p style={{ color: "rgba(255,255,255,0.92)", maxWidth: "60ch", lineHeight: 1.4, marginBottom: 36, fontWeight: 500, fontSize: "clamp(18px, 3vw, 30px)", textShadow: "0 2px 14px rgba(0,0,0,0.5)" }}>
@@ -333,7 +333,7 @@ function Hero() {
         }}>
           {[
           ["Total prize", "$2,000,000"],
-          ["Build window", "~15 weeks"],
+          ["Build window", "90 days"],
           ["Finals", "Sept 25 · LA"]].
           map(([k, v]) =>
           <div key={k}>
@@ -596,7 +596,7 @@ function AboutXPRIZE() {
               The pattern: <span className="accent">a clear technical hurdle, a verifiable result, a public race.</span>
             </div>
             <div style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", lineHeight: 1.5, maxWidth: "62ch" }}>
-              Build with Gemini XPRIZE follows the same playbook. The hurdle: build a profitable business operated by AI agents reading plain English. The race: ~15 weeks. The proof: profit, opportunity created, AI running the operations.
+              Build with Gemini XPRIZE follows the same playbook. The hurdle: build a profitable business operated by AI agents reading plain English. The race: 90 days. The proof: profit, opportunity created, AI running the operations.
             </div>
           </div>
           <a className="btn btn-primary" href="https://www.xprize.org" target="_blank" rel="noopener">
@@ -615,7 +615,7 @@ function Moonshot() {
       <div className="container">
         <span className="eyebrow"><span className="dot" /> The Moonshot</span>
         <h2 style={{ marginBottom: 28 }}>
-          15 weeks. <span className="accent">Ideate. Build. Ship. Sell.</span>
+          90 days. <span className="accent">Ideate. Build. Ship. Sell.</span>
         </h2>
         <p className="lead" style={{ marginBottom: 48, fontSize: 21, maxWidth: "64ch" }}>
           Real product. Real revenue. <strong style={{ color: "var(--near-black)" }}>Or you don't qualify.</strong>
@@ -809,7 +809,7 @@ function Prize() {
 
   const schedule = [
   ["Launch", "May 19, 2026", "Google I/O"],
-  ["Build window", "May 19 – August 19, 2026", "~13 weeks"],
+  ["Build window", "May 19 – August 19, 2026", "90 days"],
   ["Submission deadline", "August 19, 2026", "1:00 pm PT"],
   ["Top 100 finalists announced", "September 1, 2026", "—"],
   ["Top 5 finalists announced", "September 16, 2026", "—"],
@@ -937,7 +937,7 @@ function Faq() {
     items: [
     ["What can my business be about?", "Five categories spanning economic opportunity and professional access: Education & Human Potential (workforce upskilling, alternative credentialing, personalized learning); Entrepreneurship & Job Creation (solo founder enablement, AI-assisted company creation, job matching); Small Business Services (AI-native operations, cashflow, customer acquisition, compliance); Money & Financial Access (credit access, remittances, micro-lending, financial literacy); Professional Services Access (legal tools, immigration navigation, mental health support)."],
     ["Do I have to pick one category?", "Yes — your submission should map clearly to one of the five. If your project arguably fits more than one, choose the category that best represents the primary value your business creates."],
-    ["Is there required tooling or hosting?", "Yes — every project must have at least one function or agent hosted on Google Cloud Platform. Every registered team gets ~15 weeks of Gemini Ultra access free for the build window, plus the option to request $100 in Google Cloud credits via a sign-up form. Use of credits beyond $100 is at the team's expense."],
+    ["Is there required tooling or hosting?", "Yes — projects must be fully hosted on Google Cloud Platform. Every registered team gets 90 days of Gemini access free for the build window, plus the option to request additional Google Cloud credits via a sign-up form for this hackathon."],
     ["How many playbooks does my project need?", "At least 5 of these 12: Sales · Onboarding · Support · Pricing · Delivery · HR · Ops/Logistics · Finance · Marketing · Analytics · Compliance · Partnerships. Each one is one plain-English document running one part of the business. Minimum five — pick the ones that match how your business actually works."]]
 
   },
@@ -969,7 +969,7 @@ function Faq() {
   {
     title: "Logistics",
     items: [
-    ["When does the hackathon run?", "Launch May 19, 2026 at Google I/O. ~13-week build window (May 19 to August 19). Live finals at the Moonshot Summit on September 25, 2026 in Los Angeles."],
+    ["When does the hackathon run?", "Launch May 19, 2026 at Google I/O. 90-day build window (May 19 to August 19). Live finals at the Moonshot Summit on September 25, 2026 in Los Angeles."],
     ["What language do submissions need to be in?", "All submission materials must be in English."],
     ["Does my project need to be free?", "Yes — entrants must make the submitted project available free of charge and without restriction for judges and reviewers. This doesn't mean your business can't charge customers — in fact, it must, because profitability is one of the four equally-weighted ranking factors."],
     ["I still have questions. Who do I ask?", "A dedicated support channel will be published at launch."]]
