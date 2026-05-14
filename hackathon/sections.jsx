@@ -301,23 +301,10 @@ function Hero() {
       }}>
         <div className="container" style={{ position: "relative", width: "100%" }}>
 
-        {/* XPRIZE co-presenter mark, top-right of hero */}
-        <div className="hero-xprize" aria-hidden="false" style={{ pointerEvents: "auto" }}>
+        {/* XPRIZE co-presenter mark, top-right of hero (official brand asset) */}
+        <div className="hero-xprize" style={{ pointerEvents: "auto" }}>
           <span className="hero-xprize__label">Presented by</span>
-          <svg className="hero-xprize__mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="XPRIZE">
-            {/* Back bar (gray) — top-right to bottom-left */}
-            <g transform="translate(50 50) rotate(-45)">
-              <rect x="-71" y="-13" width="142" height="26" fill="rgba(255,255,255,0.55)" />
-            </g>
-            {/* Front bar (white) — top-left to bottom-right, with PRIZE text */}
-            <g transform="translate(50 50) rotate(45)">
-              <rect x="-71" y="-13" width="142" height="26" fill="#FFFFFF" />
-              <text fontFamily="Inter, -apple-system, BlinkMacSystemFont, system-ui, sans-serif" fontWeight="800" fontSize="11" fill="#0B0E0C" letterSpacing="0.6">
-                <tspan x="-44" y="4">PRIZE</tspan>
-                <tspan dx="1" fontSize="5.5" baselineShift="super">TM</tspan>
-              </text>
-            </g>
-          </svg>
+          <img className="hero-xprize__mark" src="assets/xprize-mark.png" alt="XPRIZE" width="96" height="96" />
         </div>
 
         <div className="hero-eyebrow">
