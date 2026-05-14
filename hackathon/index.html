@@ -4,10 +4,13 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <base href="/hackathon/" />
-<title>Gemini Moonshot XPRIZE — 15 weeks. Build a profitable AI business.</title>
+<title>Build with Gemini XPRIZE — 90 days. Build a profitable AI business.</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://unpkg.com" crossorigin />
+<link rel="preload" as="image" href="assets/lockup-white.svg" />
+<link rel="preload" as="image" href="assets/wordmark-white.svg" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=VT323&display=swap" rel="stylesheet" />
 
 <style>
@@ -444,9 +447,12 @@
   }
 </style>
 
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<!-- Production-minified React/ReactDOM (~10KB + ~140KB) — was using dev builds (~107KB + ~1MB). -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+<!-- Babel-standalone compiles JSX in-browser. Large (~3MB compressed): we accept the cost
+     since this repo has no build step. If we ever add a build step, precompile JSX and drop this. -->
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 
 <script type="importmap">
 { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
@@ -460,8 +466,8 @@
 <body>
   <div id="root"></div>
 
-  <script type="text/babel" src="tweaks-panel.jsx?v=20260514g"></script>
-  <script type="text/babel" src="sections.jsx?v=20260514g"></script>
-  <script type="text/babel" src="app.jsx?v=20260514g"></script>
+  <!-- tweaks-panel.jsx removed for production (was admin-only, +18KB + parse cost) -->
+  <script type="text/babel" src="sections.jsx?v=20260514h"></script>
+  <script type="text/babel" src="app.jsx?v=20260514h"></script>
 </body>
 </html>
