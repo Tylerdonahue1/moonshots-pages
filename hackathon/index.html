@@ -106,34 +106,29 @@
 
   .accent { color: var(--cyan); }
 
-  /* ───────── Hero XPRIZE co-presenter mark ───────── */
-  .hero-xprize {
+  /* ───────── Hero co-presenter lockup (XPRIZE × Gemini) ───────── */
+  /* Official "Lockup - White.svg" is ~5.97:1 aspect; sized to read clearly at every
+     breakpoint without crowding the eyebrow pill below. !important required because
+     of the global `img { max-width:100%; height:auto }` mobile-safety rule. */
+  .hero-lockup {
     position: absolute;
     top: 0; right: 0;
     z-index: 5;
-    display: flex; flex-direction: column; align-items: flex-end; gap: 8px;
-  }
-  .hero-xprize__label {
-    font-family: var(--font-pixel);
-    font-size: 13px;
-    color: rgba(255,255,255,0.65);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.6);
-  }
-  .hero-xprize__mark {
-    width: 96px; height: 96px;
     display: block;
-    border-radius: 6px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+    filter: drop-shadow(0 4px 18px rgba(0,0,0,0.55));
   }
-  @media (max-width: 720px) {
-    .hero-xprize { gap: 4px; }
-    .hero-xprize__label { font-size: 11px; }
-    .hero-xprize__mark { width: 64px; height: 64px; }
+  .hero-lockup__img {
+    width: 280px !important; height: 47px !important;
+    display: block;
+  }
+  @media (max-width: 880px) {
+    .hero-lockup__img { width: 200px !important; height: 33.5px !important; }
+  }
+  @media (max-width: 480px) {
+    .hero-lockup__img { width: 156px !important; height: 26px !important; }
   }
   @media (max-width: 380px) {
-    .hero-xprize__mark { width: 54px; height: 54px; }
+    .hero-lockup__img { width: 130px !important; height: 22px !important; }
   }
 
   /* ───────── Hero (Aurora + fallback gradient) ───────── */
@@ -465,8 +460,8 @@
 <body>
   <div id="root"></div>
 
-  <script type="text/babel" src="tweaks-panel.jsx?v=20260514d"></script>
-  <script type="text/babel" src="sections.jsx?v=20260514d"></script>
-  <script type="text/babel" src="app.jsx?v=20260514d"></script>
+  <script type="text/babel" src="tweaks-panel.jsx?v=20260514e"></script>
+  <script type="text/babel" src="sections.jsx?v=20260514e"></script>
+  <script type="text/babel" src="app.jsx?v=20260514e"></script>
 </body>
 </html>

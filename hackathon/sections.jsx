@@ -295,10 +295,9 @@ function Hero() {
       }}>
         <div className="container" style={{ position: "relative", width: "100%" }}>
 
-        {/* XPRIZE co-presenter mark, top-right of hero (official brand asset) */}
-        <div className="hero-xprize" style={{ pointerEvents: "auto" }}>
-          <span className="hero-xprize__label">Presented by</span>
-          <img className="hero-xprize__mark" src="assets/xprize-mark.png" alt="XPRIZE" width="96" height="96" />
+        {/* Co-presenter lockup (XPRIZE × Gemini), top-right of hero — official brand asset */}
+        <div className="hero-lockup" style={{ pointerEvents: "auto" }}>
+          <img className="hero-lockup__img" src="assets/lockup-white.svg" alt="Build with Gemini XPRIZE × Gemini" width="280" height="47" />
         </div>
 
         <div className="hero-eyebrow">
