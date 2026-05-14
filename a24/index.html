@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A24 × Future Vision XPRIZE — First-Look Talent Pipeline</title>
-<meta name="description" content="A first-look talent-discovery partnership built on the public vote of the Future Vision XPRIZE — surfacing breakout filmmakers Range can't lock up.">
+<title>A24 × Future Vision XPRIZE — People's Choice Sponsorship</title>
+<meta name="description" content="Prepared for A24. Title sponsorship of the People's Choice track of the Future Vision XPRIZE.">
 <meta name="robots" content="noindex,nofollow">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
@@ -1058,6 +1058,133 @@
     .siv-film-thumb { height: 50px; }
     .siv-matchup { gap: 6px; padding: 0 10px 12px; }
   }
+
+  /* ── COVER STAMP (audience marker) ── */
+  .cover-stamp {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--teal);
+    padding: 12px 22px;
+    border: 1px solid var(--teal);
+    background: var(--teal-glow);
+    line-height: 1;
+  }
+  .cover-line {
+    font-size: 19px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    max-width: 760px;
+    line-height: 1.7;
+    margin-top: 24px;
+  }
+
+  /* ── SCOPE ITEMS (large, distinct) ── */
+  .scope-list {
+    margin-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .scope-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 48px;
+    padding: 48px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+  .scope-num {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 88px;
+    line-height: 0.9;
+    color: var(--teal);
+  }
+  .scope-content h3 {
+    font-family: 'Barlow', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    color: var(--white);
+  }
+  .scope-content p {
+    font-size: 17px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+  }
+
+  /* ── THE ASK ── */
+  .the-ask {
+    margin-top: 64px;
+    padding: 36px 44px;
+    border: 1px solid var(--teal-dim);
+    background: var(--teal-glow);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .the-ask-note {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+  .the-ask-price {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--white);
+  }
+  .the-ask-detail {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+  }
+
+  /* ── NEXT STEPS LIST ── */
+  .next-list {
+    list-style: none;
+    margin: 24px 0 56px;
+    max-width: 760px;
+  }
+  .next-list li {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 24px;
+    align-items: baseline;
+  }
+  .next-list .nl-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--teal);
+  }
+  .next-list .nl-text {
+    font-size: 17px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.78);
+    font-weight: 300;
+  }
+
+  @media (max-width: 768px) {
+    .scope-item { grid-template-columns: 1fr; gap: 14px; padding: 32px 0; }
+    .scope-num { font-size: 56px; }
+    .scope-content h3 { font-size: 22px; }
+    .the-ask { grid-template-columns: 1fr; padding: 28px; gap: 16px; }
+    .the-ask-price { font-size: 44px; }
+    .cover-stamp { font-size: 11px; letter-spacing: 0.22em; padding: 10px 16px; }
+  }
 </style>
 </head>
 <body>
@@ -1068,10 +1195,6 @@
   <div class="nav-dot" onclick="scrollToSlide(2)"></div>
   <div class="nav-dot" onclick="scrollToSlide(3)"></div>
   <div class="nav-dot" onclick="scrollToSlide(4)"></div>
-  <div class="nav-dot" onclick="scrollToSlide(5)"></div>
-  <div class="nav-dot" onclick="scrollToSlide(6)"></div>
-  <div class="nav-dot" onclick="scrollToSlide(7)"></div>
-  <div class="nav-dot" onclick="scrollToSlide(8)"></div>
 </nav>
 
 <!-- MOBILE PROGRESS BAR -->
@@ -1082,10 +1205,6 @@
     <div class="progress-dot" onclick="scrollToSlide(2)"></div>
     <div class="progress-dot" onclick="scrollToSlide(3)"></div>
     <div class="progress-dot" onclick="scrollToSlide(4)"></div>
-    <div class="progress-dot" onclick="scrollToSlide(5)"></div>
-    <div class="progress-dot" onclick="scrollToSlide(6)"></div>
-    <div class="progress-dot" onclick="scrollToSlide(7)"></div>
-    <div class="progress-dot" onclick="scrollToSlide(8)"></div>
   </div>
   <div class="progress-counter" id="progressCounter">01 / 07</div>
   <div class="progress-nav">
@@ -1094,24 +1213,20 @@
   </div>
 </div>
 
-<!-- ── SLIDE 1: HERO ── -->
+<!-- ── SLIDE 1: COVER ── -->
 <section class="slide hero" id="slide-0">
   <div class="hero-top">
-    <div class="logo-lockup">
-      <div class="brand-pill active">A24</div>
-      <div class="brand-pill sep">×</div>
-      <div class="brand-pill active">Future Vision XPRIZE</div>
-    </div>
+    <div class="cover-stamp">Prepared for A24 · Confidential</div>
     <div class="hero-meta">
-      Partnership Brief · 2026<br>
-      First-Look Talent Pipeline
+      April 2026<br>
+      Tyler Donahue · Moonshots
     </div>
   </div>
 
   <div class="hero-center">
-    <div class="hero-eyebrow">A24 × FVXP — Confidential</div>
-    <h1>TALENT,<br>FOUND BY <em>THE&nbsp;CROWD</em></h1>
-    <p class="hero-sub">The People's Choice track of the Future Vision XPRIZE is a structured discovery funnel for breakout filmmakers — the next Kane Parsons, surfaced live by an ELO leaderboard of public votes. Range has first refusal on the grand prize. A24 has the lane Range can't reach.</p>
+    <div class="hero-eyebrow">01 · The Offer</div>
+    <h1>A24 OWNS THE<br>PEOPLE'S CHOICE<br>TRACK OF THE <em>FVXP.</em></h1>
+    <p class="cover-line">Title sponsorship of the public-vote award inside the Future Vision XPRIZE. The crowd picks a winner. A24 is named on every step that gets them there.</p>
   </div>
 
   <div class="hero-stats">
@@ -1120,37 +1235,45 @@
       <div class="stat-label">Total Prize Pool</div>
     </div>
     <div class="hero-stat">
-      <div class="stat-num">5K+</div>
-      <div class="stat-label">Registrants</div>
+      <div class="stat-num">1,500</div>
+      <div class="stat-label">Registered Creators</div>
     </div>
     <div class="hero-stat">
-      <div class="stat-num">1,500</div>
-      <div class="stat-label">At Live Finale</div>
+      <div class="stat-num">Sep 25</div>
+      <div class="stat-label">Live Finale · Los Angeles</div>
     </div>
   </div>
 
-  <div class="page-num">01 / 09</div>
+  <div class="page-num">01 / 05</div>
 </section>
 
-<!-- ── SLIDE 2: THE COMPETITION ── -->
+<!-- ── SLIDE 2: BACKGROUND ── -->
 <section class="slide" id="slide-1">
-  <div class="slide-label">02 · The Competition</div>
+  <div class="slide-label">02 · Background</div>
+  <h2>THE PEOPLE'S<br>CHOICE <em>TRACK</em></h2>
+
   <div class="two-col">
     <div>
-      <h2>PREPARATORY<br>SCI-FI, <em>AT&nbsp;SCALE</em></h2>
+      <p class="body-text">The Future Vision XPRIZE: three-minute sci-fi films imagining optimistic futures for humanity. Presented by Google. Administered by XPRIZE.</p>
+
+      <p class="body-text">1,500 creators registered, including MrBeast. Range Media Partners filters submissions and holds first refusal on the grand prize winner. That prize is $2.5M in production funding.</p>
     </div>
     <div>
-      <p class="body-text">The Future Vision XPRIZE invites creators worldwide to produce three-minute sci-fi trailers imagining optimistic futures for humanity. Presented by Google. Administered by XPRIZE. Range Media Partners filters submissions, with a $2.5M grand prize for production funding.</p>
+      <p class="body-text">Alongside the grand prize is the People's Choice award. Public vote. ELO leaderboard. Decided live at the finale on September 25 in Los Angeles.</p>
 
-      <p class="body-text">It's a public R&D lab for exactly the kind of stories your financiers are funding privately — work that prepares humanity for the future, not just entertains it. 1,500 registered participants so far, including major creators like MrBeast.</p>
-
-      <div class="highlight-box">
-        <p>"The People's Choice track surfaces talent live, in public, on an ELO leaderboard — discovery without the scouting overhead."</p>
-      </div>
-
-      <p class="body-text">Range has first refusal on the grand prize winner. Range has <strong>no rights</strong> to People's Choice winners. That track is open — and it's the one the crowd is actively shaping, week over week, all the way to the live finale on September 25, 2026 in Los Angeles.</p>
+      <p class="body-text">Range has no rights to this track. That's the lane A24 owns.</p>
     </div>
   </div>
+
+  <div class="page-num">02 / 05</div>
+</section>
+
+<!-- ── SLIDE 3: EXAMPLE SUBMISSION ── -->
+<section class="slide" id="slide-2">
+  <div class="slide-label">03 · Example Submission</div>
+  <h2>WHAT'S BEING<br><em>SUBMITTED</em></h2>
+
+  <p class="body-text" style="max-width: 760px;">A representative entry. Three minutes. Submissions come from first-time directors and established filmmakers alike. This is the caliber of work the public is choosing between.</p>
 
   <figure class="example-video">
     <video
@@ -1160,378 +1283,90 @@
       poster="https://vfyx59yxvrzfuvy0.public.blob.vercel-storage.com/fvxp-poster.jpg"
       src="https://vfyx59yxvrzfuvy0.public.blob.vercel-storage.com/Draft%2010%20.mp4"
     ></video>
-    <figcaption>Example submission — the caliber of talent the public vote is surfacing. First-time directors, YouTube-native creators, the next Kane Parsons.</figcaption>
   </figure>
 
-  <div class="page-num">02 / 09</div>
+  <div class="page-num">03 / 05</div>
 </section>
 
-<!-- ── SLIDE 3: SIV PLATFORM ── -->
-<section class="slide" id="slide-2">
-  <div class="slide-label">03 · The Discovery Engine</div>
-  <h2>A SCOUTING<br>FUNNEL <em>IN PUBLIC</em></h2>
-
-  <div class="siv-layout">
-
-    <!-- MOCKUP -->
-    <div>
-      <div class="siv-mockup">
-        <div class="siv-mockup-header">
-          <span class="siv-mockup-brand">A24 People's Choice · Future Vision XPRIZE</span>
-          <span style="font-family:'Space Mono',monospace; font-size:9px; color:rgba(255,255,255,0.2); letter-spacing:0.1em;">fv.siv.org</span>
-        </div>
-        <div class="siv-mockup-prompt">
-          <div class="siv-mockup-prompt-text">If you could have one but not the other...</div>
-          <div class="siv-mockup-sub">Which future do you want to live in?</div>
-        </div>
-        <div class="siv-matchup">
-          <div class="siv-film-card">
-            <div class="siv-film-thumb siv-film-thumb-a">
-              <div class="siv-play-btn">▶</div>
-            </div>
-            <div class="siv-film-label">Choice A</div>
-            <div class="siv-film-title">Dear Alice</div>
-            <div class="siv-choose-btn">Choose this future</div>
-          </div>
-          <div class="siv-vs">vs</div>
-          <div class="siv-film-card">
-            <div class="siv-film-thumb siv-film-thumb-b">
-              <div class="siv-play-btn">▶</div>
-            </div>
-            <div class="siv-film-label">Choice B</div>
-            <div class="siv-film-title">Space Wanderers</div>
-            <div class="siv-choose-btn">Choose this future</div>
-          </div>
-        </div>
-        <div class="siv-footer-note">Made by SIV.org · Verified, transparent voting infrastructure</div>
-      </div>
-
-      <div class="engagement-bar">
-        <div class="engagement-cell">
-          <div class="engagement-val">2×</div>
-          <div class="engagement-lbl">Trailer views per vote cast</div>
-        </div>
-        <div class="engagement-cell">
-          <div class="engagement-val">ELO</div>
-          <div class="engagement-lbl">Score updates live after every round</div>
-        </div>
-        <div class="engagement-cell">
-          <div class="engagement-val">Material</div>
-          <div class="engagement-lbl">Weight in final competition score</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- MECHANICS -->
-    <div>
-      <p class="body-text" style="margin-bottom: 32px;">Every matchup is a 30-second sample reel for your scouting team. The leaderboard surfaces breakout filmmakers in real time — the cultural traction of each finalist becomes legible weeks before agents arrive. This is what a discovery funnel looks like when it runs in public.</p>
-
-      <ul class="mechanic-list">
-        <li class="mechanic-item">
-          <div class="mechanic-num">01</div>
-          <div class="mechanic-text">
-            <h4>30-second clips, side by side</h4>
-            <p>Voters watch two clips and pick one future over the other. For A24, every vote round is a fast-read sample reel of the next director — low-commitment for audiences, high-signal for scouts.</p>
-          </div>
-        </li>
-        <li class="mechanic-item">
-          <div class="mechanic-num">02</div>
-          <div class="mechanic-text">
-            <h4>ELO leaderboard updates live</h4>
-            <p>Each matchup adjusts standings using the same ranking system used in chess. Cultural traction is legible week-by-week — your team sees who's breaking out before the field does.</p>
-          </div>
-        </li>
-        <li class="mechanic-item">
-          <div class="mechanic-num">03</div>
-          <div class="mechanic-text">
-            <h4>A24 owns the moment of discovery</h4>
-            <p>"A24 People's Choice" branding on the platform header, every matchup, the leaderboard, and the vote-confirmation screen. The voter sees A24 the moment they discover a new filmmaker — that association is the asset.</p>
-          </div>
-        </li>
-        <li class="mechanic-item">
-          <div class="mechanic-num">04</div>
-          <div class="mechanic-text">
-            <h4>Live finale, live signal</h4>
-            <p>September 25 at the Moonshot Gathering: 1,500 attendees cast live votes from their seats as finalists screen on stage. You're watching the room react in real time — and so is everyone else.</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-  </div>
-  <div class="page-num">03 / 09</div>
-</section>
-
-<!-- ── SLIDE 4: FIRST-LOOK ACCESS ── -->
+<!-- ── SLIDE 4: SCOPE ── -->
 <section class="slide" id="slide-3">
-  <div class="slide-label">04 · The Lane Range Can't Reach</div>
-  <h2>FIRST-LOOK<br>ACCESS, <em>BUILT IN</em></h2>
+  <div class="slide-label">04 · Scope</div>
+  <h2>WHAT A24<br><em>OWNS</em></h2>
 
-  <div class="two-col">
-    <div>
-      <p class="body-text">Range Media Partners has first refusal on the grand prize winner. The People's Choice winner, surfaced by the public vote, is unencumbered. That's the lane this partnership opens.</p>
-      <p class="body-text">A24 sees the funnel as it forms. Real-time ELO scores. Watch standings as 100 finalists narrow to 10, then to 5. Identify breakout talent before the field does — and have a structured first-look on every name the crowd is rewarding.</p>
+  <div class="scope-list">
 
-      <div class="highlight-box">
-        <p>"Kane Parsons was on YouTube at seventeen when A24 found him. The People's Choice track is a structured way to find the next one — in the open, with traction signal attached."</p>
+    <div class="scope-item">
+      <div class="scope-num">01</div>
+      <div class="scope-content">
+        <h3>Title designation</h3>
+        <p>"A24 People's Choice Award." Used across all platform surfaces, the public leaderboard, participant emails, public announcements, and press.</p>
       </div>
     </div>
 
-    <div>
-      <ul class="mechanic-list">
-        <li class="mechanic-item">
-          <div class="mechanic-num">01</div>
-          <div class="mechanic-text">
-            <h4>Co-production rights · People's Choice winner</h4>
-            <p>The crowd-selected winner is contractually open. A24 holds first-look co-production rights — a fully-funded path from public-vote breakout to A24 release.</p>
-          </div>
-        </li>
-        <li class="mechanic-item">
-          <div class="mechanic-num">02</div>
-          <div class="mechanic-text">
-            <h4>Right of first conversation · all top 10</h4>
-            <p>Before agents arrive. Before the press wave. A structured intro window with every finalist the leaderboard surfaces — your scouts in the room first.</p>
-          </div>
-        </li>
-        <li class="mechanic-item">
-          <div class="mechanic-num">03</div>
-          <div class="mechanic-text">
-            <h4>Real-time scouting dashboard</h4>
-            <p>Private feed of ELO standings, view counts, share velocity, and demographic signal — surfaced to your team weeks before public announcements.</p>
-          </div>
-        </li>
-        <li class="mechanic-item">
-          <div class="mechanic-num">04</div>
-          <div class="mechanic-text">
-            <h4>"Discovered with A24" framing</h4>
-            <p>Public co-attribution on the People's Choice track. The narrative around any breakout names A24 — independent of whatever Range does with the grand prize.</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div class="page-num">04 / 09</div>
-</section>
-
-<!-- ── SLIDE 5: CAMPAIGN TIMELINE ── -->
-<section class="slide" id="slide-4">
-  <div class="slide-label">05 · Campaign Timeline</div>
-  <h2>FROM SUBMISSION<br>TO <em>SIGNAL</em></h2>
-
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">01</div>
-      <h3>Public Voting Opens</h3>
-      <p>Submissions go live at fv.siv.org. 1,500+ registered creators including MrBeast push the launch into culture. A24 attribution begins on day one.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">02</div>
-      <h3>Leaderboard + Scouting Feed Go Live</h3>
-      <p>Real-time ELO leaderboard public-facing; private scouting dashboard live to A24's team. Cultural traction becomes legible week over week.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">03</div>
-      <h3>Top 10 → Top 5 Surface</h3>
-      <p>Range filters to 100, panels to 10, finalists to 5. A24 triggers right-of-first-conversation on each finalist as the field narrows.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">04</div>
-      <h3>Live Finale + People's Choice Reveal</h3>
-      <p>September 25 in Los Angeles. 1,500 attendees vote live. Grand prize goes to Range; the People's Choice winner walks into a co-production conversation with A24.</p>
-    </div>
-  </div>
-  <div class="page-num">05 / 09</div>
-</section>
-
-<!-- ── SLIDE 6: BRAND PRESENCE ── -->
-<section class="slide" id="slide-5">
-  <div class="slide-label">06 · Discovery Touchpoints</div>
-  <h2>EVERYWHERE THE<br>VOTE <em>LIVES</em></h2>
-
-  <div class="ownership-grid">
-    <div class="own-card">
-      <div class="own-icon">🗳</div>
-      <h3>Voting Platform</h3>
-      <p>"A24 People's Choice" lockup on fv.siv.org — every page load, every matchup, every vote cast through the full window. The voter sees A24 the moment they discover a new filmmaker.</p>
-    </div>
-    <div class="own-card">
-      <div class="own-icon">📊</div>
-      <h3>Public ELO Leaderboard</h3>
-      <p>The most-visited destination during the voting window. A24 attribution on every standings update, every share, every screenshot that goes viral when the leaderboard shifts.</p>
-    </div>
-    <div class="own-card">
-      <div class="own-icon">📧</div>
-      <h3>Participant Emails</h3>
-      <p>Vote-open notifications, weekly standings updates, and finale reminders go to 1,500 registered creators — including MrBeast and other major YouTubers — with A24 in the send.</p>
-    </div>
-    <div class="own-card">
-      <div class="own-icon">📱</div>
-      <h3>Social Amplification</h3>
-      <p>Every vote-milestone post, leaderboard screenshot, and crowd-vote announcement across Moonshots' channels co-attributes A24. The discovery narrative pattern-locks to your brand.</p>
-    </div>
-    <div class="own-card">
-      <div class="own-icon">🎬</div>
-      <h3>Live Finale Stage</h3>
-      <p>September 25 at the Moonshot Gathering: 1,500 attendees plus livestream audience watch finalists screen as A24 People's Choice branding anchors the live vote.</p>
-    </div>
-    <div class="own-card">
-      <div class="own-icon">🏆</div>
-      <h3>Discovery Moment</h3>
-      <p>The People's Choice reveal is the emotional peak of the night. The narrative — "A24 found them first" — becomes the share moment that travels everywhere afterward.</p>
-    </div>
-  </div>
-  <div class="page-num">06 / 09</div>
-</section>
-
-<!-- ── SLIDE 7: LIVESTREAM PARTNERSHIP ── -->
-<section class="slide" id="slide-6">
-  <div class="slide-label">07 · Livestream Partnership</div>
-  <h2>A SHOW,<br>NOT A <em>SPONSORSHIP</em></h2>
-
-  <div class="two-col">
-    <div>
-      <p class="body-text">Per the call: a livestream collaboration sized for the registered participants and the wider audience tracking the leaderboard. Three concrete formats — pick one or stack them.</p>
-      <p class="body-text">The throughline: A24's voice is on every public touchpoint where the vote is being reasoned about — not just where it's being branded.</p>
-    </div>
-    <div>
-      <ul class="mechanic-list">
-        <li class="mechanic-item">
-          <div class="mechanic-num">01</div>
-          <div class="mechanic-text">
-            <h4>Weekly Watch Party</h4>
-            <p>A recurring live show during the voting window. A24 filmmakers commentate on standout submissions, react to leaderboard shifts, and surface picks. Half taste-making, half scouting in public.</p>
-          </div>
-        </li>
-        <li class="mechanic-item">
-          <div class="mechanic-num">02</div>
-          <div class="mechanic-text">
-            <h4>Pre-Finale Show</h4>
-            <p>Live broadcast in the hours before September 25. A24 hosts a roundtable with finalists, walks through the People's Choice ELO arc, and primes the room for the live vote.</p>
-          </div>
-        </li>
-        <li class="mechanic-item">
-          <div class="mechanic-num">03</div>
-          <div class="mechanic-text">
-            <h4>Discovery Reel</h4>
-            <p>Short-form weekly cuts published across A24's and Moonshots' social channels — the breakout filmmakers, the matchups that surprised the leaderboard, the creators worth watching.</p>
-          </div>
-        </li>
-        <li class="mechanic-item">
-          <div class="mechanic-num">04</div>
-          <div class="mechanic-text">
-            <h4>"Discovered with A24" End-Card</h4>
-            <p>A short A24 attribution card runs on every voting session and every livestream segment. Not an ad — a credit. The kind of presence that builds association without breaking flow.</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div class="page-num">07 / 09</div>
-</section>
-
-<!-- ── SLIDE 8: A24 FILMMAKER FUND (DRAFT IDEA) ── -->
-<section class="slide" id="slide-7">
-  <div class="slide-label">08 · A Sketch, Not An Offer</div>
-  <h2>ONE WAY THIS<br>COULD <em>SHAPE UP</em></h2>
-
-  <p class="body-text" style="max-width: 800px; margin-bottom: 24px;">Nothing here is a packaged offering. It's a draft framing — a starting point for the conversation, sketched against how A24 already invests. Numbers are illustrative, components are negotiable, and the whole thing is meant to be torn apart and rebuilt with your team.</p>
-
-  <p class="body-text" style="max-width: 800px; margin-bottom: 48px; font-style: italic; color: var(--gray);">Think of the two columns below as two different conversations we could have, separately or together — not as a tier menu.</p>
-
-  <div class="tiers-wrapper">
-
-    <!-- IDEA 1: VISIBILITY -->
-    <div class="tier-card">
-      <div class="tier-badge">Idea A · Visibility</div>
-      <div class="tier-name">PEOPLE'S<br>CHOICE PARTNER</div>
-      <div class="tier-price">~$250K range<span style="display:block; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; opacity:0.5; margin-top:6px;">illustrative only</span></div>
-
-      <div class="tier-section-label">What it might look like</div>
-      <ul class="benefit-list">
-        <li>"A24 People's Choice" framing across the platform and competition materials</li>
-        <li>A24 lockup on fv.siv.org and across leaderboard views</li>
-        <li>A24 named in the launch announcement to 1,500 registered creators</li>
-        <li>Co-published launch post with Moonshots; Diamandis newsletter feature; podcast episode</li>
-      </ul>
-
-      <div class="tier-section-label">Live Finale · September 25</div>
-      <ul class="benefit-list">
-        <li>VIP / backstage access at Moonshot Gathering</li>
-        <li>On-stage People's Choice reveal moment — A24 named in the reveal</li>
-        <li>A24 attribution on live voting screen — 1,500 attendees plus livestream</li>
-        <li>1-on-1 time with Peter Diamandis and competition leadership</li>
-      </ul>
-
-      <div class="best-for"><strong>The point:</strong> A way to attach A24 to the discovery narrative without committing capital. Open to scoping up, scoping down, or skipping entirely if the value sits elsewhere for your team.</div>
-    </div>
-
-    <!-- IDEA 2: FUND -->
-    <div class="tier-card featured">
-      <div class="tier-badge">Idea B · Filmmaker Fund <span class="tag">Where it gets interesting</span></div>
-      <div class="tier-name">A24<br>FILMMAKER FUND</div>
-      <div class="tier-price">Conceptual<span style="display:block; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; opacity:0.5; margin-top:6px;">to be defined together</span></div>
-
-      <div class="tier-section-label">Rights structure (to discuss)</div>
-      <ul class="benefit-list">
-        <li>Some form of first-look on the People's Choice winner</li>
-        <li>Right of first conversation with finalists before agents arrive — exact scope TBD</li>
-        <li>Range is explicitly out of the People's Choice lane, which leaves room to design something clean</li>
-        <li>Final shape, exclusivity, and term length are all open</li>
-      </ul>
-
-      <div class="tier-section-label">Discovery infrastructure (sketch)</div>
-      <ul class="benefit-list">
-        <li>Private scouting view of leaderboard signal — ELO, traction, demographics</li>
-        <li>Structured intros to finalists the funnel surfaces</li>
-        <li>Some form of co-attribution on discovery moments — phrasing to land together</li>
-      </ul>
-
-      <div class="tier-section-label">Capital — purely a thought</div>
-      <ul class="benefit-list">
-        <li>You mentioned ~$5M per promising filmmaker as the range your financing sources work in — could anchor against that, or not</li>
-        <li>Could be discretionary (no commitment to deploy), structured as a fund, or nothing at all</li>
-        <li>Or skip the capital piece entirely and keep this as a rights conversation</li>
-      </ul>
-
-      <div class="best-for"><strong>The point:</strong> Not a deal — a question. Is there a version of this that fits how A24 actually operates? Open to your team designing the structure from scratch and bringing it back to us.</div>
-    </div>
-
-  </div>
-
-  <div class="page-num">08 / 09</div>
-</section>
-
-<!-- ── SLIDE 9: CTA ── -->
-<section class="slide cta-slide" id="slide-8">
-  <div class="slide-label">09 · Next Steps</div>
-  <h2>THE PIXAR MODEL,<br>FOR <em>DISCOVERY.</em></h2>
-  <p class="body-text" style="max-width: 720px;">You're building a Pixar-style engineer-and-storyteller org internally. The People's Choice track is the audience-side counterpart — a structured discovery funnel that runs in public, surfaces the next Kane Parsons in real time, and makes A24's first-look the cleanest path from breakout to release. Three concrete next steps from our call:</p>
-
-  <ul class="mechanic-list" style="max-width: 760px; margin: 32px 0 40px;">
-    <li class="mechanic-item">
-      <div class="mechanic-num">01</div>
-      <div class="mechanic-text">
-        <h4>Co-production rights conversation</h4>
-        <p>Define structure for People's Choice winner first-look + top-10 right-of-first-conversation. A24 legal + Tyler/competition counsel. Target close: 30 days.</p>
+    <div class="scope-item">
+      <div class="scope-num">02</div>
+      <div class="scope-content">
+        <h3>Voting platform branding</h3>
+        <p>fv.siv.org carries A24 attribution for the full voting window. Exclusive. No competing studios on the page.</p>
       </div>
+    </div>
+
+    <div class="scope-item">
+      <div class="scope-num">03</div>
+      <div class="scope-content">
+        <h3>The live reveal</h3>
+        <p>The winner is announced on stage September 25 in Los Angeles, with A24 named in the moment. 1,500 attendees in the room plus livestream audience.</p>
+      </div>
+    </div>
+
+    <div class="scope-item">
+      <div class="scope-num">04</div>
+      <div class="scope-content">
+        <h3>Amplification</h3>
+        <p>Diamandis newsletter feature to 1M+ subscribers. Moonshots podcast episode tied to the launch. Co-published launch post. Named attribution across every social mention of the People's Choice track.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="the-ask">
+    <div>
+      <div class="the-ask-note">The Ask</div>
+      <div class="the-ask-price">$250,000</div>
+    </div>
+    <div>
+      <p class="the-ask-detail">One-time. Covers the full competition window through the September 25 finale in Los Angeles.</p>
+    </div>
+  </div>
+
+  <div class="page-num">04 / 05</div>
+</section>
+
+<!-- ── SLIDE 5: NEXT STEPS ── -->
+<section class="slide cta-slide" id="slide-4">
+  <div class="slide-label">05 · Next Steps</div>
+  <h2>NEXT <em>STEPS</em></h2>
+
+  <ol class="next-list">
+    <li>
+      <span class="nl-num">01</span>
+      <span class="nl-text">Scott reviews internally and confirms interest.</span>
     </li>
-    <li class="mechanic-item">
-      <div class="mechanic-num">02</div>
-      <div class="mechanic-text">
-        <h4>Livestream partnership format</h4>
-        <p>Pick the show shape — Weekly Watch Party, Pre-Finale Show, Discovery Reel, or stack. A24 content + Moonshots production scope a pilot in two weeks.</p>
-      </div>
+    <li>
+      <span class="nl-num">02</span>
+      <span class="nl-text">30-minute working session to lock scope and timeline.</span>
     </li>
-    <li class="mechanic-item">
-      <div class="mechanic-num">03</div>
-      <div class="mechanic-text">
-        <h4>Explore a structure together</h4>
-        <p>The Filmmaker Fund framing is a starting point, not a proposal. Open to your team taking it apart, reshaping it, or coming back with something entirely different that fits how A24 actually operates.</p>
-      </div>
+    <li>
+      <span class="nl-num">03</span>
+      <span class="nl-text">Term sheet within 14 days of the working session.</span>
     </li>
-  </ul>
+    <li>
+      <span class="nl-num">04</span>
+      <span class="nl-text">Public launch coordinated with voting open.</span>
+    </li>
+  </ol>
 
-  <a class="cta-btn" href="mailto:tyler@moonshots.com?subject=A24%20%C3%97%20FVXP%20%E2%80%94%20next%20steps">Schedule the working session →</a>
+  <a class="cta-btn" href="mailto:tyler@moonshots.com?subject=A24%20%C3%97%20FVXP%20%E2%80%94%20People%27s%20Choice">Schedule the working session →</a>
 
   <div class="contact-grid">
     <div class="contact-cell">
@@ -1551,11 +1386,11 @@
     </div>
   </div>
 
-  <div style="margin-top: 64px; font-family: 'Space Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.18); letter-spacing: 0.2em; text-transform: uppercase; text-align:center;">
+  <div class="partner-stamp">
     Future Vision XPRIZE · Presented by Google · Administered by XPRIZE Foundation
   </div>
 
-  <div class="page-num">09 / 09</div>
+  <div class="page-num">05 / 05</div>
 </section>
 
 <script>
