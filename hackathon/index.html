@@ -447,12 +447,13 @@
   }
 </style>
 
-<!-- Production-minified React/ReactDOM (~10KB + ~140KB) — was using dev builds (~107KB + ~1MB). -->
-<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+<!-- Production-minified React/ReactDOM (~10KB + ~140KB) — was using dev builds (~107KB + ~1MB).
+     defer = don't block HTML parsing; scripts still run in order before DOMContentLoaded. -->
+<script defer src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script defer src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
 <!-- Babel-standalone compiles JSX in-browser. Large (~3MB compressed): we accept the cost
      since this repo has no build step. If we ever add a build step, precompile JSX and drop this. -->
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+<script defer src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 
 <script type="importmap">
 { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
