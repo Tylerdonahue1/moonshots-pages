@@ -69,15 +69,19 @@
     min-width: 0;
   }
   .site-nav__logo img { height: 30px; width: auto; display: block; }
-  .site-nav__wordmark { display: block; flex-shrink: 0; overflow: visible; }
+  /* Official ribbon SVG is ~18.16:1 aspect; recalibrated for that ratio. */
+  .site-nav__wordmark { display: block; flex-shrink: 0; }
+  @media (max-width: 720px) {
+    .site-nav__wordmark { width: 290px; height: 16px; }
+  }
   @media (max-width: 480px) {
-    .site-nav__wordmark { width: 234px; height: 18px; }
+    .site-nav__wordmark { width: 236px; height: 13px; }
   }
   @media (max-width: 380px) {
-    .site-nav__wordmark { width: 202px; height: 15.5px; }
+    .site-nav__wordmark { width: 200px; height: 11px; }
   }
   @media (max-width: 340px) {
-    .site-nav__wordmark { width: 178px; height: 13.5px; }
+    .site-nav__wordmark { width: 178px; height: 9.8px; }
   }
   .nav-links {
     display: flex; align-items: center; gap: 28px; list-style: none;
@@ -631,13 +635,7 @@
   <nav class="site-nav">
     <div class="container site-nav__row">
       <a href="/hackathon" class="site-nav__logo" aria-label="Build with Gemini XPRIZE — home">
-        <svg class="site-nav__wordmark" width="286" height="22" viewBox="0 0 1300 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Build with Gemini XPRIZE" fill="currentColor" preserveAspectRatio="xMinYMid meet" overflow="visible">
-          <text y="78" font-family="Inter, -apple-system, BlinkMacSystemFont, system-ui, sans-serif" font-size="90" letter-spacing="-2">
-            <tspan x="0" font-weight="500">BUILD WITH GEMINI</tspan>
-            <tspan dx="26" font-weight="300" opacity="0.55">|</tspan>
-            <tspan dx="26" font-weight="800">XPRIZE</tspan>
-          </text>
-        </svg>
+        <img class="site-nav__wordmark" src="/hackathon/assets/wordmark-white.svg" alt="Build with Gemini XPRIZE" width="400" height="22" />
       </a>
 
       <ul class="nav-links">
@@ -1244,13 +1242,7 @@
   <!-- FOOTER -->
   <footer class="site">
     <div class="container row" style="align-items: center;">
-      <svg class="footer-wordmark" width="234" height="18" viewBox="0 0 1300 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Build with Gemini XPRIZE" fill="currentColor" overflow="visible" style="color: rgba(255,255,255,0.78);">
-        <text y="78" font-family="Inter, -apple-system, BlinkMacSystemFont, system-ui, sans-serif" font-size="90" letter-spacing="-2">
-          <tspan x="0" font-weight="500">BUILD WITH GEMINI</tspan>
-          <tspan dx="26" font-weight="300" opacity="0.55">|</tspan>
-          <tspan dx="26" font-weight="800">XPRIZE</tspan>
-        </text>
-      </svg>
+      <img class="footer-wordmark" src="/hackathon/assets/wordmark-white.svg" alt="Build with Gemini XPRIZE" width="290" height="16" style="opacity: 0.78;" />
       <span>v.1 · Apr 2026</span>
     </div>
   </footer>

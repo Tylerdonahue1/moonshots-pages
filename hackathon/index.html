@@ -241,15 +241,19 @@
   /* Wordmark: explicit width/height attrs on the SVG handle base sizing;
      CSS only overrides for smaller viewports. flex-shrink:0 keeps it from
      being compressed by adjacent items. */
-  .site-nav__wordmark { display: block; flex-shrink: 0; overflow: visible; }
+  /* Official ribbon SVG is ~18.16:1 aspect; recalibrated for that ratio. */
+  .site-nav__wordmark { display: block; flex-shrink: 0; }
+  @media (max-width: 720px) {
+    .site-nav__wordmark { width: 290px; height: 16px; }
+  }
   @media (max-width: 480px) {
-    .site-nav__wordmark { width: 234px; height: 18px; }
+    .site-nav__wordmark { width: 236px; height: 13px; }
   }
   @media (max-width: 380px) {
-    .site-nav__wordmark { width: 202px; height: 15.5px; }
+    .site-nav__wordmark { width: 200px; height: 11px; }
   }
   @media (max-width: 340px) {
-    .site-nav__wordmark { width: 178px; height: 13.5px; }
+    .site-nav__wordmark { width: 178px; height: 9.8px; }
   }
 
   .nav-links {
@@ -449,8 +453,8 @@
 <body>
   <div id="root"></div>
 
-  <script type="text/babel" src="tweaks-panel.jsx?v=20260514b"></script>
-  <script type="text/babel" src="sections.jsx?v=20260514b"></script>
-  <script type="text/babel" src="app.jsx?v=20260514b"></script>
+  <script type="text/babel" src="tweaks-panel.jsx?v=20260514c"></script>
+  <script type="text/babel" src="sections.jsx?v=20260514c"></script>
+  <script type="text/babel" src="app.jsx?v=20260514c"></script>
 </body>
 </html>

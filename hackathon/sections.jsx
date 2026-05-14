@@ -62,13 +62,7 @@ function Nav() {
     <nav className="site-nav">
       <div className="container site-nav__row">
         <a href="#top" className="site-nav__logo" aria-label="Build with Gemini XPRIZE — home">
-          <svg className="site-nav__wordmark" width="286" height="22" viewBox="0 0 1300 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Build with Gemini XPRIZE" fill="currentColor" preserveAspectRatio="xMinYMid meet" overflow="visible">
-            <text y="78" fontFamily="Inter, -apple-system, BlinkMacSystemFont, system-ui, sans-serif" fontSize="90" letterSpacing="-2">
-              <tspan x="0" fontWeight="500">BUILD WITH GEMINI</tspan>
-              <tspan dx="26" fontWeight="300" opacity="0.55">|</tspan>
-              <tspan dx="26" fontWeight="800">XPRIZE</tspan>
-            </text>
-          </svg>
+          <img className="site-nav__wordmark" src="assets/wordmark-white.svg" alt="Build with Gemini XPRIZE" width="400" height="22" />
         </a>
 
         <ul className="nav-links">
@@ -1101,13 +1095,7 @@ function Footer() {
       <div className="container" style={{
         display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 16, alignItems: "center"
       }}>
-        <svg className="footer-wordmark" width="234" height="18" viewBox="0 0 1300 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Build with Gemini XPRIZE" fill="currentColor" overflow="visible" style={{ color: "rgba(255,255,255,0.78)" }}>
-          <text y="78" fontFamily="Inter, -apple-system, BlinkMacSystemFont, system-ui, sans-serif" fontSize="90" letterSpacing="-2">
-            <tspan x="0" fontWeight="500">BUILD WITH GEMINI</tspan>
-            <tspan dx="26" fontWeight="300" opacity="0.55">|</tspan>
-            <tspan dx="26" fontWeight="800">XPRIZE</tspan>
-          </text>
-        </svg>
+        <img className="footer-wordmark" src="assets/wordmark-white.svg" alt="Build with Gemini XPRIZE" width="290" height="16" style={{ opacity: 0.78 }} />
         <span>v.1 · Apr 2026</span>
       </div>
     </footer>);
