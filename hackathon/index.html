@@ -106,6 +106,35 @@
 
   .accent { color: var(--cyan); }
 
+  /* ───────── Hero XPRIZE co-presenter mark ───────── */
+  .hero-xprize {
+    position: absolute;
+    top: 0; right: 0;
+    z-index: 5;
+    display: flex; flex-direction: column; align-items: flex-end; gap: 8px;
+  }
+  .hero-xprize__label {
+    font-family: var(--font-pixel);
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+  }
+  .hero-xprize__mark {
+    width: 96px; height: 96px;
+    display: block;
+    filter: drop-shadow(0 4px 18px rgba(0,0,0,0.35));
+  }
+  @media (max-width: 720px) {
+    .hero-xprize { gap: 4px; }
+    .hero-xprize__label { font-size: 11px; }
+    .hero-xprize__mark { width: 64px; height: 64px; }
+  }
+  @media (max-width: 380px) {
+    .hero-xprize__mark { width: 54px; height: 54px; }
+  }
+
   /* ───────── Hero (Aurora + fallback gradient) ───────── */
   .hero-shell {
     /* Static cyan-glow gradient sits behind the canvas. If the WebGL shader
@@ -419,8 +448,8 @@
 <body>
   <div id="root"></div>
 
-  <script type="text/babel" src="tweaks-panel.jsx?v=20260505m"></script>
-  <script type="text/babel" src="sections.jsx?v=20260505m"></script>
-  <script type="text/babel" src="app.jsx?v=20260505m"></script>
+  <script type="text/babel" src="tweaks-panel.jsx?v=20260514a"></script>
+  <script type="text/babel" src="sections.jsx?v=20260514a"></script>
+  <script type="text/babel" src="app.jsx?v=20260514a"></script>
 </body>
 </html>
