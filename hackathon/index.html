@@ -3,17 +3,21 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<base href="/hackathon/" />
+<!-- IMPORTANT: do NOT add `<base href="/hackathon/">` here.
+     Vercel's cleanUrls + trailingSlash:false serves this page at /hackathon (no slash),
+     but a base href ending in / would resolve relative anchor hashes to /hackathon/#X
+     — a different URL, which triggers a navigation+redirect and breaks anchor scroll.
+     Use absolute /hackathon/... paths for assets and scripts instead. -->
 <title>Build with Gemini XPRIZE — 90 days. Build a profitable AI business.</title>
 
-<link rel="icon" type="image/png" href="assets/xprize-mark.png" />
-<link rel="apple-touch-icon" href="assets/xprize-mark.png" />
+<link rel="icon" type="image/png" href="/hackathon/assets/xprize-mark.png" />
+<link rel="apple-touch-icon" href="/hackathon/assets/xprize-mark.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preconnect" href="https://unpkg.com" crossorigin />
-<link rel="preload" as="image" href="assets/lockup-white.svg" />
-<link rel="preload" as="image" href="assets/wordmark-white.svg" />
+<link rel="preload" as="image" href="/hackathon/assets/lockup-white.svg" />
+<link rel="preload" as="image" href="/hackathon/assets/wordmark-white.svg" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=VT323&display=swap" rel="stylesheet" />
 
 <style>
@@ -578,8 +582,9 @@
     })();
   </script>
 
-  <!-- Precompiled by build.mjs (esbuild). To regenerate: cd hackathon && npm run compile -->
-  <script defer src="sections.js?v=20260515c"></script>
-  <script defer src="app.js?v=20260515c"></script>
+  <!-- Precompiled by build.mjs (esbuild). To regenerate: cd hackathon && npm run compile.
+       Absolute paths (not relative) — see header comment about <base> tag and anchor-scroll. -->
+  <script defer src="/hackathon/sections.js?v=20260515d"></script>
+  <script defer src="/hackathon/app.js?v=20260515d"></script>
 </body>
 </html>

@@ -62,7 +62,7 @@ function Nav() {
     <nav className="site-nav">
       <div className="container site-nav__row">
         <a href="#top" className="site-nav__logo" aria-label="Build with Gemini XPRIZE — home">
-          <img className="site-nav__wordmark" src="assets/wordmark-white.svg" alt="Build with Gemini XPRIZE" width="400" height="22" />
+          <img className="site-nav__wordmark" src="/hackathon/assets/wordmark-white.svg" alt="Build with Gemini XPRIZE" width="400" height="22" />
         </a>
 
         <ul className="nav-links">
@@ -297,7 +297,7 @@ function Hero() {
 
         {/* Co-presenter lockup (XPRIZE × Gemini), top-right of hero — official brand asset */}
         <div className="hero-lockup" style={{ pointerEvents: "auto" }}>
-          <img className="hero-lockup__img" src="assets/lockup-white.svg" alt="Build with Gemini XPRIZE × Gemini" width="280" height="47" />
+          <img className="hero-lockup__img" src="/hackathon/assets/lockup-white.svg" alt="Build with Gemini XPRIZE × Gemini" width="280" height="47" />
         </div>
 
         <div className="hero-eyebrow">
@@ -1094,7 +1094,7 @@ function Footer() {
       <div className="container" style={{
         display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 16, alignItems: "center"
       }}>
-        <img className="footer-wordmark" src="assets/wordmark-white.svg" alt="Build with Gemini XPRIZE" width="290" height="16" style={{ opacity: 0.78 }} />
+        <img className="footer-wordmark" src="/hackathon/assets/wordmark-white.svg" alt="Build with Gemini XPRIZE" width="290" height="16" style={{ opacity: 0.78 }} />
         <span>v.1 · Apr 2026</span>
       </div>
     </footer>);
