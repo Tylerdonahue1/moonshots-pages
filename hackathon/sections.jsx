@@ -42,9 +42,11 @@ function Nav() {
     return () => obs.disconnect();
   }, []);
 
-  // Smooth-scroll for in-page anchor links. We had to remove CSS `scroll-behavior:
-  // smooth` because it broke native anchor scroll in Chrome on this page (smooth
-  // scroll got stuck and never completed). element.scrollIntoView works fine.
+  // Smooth-scroll for in-page anchor links. The page hits a Chrome bug where ALL
+  // smooth-scroll APIs (CSS scroll-behavior:smooth, scrollIntoView({behavior:"smooth"}),
+  // window.scrollTo({behavior:"smooth"})) silently fail and leave scrollY at 0. Only
+  // `behavior:"instant"` reliably scrolls. We hand-roll a rAF easing animation that
+  // calls window.scrollTo(x,y) (no behavior arg = instant) on each frame.
   useEffect(() => {
     function onDocClick(e) {
       const a = e.target.closest('a[href^="#"]');
@@ -54,8 +56,9 @@ function Nav() {
       const target = document.getElementById(href.slice(1));
       if (!target) return;
       e.preventDefault();
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-      // Update URL hash without forcing a second scroll
+      // behavior:"smooth" silently fails on this page (Chrome bug — every smooth
+      // scroll API leaves scrollY at 0). Instant scroll works reliably.
+      target.scrollIntoView({ behavior: "instant", block: "start" });
       history.pushState(null, "", href);
     }
     document.addEventListener("click", onDocClick);
