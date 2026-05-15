@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Official Rules — Build with Gemini XPRIZE</title>
 
+<link rel="icon" type="image/png" href="/hackathon/assets/xprize-mark.png" />
+<link rel="apple-touch-icon" href="/hackathon/assets/xprize-mark.png" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=VT323&display=swap" rel="stylesheet" />
@@ -639,6 +642,82 @@
     color: var(--cyan); text-transform: uppercase;
   }
   .contact-line .em { font-size: 16px; font-weight: 600; }
+
+  /* ───────── Cookie consent banner ───────── */
+  .cookie-banner {
+    position: fixed;
+    bottom: 16px; left: 16px; right: 16px;
+    z-index: 9999;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    background: rgba(11,14,12,0.96);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid var(--border-dark);
+    border-radius: 14px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    font-family: var(--font-sans);
+    color: var(--white);
+    transform: translateY(20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .cookie-banner.is-visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .cookie-banner__inner {
+    display: flex; flex-wrap: wrap; align-items: center;
+    gap: 16px;
+  }
+  .cookie-banner__text {
+    flex: 1 1 280px;
+    font-size: 14px; line-height: 1.5;
+    margin: 0;
+    color: rgba(255,255,255,0.85);
+  }
+  .cookie-banner__text a {
+    color: var(--cyan);
+    border-bottom: 1px solid rgba(27,191,224,0.4);
+  }
+  .cookie-banner__text a:hover { border-bottom-color: var(--cyan); }
+  .cookie-banner__actions {
+    display: flex; gap: 10px; flex-shrink: 0;
+  }
+  .cookie-banner__btn {
+    font-family: var(--font-sans);
+    font-size: 14px; font-weight: 600;
+    letter-spacing: -0.01em;
+    padding: 10px 18px;
+    border-radius: 999px;
+    cursor: pointer; border: none;
+    transition: all 0.15s;
+  }
+  .cookie-banner__btn--primary {
+    background: var(--cyan);
+    color: var(--near-black);
+  }
+  .cookie-banner__btn--primary:hover { background: #16A8C6; }
+  .cookie-banner__btn--ghost {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid var(--border-dark);
+  }
+  .cookie-banner__btn--ghost:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+  }
+  @media (max-width: 560px) {
+    .cookie-banner {
+      bottom: 12px; left: 12px; right: 12px;
+      padding: 16px 18px;
+    }
+    .cookie-banner__inner { flex-direction: column; align-items: stretch; }
+    .cookie-banner__actions { justify-content: flex-end; }
+  }
 </style>
 </head>
 <body>
@@ -1258,6 +1337,37 @@
       <span>v.1 · Apr 2026</span>
     </div>
   </footer>
+
+  <!-- Cookie consent banner. Shows once; choice persisted in localStorage. -->
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+    <div class="cookie-banner__inner">
+      <p class="cookie-banner__text">
+        We use cookies to improve your experience and analyze site traffic. By clicking
+        <strong>Accept</strong>, you consent to our use of cookies. See our
+        <a href="https://info.devpost.com/privacy" target="_blank" rel="noopener">privacy policy</a>.
+      </p>
+      <div class="cookie-banner__actions">
+        <button type="button" id="cookie-decline" class="cookie-banner__btn cookie-banner__btn--ghost">Decline</button>
+        <button type="button" id="cookie-accept" class="cookie-banner__btn cookie-banner__btn--primary">Accept</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var KEY = 'mxs_cookie_consent_v1';
+      var banner = document.getElementById('cookie-banner');
+      if (!banner) return;
+      try { if (localStorage.getItem(KEY)) return; } catch (e) {}
+      setTimeout(function () { banner.classList.add('is-visible'); }, 600);
+      function dismiss(value) {
+        try { localStorage.setItem(KEY, value); } catch (e) {}
+        banner.classList.remove('is-visible');
+        setTimeout(function () { banner.style.display = 'none'; }, 280);
+      }
+      document.getElementById('cookie-accept').addEventListener('click', function () { dismiss('accepted'); });
+      document.getElementById('cookie-decline').addEventListener('click', function () { dismiss('declined'); });
+    })();
+  </script>
 
 </body>
 </html>
