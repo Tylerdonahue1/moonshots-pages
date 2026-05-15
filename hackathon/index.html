@@ -113,28 +113,28 @@
   .accent { color: var(--cyan); }
 
   /* ───────── Hero co-presenter lockup (XPRIZE × Gemini) ───────── */
-  /* Official "Lockup - White.svg" is ~5.97:1 aspect; sized to read clearly at every
-     breakpoint without crowding the eyebrow pill below. !important required because
-     of the global `img { max-width:100%; height:auto }` mobile-safety rule. */
+  /* Lockup sits as the first block in the hero content stream — left-aligned,
+     above the eyebrow pill. Official "Lockup - White.svg" is ~5.97:1 aspect.
+     !important needed to override the global `img { max-width:100%; height:auto }` rule. */
   .hero-lockup {
-    position: absolute;
-    top: 0; right: 0;
-    z-index: 5;
     display: block;
+    margin-bottom: 40px;
     filter: drop-shadow(0 4px 18px rgba(0,0,0,0.55));
   }
   .hero-lockup__img {
-    width: 280px !important; height: 47px !important;
+    width: 460px !important; height: 77px !important;
     display: block;
   }
   @media (max-width: 880px) {
-    .hero-lockup__img { width: 200px !important; height: 33.5px !important; }
+    .hero-lockup { margin-bottom: 32px; }
+    .hero-lockup__img { width: 340px !important; height: 57px !important; }
   }
   @media (max-width: 480px) {
-    .hero-lockup__img { width: 156px !important; height: 26px !important; }
+    .hero-lockup { margin-bottom: 24px; }
+    .hero-lockup__img { width: 260px !important; height: 43.5px !important; }
   }
   @media (max-width: 380px) {
-    .hero-lockup__img { width: 130px !important; height: 22px !important; }
+    .hero-lockup__img { width: 220px !important; height: 37px !important; }
   }
 
   /* ───────── Hero (Aurora + fallback gradient) ───────── */
@@ -576,7 +576,7 @@
   </script>
 
   <!-- Precompiled by build.mjs (esbuild). To regenerate: cd hackathon && npm run compile -->
-  <script defer src="sections.js?v=20260514j"></script>
-  <script defer src="app.js?v=20260514j"></script>
+  <script defer src="sections.js?v=20260515a"></script>
+  <script defer src="app.js?v=20260515a"></script>
 </body>
 </html>
