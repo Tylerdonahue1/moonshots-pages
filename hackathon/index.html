@@ -37,7 +37,10 @@
     --tracking-tight: -0.04em;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  /* Note: `scroll-behavior: smooth` on html breaks native anchor scroll entirely in
+     Chrome on this page (likely a smooth-scroll bug interacting with the document
+     dimensions / overflow setup). Replaced with JS-driven smooth scroll on nav-link
+     clicks via element.scrollIntoView, which is unaffected. */
   body {
     font-family: var(--font-sans);
     background: var(--near-black);
@@ -584,7 +587,7 @@
 
   <!-- Precompiled by build.mjs (esbuild). To regenerate: cd hackathon && npm run compile.
        Absolute paths (not relative) — see header comment about <base> tag and anchor-scroll. -->
-  <script defer src="/hackathon/sections.js?v=20260515d"></script>
-  <script defer src="/hackathon/app.js?v=20260515d"></script>
+  <script defer src="/hackathon/sections.js?v=20260515e"></script>
+  <script defer src="/hackathon/app.js?v=20260515e"></script>
 </body>
 </html>

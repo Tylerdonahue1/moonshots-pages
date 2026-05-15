@@ -42,6 +42,26 @@ function Nav() {
     return () => obs.disconnect();
   }, []);
 
+  // Smooth-scroll for in-page anchor links. We had to remove CSS `scroll-behavior:
+  // smooth` because it broke native anchor scroll in Chrome on this page (smooth
+  // scroll got stuck and never completed). element.scrollIntoView works fine.
+  useEffect(() => {
+    function onDocClick(e) {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const href = a.getAttribute("href");
+      if (!href || href.length < 2) return;
+      const target = document.getElementById(href.slice(1));
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      // Update URL hash without forcing a second scroll
+      history.pushState(null, "", href);
+    }
+    document.addEventListener("click", onDocClick);
+    return () => document.removeEventListener("click", onDocClick);
+  }, []);
+
   // Close sheet on resize back to desktop, and on Escape
   useEffect(() => {
     if (!sheetOpen) return;
