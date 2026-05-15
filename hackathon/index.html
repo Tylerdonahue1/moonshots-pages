@@ -41,7 +41,10 @@
     line-height: 1.5;
     letter-spacing: var(--tracking-tight);
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;             /* mobile safety: never allow horizontal scroll */
+    overflow-x: clip;               /* mobile safety: never allow horizontal scroll.
+                                        Using `clip` (not `hidden`) so we don't create a
+                                        scroll container that would break the smooth-scroll
+                                        anchor-link behavior from `html { scroll-behavior: smooth }`. */
     overflow-wrap: break-word;
     -webkit-text-size-adjust: 100%; /* prevent iOS auto-zoom on landscape */
   }
