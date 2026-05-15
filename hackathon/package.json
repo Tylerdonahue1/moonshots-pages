@@ -1,0 +1,11 @@
+{
+  "name": "hackathon-build",
+  "private": true,
+  "description": "Local build for the hackathon page: precompiles JSX → JS so we don't ship Babel-standalone to users.",
+  "scripts": {
+    "compile": "node build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}

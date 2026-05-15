@@ -447,13 +447,10 @@
   }
 </style>
 
-<!-- Production-minified React/ReactDOM (~10KB + ~140KB) — was using dev builds (~107KB + ~1MB).
-     defer = don't block HTML parsing; scripts still run in order before DOMContentLoaded. -->
+<!-- Production-minified React/ReactDOM. JSX is precompiled by build.mjs (npm run compile)
+     — no Babel-standalone in production. defer = don't block HTML parsing. -->
 <script defer src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
 <script defer src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
-<!-- Babel-standalone compiles JSX in-browser. Large (~3MB compressed): we accept the cost
-     since this repo has no build step. If we ever add a build step, precompile JSX and drop this. -->
-<script defer src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 
 <script type="importmap">
 { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
@@ -467,8 +464,8 @@
 <body>
   <div id="root"></div>
 
-  <!-- tweaks-panel.jsx removed for production (was admin-only, +18KB + parse cost) -->
-  <script type="text/babel" src="sections.jsx?v=20260514h"></script>
-  <script type="text/babel" src="app.jsx?v=20260514h"></script>
+  <!-- Precompiled by build.mjs (esbuild). To regenerate: cd hackathon && npm run compile -->
+  <script defer src="sections.js?v=20260514i"></script>
+  <script defer src="app.js?v=20260514i"></script>
 </body>
 </html>
