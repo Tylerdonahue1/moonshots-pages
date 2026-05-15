@@ -245,31 +245,31 @@
   /* Wordmark: explicit width/height attrs on the SVG handle base sizing;
      CSS only overrides for smaller viewports. flex-shrink:0 keeps it from
      being compressed by adjacent items. */
-  /* Official ribbon SVG is ~18.16:1 aspect. Explicit !important sizing here because
-     the global `img { max-width: 100%; height: auto }` safety rule would otherwise
-     force the SVG to render at its intrinsic dimensions. */
+  /* Official wordmark SVG is ~14.32:1 aspect (444×31).  Explicit !important sizing
+     here because the global `img { max-width: 100%; height: auto }` safety rule
+     would otherwise force the SVG to render at its intrinsic dimensions. */
   .site-nav__wordmark {
     display: block; flex-shrink: 0;
-    width: 300px !important; height: 16.5px !important;
+    width: 300px !important; height: 21px !important;
   }
   @media (max-width: 720px) {
-    .site-nav__wordmark { width: 230px !important; height: 12.7px !important; }
+    .site-nav__wordmark { width: 230px !important; height: 16px !important; }
   }
   @media (max-width: 480px) {
-    .site-nav__wordmark { width: 190px !important; height: 10.5px !important; }
+    .site-nav__wordmark { width: 190px !important; height: 13.3px !important; }
   }
   @media (max-width: 380px) {
-    .site-nav__wordmark { width: 160px !important; height: 8.8px !important; }
+    .site-nav__wordmark { width: 160px !important; height: 11.2px !important; }
   }
   @media (max-width: 340px) {
-    .site-nav__wordmark { width: 144px !important; height: 8px !important; }
+    .site-nav__wordmark { width: 144px !important; height: 10px !important; }
   }
   .footer-wordmark {
-    width: 290px !important; height: 16px !important;
+    width: 290px !important; height: 20.2px !important;
     display: block;
   }
   @media (max-width: 480px) {
-    .footer-wordmark { width: 236px !important; height: 13px !important; }
+    .footer-wordmark { width: 236px !important; height: 16.5px !important; }
   }
 
   .nav-links {
@@ -579,7 +579,7 @@
   </script>
 
   <!-- Precompiled by build.mjs (esbuild). To regenerate: cd hackathon && npm run compile -->
-  <script defer src="sections.js?v=20260515a"></script>
-  <script defer src="app.js?v=20260515a"></script>
+  <script defer src="sections.js?v=20260515b"></script>
+  <script defer src="app.js?v=20260515b"></script>
 </body>
 </html>
