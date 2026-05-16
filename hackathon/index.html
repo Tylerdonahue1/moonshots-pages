@@ -615,6 +615,44 @@
 <body>
   <div id="root"></div>
 
+  <!-- Fallback content for users with JS disabled. React renders into #root above;
+       without JS, the visible content is just this block. -->
+  <noscript>
+    <style>
+      .noscript-fallback {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 64px 24px;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+        color: var(--white);
+        line-height: 1.5;
+      }
+      .noscript-fallback h1 { font-size: clamp(32px, 5vw, 56px); letter-spacing: -0.045em; line-height: 1.05; margin-bottom: 24px; }
+      .noscript-fallback p { font-size: 18px; color: rgba(255,255,255,0.78); margin-bottom: 20px; }
+      .noscript-fallback a.btn-primary {
+        display: inline-block; padding: 14px 24px; border-radius: 999px;
+        background: var(--cyan); color: var(--near-black);
+        font-weight: 600; font-size: 16px; margin-right: 12px;
+        text-decoration: none;
+      }
+      .noscript-fallback a.btn-ghost {
+        display: inline-block; padding: 13px 23px; border-radius: 999px;
+        border: 1px solid var(--border-dark); color: var(--white);
+        font-weight: 600; font-size: 16px;
+        text-decoration: none;
+      }
+    </style>
+    <div class="noscript-fallback">
+      <h1>Build with Gemini XPRIZE — <span style="color: var(--cyan)">90 days</span> to build a profitable AI business.</h1>
+      <p><strong style="color: var(--cyan)">$2M</strong> in prizes across 10 winners. Launching at Google I/O on May 19, 2026.</p>
+      <p>This page needs JavaScript enabled to view the interactive content. Use the links below or enable JavaScript for the full experience.</p>
+      <p>
+        <a class="btn-primary" href="https://xprize.devpost.com/" target="_blank" rel="noopener">Register →</a>
+        <a class="btn-ghost" href="/hackathon-rules">Read the rules</a>
+      </p>
+    </div>
+  </noscript>
+
   <!-- Cookie consent banner. Shows once; choice persisted in localStorage. -->
   <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
     <div class="cookie-banner__inner">
@@ -648,7 +686,7 @@
 
   <!-- Precompiled by build.mjs (esbuild). To regenerate: cd hackathon && npm run compile.
        Absolute paths (not relative) — see header comment about <base> tag and anchor-scroll. -->
-  <script defer src="/hackathon/sections.js?v=20260515i"></script>
-  <script defer src="/hackathon/app.js?v=20260515i"></script>
+  <script defer src="/hackathon/sections.js?v=20260515j"></script>
+  <script defer src="/hackathon/app.js?v=20260515j"></script>
 </body>
 </html>
