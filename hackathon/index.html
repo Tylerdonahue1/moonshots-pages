@@ -154,6 +154,11 @@
   .hero-lockup__img {
     width: 460px !important; height: 77px !important;
     display: block;
+    /* The official Lockup SVG has a faint vertical artifact in the embedded raster
+       at its right edge (residual from the original brand-asset export). Clipping
+       ~1.5% off the right hides it without distorting the visible content (Google
+       letters end before the clip line). */
+    clip-path: inset(0 1.5% 0 0);
   }
   @media (max-width: 880px) {
     .hero-lockup { margin-bottom: 32px; }
@@ -643,7 +648,7 @@
 
   <!-- Precompiled by build.mjs (esbuild). To regenerate: cd hackathon && npm run compile.
        Absolute paths (not relative) — see header comment about <base> tag and anchor-scroll. -->
-  <script defer src="/hackathon/sections.js?v=20260515h"></script>
-  <script defer src="/hackathon/app.js?v=20260515h"></script>
+  <script defer src="/hackathon/sections.js?v=20260515i"></script>
+  <script defer src="/hackathon/app.js?v=20260515i"></script>
 </body>
 </html>

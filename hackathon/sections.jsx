@@ -102,7 +102,7 @@ function Nav() {
           </li>
         </ul>
 
-        <a className="btn btn-primary nav-register" href="https://gemini-moonshot-xprize.devpost.com/" target="_blank" rel="noopener">
+        <a className="btn btn-primary nav-register" href="https://xprize.devpost.com/" target="_blank" rel="noopener">
           Register →
         </a>
 
@@ -149,7 +149,7 @@ function Nav() {
       </ul>
       <a
         className="btn btn-primary nav-sheet__cta"
-        href="https://gemini-moonshot-xprize.devpost.com/"
+        href="https://xprize.devpost.com/"
         target="_blank"
         rel="noopener"
         onClick={() => setSheetOpen(false)}>
@@ -344,7 +344,7 @@ function Hero() {
         </p>
 
         <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 64, pointerEvents: "auto" }}>
-          <a className="btn btn-primary" href="https://gemini-moonshot-xprize.devpost.com/" target="_blank" rel="noopener">Register →</a>
+          <a className="btn btn-primary" href="https://xprize.devpost.com/" target="_blank" rel="noopener">Register →</a>
           <a className="btn btn-ghost" href="/hackathon-rules">Read the rules</a>
         </div>
 
@@ -806,7 +806,7 @@ function GoogleStack() {
               A mix of credits, tools, and offerings will be made available to registered teams to support building on Google Cloud.
             </div>
           </div>
-          <a className="btn btn-primary" href="https://gemini-moonshot-xprize.devpost.com/" target="_blank" rel="noopener" style={{ whiteSpace: "nowrap" }}>
+          <a className="btn btn-primary" href="https://xprize.devpost.com/" target="_blank" rel="noopener" style={{ whiteSpace: "nowrap" }}>
             Register →
           </a>
         </div>
@@ -1097,7 +1097,7 @@ function CTA() {
           Show us.
         </p>
         <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-          <a className="btn btn-primary" href="https://gemini-moonshot-xprize.devpost.com/" target="_blank" rel="noopener">Notify me at launch →</a>
+          <a className="btn btn-primary" href="https://xprize.devpost.com/" target="_blank" rel="noopener">Notify me at launch →</a>
           <a className="btn btn-ghost" href="#prize">See the prize</a>
         </div>
       </div>
