@@ -65,6 +65,17 @@
   ::selection { background: var(--cyan); color: var(--near-black); }
   a { color: inherit; text-decoration: none; }
 
+  /* Accessible cyan focus ring for keyboard navigation. */
+  :focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  .btn:focus-visible, .nav-hamburger:focus-visible, .nav-sheet__close:focus-visible,
+  .cookie-banner__btn:focus-visible {
+    outline-offset: 4px;
+  }
+
   /* Sticky nav is 68px; give scroll targets breathing room. */
   section[id], header[id] { scroll-margin-top: 80px; }
 
