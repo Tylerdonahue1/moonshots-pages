@@ -312,7 +312,7 @@ function Hero() {
       background: "var(--near-black)"
     }}>
       <AuroraShader />
-      <div style={{
+      <div className="hero-overlay" style={{
         position: "absolute", inset: 0, zIndex: 10,
         display: "flex", alignItems: "center", pointerEvents: "none"
       }}>

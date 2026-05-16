@@ -451,8 +451,26 @@
       grid-template-columns: 1fr !important;
       gap: 12px !important;
     }
-    /* Hero shrinks on small screens */
-    .hero-shell { min-height: 600px !important; }
+    /* Hero: let content set the height on mobile so nothing gets clipped
+       — the desktop default is `height: 100vh` which squishes the long stack of
+       lockup + pill + h1 + subhead + 2 buttons + 3 stat rows. */
+    .hero-shell {
+      height: auto !important;
+      min-height: 100vh !important;
+    }
+    /* The overlay div is normally absolute (so content sits over the canvas at
+       fixed dimensions). On mobile we make it static so it can push the hero
+       taller as content needs. */
+    .hero-overlay {
+      position: static !important;
+      pointer-events: auto !important;
+      padding: 88px 0 56px !important;       /* top clears the 68px sticky nav */
+      align-items: flex-start !important;
+    }
+    /* Tighter stats grid: smaller value font + tighter row gap */
+    .hero-shell [style*="grid-template-columns: repeat(3"] {
+      gap: 14px !important;
+    }
     /* Section padding tightens */
     section { padding: 64px 0 !important; }
     /* Tighter container at <420px */
@@ -558,17 +576,35 @@
 </style>
 
 <!-- Production-minified React/ReactDOM. JSX is precompiled by build.mjs (npm run compile)
-     — no Babel-standalone in production. defer = don't block HTML parsing. -->
-<script defer src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
-<script defer src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+     — no Babel-standalone in production. defer = don't block HTML parsing.
+     Subresource Integrity (SRI) hashes pin the file content — protects against a
+     compromised unpkg CDN serving altered JS. -->
+<script defer src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"
+        integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z"
+        crossorigin="anonymous"></script>
+<script defer src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"
+        integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1"
+        crossorigin="anonymous"></script>
 
-<script type="importmap">
-{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
-</script>
-<script type="module">
-  import * as THREE from "three";
-  window.THREE = THREE;
-  window.dispatchEvent(new Event("three-ready"));
+<!-- Three.js (1.24 MB) lazy-loaded after first paint. The hero shows its CSS
+     radial-gradient fallback until the shader arrives. AuroraShader already waits
+     for the `three-ready` event so timing is handled gracefully. -->
+<script>
+  (function () {
+    function loadThree() {
+      var s = document.createElement("script");
+      s.type = "module";
+      // Inline the import — avoids needing a dynamic importmap (not yet universal).
+      s.textContent = 'import * as T from "https://unpkg.com/three@0.160.0/build/three.module.js"; window.THREE = T; window.dispatchEvent(new Event("three-ready"));';
+      document.head.appendChild(s);
+    }
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(loadThree, { timeout: 2000 });
+    } else {
+      // Fallback for browsers without requestIdleCallback (Safari)
+      setTimeout(loadThree, 200);
+    }
+  })();
 </script>
 </head>
 <body>
@@ -607,7 +643,7 @@
 
   <!-- Precompiled by build.mjs (esbuild). To regenerate: cd hackathon && npm run compile.
        Absolute paths (not relative) — see header comment about <base> tag and anchor-scroll. -->
-  <script defer src="/hackathon/sections.js?v=20260515f"></script>
-  <script defer src="/hackathon/app.js?v=20260515f"></script>
+  <script defer src="/hackathon/sections.js?v=20260515g"></script>
+  <script defer src="/hackathon/app.js?v=20260515g"></script>
 </body>
 </html>
