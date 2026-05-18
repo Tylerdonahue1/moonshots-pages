@@ -183,122 +183,168 @@ function GeminiSpark({ size = 16, color = "var(--cyan)" }) {
 }
 
 /* ─────────── HERO ─────────── */
+/* Raw-WebGL aurora — no Three.js (saved ~1.24 MB). It's a single fullscreen
+   triangle + fragment shader; a scene graph / camera / geometry abstraction is
+   pure overhead for that. Perf safeguards:
+     • DPR capped at 1.5 (fullscreen fragment shaders scale with pixel count)
+     • ~30 fps cap (the aurora drifts slowly; 60 fps is invisible vs 30 and 2× the GPU)
+     • paused when the hero scrolls offscreen (IntersectionObserver)
+     • paused when the tab is hidden (visibilitychange)
+   On any failure the canvas is hidden and the CSS gradient fallback shows. */
 function AuroraShader() {
   const canvasRef = useRef(null);
   useEffect(() => {
-    let raf, renderer, mesh, material, scene, camera, ro;
-    let cancelled = false;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const parent = canvas.parentElement;
+    const isMobile = window.matchMedia("(max-width: 720px)").matches;
+    const DPR = Math.min(window.devicePixelRatio || 1, 1.5);
+    const FRAME_MS = 1000 / 30;
 
-    function start(THREE) {
-      if (cancelled) return;
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      const parent = canvas.parentElement;
-      const isMobile = window.matchMedia("(max-width: 720px)").matches;
-      try {
-        renderer = new THREE.WebGLRenderer({ canvas, antialias: !isMobile, powerPreference: "high-performance" });
-      } catch (err) {
-        // WebGL unavailable / blocked — leave the CSS gradient fallback on the parent
-        console.warn("AuroraShader: WebGL unavailable", err);
-        canvas.style.display = "none";
-        return;
-      }
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
-      const w = parent.clientWidth, h = parent.clientHeight;
-      renderer.setSize(w, h, false);
-
-      scene = new THREE.Scene();
-      camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-
-      material = new THREE.ShaderMaterial({
-        uniforms: {
-          iTime: { value: 0 },
-          iResolution: { value: new THREE.Vector2(w, h) }
-        },
-        vertexShader: `void main(){ gl_Position = vec4(position,1.0); }`,
-        fragmentShader: `
-          uniform float iTime;
-          uniform vec2 iResolution;
-          #define NUM_OCTAVES 3
-          #define LOOPS_INT ${isMobile ? "20" : "35"}
-          #define LOOPS ${isMobile ? "20.0" : "35.0"}
-          // tanh polyfill: tanh() is GLSL ES 3.0; not available in ES 1.0 (mobile WebGL 1).
-          // CRITICAL: mobile fragment shaders run at mediump (16-bit float, max ~65504).
-          // exp(40) ≈ 2.35e17 overflows mediump → NaN → garbage colors on mobile.
-          // Real tanh saturates by x≈3, so clamping x*2.0 to 10 (exp(10)≈22026) stays
-          // safely in range with zero visual loss.
-          vec4 tanh4(vec4 x){
-            vec4 e2x = exp(min(x*2.0, vec4(10.0)));
-            return (e2x - 1.0) / (e2x + 1.0);
-          }
-          float rand(vec2 n){return fract(sin(dot(n,vec2(12.9898,4.1414)))*43758.5453);}
-          float noise(vec2 p){vec2 ip=floor(p);vec2 u=fract(p);u=u*u*(3.0-2.0*u);
-            float r=mix(mix(rand(ip),rand(ip+vec2(1.0,0.0)),u.x),
-              mix(rand(ip+vec2(0.0,1.0)),rand(ip+vec2(1.0,1.0)),u.x),u.y);return r*r;}
-          float fbm(vec2 x){float v=0.0;float a=0.3;vec2 sh=vec2(100);
-            mat2 rot=mat2(cos(0.5),sin(0.5),-sin(0.5),cos(0.5));
-            for(int i=0;i<NUM_OCTAVES;++i){v+=a*noise(x);x=rot*x*2.0+sh;a*=0.4;}return v;}
-          void main(){
-            vec2 shake=vec2(sin(iTime*1.2)*0.005,cos(iTime*2.1)*0.005);
-            vec2 p=((gl_FragCoord.xy+shake*iResolution.xy)-iResolution.xy*0.5)/iResolution.y*mat2(6.0,-4.0,4.0,6.0);
-            vec2 v;vec4 o=vec4(0.0);
-            float f=2.0+fbm(p+vec2(iTime*5.0,0.0))*0.5;
-            // Integer loop counter — required for GLSL ES 1.0 conformance on iOS/Android.
-            for(int idx=0; idx<LOOPS_INT; idx++){
-              float i = float(idx);
-              v=p+cos(i*i+(iTime+p.x*0.08)*0.025+i*vec2(13.0,11.0))*3.5
-                +vec2(sin(iTime*3.0+i)*0.003,cos(iTime*3.5-i)*0.003);
-              float tn=fbm(v+vec2(iTime*0.5,i))*0.3*(1.0-(i/LOOPS));
-              vec4 c=vec4(0.05+0.08*sin(i*0.2+iTime*0.4),
-                          0.5+0.3*cos(i*0.3+iTime*0.5),
-                          0.7+0.3*sin(i*0.4+iTime*0.3),1.0);
-              vec4 cc=c*exp(sin(i*i+iTime*0.8))/length(max(v,vec2(v.x*f*0.015,v.y*1.5)));
-              float th=smoothstep(0.0,1.0,i/LOOPS)*0.6;
-              o+=cc*(1.0+tn*0.8)*th;
-            }
-            // Defensive: c.r can go slightly negative (0.05 + 0.08*sin(.)),
-            // pow(negative, 1.6) is UNDEFINED in GLSL → NaN on mobile → red garbage.
-            // Clamp to ≥0 before pow, and clamp the final color to [0,1].
-            vec4 base = max(o / 100.0, vec4(0.0));
-            base = pow(base, vec4(1.6));
-            o = tanh4(base);
-            gl_FragColor = clamp(o * 1.5, vec4(0.0), vec4(1.0));
-          }
-        `
-      });
-      mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material);
-      scene.add(mesh);
-
-      // The aurora is a slow, ambient effect — no strobe / parallax / motion-sickness risk.
-      // Many mobile users have "Reduce Motion" enabled by default; respecting it would
-      // freeze the hero on frame 1, which looks broken. We always animate.
-      function resize() {
-        const w = parent.clientWidth, h = parent.clientHeight;
-        renderer.setSize(w, h, false);
-        material.uniforms.iResolution.value.set(w, h);
-      }
-      ro = new ResizeObserver(resize);
-      ro.observe(parent);
-
-      function tick() {
-        if (cancelled) return;
-        material.uniforms.iTime.value += 0.016;
-        renderer.render(scene, camera);
-        raf = requestAnimationFrame(tick);
-      }
-      tick();
+    let gl;
+    try {
+      gl = canvas.getContext("webgl", { antialias: false, powerPreference: "high-performance", alpha: false }) ||
+           canvas.getContext("experimental-webgl");
+    } catch (e) { gl = null; }
+    if (!gl) {
+      // WebGL unavailable/blocked — leave the CSS gradient fallback on the parent.
+      canvas.style.display = "none";
+      return;
     }
 
-    if (window.THREE) start(window.THREE);
-    else window.addEventListener("three-ready", () => start(window.THREE), { once: true });
+    const VERT = "attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}";
+    const FRAG = `
+      #ifdef GL_FRAGMENT_PRECISION_HIGH
+      precision highp float;
+      #else
+      precision mediump float;
+      #endif
+      uniform float iTime;
+      uniform vec2 iResolution;
+      #define NUM_OCTAVES 3
+      #define LOOPS_INT ${isMobile ? "20" : "35"}
+      #define LOOPS ${isMobile ? "20.0" : "35.0"}
+      // tanh polyfill: tanh() is GLSL ES 3.0; not in ES 1.0 (mobile WebGL 1).
+      // mediump (16-bit float) maxes ~65504; exp(40) overflows → NaN. tanh
+      // saturates by x≈3 so clamping x*2 to 10 (exp(10)≈22026) is lossless.
+      vec4 tanh4(vec4 x){
+        vec4 e2x = exp(min(x*2.0, vec4(10.0)));
+        return (e2x - 1.0) / (e2x + 1.0);
+      }
+      float rand(vec2 n){return fract(sin(dot(n,vec2(12.9898,4.1414)))*43758.5453);}
+      float noise(vec2 p){vec2 ip=floor(p);vec2 u=fract(p);u=u*u*(3.0-2.0*u);
+        float r=mix(mix(rand(ip),rand(ip+vec2(1.0,0.0)),u.x),
+          mix(rand(ip+vec2(0.0,1.0)),rand(ip+vec2(1.0,1.0)),u.x),u.y);return r*r;}
+      float fbm(vec2 x){float v=0.0;float a=0.3;vec2 sh=vec2(100);
+        mat2 rot=mat2(cos(0.5),sin(0.5),-sin(0.5),cos(0.5));
+        for(int i=0;i<NUM_OCTAVES;++i){v+=a*noise(x);x=rot*x*2.0+sh;a*=0.4;}return v;}
+      void main(){
+        vec2 shake=vec2(sin(iTime*1.2)*0.005,cos(iTime*2.1)*0.005);
+        vec2 p=((gl_FragCoord.xy+shake*iResolution.xy)-iResolution.xy*0.5)/iResolution.y*mat2(6.0,-4.0,4.0,6.0);
+        vec2 v;vec4 o=vec4(0.0);
+        float f=2.0+fbm(p+vec2(iTime*5.0,0.0))*0.5;
+        for(int idx=0; idx<LOOPS_INT; idx++){
+          float i = float(idx);
+          v=p+cos(i*i+(iTime+p.x*0.08)*0.025+i*vec2(13.0,11.0))*3.5
+            +vec2(sin(iTime*3.0+i)*0.003,cos(iTime*3.5-i)*0.003);
+          float tn=fbm(v+vec2(iTime*0.5,i))*0.3*(1.0-(i/LOOPS));
+          vec4 c=vec4(0.05+0.08*sin(i*0.2+iTime*0.4),
+                      0.5+0.3*cos(i*0.3+iTime*0.5),
+                      0.7+0.3*sin(i*0.4+iTime*0.3),1.0);
+          vec4 cc=c*exp(sin(i*i+iTime*0.8))/length(max(v,vec2(v.x*f*0.015,v.y*1.5)));
+          float th=smoothstep(0.0,1.0,i/LOOPS)*0.6;
+          o+=cc*(1.0+tn*0.8)*th;
+        }
+        vec4 base = max(o / 100.0, vec4(0.0));
+        base = pow(base, vec4(1.6));
+        o = tanh4(base);
+        gl_FragColor = clamp(o * 1.5, vec4(0.0), vec4(1.0));
+      }`;
+
+    function compile(type, src) {
+      const s = gl.createShader(type);
+      gl.shaderSource(s, src);
+      gl.compileShader(s);
+      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+        console.warn("AuroraShader compile error:", gl.getShaderInfoLog(s));
+        return null;
+      }
+      return s;
+    }
+    const vs = compile(gl.VERTEX_SHADER, VERT);
+    const fs = compile(gl.FRAGMENT_SHADER, FRAG);
+    if (!vs || !fs) { canvas.style.display = "none"; return; }
+    const prog = gl.createProgram();
+    gl.attachShader(prog, vs);
+    gl.attachShader(prog, fs);
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+      console.warn("AuroraShader link error:", gl.getProgramInfoLog(prog));
+      canvas.style.display = "none";
+      return;
+    }
+    gl.useProgram(prog);
+
+    // Fullscreen triangle (covers the viewport; cheaper than a quad).
+    const buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(prog, "p");
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+    const uTime = gl.getUniformLocation(prog, "iTime");
+    const uRes = gl.getUniformLocation(prog, "iResolution");
+
+    function resize() {
+      const w = Math.max(1, Math.round(parent.clientWidth * DPR));
+      const h = Math.max(1, Math.round(parent.clientHeight * DPR));
+      if (canvas.width !== w || canvas.height !== h) {
+        canvas.width = w; canvas.height = h;
+        gl.viewport(0, 0, w, h);
+      }
+      gl.uniform2f(uRes, w, h);
+    }
+    resize();
+    const ro = new ResizeObserver(resize);
+    ro.observe(parent);
+
+    let raf = 0, running = false, last = 0, t = 0;
+    function frame(now) {
+      if (!running) return;
+      raf = requestAnimationFrame(frame);
+      if (now - last < FRAME_MS) return;       // 30fps cap
+      const dt = last ? Math.min((now - last) / 1000, 0.1) : 0.016;
+      last = now;
+      t += dt;                                  // real-time advance (fps-independent)
+      gl.uniform1f(uTime, t);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    }
+    function play() { if (!running) { running = true; last = 0; raf = requestAnimationFrame(frame); } }
+    function pause() { running = false; if (raf) cancelAnimationFrame(raf); raf = 0; }
+
+    // Only render while the hero is on-screen.
+    const io = new IntersectionObserver(
+      (entries) => { entries[0] && entries[0].isIntersecting ? play() : pause(); },
+      { threshold: 0 }
+    );
+    io.observe(parent);
+    // And not while the tab is backgrounded.
+    const onVis = () => { document.hidden ? pause() : (isInView() && play()); };
+    function isInView() {
+      const r = parent.getBoundingClientRect();
+      return r.bottom > 0 && r.top < innerHeight;
+    }
+    document.addEventListener("visibilitychange", onVis);
+    if (isInView()) play();
 
     return () => {
-      cancelled = true;
-      if (raf) cancelAnimationFrame(raf);
-      if (ro) ro.disconnect();
-      if (renderer) renderer.dispose();
-      if (material) material.dispose();
-      if (mesh) mesh.geometry.dispose();
+      pause();
+      io.disconnect();
+      ro.disconnect();
+      document.removeEventListener("visibilitychange", onVis);
+      const lose = gl.getExtension("WEBGL_lose_context");
+      if (lose) lose.loseContext();
     };
   }, []);
   return <canvas ref={canvasRef} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", display: "block" }} />;

@@ -609,26 +609,8 @@
         integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1"
         crossorigin="anonymous"></script>
 
-<!-- Three.js (1.24 MB) lazy-loaded after first paint. The hero shows its CSS
-     radial-gradient fallback until the shader arrives. AuroraShader already waits
-     for the `three-ready` event so timing is handled gracefully. -->
-<script>
-  (function () {
-    function loadThree() {
-      var s = document.createElement("script");
-      s.type = "module";
-      // Inline the import — avoids needing a dynamic importmap (not yet universal).
-      s.textContent = 'import * as T from "https://unpkg.com/three@0.160.0/build/three.module.js"; window.THREE = T; window.dispatchEvent(new Event("three-ready"));';
-      document.head.appendChild(s);
-    }
-    if ("requestIdleCallback" in window) {
-      requestIdleCallback(loadThree, { timeout: 2000 });
-    } else {
-      // Fallback for browsers without requestIdleCallback (Safari)
-      setTimeout(loadThree, 200);
-    }
-  })();
-</script>
+<!-- Three.js removed: the Aurora hero is now raw WebGL (see AuroraShader in
+     sections.jsx). Saved ~1.24 MB and the lazy-loader entirely. -->
 </head>
 <body>
   <div id="root"></div>
@@ -704,7 +686,7 @@
 
   <!-- Precompiled by build.mjs (esbuild). To regenerate: cd hackathon && npm run compile.
        Absolute paths (not relative) — see header comment about <base> tag and anchor-scroll. -->
-  <script defer src="/hackathon/sections.js?v=20260518a"></script>
-  <script defer src="/hackathon/app.js?v=20260518a"></script>
+  <script defer src="/hackathon/sections.js?v=20260518b"></script>
+  <script defer src="/hackathon/app.js?v=20260518b"></script>
 </body>
 </html>
