@@ -1,6 +1,12 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/hackathon-rules", "destination": "https://geminixprize.com/rules", "permanent": false },
+    { "source": "/hackathon-rules/:path*", "destination": "https://geminixprize.com/rules", "permanent": false },
+    { "source": "/hackathon", "destination": "https://geminixprize.com", "permanent": false },
+    { "source": "/hackathon/:path*", "destination": "https://geminixprize.com", "permanent": false }
+  ],
   "headers": [
     {
       "source": "/(.*)",
