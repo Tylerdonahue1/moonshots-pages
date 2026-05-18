@@ -159,33 +159,35 @@
   .accent { color: var(--cyan); }
 
   /* ───────── Hero co-presenter lockup (XPRIZE × Gemini) ───────── */
-  /* Lockup sits as the first block in the hero content stream — left-aligned,
-     above the eyebrow pill. Official "Lockup - White.svg" is ~5.97:1 aspect.
+  /* Co-presenter lockup — sits BELOW the hero content (after the stats strip),
+     separated by a hairline rule. Moved off the top to de-duplicate the
+     "Build with Gemini XPRIZE" nav wordmark. Official Lockup is ~5.97:1 aspect.
      !important needed to override the global `img { max-width:100%; height:auto }` rule. */
   .hero-lockup {
     display: block;
-    margin-bottom: 40px;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border-dark);
     filter: drop-shadow(0 4px 18px rgba(0,0,0,0.55));
   }
   .hero-lockup__img {
-    width: 460px !important; height: 77px !important;
+    width: 360px !important; height: 60px !important;
     display: block;
     /* The official Lockup SVG has a faint vertical artifact in the embedded raster
        at its right edge (residual from the original brand-asset export). Clipping
-       ~1.5% off the right hides it without distorting the visible content (Google
-       letters end before the clip line). */
+       ~1.5% off the right hides it without distorting the visible content. */
     clip-path: inset(0 1.5% 0 0);
   }
   @media (max-width: 880px) {
-    .hero-lockup { margin-bottom: 32px; }
-    .hero-lockup__img { width: 340px !important; height: 57px !important; }
+    .hero-lockup { margin-top: 40px; padding-top: 28px; }
+    .hero-lockup__img { width: 300px !important; height: 50px !important; }
   }
   @media (max-width: 480px) {
-    .hero-lockup { margin-bottom: 24px; }
-    .hero-lockup__img { width: 260px !important; height: 43.5px !important; }
+    .hero-lockup { margin-top: 32px; padding-top: 24px; }
+    .hero-lockup__img { width: 240px !important; height: 40px !important; }
   }
   @media (max-width: 380px) {
-    .hero-lockup__img { width: 220px !important; height: 37px !important; }
+    .hero-lockup__img { width: 210px !important; height: 35px !important; }
   }
 
   /* ───────── Hero (Aurora + fallback gradient) ───────── */
@@ -702,7 +704,7 @@
 
   <!-- Precompiled by build.mjs (esbuild). To regenerate: cd hackathon && npm run compile.
        Absolute paths (not relative) — see header comment about <base> tag and anchor-scroll. -->
-  <script defer src="/hackathon/sections.js?v=20260515k"></script>
-  <script defer src="/hackathon/app.js?v=20260515k"></script>
+  <script defer src="/hackathon/sections.js?v=20260518a"></script>
+  <script defer src="/hackathon/app.js?v=20260518a"></script>
 </body>
 </html>

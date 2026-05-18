@@ -318,11 +318,6 @@ function Hero() {
       }}>
         <div className="container" style={{ position: "relative", width: "100%" }}>
 
-        {/* Co-presenter lockup (XPRIZE × Gemini), top-right of hero — official brand asset */}
-        <div className="hero-lockup" style={{ pointerEvents: "auto" }}>
-          <img className="hero-lockup__img" src="/hackathon/assets/lockup-white.svg" alt="Build with Gemini XPRIZE × Gemini" width="280" height="47" />
-        </div>
-
         <div className="hero-eyebrow">
           <span className="hero-pill">
             <span className="hero-pill__dot" aria-hidden="true" />
@@ -340,7 +335,7 @@ function Hero() {
         </h1>
 
         <p style={{ color: "rgba(255,255,255,0.92)", maxWidth: "60ch", lineHeight: 1.4, marginBottom: 36, fontWeight: 500, fontSize: "clamp(18px, 3vw, 30px)", textShadow: "0 2px 14px rgba(0,0,0,0.5)" }}>
-          <strong style={{ color: "var(--cyan)", fontSize: "clamp(18px, 3vw, 30px)" }}>$2M</strong> in prizes. Powered by Gemini. All the AI you need to ship.
+          <strong style={{ color: "var(--cyan)", fontSize: "clamp(18px, 3vw, 30px)" }}>$2M</strong> in prizes. Build with Gemini. Ship products that impact the world.
         </p>
 
         <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 64, pointerEvents: "auto" }}>
@@ -355,9 +350,9 @@ function Hero() {
           paddingTop: 28, borderTop: "1px solid var(--border-dark)"
         }}>
           {[
-          ["Total prize", "$2,000,000"],
+          ["Total prizes", "$2,000,000"],
           ["Build window", "90 days"],
-          ["Finals", "Sept 25 · LA"]].
+          ["Deadline", "Aug 17, 2026"]].
           map(([k, v]) =>
           <div key={k}>
               <div style={{
@@ -371,160 +366,16 @@ function Hero() {
             </div>
           )}
         </div>
+
+        {/* Co-presenter lockup — placed below hero content (de-duplicates the
+            "Build with Gemini XPRIZE" nav wordmark at top). */}
+        <div className="hero-lockup" style={{ pointerEvents: "auto" }}>
+          <img className="hero-lockup__img" src="/hackathon/assets/lockup-white.svg" alt="Build with Gemini XPRIZE — presented by Google" width="280" height="47" />
+        </div>
+
         </div>
       </div>
     </header>);
-
-}
-
-/* ─────────── DEMO (was inside Challenge) ─────────── */
-function Demo() {
-  return (
-    <section id="demo" data-screen-label="02 Demo">
-      <div className="container">
-        <span className="eyebrow"><span className="dot" /> The Constraint</span>
-        <h2>Build software in your <span className="accent">natural language.</span></h2>
-        <p className="lead" style={{ marginBottom: 32, maxWidth: "62ch" }}>
-          One rule, same for everyone: your core operations run on AI agents reading plain English. Humans stay where humans matter — judgment calls, relationships, the messy edges. But the engine is plain English a machine can execute. No code. No CS degree.
-        </p>
-
-        <div style={{
-          display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 0,
-          border: "1px solid var(--border-dark)", borderRadius: 14, overflow: "hidden",
-          marginBottom: 56
-        }}>
-          {[
-          ["01", "Write the rules", "Pricing, support, hiring — in plain English documents."],
-          ["02", "AI runs operations", "Agents read your docs and act in real time. Real customers, real money."],
-          ["03", "Edit to iterate", "Change a paragraph. The business behaves differently by morning."]].
-          map(([n, t, d], i) =>
-          <div key={n} style={{
-            padding: 24, background: "rgba(255,255,255,0.02)",
-            borderLeft: i === 0 ? "none" : "1px solid var(--border-dark)",
-            display: "flex", flexDirection: "column", gap: 8
-          }}>
-              <div style={{ fontFamily: "var(--font-pixel)", fontSize: 22, color: "var(--cyan)" }}>{n}</div>
-              <div style={{ fontSize: 17, fontWeight: 700, letterSpacing: "var(--tracking-tight)" }}>{t}</div>
-              <div style={{ fontSize: 14, color: "rgba(255,255,255,0.65)", lineHeight: 1.5 }}>{d}</div>
-            </div>
-          )}
-        </div>
-
-        <div style={{
-          display: "flex", alignItems: "stretch",
-          border: "1px solid var(--border-dark)", borderRadius: 14, overflow: "hidden",
-          marginBottom: 56, background: "rgba(255,255,255,0.02)"
-        }}>
-          <div style={{
-            padding: "20px 28px", display: "flex", alignItems: "center",
-            fontFamily: "var(--font-pixel)", fontSize: 36, color: "var(--cyan)",
-            borderRight: "1px solid var(--border-dark)", minWidth: 130, justifyContent: "center"
-          }}>
-            5 / 12
-          </div>
-          <div style={{
-            padding: "20px 28px", display: "flex", flexDirection: "column", justifyContent: "center", gap: 6
-          }}>
-            <div style={{ fontSize: 15, fontWeight: 700, letterSpacing: "var(--tracking-tight)" }}>
-              Minimum operational playbooks every project must include.
-            </div>
-            <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", lineHeight: 1.5 }}>
-              Pick at least five from: Sales · Onboarding · Support · Pricing · Delivery · HR · Ops/Logistics · Finance · Marketing · Analytics · Compliance · Partnerships.
-            </div>
-          </div>
-        </div>
-
-        <div style={{
-          display: "flex", alignItems: "center", gap: 12,
-          fontFamily: "var(--font-pixel)", fontSize: 17,
-          color: "var(--cyan)", textTransform: "uppercase",
-          marginBottom: 20
-        }}>
-          <span style={{ width: 24, height: 1, background: "var(--cyan)" }} />
-          See it run
-        </div>
-        <h3 style={{ fontSize: 28, marginBottom: 32, maxWidth: "24ch" }}>
-          Edit a paragraph on the left. The agent <span className="accent">behaves differently</span> on the right.
-        </h3>
-
-        <div style={{
-          display: "grid", gridTemplateColumns: "1fr 1fr",
-          border: "1px solid var(--border-dark)", borderRadius: 18, overflow: "hidden"
-        }}>
-          <DocPane />
-          <AgentPane />
-        </div>
-      </div>
-    </section>);
-
-}
-
-function DocPane() {
-  return (
-    <div style={{ padding: 36, background: "var(--white)", color: "var(--near-black)" }}>
-      <div style={{ fontFamily: "var(--font-pixel)", fontSize: 16, color: "var(--mid-gray)", marginBottom: 18, textTransform: "uppercase" }}>
-        ▢ pricing.md
-      </div>
-      <div style={{ fontSize: 17, lineHeight: 1.55 }}>
-        <p style={{ marginBottom: 14 }}>
-          We charge <mark style={{ background: "var(--cyan)", color: "var(--near-black)", padding: "1px 6px", borderRadius: 3, fontWeight: 600 }}>$29/month</mark> for the standard tier. Annual gets two months free.
-        </p>
-        <p style={{ marginBottom: 14 }}>
-          If a customer mentions a competitor by name and asks for a discount, offer 15% off for three months. Don't go lower without escalation.
-        </p>
-        <p style={{ marginBottom: 14 }}>
-          Refunds within 30 days, no questions. After 30 days, only if the agent failed to deliver a feature we promised.
-        </p>
-        <p style={{ color: "var(--mid-gray)" }}>
-          Schools and nonprofits pay half. Verify with a .edu or .org email; if the domain is unusual, ask politely for proof.
-        </p>
-      </div>
-    </div>);
-
-}
-
-function AgentPane() {
-  const [step, setStep] = useState(0);
-  const lines = [
-  { t: "▶", text: "ticket #4821 — \"can you match Linear's price?\"" },
-  { t: "▸", text: "reading pricing.md ..." },
-  { t: "✓", text: "rule matched: competitor mention → 15% / 3mo" },
-  { t: "→", text: "applied discount, replied to customer" },
-  { t: "$", text: "MRR delta +$24.65 · margin retained" }];
-
-  useEffect(() => {
-    const id = setInterval(() => setStep((s) => (s + 1) % (lines.length + 2)), 1400);
-    return () => clearInterval(id);
-  }, []);
-  return (
-    <div style={{
-      padding: 36, background: "var(--near-black)", color: "var(--white)",
-      borderLeft: "1px solid var(--border-dark)",
-      display: "flex", flexDirection: "column", gap: 16, minHeight: 320
-    }}>
-      <div style={{ fontFamily: "var(--font-pixel)", fontSize: 16, color: "var(--cyan)", textTransform: "uppercase" }}>
-        ▢ AGENT · LIVE
-      </div>
-      <div style={{ flex: 1, fontFamily: "var(--font-pixel)", fontSize: 18, lineHeight: 1.7 }}>
-        {lines.map((l, i) =>
-        <div key={i} style={{
-          opacity: i < step ? 1 : 0.18,
-          transition: "opacity .35s ease",
-          display: "grid", gridTemplateColumns: "20px 1fr", gap: 8,
-          color: i === step - 1 ? "var(--cyan)" : "var(--white)"
-        }}>
-            <span>{l.t}</span><span>{l.text}</span>
-          </div>
-        )}
-      </div>
-      <div style={{
-        fontFamily: "var(--font-pixel)", fontSize: 14,
-        color: "var(--mid-gray)", textTransform: "uppercase",
-        borderTop: "1px solid var(--border-dark)", paddingTop: 14
-      }}>
-        EDIT pricing.md → BEHAVIOR CHANGES BY MORNING
-      </div>
-    </div>);
 
 }
 
@@ -535,7 +386,7 @@ function AboutXPRIZE() {
   ["2010", "Progressive Insurance", "$10M for a 100 MPGe production-capable car. Fueled the EV economy."],
   ["2020", "IBM Watson AI", "$5M to use AI to address humanity's grand challenges."],
   ["2024", "Carbon Removal", "$100M — the largest incentive prize in history."],
-  ["2026", "Build with Gemini XPRIZE", "$2M to prove anyone can build a profitable AI business."]];
+  ["2026", "Build with Gemini XPRIZE", "$2M for anyone who can build a successful business."]];
 
   return (
     <section id="about-xprize" className="light" data-screen-label="03 About XPRIZE">
@@ -619,7 +470,7 @@ function AboutXPRIZE() {
               The pattern: <span className="accent">a clear technical hurdle, a verifiable result, a public race.</span>
             </div>
             <div style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", lineHeight: 1.5, maxWidth: "62ch" }}>
-              Build with Gemini XPRIZE follows the same playbook. The hurdle: build a profitable business operated by AI agents reading plain English. The race: 90 days. The proof: profit, opportunity created, AI running the operations.
+              Build with Gemini XPRIZE follows the same playbook. The hurdle: build a profitable business that positively impacts the world. The race: 90 days. The proof: successful businesses that solve everyday problems.
             </div>
           </div>
           <a className="btn btn-primary" href="https://www.xprize.org" target="_blank" rel="noopener">
@@ -638,7 +489,7 @@ function Moonshot() {
       <div className="container">
         <span className="eyebrow"><span className="dot" /> The Moonshot</span>
         <h2 style={{ marginBottom: 28 }}>
-          90 days. <span className="accent">Ideate. Build. Ship. Sell.</span>
+          90 days. <span className="accent">Ideate. Build. Ship. Grow.</span>
         </h2>
         <p className="lead" style={{ marginBottom: 48, fontSize: 21, maxWidth: "64ch" }}>
           Real product. Real revenue. <strong style={{ color: "var(--near-black)" }}>Or you don't qualify.</strong>
@@ -647,9 +498,9 @@ function Moonshot() {
         <div className="moonshot-steps">
           {[
           ["01", "Ideate", "Pick a real problem worth solving. AI helps you scope it."],
-          ["02", "Build", "Prompt your way to a working prototype. No engineering team required."],
-          ["03", "Ship", "Deploy the business. Real customers transacting in production."],
-          ["04", "Sell", "Market it. Grow it. Show the revenue."]].
+          ["02", "Build", "Prompt your way to a working prototype. All you need is natural language, no code required."],
+          ["03", "Ship", "Deploy the business. Real users in production."],
+          ["04", "Grow", "Market it. Grow it. Show the revenue."]].
           map(([n, t, d]) =>
           <div key={n} className="moonshot-step">
               <div className="moonshot-step__num">{n}</div>
@@ -666,11 +517,11 @@ function Moonshot() {
 /* ─────────── CATEGORIES ─────────── */
 function Categories() {
   const cats = [
-  { n: "01", t: "Education & Human Potential", d: "Workforce upskilling, alternative credentialing, personalized learning." },
-  { n: "02", t: "Entrepreneurship & Job Creation", d: "Solo founder enablement, AI-assisted company creation, job matching." },
-  { n: "03", t: "Small Business Services", d: "AI-native operations, cashflow, customer acquisition, compliance navigation." },
-  { n: "04", t: "Money & Financial Access", d: "Credit access, remittances, micro-lending, financial literacy." },
-  { n: "05", t: "Professional Services Access", d: "Legal tools, immigration navigation, mental health support." }];
+  { n: "01", t: "Education & Human Potential", d: "Transforming how we learn, grow, and achieve our best." },
+  { n: "02", t: "Entrepreneurship & Job Creation", d: "Fueling the tools that help new founders and economies thrive." },
+  { n: "03", t: "Small Business Services", d: "Powering everyday businesses with tools to compete and win." },
+  { n: "04", t: "Money & Financial Access", d: "Breaking down barriers to banking, capital, and financial freedom." },
+  { n: "05", t: "Professional Services Access", d: "Connecting everyday people with the expert guidance they need." }];
 
   return (
     <section id="categories" data-screen-label="06 Categories">
@@ -699,14 +550,11 @@ function Categories() {
             padding: 32, background: "linear-gradient(135deg, rgba(27,191,224,0.05), rgba(27,191,224,0.18))",
             display: "flex", flexDirection: "column", gap: 12, minHeight: 220
           }}>
-            <div style={{ fontFamily: "var(--font-pixel)", fontSize: 18, color: "var(--cyan)", textTransform: "uppercase" }}>
-              ▢ The Meta-Theme
+            <div style={{ fontSize: 24, fontWeight: 700, letterSpacing: "var(--tracking-tight)", lineHeight: 1.15 }}>
+              Stop waiting for solutions. <span className="accent">Build them.</span>
             </div>
-            <div style={{ fontSize: 22, fontWeight: 700, letterSpacing: "var(--tracking-tight)", lineHeight: 1.1 }}>
-              Accessibility & Agency.
-            </div>
-            <p style={{ color: "rgba(255,255,255,0.78)", fontSize: 14, lineHeight: 1.5 }}>
-              Communities get solutions to problems ignored for years. Builders get the tools to deliver them.
+            <p style={{ color: "rgba(255,255,255,0.78)", fontSize: 15, lineHeight: 1.55 }}>
+              Use the full Google stack to move fast and solve your community's everyday problems.
             </p>
           </div>
         </div>
@@ -717,14 +565,16 @@ function Categories() {
 
 /* ─────────── GOOGLE STACK ─────────── */
 function GoogleStack() {
+  const pipeline = ["Idea", "Prototype", "Design", "Build", "Ship", "Launch", "Grow"];
   const tools = [
-  { name: "Gemini app", use: "Think out loud. Develop your spec.", phase: "Idea" },
-  { name: "AI Studio", use: "Prompt your way to a working prototype.", phase: "Prototype" },
-  { name: "Antigravity", use: "Agent-first development platform.", phase: "Build" },
-  { name: "Cloud Run / GCP", use: "Deploy the business to production.", phase: "Ship" },
-  { name: "Stitch", use: "Design what your customers see.", phase: "Design" },
-  { name: "Flow", use: "Make the marketing video.", phase: "Launch" },
-  { name: "Gemini Ads", use: "Take it to market.", phase: "Grow" }];
+  { name: "Gemini App", use: "Brainstorm project concepts and validate market viability.", phase: "Idea" },
+  { name: "Google AI Studio", use: "Rapidly prototype, build, and deploy intelligent features using Google's newest models.", phase: "Prototype" },
+  { name: "Stitch", use: "Transform simple text descriptions into interactive, high-fidelity UI designs and exportable code.", phase: "Design" },
+  { name: "Google Antigravity", use: "Build autonomous agent teams that can code, test, and deploy your MVP.", phase: "Build" },
+  { name: "Google Cloud", use: "Host and scale your project globally on secure, enterprise-grade infrastructure.", phase: "Ship" },
+  { name: "Flow", use: "Generate cinematic, production-ready video sequences and native audio for your marketing video.", phase: "Launch" },
+  { name: "Pomelli", use: "Easily generate on-brand content for your new business.", phase: "Launch" },
+  { name: "Google Ads", use: "Get found. Find the right customers, in the right place, at the right time with Google Ads.", phase: "Grow" }];
 
   return (
     <section id="google-stack" className="light" data-screen-label="08 Google Stack">
@@ -733,7 +583,7 @@ function GoogleStack() {
           <span className="dot" style={{ background: "var(--near-black)" }} /> Presenting Sponsor · Google
         </span>
         <h2 style={{ color: "var(--near-black)", marginBottom: 56 }}>
-          One <span className="accent">Google</span> stack. Idea to revenue.
+          The <span className="accent">Gemini</span> ecosystem. Idea to revenue.
         </h2>
 
         <div style={{
@@ -741,7 +591,7 @@ function GoogleStack() {
           fontFamily: "var(--font-pixel)", fontSize: 15, color: "var(--mid-gray)",
           marginBottom: 8, textTransform: "uppercase"
         }}>
-          {tools.map((t) => <div key={t.phase} style={{ padding: "0 4px" }}>{t.phase}</div>)}
+          {pipeline.map((p) => <div key={p} style={{ padding: "0 4px" }}>{p}</div>)}
         </div>
         <div style={{
           height: 4, background: "linear-gradient(90deg, var(--near-black), var(--cyan))",
@@ -778,7 +628,7 @@ function GoogleStack() {
           }}>
             <div style={{ fontFamily: "var(--font-pixel)", color: "var(--cyan)", fontSize: 14, textTransform: "uppercase" }}>RESULT</div>
             <div style={{ fontSize: 22, fontWeight: 700, letterSpacing: "var(--tracking-tight)", lineHeight: 1.1 }}>
-              Idea → revenue, <span className="accent">solo.</span>
+              Idea → <span className="accent">Revenue</span>
             </div>
           </div>
         </div>
@@ -797,13 +647,21 @@ function GoogleStack() {
               display: "inline-flex", alignItems: "center", gap: 10
             }}>
               <span style={{ width: 8, height: 8, background: "var(--cyan)", borderRadius: "50%", boxShadow: "0 0 12px var(--cyan)" }} />
-              Registrant Perk · Limited
+              Registrant Perks
             </div>
-            <div style={{ fontSize: 28, fontWeight: 700, letterSpacing: "var(--tracking-tight)", lineHeight: 1.15, marginBottom: 8 }}>
-              <span className="accent">Build with Gemini.</span>
+            <div style={{ fontSize: 28, fontWeight: 700, letterSpacing: "var(--tracking-tight)", lineHeight: 1.15, marginBottom: 16 }}>
+              <span className="accent">Build with Gemini</span>
             </div>
-            <div style={{ fontSize: 16, color: "rgba(255,255,255,0.7)", lineHeight: 1.5, maxWidth: "60ch" }}>
-              A mix of credits, tools, and offerings will be made available to registered teams to support building on Google Cloud.
+            <div style={{ display: "flex", flexDirection: "column", gap: 12, maxWidth: "62ch" }}>
+              {[
+              ["$100 Google AI Ultra Bonus", "Claim in the Antigravity app. Activates seamlessly the moment you hit your standard quota limit."],
+              ["$300 Google Cloud Credit", "Free credits for new customers to host and scale securely."],
+              ["Up to $2,400 Google Ads Credit", "Turbocharge your launch and reach your first users (available for new customers)."]].
+              map(([h, d]) =>
+              <div key={h} style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", lineHeight: 1.5 }}>
+                <strong style={{ color: "var(--cyan)" }}>{h}:</strong> {d}
+              </div>
+              )}
             </div>
           </div>
           <a className="btn btn-primary" href="https://xprize.devpost.com/" target="_blank" rel="noopener" style={{ whiteSpace: "nowrap" }}>
@@ -831,21 +689,15 @@ function Prize() {
   "Professional Services Access"];
 
   const schedule = [
-  ["Launch", "May 19, 2026", "Google I/O"],
-  ["Build window", "May 19 – August 19, 2026", "90 days"],
-  ["Submission deadline", "August 19, 2026", "1:00 pm PT"],
-  ["Top 100 finalists announced", "September 1, 2026", "—"],
-  ["Top 5 finalists announced", "September 16, 2026", "—"],
-  ["Live finals at Moonshot Summit", "September 25, 2026", "Los Angeles"]];
+  ["Build window", "May 19 – August 17, 2026", "90 days"],
+  ["Submission deadline", "August 17, 2026", "1:00 pm PT"],
+  ["Live finals at Moonshot Summit", "September 25, 2026", "Los Angeles, CA"]];
 
   return (
     <section id="prize" data-screen-label="09 Prize">
       <div className="container">
         <span className="eyebrow"><span className="dot" /> The Prize</span>
-        <h2>The largest hackathon prize pool...ever <span className="accent"></span></h2>
-        <p className="lead" style={{ marginBottom: 32, maxWidth: "62ch" }}>
-          Four things count, equally weighted: profit, opportunity, AI-native operations, category impact.
-        </p>
+        <h2>$2M in cash prizes.</h2>
 
         <div style={{
           marginTop: 32, padding: 48, borderRadius: 18,
@@ -855,14 +707,34 @@ function Prize() {
         }}>
           <div>
             <div style={{ fontFamily: "var(--font-pixel)", fontSize: 16, color: "var(--cyan)", textTransform: "uppercase", marginBottom: 16 }}>
-              ▢ TOTAL PRIZE POOL
+              ▢ Total Prizes
             </div>
             <div style={{ fontSize: "clamp(80px, 14vw, 180px)", fontWeight: 700, letterSpacing: "-0.05em", lineHeight: 0.9 }}>
               $2M
             </div>
           </div>
           <div style={{ fontSize: 18, color: "rgba(255,255,255,0.85)", lineHeight: 1.5, maxWidth: 420 }}>
-            Top 5 finalists pitch live at the Moonshot Summit on September 25 in Los Angeles. The winning team takes <strong style={{ color: "var(--cyan)" }}>$1,000,000</strong> — and proves that the next billion companies will be written, not coded.
+            The top 5 projects will be invited to pitch live at the Moonshot Summit on September 25, 2026, in Los Angeles, California, for their chance to claim a share of <strong style={{ color: "var(--cyan)" }}>$1,000,000</strong> in grand prizes.
+          </div>
+        </div>
+
+        {/* Judging criteria */}
+        <div style={{ marginTop: 24 }}>
+          <div style={{ fontFamily: "var(--font-pixel)", fontSize: 16, color: "var(--cyan)", textTransform: "uppercase", marginBottom: 16 }}>
+            ▢ Projects are judged on four criteria
+          </div>
+          <div className="grid grid-4">
+            {[
+            ["Profit", "Clear path to revenue and commercial success."],
+            ["Opportunity", "Size of the problem solved and market scalability."],
+            ["AI-Native Operations", "Built from the ground up utilizing AI capabilities."],
+            ["Category Impact", "Broad potential to shift paradigms in your vertical."]].
+            map(([h, d]) =>
+            <div key={h} style={{ border: "1px solid var(--border-dark)", borderRadius: 14, padding: 24 }}>
+              <div style={{ fontSize: 18, fontWeight: 700, letterSpacing: "var(--tracking-tight)", marginBottom: 8 }}>{h}</div>
+              <div style={{ fontSize: 14, color: "rgba(255,255,255,0.7)", lineHeight: 1.5 }}>{d}</div>
+            </div>
+            )}
           </div>
         </div>
 
@@ -992,7 +864,7 @@ function Faq() {
   {
     title: "Logistics",
     items: [
-    ["When does the hackathon run?", "Launch May 19, 2026 at Google I/O. 90-day build window (May 19 to August 19). Live finals at the Moonshot Summit on September 25, 2026 in Los Angeles."],
+    ["When does the hackathon run?", "Launch May 19, 2026 at Google I/O. 90-day build window (May 19 to August 17). Live finals at the Moonshot Summit on September 25, 2026 in Los Angeles."],
     ["What language do submissions need to be in?", "All submission materials must be in English."],
     ["Does my project need to be free?", "Yes — entrants must make the submitted project available free of charge and without restriction for judges and reviewers. This doesn't mean your business can't charge customers — in fact, it must, because profitability is one of the four equally-weighted ranking factors."],
     ["I still have questions. Who do I ask?", "A dedicated support channel will be published at launch."]]
@@ -1091,14 +963,13 @@ function CTA() {
       }} />
       <div className="container" style={{ position: "relative" }}>
         <h2 className="display-xl" style={{ maxWidth: "20ch", marginBottom: 32, fontSize: "clamp(40px, 9vw, 80px)" }}>
-          The barrier to creating real impact <span className="accent" style={{ fontSize: "clamp(40px, 9vw, 80px)" }}>has collapsed.</span>
+          Build what matters. <span className="accent" style={{ fontSize: "clamp(40px, 9vw, 80px)" }}>Impact one billion lives.</span>
         </h2>
         <p style={{ fontSize: 24, color: "rgba(255,255,255,0.85)", maxWidth: "50ch", lineHeight: 1.4, marginBottom: 40, fontWeight: 500 }}>
-          Show us.
+          There's never been a better time to be a builder.
         </p>
         <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-          <a className="btn btn-primary" href="https://xprize.devpost.com/" target="_blank" rel="noopener">Notify me at launch →</a>
-          <a className="btn btn-ghost" href="#prize">See the prize</a>
+          <a className="btn btn-primary" href="https://xprize.devpost.com/" target="_blank" rel="noopener">Register →</a>
         </div>
       </div>
     </section>);
@@ -1125,5 +996,5 @@ function Footer() {
 }
 
 Object.assign(window, {
-  Nav, Hero, Demo, AboutXPRIZE, Moonshot, Categories, GoogleStack, Prize, Faq, CTA, Footer
+  Nav, Hero, AboutXPRIZE, Moonshot, Categories, GoogleStack, Prize, Faq, CTA, Footer
 });

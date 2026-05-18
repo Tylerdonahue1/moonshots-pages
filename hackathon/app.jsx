@@ -8,7 +8,6 @@ function App() {
       <Moonshot />
       <Categories />
       <GoogleStack />
-      <Demo />
       <AboutXPRIZE />
       <Prize />
       <Faq />
