@@ -3,13 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Moonshots — Platform Brief</title>
-<meta name="description" content="Moonshots Platform: a media company, a prize ecosystem, and a capital arm. The optimistic future, built in public.">
+<title>Moonshots — The Three-Engine Model</title>
+<meta name="description" content="Prepared for Peter. The infrastructure pitch for unifying media, events, and capital into a single investable platform.">
 <meta name="robots" content="noindex,nofollow">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
 
-  /* ── BRAND TOKENS — harder, SpaceX register ── */
   :root {
     --black:       #050605;
     --black-2:     #0A0B0A;
@@ -51,7 +50,6 @@
     position: relative;
     overflow: hidden;
   }
-
   .slide.dense { justify-content: flex-start; padding-top: 100px; }
 
   .slide-label {
@@ -61,7 +59,6 @@
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 40px;
-    opacity: 0.95;
   }
 
   /* ── TYPOGRAPHY ── */
@@ -82,79 +79,62 @@
     line-height: 0.92;
     letter-spacing: -0.01em;
     text-transform: uppercase;
-    margin-bottom: 56px;
+    margin-bottom: 48px;
   }
   h2 em { font-style: normal; color: var(--accent); }
 
   h3 {
     font-family: 'Barlow', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 24px;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.01em;
     margin-bottom: 14px;
     color: var(--white);
   }
 
-  .eyebrow {
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 24px;
-  }
-
   .body-text {
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 300;
     color: var(--gray-1);
     line-height: 1.65;
-    max-width: 720px;
+    max-width: 880px;
     margin-bottom: 20px;
   }
-  .body-text.lg { font-size: 22px; line-height: 1.55; max-width: 920px; }
+  .body-text.lg { font-size: 22px; line-height: 1.55; max-width: 960px; }
   .body-text.dim { color: var(--gray-2); }
 
-  /* ── SECTION DIVIDERS ── */
-  .divider {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: var(--black-2);
-  }
-  .divider-num {
-    font-family: 'Space Mono', monospace;
-    font-size: 14px;
-    letter-spacing: 0.35em;
-    color: var(--accent);
-    margin-bottom: 28px;
-    opacity: 0.85;
-  }
-  .divider-name {
+  /* ── BIG STATEMENT ── */
+  .statement {
     font-family: 'Barlow', sans-serif;
     font-weight: 900;
-    font-size: clamp(72px, 11vw, 168px);
-    line-height: 0.92;
+    font-size: clamp(64px, 9vw, 140px);
+    line-height: 0.95;
+    letter-spacing: -0.015em;
     text-transform: uppercase;
-    letter-spacing: -0.02em;
+    max-width: 1500px;
+    text-wrap: balance;
   }
-  .divider-line {
-    width: 80px;
-    height: 2px;
-    background: var(--accent);
-    margin-top: 48px;
+  .statement em { font-style: normal; color: var(--accent); }
+  .statement-sub {
+    margin-top: 40px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+    font-size: clamp(20px, 2vw, 28px);
+    line-height: 1.4;
+    color: var(--gray-1);
+    max-width: 1100px;
   }
 
   /* ── COVER ── */
   .cover-stamp {
     display: inline-block;
     font-family: 'Space Mono', monospace;
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: 0.32em;
     text-transform: uppercase;
     color: var(--accent);
-    padding: 10px 18px;
+    padding: 10px 20px;
     border: 1px solid var(--accent);
     background: var(--accent-glow);
   }
@@ -185,615 +165,426 @@
     line-height: 0.88;
     letter-spacing: -0.025em;
     text-transform: uppercase;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
   .cover-tag {
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
-    font-size: clamp(22px, 2.4vw, 30px);
-    line-height: 1.35;
+    font-size: clamp(22px, 2.4vw, 32px);
+    line-height: 1.3;
     color: var(--gray-1);
-    max-width: 920px;
+    max-width: 980px;
   }
   .cover-tag em { font-style: normal; color: var(--accent); }
-  .cover-image {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(circle at 80% 30%, rgba(27,191,224,0.08) 0%, transparent 50%),
-      radial-gradient(circle at 20% 70%, rgba(27,191,224,0.05) 0%, transparent 60%),
-      var(--black);
-    z-index: -1;
-  }
-  .cover-image::after {
-    content: '[HERO IMAGE: rocket on the pad / neural lab / sci-fi cityscape]';
-    position: absolute;
-    bottom: 40px;
-    right: 80px;
-    font-family: 'Space Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.18em;
-    color: rgba(255,255,255,0.12);
-  }
 
-  /* ── BIG STATEMENT SLIDES ── */
-  .statement {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 800;
-    font-size: clamp(44px, 6vw, 88px);
-    line-height: 1.08;
-    letter-spacing: -0.005em;
-    max-width: 1400px;
-    text-wrap: balance;
-  }
-  .statement em { font-style: normal; color: var(--accent); }
-  .statement.lg {
-    font-size: clamp(56px, 8vw, 120px);
-    line-height: 1.02;
-  }
-
-  /* ── WHITE SPACE MATRIX ── */
-  .matrix {
-    display: grid;
-    grid-template-columns: 1fr 2px 1fr;
-    gap: 0;
-    margin-top: 32px;
-    max-width: 1100px;
-  }
-  .matrix-row {
-    display: contents;
-  }
-  .matrix-cat, .matrix-event {
-    padding: 28px 0;
-    border-bottom: 1px solid var(--line);
-  }
-  .matrix-cat {
-    font-family: 'Barlow', sans-serif;
-    font-size: 22px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--gray-2);
-  }
-  .matrix-divider {
-    background: var(--line);
-    height: auto;
-  }
-  .matrix-event {
-    font-family: 'Barlow', sans-serif;
-    font-size: 28px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.01em;
-    color: var(--white);
-    padding-left: 32px;
-  }
-  .matrix-empty {
-    color: var(--accent);
-    font-size: 28px;
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    border: 1px dashed var(--accent-dim);
-    background: var(--accent-glow);
-    margin-left: 32px;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-  .matrix-row.highlight .matrix-cat {
-    color: var(--white);
-    font-weight: 800;
-  }
-
-  /* ── STATS / CREDENTIAL ROWS ── */
-  .cred-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: var(--line);
-    margin-top: 40px;
-    border: 1px solid var(--line);
-  }
-  .cred-cell {
-    background: var(--black);
-    padding: 36px 28px;
-  }
-  .cred-num {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 900;
-    font-size: 56px;
-    line-height: 0.95;
-    color: var(--accent);
-    margin-bottom: 12px;
-  }
-  .cred-name {
-    font-family: 'Barlow', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--white);
-    margin-bottom: 8px;
-  }
-  .cred-detail {
-    font-size: 13px;
-    line-height: 1.55;
-    color: var(--gray-2);
-    font-weight: 300;
-  }
-
-  /* ── PARTNER LOGOS GRID (text-based) ── */
-  .partner-grid {
+  /* ── 3-COLUMN ENGINES ── */
+  .engines-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1px;
     background: var(--line);
     margin-top: 24px;
-    border: 1px solid var(--line);
-  }
-  .partner-cell {
-    background: var(--black);
-    padding: 44px 32px;
-    min-height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .partner-name {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 900;
-    font-size: 30px;
-    text-transform: uppercase;
-    letter-spacing: -0.005em;
-    line-height: 1;
-  }
-  .partner-role {
-    font-size: 13px;
-    color: var(--gray-2);
-    line-height: 1.5;
-    font-weight: 300;
-  }
-
-  /* ── 3-LAYER STACK ── */
-  .stack {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    background: var(--line);
-    margin: 32px 0;
     border: 1px solid var(--line-bright);
   }
-  .stack-layer {
+  .engine-cell {
     background: var(--surface);
-    padding: 44px 48px;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 48px;
-    align-items: center;
+    padding: 44px 36px;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
   }
-  .stack-layer-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.28em;
-    color: var(--accent);
-    text-transform: uppercase;
-  }
-  .stack-layer-name {
+  .engine-name {
     font-family: 'Barlow', sans-serif;
     font-weight: 900;
-    font-size: 44px;
+    font-size: 36px;
+    letter-spacing: 0.01em;
     text-transform: uppercase;
-    color: var(--white);
-    margin-top: 6px;
-    line-height: 1;
+    color: var(--accent);
+    margin-bottom: 16px;
   }
-  .stack-layer-desc {
-    font-size: 16px;
-    line-height: 1.65;
-    color: var(--gray-1);
+  .engine-fn {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.3;
+    color: var(--white);
+    margin-bottom: 18px;
+  }
+  .engine-desc {
+    font-size: 15px;
+    color: var(--gray-2);
+    line-height: 1.6;
     font-weight: 300;
+    margin-top: auto;
   }
 
-  /* ── FLYWHEEL ── */
-  .flywheel {
+  /* ── ORG CHART ── */
+  .org-chart {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  .org-top {
+    border: 1px solid var(--accent-dim);
+    background: var(--accent-glow);
+    padding: 24px 36px;
+    text-align: center;
+    align-self: center;
+    min-width: 520px;
+  }
+  .org-top-name {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  .org-top-sub {
+    font-size: 11px;
+    color: var(--accent);
+    margin-top: 8px;
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .org-trunk {
+    width: 1px;
+    height: 36px;
+    background: var(--accent-dim);
+    align-self: center;
+  }
+  .org-engines {
     display: grid;
-    grid-template-columns: repeat(5, 1fr) auto;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--accent-dim);
+    position: relative;
+  }
+  .org-engines::before,
+  .org-engines::after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 16px;
+    background: var(--accent-dim);
+    top: -16px;
+  }
+  .org-engines::before { left: 16.6%; }
+  .org-engines::after  { right: 16.6%; }
+  .org-branch {
+    padding: 28px 24px 0;
+    border-left: 1px solid var(--line);
+  }
+  .org-branch:first-child { border-left: none; }
+  .org-engine-name {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 32px;
+    letter-spacing: 0.01em;
+    color: var(--accent);
+    margin-bottom: 18px;
+    text-transform: uppercase;
+  }
+  .org-entities {
+    list-style: none;
+  }
+  .org-entities li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .org-entities li:last-child { border-bottom: none; }
+  .org-entity-name {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    display: block;
+  }
+  .org-entity-note {
+    font-size: 11px;
+    color: var(--gray-3);
+    font-style: italic;
+    display: block;
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+  .org-entities li.indent {
+    padding-left: 14px;
+    border-bottom: none;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  .org-entities li.indent .org-entity-name {
+    font-weight: 500;
+    color: var(--gray-1);
+    font-size: 12px;
+    letter-spacing: 0.02em;
+  }
+  .org-entities li.indent::before {
+    content: '·';
+    color: var(--accent);
+    margin-right: 6px;
+  }
+
+  /* ── ENTITY LIST ── */
+  .entity-list {
+    margin-top: 16px;
+    list-style: none;
+    border-top: 1px solid var(--line);
+  }
+  .entity-list li {
+    padding: 26px 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 48px;
+    align-items: baseline;
+  }
+  .entity-name {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    color: var(--white);
+  }
+  .entity-desc {
+    font-size: 17px;
+    color: var(--gray-1);
+    line-height: 1.55;
+    font-weight: 300;
+  }
+  .entity-desc strong { color: var(--accent); font-weight: 600; }
+
+  /* ── FLYWHEEL ── */
+  .flywheel-row {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
     align-items: center;
-    gap: 8px;
-    margin-top: 32px;
+    gap: 4px;
+    margin-top: 24px;
   }
   .fw-node {
     background: var(--surface);
     border: 1px solid var(--line-bright);
-    padding: 28px 16px;
+    padding: 20px 8px;
     text-align: center;
     aspect-ratio: 1 / 1;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-  }
-  .fw-node-num {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    color: var(--accent);
-    letter-spacing: 0.2em;
-    margin-bottom: 8px;
+    justify-content: center;
+    grid-column: span 2;
   }
   .fw-node-name {
     font-family: 'Barlow', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.02em;
+    color: var(--white);
   }
   .fw-arrow {
     font-family: 'Space Mono', monospace;
     color: var(--accent);
     font-size: 18px;
-  }
-  .fw-loop {
-    font-family: 'Space Mono', monospace;
-    color: var(--accent);
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    padding-left: 6px;
+    text-align: center;
+    grid-column: span 1;
   }
 
-  /* ── FIVE BETS GRID ── */
-  .bets-grid {
+  /* ── CONVERGENCE ── */
+  .converge-row {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1px;
-    background: var(--line);
-    margin: 32px 0 16px;
-    border: 1px solid var(--line-bright);
-  }
-  .bet-card {
-    background: var(--surface);
-    padding: 36px 22px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    min-height: 380px;
-  }
-  .bet-letter {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 900;
-    font-size: 72px;
-    line-height: 0.85;
-    color: var(--accent);
-    letter-spacing: -0.02em;
-  }
-  .bet-name {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 900;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-  }
-  .bet-role {
-    font-family: 'Space Mono', monospace;
-    font-size: 9.5px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gray-3);
-    line-height: 1.7;
-    margin-top: auto;
-  }
-
-  /* ── DAY ARC ── */
-  .day-arc {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1px;
-    background: var(--line);
+    grid-template-columns: 1fr 60px 1fr;
     margin-top: 24px;
-    border: 1px solid var(--line-bright);
+    align-items: stretch;
   }
-  .day-cell {
+  .converge-box {
     background: var(--surface);
-    padding: 36px 24px;
-    min-height: 280px;
+    border: 1px solid var(--accent-dim);
+    padding: 48px 40px;
+    min-height: 220px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
   }
-  .day-num {
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.24em;
+  .converge-plus {
+    text-align: center;
+    align-self: center;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 48px;
     color: var(--accent);
-    margin-bottom: 12px;
   }
-  .day-name {
+  .converge-name {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    line-height: 1.05;
+  }
+  .converge-desc {
+    font-size: 15px;
+    color: var(--gray-2);
+    line-height: 1.55;
+    font-weight: 300;
+  }
+
+  /* ── BRAND CHIPS ── */
+  .brand-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 32px;
+    max-width: 980px;
+  }
+  .brand-chip {
+    padding: 18px 28px;
+    border: 1px solid var(--line-bright);
+    background: var(--surface);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--gray-2);
+  }
+
+  /* ── FOLDED ROWS ── */
+  .fold-rows {
+    margin-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+  .fold-row {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 48px;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .fold-row-key {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 34px;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .fold-row-val {
+    font-size: 17px;
+    color: var(--gray-1);
+    line-height: 1.55;
+    font-weight: 300;
+  }
+
+  /* ── SU FLOWS ── */
+  .su-flows {
+    margin-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+  .su-flow {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+  }
+  .su-flow-from {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    color: var(--gray-1);
+  }
+  .su-flow-arrow {
+    text-align: center;
+    color: var(--accent);
+    font-family: 'Space Mono', monospace;
+    font-size: 18px;
+  }
+  .su-flow-to {
     font-family: 'Barlow', sans-serif;
     font-weight: 900;
     font-size: 24px;
     text-transform: uppercase;
     letter-spacing: 0.01em;
-    margin-bottom: 14px;
-    line-height: 1.05;
-  }
-  .day-desc {
-    font-size: 13px;
-    color: var(--gray-2);
-    line-height: 1.6;
-    font-weight: 300;
+    color: var(--white);
   }
 
-  /* ── ACCESS TIERS LADDER ── */
-  .tiers-ladder {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
+  /* ── PARKED ── */
+  .parked {
     margin-top: 24px;
-  }
-  .tier-step {
-    background: var(--surface);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
     border: 1px solid var(--line);
-    padding: 32px 22px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    position: relative;
   }
-  .tier-step.featured {
-    border-color: var(--accent-dim);
-    background: var(--accent-glow);
+  .parked-card {
+    background: var(--surface);
+    padding: 36px 32px;
+    opacity: 0.88;
   }
-  .tier-step-label {
+  .parked-tag {
     font-family: 'Space Mono', monospace;
     font-size: 10px;
     letter-spacing: 0.22em;
     color: var(--accent);
     text-transform: uppercase;
+    margin-bottom: 12px;
   }
-  .tier-step-name {
+  .parked-name {
     font-family: 'Barlow', sans-serif;
     font-weight: 800;
-    font-size: 22px;
-    text-transform: uppercase;
-    letter-spacing: 0.01em;
-  }
-  .tier-step-price {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 900;
-    font-size: 32px;
-    color: var(--accent);
-    line-height: 1;
-    margin-top: 8px;
-  }
-
-  /* ── CHANNEL GRID ── */
-  .channels {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 1fr;
-    gap: 1px;
-    background: var(--line);
-    margin-top: 24px;
-    border: 1px solid var(--line-bright);
-  }
-  .channel {
-    background: var(--surface);
-    padding: 32px 24px;
-    min-height: 220px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .channel-num {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.22em;
-    color: var(--accent);
-  }
-  .channel-name {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 900;
     font-size: 26px;
     text-transform: uppercase;
     letter-spacing: 0.01em;
-    line-height: 0.98;
-    margin: 8px 0 12px;
+    margin-bottom: 12px;
   }
-  .channel-desc {
-    font-size: 12px;
+  .parked-desc {
+    font-size: 15px;
     color: var(--gray-2);
     line-height: 1.55;
     font-weight: 300;
   }
 
-  /* ── PRIZE TRACKS ── */
-  .prize-tracks {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1px;
-    background: var(--line);
-    margin: 32px 0 16px;
-    border: 1px solid var(--line-bright);
-  }
-  .prize-card {
+  /* ── WALK-THROUGH ── */
+  .walk-through {
     background: var(--surface);
-    padding: 30px 22px;
-    min-height: 240px;
-    display: flex;
-    flex-direction: column;
-  }
-  .prize-amount {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 900;
-    font-size: 36px;
-    color: var(--accent);
-    line-height: 1;
-    margin-bottom: 12px;
-  }
-  .prize-name {
-    font-family: 'Barlow', sans-serif;
-    font-size: 17px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.01em;
-    line-height: 1.1;
-    margin-bottom: 12px;
-  }
-  .prize-desc {
-    font-size: 12px;
-    color: var(--gray-2);
-    line-height: 1.55;
-    font-weight: 300;
-    margin-top: auto;
-  }
-
-  /* ── CAPITAL BUCKETS ── */
-  .buckets {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--line);
-    margin-top: 24px;
-    border: 1px solid var(--line-bright);
-  }
-  .bucket {
-    background: var(--surface);
-    padding: 40px 32px;
-    min-height: 320px;
-    display: flex;
-    flex-direction: column;
-  }
-  .bucket-num {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 900;
-    font-size: 72px;
-    color: var(--accent);
-    line-height: 0.9;
-    margin-bottom: 8px;
-  }
-  .bucket-name {
-    font-family: 'Barlow', sans-serif;
-    font-size: 22px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.01em;
-    margin-bottom: 14px;
-  }
-  .bucket-desc {
-    font-size: 14px;
-    color: var(--gray-1);
-    line-height: 1.65;
-    font-weight: 300;
-  }
-  .bucket-flow {
-    margin-top: auto;
-    padding-top: 24px;
-    border-top: 1px solid var(--line);
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    color: var(--accent);
-    text-transform: uppercase;
-  }
-
-  /* ── EXPANSION MAP ── */
-  .map-line {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 0;
-    margin-top: 32px;
-    position: relative;
-    padding-top: 16px;
-  }
-  .map-line::before {
-    content: '';
-    position: absolute;
-    top: 36px;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: var(--accent-dim);
-  }
-  .map-city {
-    position: relative;
-    padding-top: 56px;
-  }
-  .map-city::before {
-    content: '';
-    position: absolute;
-    top: 31px;
-    left: 0;
-    width: 11px;
-    height: 11px;
-    background: var(--accent);
-    border-radius: 50%;
-  }
-  .map-year {
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    color: var(--accent);
-    margin-bottom: 10px;
-  }
-  .map-name {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 900;
-    font-size: 26px;
-    text-transform: uppercase;
-    letter-spacing: 0.01em;
-  }
-  .map-note {
-    font-size: 12px;
-    color: var(--gray-2);
-    margin-top: 6px;
-    font-weight: 300;
-  }
-
-  /* ── FINANCIAL TABLE ── */
-  .fin-table-wrap {
-    overflow-x: auto;
+    border-left: 3px solid var(--accent);
+    padding: 48px 56px;
     margin-top: 16px;
-    border: 1px solid var(--line-bright);
+    max-width: 1200px;
   }
-  .fin-table {
-    width: 100%;
-    border-collapse: collapse;
+  .walk-through-eyebrow {
     font-family: 'Space Mono', monospace;
-    font-size: 13px;
-  }
-  .fin-table th, .fin-table td {
-    padding: 14px 18px;
-    border-bottom: 1px solid var(--line);
-    text-align: right;
-    font-weight: 400;
-  }
-  .fin-table th:first-child, .fin-table td:first-child {
-    text-align: left;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-  }
-  .fin-table thead th {
-    color: var(--accent);
     font-size: 11px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    border-bottom: 2px solid var(--line-bright);
+    color: var(--accent);
+    margin-bottom: 24px;
   }
-  .fin-table tbody td {
+  .walk-through p {
+    font-size: 18px;
+    line-height: 1.65;
     color: var(--gray-1);
+    font-weight: 300;
+    margin-bottom: 20px;
   }
-  .fin-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
-  .fin-table tfoot td {
+  .walk-through p:last-child { margin-bottom: 0; }
+  .walk-through strong {
     color: var(--white);
     font-weight: 700;
-    border-top: 2px solid var(--line-bright);
-    border-bottom: none;
-    background: rgba(27,191,224,0.04);
   }
-  .fin-note {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gray-3);
-    margin-top: 20px;
+  .walk-through em {
+    color: var(--accent);
+    font-style: normal;
+    font-weight: 500;
   }
 
   /* ── ASK ── */
@@ -801,12 +592,12 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 64px;
-    margin-top: 24px;
+    margin-top: 16px;
   }
   .ask-amount {
     font-family: 'Barlow', sans-serif;
     font-weight: 900;
-    font-size: clamp(80px, 11vw, 160px);
+    font-size: clamp(72px, 10vw, 140px);
     color: var(--accent);
     line-height: 0.9;
     margin-bottom: 20px;
@@ -821,94 +612,24 @@
   }
   .ask-list {
     list-style: none;
-    margin-top: 0;
   }
   .ask-list li {
-    padding: 16px 0;
+    padding: 18px 0;
     border-bottom: 1px solid var(--line);
-    font-size: 16px;
+    font-size: 17px;
     color: var(--gray-1);
-    line-height: 1.5;
+    line-height: 1.55;
     font-weight: 300;
     display: grid;
-    grid-template-columns: 32px 1fr;
+    grid-template-columns: 36px 1fr;
     gap: 16px;
   }
   .ask-list .nl-num {
     font-family: 'Space Mono', monospace;
     font-size: 12px;
     color: var(--accent);
-    letter-spacing: 0.18em;
+    letter-spacing: 0.2em;
   }
-
-  /* ── CLOSING ── */
-  .closing {
-    background: var(--black-2);
-  }
-  .closing-quote {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 800;
-    font-size: clamp(48px, 6.5vw, 96px);
-    line-height: 1.05;
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
-    max-width: 1500px;
-    text-wrap: balance;
-  }
-  .closing-quote em { font-style: normal; color: var(--accent); }
-  .closing-sign {
-    margin-top: 80px;
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gray-3);
-  }
-  .closing-contact {
-    margin-top: 24px;
-    font-family: 'Barlow', sans-serif;
-    font-size: 18px;
-    color: var(--white);
-  }
-
-  /* ── NAV DOTS ── */
-  .nav-dots {
-    position: fixed;
-    top: 50%;
-    right: 28px;
-    transform: translateY(-50%);
-    z-index: 50;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  .nav-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--gray-4);
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .nav-dot.active {
-    background: var(--accent);
-    width: 8px;
-    height: 8px;
-    margin: -1px;
-  }
-
-  /* ── PAGE NUM ── */
-  .page-num {
-    position: absolute;
-    bottom: 32px;
-    right: 80px;
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    color: var(--gray-3);
-    letter-spacing: 0.18em;
-  }
-
-  /* ── PLACEHOLDER TAG ── */
   .ph-tag {
     display: inline-block;
     font-family: 'Space Mono', monospace;
@@ -922,7 +643,28 @@
     vertical-align: middle;
   }
 
-  /* ── CONTACT GRID ── */
+  /* ── CLOSING ── */
+  .closing { background: var(--black-2); }
+  .closing-quote {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: clamp(64px, 9vw, 140px);
+    line-height: 0.95;
+    text-transform: uppercase;
+    letter-spacing: -0.015em;
+    max-width: 1500px;
+    text-wrap: balance;
+  }
+  .closing-quote em { font-style: normal; color: var(--accent); }
+  .closing-sign {
+    margin-top: 80px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gray-3);
+  }
+
   .contact-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -955,29 +697,66 @@
     margin-top: 4px;
   }
 
+  /* ── NAV DOTS ── */
+  .nav-dots {
+    position: fixed;
+    top: 50%;
+    right: 28px;
+    transform: translateY(-50%);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .nav-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gray-4);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .nav-dot.active {
+    background: var(--accent);
+    width: 8px;
+    height: 8px;
+    margin: -1px;
+  }
+
+  /* ── PAGE NUM ── */
+  .page-num {
+    position: absolute;
+    bottom: 32px;
+    right: 80px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--gray-3);
+    letter-spacing: 0.18em;
+  }
+
   /* ── MOBILE ── */
   @media (max-width: 900px) {
     .slide { padding: 60px 28px; }
-    .matrix { grid-template-columns: 1fr 2px 1fr; }
-    .matrix-cat, .matrix-event { font-size: 16px; padding: 18px 0; }
-    .matrix-event { padding-left: 16px; }
-    .cred-row, .partner-grid, .bets-grid, .day-arc, .channels, .prize-tracks, .buckets, .tiers-ladder { grid-template-columns: 1fr 1fr; }
-    .stack-layer { grid-template-columns: 1fr; gap: 12px; padding: 28px; }
-    .flywheel { grid-template-columns: 1fr 1fr; }
+    .engines-3 { grid-template-columns: 1fr; }
+    .org-engines { grid-template-columns: 1fr; }
+    .org-engines::before, .org-engines::after { display: none; }
+    .org-branch { border-left: none; border-top: 1px solid var(--line); padding-top: 24px; }
+    .org-branch:first-child { border-top: none; }
+    .org-top { min-width: 0; width: 100%; }
+    .flywheel-row { grid-template-columns: 1fr; }
     .fw-arrow { display: none; }
-    .map-line { grid-template-columns: 1fr; gap: 24px; }
-    .map-line::before { display: none; }
-    .map-city { padding-top: 12px; }
-    .map-city::before { display: none; }
+    .converge-row { grid-template-columns: 1fr; gap: 24px; }
+    .converge-plus { padding: 16px 0; }
+    .fold-row { grid-template-columns: 1fr; gap: 12px; }
+    .fold-row-key { font-size: 26px; }
+    .su-flow { grid-template-columns: 1fr; gap: 8px; text-align: center; }
+    .parked { grid-template-columns: 1fr; }
     .ask-grid { grid-template-columns: 1fr; }
     .contact-grid { grid-template-columns: 1fr; }
+    .entity-list li { grid-template-columns: 1fr; gap: 6px; }
+    .walk-through { padding: 32px 24px; }
     .nav-dots { display: none; }
     .page-num { right: 28px; }
-  }
-
-  @media (max-width: 600px) {
-    .cred-row, .partner-grid, .bets-grid, .day-arc, .channels, .prize-tracks, .buckets, .tiers-ladder { grid-template-columns: 1fr; }
-    .bet-card, .day-cell, .channel, .prize-card, .bucket { min-height: 0; }
   }
 </style>
 </head>
@@ -986,894 +765,441 @@
 <nav class="nav-dots" id="navDots"></nav>
 
 <!-- ════════════════════════════════════════════════════════════════
-     SECTION 1 — THE VISION
+     SECTION 1 — THE FRAME
      ════════════════════════════════════════════════════════════════ -->
 
 <!-- ── SLIDE 1: COVER ── -->
 <section class="slide hero" id="slide-0">
-  <div class="cover-image"></div>
   <div class="cover-top">
-    <div class="cover-stamp">Moonshots · Platform Brief</div>
+    <div class="cover-stamp">Prepared for Peter · Confidential</div>
     <div class="cover-meta">
-      Confidential · 2026<br>
-      Founder's Circle Preview
+      Infrastructure Pitch · 2026<br>
+      Tyler Donahue
     </div>
   </div>
   <div class="cover-center">
     <div class="cover-logo">MOONSHOTS</div>
-    <p class="cover-tag">Where the optimistic future gets <em>built</em>, <em>told</em>, and <em>funded</em>.</p>
+    <p class="cover-tag">Three engines. One platform. The investable structure for <em>everything you've spent thirty years building</em>.</p>
   </div>
-  <div class="page-num">01 / 45</div>
+  <div class="page-num">01 / 20</div>
 </section>
 
-<!-- ── SLIDE 2: THE PREMISE ── -->
+<!-- ── SLIDE 2: MISSION ANCHOR ── -->
 <section class="slide" id="slide-1">
-  <div class="slide-label">The Premise</div>
-  <div class="statement lg">The optimistic future <em>doesn't build itself.</em></div>
-  <div class="page-num">02 / 45</div>
+  <div class="slide-label">01 · The Mission Anchor</div>
+  <div class="statement">SOLVE PROBLEMS<br>THAT <em>UPLIFT</em><br>HUMANITY.</div>
+  <p class="statement-sub">By routing media, events, and capital through one platform. That's the whole sentence. Everything below is how.</p>
+  <div class="page-num">02 / 20</div>
 </section>
 
-<!-- ── SLIDE 3: THE PROBLEM ── -->
+<!-- ── SLIDE 3: THE THREE ENGINES ── -->
 <section class="slide" id="slide-2">
-  <div class="slide-label">The Problem</div>
-  <h2>SCATTERED.<br>UNDER-COORDINATED.<br><em>POINTED AT SMALL PROBLEMS.</em></h2>
-  <p class="body-text lg">The world's most ambitious storytellers, builders, and capital allocators are working in parallel, on different timelines, with different incentives. The result is a future built by accident. The work that gets made is the work that gets coordinated.</p>
-  <div class="page-num">03 / 45</div>
+  <div class="slide-label">02 · The Engines</div>
+  <div class="statement">MEDIA.<br>EVENTS.<br><em>CAPITAL.</em></div>
+  <p class="statement-sub">Three things you've been building your whole career. Right now they live in five companies. They were always one.</p>
+  <div class="page-num">03 / 20</div>
 </section>
 
-<!-- ── SLIDE 4: THE WHITE SPACE ── -->
+<!-- ── SLIDE 4: WHAT EACH ENGINE DOES ── -->
 <section class="slide dense" id="slide-3">
-  <div class="slide-label">The White Space</div>
-  <h2>EVERY CULTURAL CATEGORY<br>HAS A <em>HOME</em>.</h2>
-  <p class="body-text" style="margin-bottom: 24px;">The optimistic future does not.</p>
+  <div class="slide-label">02.01 · What Each Engine Does</div>
+  <h2>THREE FUNCTIONS.<br>THREE <em>BUSINESSES</em>.</h2>
 
-  <div class="matrix">
-    <div class="matrix-row">
-      <div class="matrix-cat">Wellness</div>
-      <div class="matrix-divider"></div>
-      <div class="matrix-event">WOW</div>
+  <div class="engines-3">
+    <div class="engine-cell">
+      <div class="engine-name">Media</div>
+      <div class="engine-fn">Builds and broadcasts the audience.</div>
+      <div class="engine-desc">Own revenue model. Own KPIs. Own scaling path.</div>
     </div>
-    <div class="matrix-row">
-      <div class="matrix-cat">Art</div>
-      <div class="matrix-divider"></div>
-      <div class="matrix-event">Art Basel</div>
+    <div class="engine-cell">
+      <div class="engine-name">Events</div>
+      <div class="engine-fn">Convenes and develops humans across every career stage.</div>
+      <div class="engine-desc">Own revenue model. Own KPIs. Own scaling path.</div>
     </div>
-    <div class="matrix-row">
-      <div class="matrix-cat">Music · Film</div>
-      <div class="matrix-divider"></div>
-      <div class="matrix-event">SXSW</div>
-    </div>
-    <div class="matrix-row">
-      <div class="matrix-cat">Tech</div>
-      <div class="matrix-divider"></div>
-      <div class="matrix-event">CES</div>
-    </div>
-    <div class="matrix-row highlight">
-      <div class="matrix-cat">The Optimistic Future</div>
-      <div class="matrix-divider"></div>
-      <div class="matrix-event matrix-empty">[ open ]</div>
+    <div class="engine-cell">
+      <div class="engine-name">Capital</div>
+      <div class="engine-fn">Deploys grants and investment against the mission.</div>
+      <div class="engine-desc">Own revenue model. Own KPIs. Own scaling path.</div>
     </div>
   </div>
 
-  <div class="page-num">04 / 45</div>
+  <p class="body-text" style="margin-top: 40px;">Each one stands on its own. Together they compound. That's the platform.</p>
+  <div class="page-num">04 / 20</div>
+</section>
+
+<!-- ── SLIDE 5: THE ORG CHART ── -->
+<section class="slide dense" id="slide-4">
+  <div class="slide-label">02.02 · How The Entities Slot In</div>
+  <h2>THE WHOLE STACK,<br>ONE <em>PAGE</em>.</h2>
+
+  <div class="org-chart">
+    <div class="org-top">
+      <div class="org-top-name">Moonshots Holding Company</div>
+      <div class="org-top-sub">Solving problems that uplift humanity</div>
+    </div>
+    <div class="org-trunk"></div>
+    <div class="org-engines">
+      <div class="org-branch">
+        <div class="org-engine-name">MEDIA</div>
+        <ul class="org-entities">
+          <li><span class="org-entity-name">Moonshots Podcast</span><span class="org-entity-note">Flagship interview, anchored by you</span></li>
+          <li><span class="org-entity-name">Abundance Index</span><span class="org-entity-note">Tracking exponential progress</span></li>
+          <li><span class="org-entity-name">Singularity Index</span><span class="org-entity-note">Inherited via SU acquisition</span></li>
+          <li><span class="org-entity-name">Metatrends</span><span class="org-entity-note">Your signature trend format</span></li>
+          <li><span class="org-entity-name">moonshots.com</span><span class="org-entity-note">Living directory of breakthrough projects</span></li>
+        </ul>
+      </div>
+      <div class="org-branch">
+        <div class="org-engine-name">EVENTS</div>
+        <ul class="org-entities">
+          <li><span class="org-entity-name">Moonshot Gathering</span><span class="org-entity-note">Early-career builders and creators</span></li>
+          <li><span class="org-entity-name">Abundance 360</span><span class="org-entity-note">Late-career CEOs and capital allocators</span></li>
+          <li><span class="org-entity-name">Abundance Education + TKS</span><span class="org-entity-note">Ongoing cohort programs, pre- and early-career</span></li>
+        </ul>
+      </div>
+      <div class="org-branch">
+        <div class="org-engine-name">CAPITAL</div>
+        <ul class="org-entities">
+          <li><span class="org-entity-name">Prizes</span><span class="org-entity-note">Via XPRIZE 501(c)(3) rail</span></li>
+          <li class="indent"><span class="org-entity-name">FVXP</span></li>
+          <li class="indent"><span class="org-entity-name">Build with Gemini XPRIZE</span></li>
+          <li class="indent"><span class="org-entity-name">Deep Tech (future)</span></li>
+          <li><span class="org-entity-name">Abundance Studio</span><span class="org-entity-note">~$50M fund · startups, film, media IP</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="page-num">05 / 20</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════════
-     SECTION 2 — WHY MOONSHOTS, WHY NOW
+     SECTION 2 — THE ENTITIES (light pass, Peter has context)
      ════════════════════════════════════════════════════════════════ -->
 
-<!-- ── SLIDE 5: SECTION DIVIDER 01 ── -->
-<section class="slide divider" id="slide-4">
-  <div class="divider-num">Section 01</div>
-  <div class="divider-name">ABOUT<br>MOONSHOTS</div>
-  <div class="divider-line"></div>
-  <div class="page-num">05 / 45</div>
-</section>
-
-<!-- ── SLIDE 6: FOUNDED BY PETER DIAMANDIS ── -->
+<!-- ── SLIDE 6: MEDIA ENTITIES ── -->
 <section class="slide" id="slide-5">
-  <div class="slide-label">01.01 · Founder</div>
-  <h2>FOUNDED BY<br>PETER <em>DIAMANDIS</em>.</h2>
-  <p class="body-text lg">The most credible voice in optimistic future-tech. Three decades of building the institutions, prizes, and networks that turn moonshot ideas into shipped industries.</p>
+  <div class="slide-label">03 · Media</div>
+  <h2>THE ALWAYS-ON<br><em>AUDIENCE ENGINE</em>.</h2>
 
-  <div class="cred-row">
-    <div class="cred-cell">
-      <div class="cred-num">XPRIZE</div>
-      <div class="cred-name">Founder · Executive Chairman</div>
-      <div class="cred-detail">$300M+ in prizes awarded across spaceflight, genomics, AI, longevity, ocean discovery.</div>
-    </div>
-    <div class="cred-cell">
-      <div class="cred-num">SU</div>
-      <div class="cred-name">Singularity University</div>
-      <div class="cred-detail">Co-founder. Trained the next generation of exponential-thinking founders and executives.</div>
-    </div>
-    <div class="cred-cell">
-      <div class="cred-num">A360</div>
-      <div class="cred-name">Abundance360</div>
-      <div class="cred-detail">Annual membership for entrepreneurs and CEOs building at the edge of exponential tech.</div>
-    </div>
-    <div class="cred-cell">
-      <div class="cred-num">NYT</div>
-      <div class="cred-name">Abundance · Bold · Exponential Tech</div>
-      <div class="cred-detail">Three New York Times bestsellers. The vocabulary of the modern optimist's case.</div>
-    </div>
-  </div>
-  <div class="page-num">06 / 45</div>
+  <ul class="entity-list">
+    <li><div class="entity-name">Moonshots Podcast</div><div class="entity-desc">Flagship interview show. Anchored by you. The center of gravity.</div></li>
+    <li><div class="entity-name">Abundance Index</div><div class="entity-desc">Newsletter and content franchise tracking exponential progress across the bets.</div></li>
+    <li><div class="entity-name">Singularity Index</div><div class="entity-desc">Same architecture, inherited and repositioned via the SU acquisition.</div></li>
+    <li><div class="entity-name">Metatrends</div><div class="entity-desc">Your signature trend identification format. Annual headline, year-round content engine.</div></li>
+    <li><div class="entity-name">moonshots.com</div><div class="entity-desc">Living directory of projects moving humanity forward. The reference layer beneath the rest.</div></li>
+  </ul>
+  <div class="page-num">06 / 20</div>
 </section>
 
-<!-- ── SLIDE 7: XPRIZE LEGACY ── -->
+<!-- ── SLIDE 7: EVENTS ENTITIES ── -->
 <section class="slide" id="slide-6">
-  <div class="slide-label">01.02 · The XPRIZE Legacy</div>
-  <h2>$300M+ IN PRIZES.<br>ENTIRE INDUSTRIES <em>CATALYZED</em>.</h2>
-  <p class="body-text lg">A prize designed correctly bends a market. The Ansari XPRIZE kicked off private spaceflight. The Archon Genomics prize collapsed sequencing costs. Carbon Removal, Healthspan, Rainforest, Ocean — each one a sector that moved because a prize forced it to.</p>
-  <p class="body-text">Moonshots inherits this muscle. We know how to write a prize that builds an industry.</p>
-  <div class="page-num">07 / 45</div>
+  <div class="slide-label">04 · Events</div>
+  <h2>TIERED CONVENING<br>BY <em>CAREER STAGE</em>.</h2>
+
+  <ul class="entity-list">
+    <li><div class="entity-name">Abundance Education + TKS</div><div class="entity-desc"><strong>Pre / early career.</strong> Ongoing cohort programs developing the talent layer.</div></li>
+    <li><div class="entity-name">Moonshot Gathering</div><div class="entity-desc"><strong>Early career.</strong> Annual cultural moment for builders, creators, and operators. The Sept 25 LA arc.</div></li>
+    <li><div class="entity-name">Abundance 360</div><div class="entity-desc"><strong>Late career.</strong> Annual executive summit for CEOs and capital allocators. Inherits cleanly via SU.</div></li>
+  </ul>
+
+  <p class="body-text" style="margin-top: 32px;">Every stage of someone's career addressed by a different product. The lifecycle stays inside the platform.</p>
+  <div class="page-num">07 / 20</div>
 </section>
 
-<!-- ── SLIDE 8: PARTNER ECOSYSTEM ── -->
-<section class="slide dense" id="slide-7">
-  <div class="slide-label">01.03 · The Partner Ecosystem</div>
-  <h2>THE COALITION<br><em>ALREADY IN MOTION.</em></h2>
+<!-- ── SLIDE 8: CAPITAL ENTITIES ── -->
+<section class="slide" id="slide-7">
+  <div class="slide-label">05 · Capital</div>
+  <h2>MISSION-ALIGNED<br><em>DEPLOYMENT</em>.</h2>
 
-  <div class="partner-grid">
-    <div class="partner-cell">
-      <div class="partner-name">GOOGLE</div>
-      <div class="partner-role">Presenting partner of the Future Vision XPRIZE. Anchor sponsor of the Build with Gemini hackathon.</div>
-    </div>
-    <div class="partner-cell">
-      <div class="partner-name">XPRIZE FOUNDATION</div>
-      <div class="partner-role">Competition administration. Three decades of prize design and execution infrastructure.</div>
-    </div>
-    <div class="partner-cell">
-      <div class="partner-name">RANGE MEDIA</div>
-      <div class="partner-role">Filmmaker filter and grand-prize co-production. First refusal on FVXP winner.</div>
-    </div>
-    <div class="partner-cell">
-      <div class="partner-name">SALESFORCE</div>
-      <div class="partner-role">Enterprise partner. Brings the Fortune 500 conversation into the room.</div>
-    </div>
-    <div class="partner-cell">
-      <div class="partner-name">REPUBLIC</div>
-      <div class="partner-role">Capital partner. Film financing and equity flow for platform-side investments.</div>
-    </div>
-    <div class="partner-cell">
-      <div class="partner-name">JED McCALEB</div>
-      <div class="partner-role">Founding patron. Long-horizon capital and Stellar / Astro Mechanica gravity.</div>
-    </div>
-  </div>
-  <div class="page-num">08 / 45</div>
+  <ul class="entity-list">
+    <li><div class="entity-name">Prizes</div><div class="entity-desc"><strong>FVXP. Build with Gemini XPRIZE. Deep Tech (future).</strong> Designed and operated jointly with XPRIZE Foundation through its 501(c)(3) rail.</div></li>
+    <li><div class="entity-name">Abundance Studio</div><div class="entity-desc"><strong>~$50M fund.</strong> Investing in and incubating companies. Internal strand allocating to media and film IP. The platform owns its own pipeline.</div></li>
+  </ul>
+  <div class="page-num">08 / 20</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════════
-     SECTION 3 — THE MODEL
+     SECTION 3 — HOW IT COMPOUNDS
      ════════════════════════════════════════════════════════════════ -->
 
-<!-- ── SLIDE 9: SECTION DIVIDER 02 ── -->
-<section class="slide divider" id="slide-8">
-  <div class="divider-num">Section 02</div>
-  <div class="divider-name">THREE LAYERS,<br>ONE <em style="color:var(--accent);font-style:normal;">ENGINE</em></div>
-  <div class="divider-line"></div>
-  <div class="page-num">09 / 45</div>
+<!-- ── SLIDE 9: THE FLYWHEEL ── -->
+<section class="slide dense" id="slide-8">
+  <div class="slide-label">06 · The Compounding</div>
+  <h2>EACH TURN<br>BIGGER THAN<br>THE <em>LAST</em>.</h2>
+
+  <div class="flywheel-row">
+    <div class="fw-node"><span class="fw-node-name">Media</span></div>
+    <div class="fw-arrow">→</div>
+    <div class="fw-node"><span class="fw-node-name">Talent</span></div>
+    <div class="fw-arrow">→</div>
+    <div class="fw-node"><span class="fw-node-name">Events</span></div>
+    <div class="fw-arrow">→</div>
+    <div class="fw-node"><span class="fw-node-name">Capital</span></div>
+    <div class="fw-arrow">→</div>
+    <div class="fw-node"><span class="fw-node-name">Returns</span></div>
+  </div>
+
+  <p class="body-text lg" style="margin-top: 40px;">Media attracts attention. Attention pulls talent into events. Events surface the best builders and stories. Capital deploys against the best of what surfaces. Returns produce new content. Content feeds media. Loop closes. Loop accelerates.</p>
+  <div class="page-num">09 / 20</div>
 </section>
 
-<!-- ── SLIDE 10: MODEL OVERVIEW ── -->
+<!-- ── SLIDE 10: THE CONVERGENCE ── -->
 <section class="slide dense" id="slide-9">
-  <div class="slide-label">02.01 · The Model</div>
-  <h2>MEDIA → INCENTIVES<br>→ <em>CAPITAL</em>.</h2>
-  <p class="body-text lg">A media company that pays the world's best creators and builders to point their work at humanity's biggest problems, and invests in what they make.</p>
+  <div class="slide-label">06.01 · The Marquee Assets</div>
+  <h2>TWO ASSETS WHERE<br>ALL THREE ENGINES<br><em>VISIBLY MEET</em>.</h2>
 
-  <div class="stack">
-    <div class="stack-layer">
-      <div>
-        <div class="stack-layer-label">Layer 01 · Front End</div>
-        <div class="stack-layer-name">MEDIA</div>
-      </div>
-      <div class="stack-layer-desc">A year-round content network and an annual cultural gathering. The front door. Pulls every category of talent into our gravity.</div>
+  <div class="converge-row">
+    <div class="converge-box">
+      <div class="converge-name">Moonshot Gathering</div>
+      <div class="converge-desc">Media on stage. Events as the venue. Capital deployed in the room. Every external pitch leads with this.</div>
     </div>
-    <div class="stack-layer">
-      <div>
-        <div class="stack-layer-label">Layer 02 · The Middle</div>
-        <div class="stack-layer-name">INCENTIVES</div>
-      </div>
-      <div class="stack-layer-desc">The largest prize ecosystem ever assembled around the optimistic future. Filters the field and surfaces the work that matters.</div>
-    </div>
-    <div class="stack-layer">
-      <div>
-        <div class="stack-layer-label">Layer 03 · Back End</div>
-        <div class="stack-layer-name">CAPITAL</div>
-      </div>
-      <div class="stack-layer-desc">Equity into startups. Financing into films. Long-horizon positions in deep-tech hardware. We own the upside of what wins.</div>
+    <div class="converge-plus">+</div>
+    <div class="converge-box">
+      <div class="converge-name">Prize Portfolio</div>
+      <div class="converge-desc">Story machine for media. Filter for talent. Conduit for capital. The narrative arc that runs twelve months a year.</div>
     </div>
   </div>
-  <div class="page-num">10 / 45</div>
+  <div class="page-num">10 / 20</div>
 </section>
 
-<!-- ── SLIDE 11: LAYER 1 — MEDIA ── -->
-<section class="slide" id="slide-10">
-  <div class="slide-label">02.02 · Layer 01</div>
-  <h2>MEDIA.<br><em>THE FRONT END.</em></h2>
-  <p class="body-text lg">Year-round content network plus an annual cultural gathering. Daily journalism. Premium documentaries. A creator network. A living directory of every moonshot on Earth.</p>
-  <p class="body-text">Media is how we get the world's best storytellers, scientists, and builders in the same room. It's the gravity well. Everything else compounds on top.</p>
-  <div class="page-num">11 / 45</div>
+<!-- ════════════════════════════════════════════════════════════════
+     SECTION 4 — THE CASE FOR CAPITAL
+     ════════════════════════════════════════════════════════════════ -->
+
+<!-- ── SLIDE 11: THREE REVENUE STREAMS ── -->
+<section class="slide dense" id="slide-10">
+  <div class="slide-label">07 · The Case For Capital</div>
+  <h2>THREE STREAMS.<br><em>DAY ONE</em>.</h2>
+
+  <div class="engines-3">
+    <div class="engine-cell">
+      <div class="engine-name">Media</div>
+      <div class="engine-fn">Ad and sponsorship revenue.</div>
+      <div class="engine-desc">Inherits your existing audience footprint from day one. No cold start.</div>
+    </div>
+    <div class="engine-cell">
+      <div class="engine-name">Events</div>
+      <div class="engine-fn">Ticketing, sponsorship, corporate partnerships.</div>
+      <div class="engine-desc">The Gathering plus A360 already produce hard revenue. Stacks at acquisition close.</div>
+    </div>
+    <div class="engine-cell">
+      <div class="engine-name">Capital</div>
+      <div class="engine-fn">Management fees, carry, IP equity.</div>
+      <div class="engine-desc">Studio fund mechanics plus IP positions on the film and media side.</div>
+    </div>
+  </div>
+
+  <p class="body-text" style="margin-top: 40px;">None of the three depends on the others to break even. Each makes the others more valuable.</p>
+  <div class="page-num">11 / 20</div>
 </section>
 
-<!-- ── SLIDE 12: LAYER 2 — INCENTIVES ── -->
-<section class="slide" id="slide-11">
-  <div class="slide-label">02.03 · Layer 02</div>
-  <h2>INCENTIVES.<br><em>THE MIDDLE.</em></h2>
-  <p class="body-text lg">$5M+ in prize pools at launch. $10M+ by Year 3. Five tracks running in parallel: film, AI, fellowship, recognition, hardware.</p>
-  <p class="body-text">Prizes do two jobs. They filter the field down to the work worth funding. They generate the narrative arc the media layer follows for twelve months a year.</p>
-  <div class="page-num">12 / 45</div>
+<!-- ── SLIDE 12: THREE MOATS ── -->
+<section class="slide dense" id="slide-11">
+  <div class="slide-label">07.01 · Three Moats</div>
+  <h2>EACH ENGINE,<br>OWN <em>DEFENSIBILITY</em>.</h2>
+
+  <div class="engines-3">
+    <div class="engine-cell">
+      <div class="engine-name">Media</div>
+      <div class="engine-fn">Your audience.</div>
+      <div class="engine-desc">Not replicable on any timeline that matters.</div>
+    </div>
+    <div class="engine-cell">
+      <div class="engine-name">Events</div>
+      <div class="engine-fn">XPRIZE legacy + the partner network.</div>
+      <div class="engine-desc">Google, Salesforce, Range, Republic, XPRIZE Foundation, A360 membership.</div>
+    </div>
+    <div class="engine-cell">
+      <div class="engine-name">Capital</div>
+      <div class="engine-fn">Abundance Studio + 30 years of dealflow.</div>
+      <div class="engine-desc">First call from the founders building the future. Doesn't get bought.</div>
+    </div>
+  </div>
+  <div class="page-num">12 / 20</div>
 </section>
 
-<!-- ── SLIDE 13: LAYER 3 — CAPITAL ── -->
+<!-- ── SLIDE 13: ONE INVESTABLE SPINE ── -->
 <section class="slide" id="slide-12">
-  <div class="slide-label">02.04 · Layer 03</div>
-  <h2>CAPITAL.<br><em>THE BACK END.</em></h2>
-  <p class="body-text lg">Equity checks into the startups our hackathon and fellowship surface. Production financing into the films our XPRIZE crowns. Long-horizon positions in the hardware our Shark Tank green-lights.</p>
-  <p class="body-text">The capital layer is what makes Moonshots more than a festival. We own the upside of what we discover.</p>
-  <div class="page-num">13 / 45</div>
+  <div class="slide-label">07.02 · One Spine</div>
+  <div class="statement">ONE NARRATIVE.<br>ONE MISSION.<br>ONE <em>INVESTABLE SPINE</em>.</div>
+  <p class="statement-sub">Without the brand fragmentation you've been living with for twenty years.</p>
+  <div class="page-num">13 / 20</div>
 </section>
 
-<!-- ── SLIDE 14: THE FLYWHEEL ── -->
+<!-- ════════════════════════════════════════════════════════════════
+     SECTION 5 — WHAT THIS DOES FOR YOU
+     ════════════════════════════════════════════════════════════════ -->
+
+<!-- ── SLIDE 14: THE FIVE-BRAND PROBLEM ── -->
 <section class="slide dense" id="slide-13">
-  <div class="slide-label">02.05 · The Flywheel</div>
-  <h2>EACH LAYER<br><em>COMPOUNDS THE NEXT.</em></h2>
+  <div class="slide-label">08 · For You</div>
+  <h2>FIVE BRANDS.<br>SAME AUDIENCE.<br>SAME <em>CAPITAL POOL</em>.</h2>
 
-  <div class="flywheel">
-    <div class="fw-node">
-      <div class="fw-node-num">01</div>
-      <div class="fw-node-name">Media</div>
-    </div>
-    <div class="fw-arrow">→</div>
-    <div class="fw-node">
-      <div class="fw-node-num">02</div>
-      <div class="fw-node-name">Talent</div>
-    </div>
-    <div class="fw-arrow">→</div>
-    <div class="fw-node">
-      <div class="fw-node-num">03</div>
-      <div class="fw-node-name">Prizes</div>
-    </div>
-    <div class="fw-arrow">→</div>
-    <div class="fw-node">
-      <div class="fw-node-num">04</div>
-      <div class="fw-node-name">Capital</div>
-    </div>
-    <div class="fw-arrow">→</div>
-    <div class="fw-node">
-      <div class="fw-node-num">05</div>
-      <div class="fw-node-name">Returns</div>
-    </div>
-    <div class="fw-loop">↺ loops</div>
+  <div class="brand-chips">
+    <div class="brand-chip">Singularity University</div>
+    <div class="brand-chip">A360</div>
+    <div class="brand-chip">Moonshots</div>
+    <div class="brand-chip">TKS</div>
+    <div class="brand-chip">Abundance Studio</div>
   </div>
 
-  <p class="body-text" style="margin-top: 48px;">Media pulls talent into our gravity. Talent enters the prize tracks. Prizes surface the work worth backing. Capital writes the check. Returns fund the next cycle of media. Every spin makes the next spin cheaper.</p>
-  <div class="page-num">14 / 45</div>
+  <p class="body-text lg" style="margin-top: 48px;">Right now they operate as separate brands competing for the same audience and the same capital. Five conversations. Five teams. Five P&amp;Ls. Five investor decks. Five times the maintenance for the same end-state revenue.</p>
+  <div class="page-num">14 / 20</div>
 </section>
 
-<!-- ════════════════════════════════════════════════════════════════
-     SECTION 4 — BRAND ARCHITECTURE
-     ════════════════════════════════════════════════════════════════ -->
-
-<!-- ── SLIDE 15: THE FIVE BETS ── -->
+<!-- ── SLIDE 15: FOLDED INTO ONE ── -->
 <section class="slide dense" id="slide-14">
-  <div class="slide-label">03.01 · Brand Architecture</div>
-  <h2>FIVE BETS.<br>ONE <em>PLATFORM</em>.<span class="ph-tag">Placeholder Naming</span></h2>
-  <p class="body-text lg">Each bet is a mission, a content vertical, a prize track, and a sponsorship sub-brand. Together they cover the surface area of the optimistic future. Final naming to be locked.</p>
+  <div class="slide-label">08.01 · The Fold</div>
+  <h2>FOLD THEM IN.<br><em>OPERATE ONE</em>.</h2>
 
-  <div class="bets-grid">
-    <div class="bet-card">
-      <div class="bet-letter">M</div>
-      <div class="bet-name">MARS</div>
-      <div class="bet-role">Space, propulsion, multiplanetary. The frontier bet.</div>
+  <div class="fold-rows">
+    <div class="fold-row">
+      <div class="fold-row-key">One brand</div>
+      <div class="fold-row-val">Instead of five. Investors, sponsors, talent, and press all point at the same name.</div>
     </div>
-    <div class="bet-card">
-      <div class="bet-letter">L</div>
-      <div class="bet-name">LIFE+</div>
-      <div class="bet-role">Longevity, biotech, healthspan. The body bet.</div>
+    <div class="fold-row">
+      <div class="fold-row-key">One audience</div>
+      <div class="fold-row-val">Instead of five overlapping ones cannibalizing each other for the same email open.</div>
     </div>
-    <div class="bet-card">
-      <div class="bet-letter">S</div>
-      <div class="bet-name">SUN</div>
-      <div class="bet-role">Energy, fusion, grid. The abundance bet.</div>
+    <div class="fold-row">
+      <div class="fold-row-key">One capital structure</div>
+      <div class="fold-row-val">Raise once into the top. Not into five separate entities forever.</div>
     </div>
-    <div class="bet-card">
-      <div class="bet-letter">M</div>
-      <div class="bet-name">MIND</div>
-      <div class="bet-role">AI, BCI, cognition. The intelligence bet.</div>
-    </div>
-    <div class="bet-card">
-      <div class="bet-letter">S</div>
-      <div class="bet-name">SAGA</div>
-      <div class="bet-role">Story, film, IP. The narrative bet that holds it all together.</div>
+    <div class="fold-row">
+      <div class="fold-row-key">One team</div>
+      <div class="fold-row-val">Operating the whole thing. Shared infrastructure, shared P&amp;L, shared roadmap.</div>
     </div>
   </div>
-  <div class="page-num">15 / 45</div>
+  <div class="page-num">15 / 20</div>
 </section>
 
-<!-- ── SLIDE 16: HOW THE FIVE BETS LADDER UP ── -->
-<section class="slide" id="slide-15">
-  <div class="slide-label">03.02 · Architecture</div>
-  <h2>EVERY BET HAS<br>A <em>FULL STACK</em>.</h2>
-  <p class="body-text lg">Each of the Five Bets runs its own creator anchor, marketplace zone, prize lane, and capital thesis. They share a single platform infrastructure. One brand, five worlds, all compounding the same audience.</p>
-  <p class="body-text">A sponsor activates inside one bet. A patron invests across all five. The platform owns the connective tissue.</p>
-  <div class="page-num">16 / 45</div>
+<!-- ── SLIDE 16: THE SINGULARITY MOVE ── -->
+<section class="slide dense" id="slide-15">
+  <div class="slide-label">09 · The Structural Move</div>
+  <h2>ACQUIRE<br>SINGULARITY <em>UNIVERSITY</em>.</h2>
+  <p class="body-text lg">The move that makes the chart clean. Three things resolve in one transaction.</p>
+
+  <div class="su-flows">
+    <div class="su-flow">
+      <div class="su-flow-from">Singularity Index</div>
+      <div class="su-flow-arrow">→</div>
+      <div class="su-flow-to">Media franchise</div>
+    </div>
+    <div class="su-flow">
+      <div class="su-flow-from">Corporate transformation offering</div>
+      <div class="su-flow-arrow">→</div>
+      <div class="su-flow-to">Operating revenue line</div>
+    </div>
+    <div class="su-flow">
+      <div class="su-flow-from">A360 (which SU owns)</div>
+      <div class="su-flow-arrow">→</div>
+      <div class="su-flow-to">Late-career events tier</div>
+    </div>
+  </div>
+
+  <p class="body-text" style="margin-top: 32px;">After the acquisition, every entity has a single, non-overlapping role. The five-brand mess collapses into a clean three-engine chart.</p>
+  <div class="page-num">16 / 20</div>
+</section>
+
+<!-- ── SLIDE 17: PARKED ── -->
+<section class="slide dense" id="slide-16">
+  <div class="slide-label">10 · Parked For Later</div>
+  <h2>TWO EXPANSIONS,<br><em>KEPT OFF THE HEADLINE</em>.</h2>
+
+  <div class="parked">
+    <div class="parked-card">
+      <div class="parked-tag">Y2 · Background</div>
+      <div class="parked-name">Moonshot Fellowship</div>
+      <div class="parked-desc">Thiel-style cohort program for breakout builders. Comes back once the core platform is operating and raising into its next round.</div>
+    </div>
+    <div class="parked-card">
+      <div class="parked-tag">Y3 · Background</div>
+      <div class="parked-name">Founder's Circle</div>
+      <div class="parked-desc">Patron tier with deeper capital co-invest rights. Layered on after Studio is performing and the audience side has scale.</div>
+    </div>
+  </div>
+
+  <p class="body-text" style="margin-top: 32px;">Keeping them out of the headline keeps the pitch focused on what we're raising for and operating now. They get sequenced in as the platform earns the right to add them.</p>
+  <div class="page-num">17 / 20</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════════
-     SECTION 5 — THE GATHERING
+     SECTION 6 — THE PITCH IN PLAIN LANGUAGE
      ════════════════════════════════════════════════════════════════ -->
 
-<!-- ── SLIDE 17: SECTION DIVIDER 04 ── -->
-<section class="slide divider" id="slide-16">
-  <div class="divider-num">Section 04</div>
-  <div class="divider-name">THE<br><em style="color:var(--accent);font-style:normal;">GATHERING</em></div>
-  <div class="divider-line"></div>
-  <div class="page-num">17 / 45</div>
+<!-- ── SLIDE 18: THE WALK-THROUGH ── -->
+<section class="slide dense" id="slide-17">
+  <div class="slide-label">11 · The Pitch In Plain Language</div>
+  <h2>WHAT YOU'D<br><em>HEAR ME SAY</em>.</h2>
+
+  <div class="walk-through">
+    <div class="walk-through-eyebrow">The walk-through</div>
+    <p>"Here's how I see it. <strong>You've been building three things your whole career</strong> — media, events, and capital deployment toward the future. Right now they're spread across five brands. Moonshots is the structure that unifies them."</p>
+    <p>"<em>Media.</em> The podcast, the indexes, Metatrends, moonshots.com. One always-on audience engine."</p>
+    <p>"<em>Events.</em> The Moonshot Gathering for early-career, A360 for late-career, Education and TKS for ongoing programs. One tiered convening engine. Every stage of someone's career addressed by a different product."</p>
+    <p>"<em>Capital.</em> The prizes through XPRIZE, the Studio fund. One deployment engine."</p>
+    <p>"If we acquire Singularity into this, the brand fragmentation problem disappears. <strong>You operate one company with one investable narrative.</strong> We raise into the top of the structure once. Not into five competing entities forever."</p>
+  </div>
+  <div class="page-num">18 / 20</div>
 </section>
 
-<!-- ── SLIDE 18: THE ANNUAL CULTURAL MOMENT ── -->
-<section class="slide" id="slide-17">
-  <div class="slide-label">04.01 · The Cultural Moment</div>
-  <h2>SEPTEMBER 25, 2026.<br>LOS ANGELES.</h2>
-  <p class="body-text lg">The Oscars of optimistic future-building. Top finalists in person. Capital deployed live on stage. The single largest concentration of moonshot builders, storytellers, and patrons assembled anywhere in the world that year.</p>
-  <p class="body-text">By Y2 it runs five days end-to-end. Y1 lands a 2-to-3 day proof and locks the calendar slot for everything that follows.</p>
-  <div class="page-num">18 / 45</div>
-</section>
+<!-- ════════════════════════════════════════════════════════════════
+     SECTION 7 — THE ASK + CLOSE
+     ════════════════════════════════════════════════════════════════ -->
 
-<!-- ── SLIDE 19: THE 5-DAY ARC ── -->
+<!-- ── SLIDE 19: THE ASK ── -->
 <section class="slide dense" id="slide-18">
-  <div class="slide-label">04.02 · The 5-Day Arc</div>
-  <h2>FIVE DAYS.<br><em>ONE STORY.</em></h2>
-
-  <div class="day-arc">
-    <div class="day-cell">
-      <div class="day-num">Day 01</div>
-      <div class="day-name">Patron Preview</div>
-      <div class="day-desc">Founder's Circle and Patron tier only. Private demos, principal dinners, advance briefings on the prize fields.</div>
-    </div>
-    <div class="day-cell">
-      <div class="day-num">Day 02</div>
-      <div class="day-name">Demo Day</div>
-      <div class="day-desc">Hackathon finalists and fellowship cohort present. Capital partners write checks in the room.</div>
-    </div>
-    <div class="day-cell">
-      <div class="day-num">Day 03</div>
-      <div class="day-name">Expo Opens</div>
-      <div class="day-desc">The Moonshot Marketplace opens to ticketed public. Brand houses across LA spin up the satellite ecosystem.</div>
-    </div>
-    <div class="day-cell">
-      <div class="day-num">Day 04</div>
-      <div class="day-name">The Talks</div>
-      <div class="day-desc">Mainstage program. Peter and the Builders. Founders, scientists, and the working filmmakers behind the FVXP top 10.</div>
-    </div>
-    <div class="day-cell">
-      <div class="day-num">Day 05</div>
-      <div class="day-name">Awards Night</div>
-      <div class="day-desc">FVXP Top 10 cinema premiere, red carpet, prize reveal. Moonshot of the Year named. Capital deployed live.</div>
-    </div>
-  </div>
-  <div class="page-num">19 / 45</div>
-</section>
-
-<!-- ── SLIDE 20: THE ARENA EXPERIENCE ── -->
-<section class="slide" id="slide-19">
-  <div class="slide-label">04.03 · The Arena</div>
-  <h2>MAINSTAGE.<br><em>THE BIG ROOM.</em></h2>
-  <p class="body-text lg">Speakers. Performances. Awards ceremony. The room is packed with the people building the future and the people funding them. Peter on stage. Finalists accepting prizes. Cameras everywhere.</p>
-  <p class="body-text dim">[HERO IMAGE: arena packed, Peter on stage, finalist accepting prize]</p>
-  <div class="page-num">20 / 45</div>
-</section>
-
-<!-- ── SLIDE 21: THE MOONSHOT MARKETPLACE ── -->
-<section class="slide" id="slide-20">
-  <div class="slide-label">04.04 · The Marketplace</div>
-  <h2>A <em>WORLD'S FAIR</em>.</h2>
-  <p class="body-text lg">Immersive demos: flying cars, BCIs, fusion mockups, autonomous robotic systems, agentic AI working in front of you. Curated by the Five Bets. Built to walk through, not pitched at.</p>
-  <p class="body-text">Trade shows sell products. The Marketplace sells the future.</p>
-  <p class="body-text dim">[HERO IMAGE: marketplace immersive demos · flying car / BCI lab / fusion model]</p>
-  <div class="page-num">21 / 45</div>
-</section>
-
-<!-- ── SLIDE 22: SATELLITE ECOSYSTEM ── -->
-<section class="slide" id="slide-21">
-  <div class="slide-label">04.05 · The City Takeover</div>
-  <h2>THE CITY<br><em>BECOMES THE VENUE.</em></h2>
-  <p class="body-text lg">Brand houses, salon dinners, parties, founder office hours across LA. The SXSW model. Sponsors host activations under the Moonshots umbrella. Patrons run private rooms. The gathering occupies the city for five days.</p>
-  <div class="page-num">22 / 45</div>
-</section>
-
-<!-- ── SLIDE 23: THE PREMIERE NIGHT ── -->
-<section class="slide" id="slide-22">
-  <div class="slide-label">04.06 · Premiere Night</div>
-  <h2>THE FVXP<br>TOP 10 <em>PREMIERE</em>.</h2>
-  <p class="body-text lg">Cinema-scale screening of the finalist trailers. Hollywood-tier red carpet. Range Media and Republic Film co-present. Earned coverage in Hollywood Reporter, Variety, Deadline as the premiere event of the cycle.</p>
-  <p class="body-text">For the talent: a debut moment that travels. For the platform: the night everyone remembers.</p>
-  <div class="page-num">23 / 45</div>
-</section>
-
-<!-- ── SLIDE 24: ACCESS TIERS ── -->
-<section class="slide dense" id="slide-23">
-  <div class="slide-label">04.07 · Access</div>
-  <h2>FIVE WAYS<br><em>IN</em>.</h2>
-  <p class="body-text" style="margin-bottom: 32px;">WOW-style affordability at the base. Art-Basel-style exclusivity at the top.</p>
-
-  <div class="tiers-ladder">
-    <div class="tier-step">
-      <div class="tier-step-label">Expo Pass</div>
-      <div class="tier-step-name">Public</div>
-      <div class="tier-step-price">$39</div>
-    </div>
-    <div class="tier-step">
-      <div class="tier-step-label">Festival Pass</div>
-      <div class="tier-step-name">Full Week</div>
-      <div class="tier-step-price">$499</div>
-    </div>
-    <div class="tier-step">
-      <div class="tier-step-label">Builder Pass</div>
-      <div class="tier-step-name">Founders · Operators</div>
-      <div class="tier-step-price">$1,500</div>
-    </div>
-    <div class="tier-step featured">
-      <div class="tier-step-label">Patron Badge</div>
-      <div class="tier-step-name">Inner Circle</div>
-      <div class="tier-step-price">$25,000</div>
-    </div>
-    <div class="tier-step featured">
-      <div class="tier-step-label">Founder's Circle</div>
-      <div class="tier-step-name">Co-Builders</div>
-      <div class="tier-step-price">$100K+</div>
-    </div>
-  </div>
-  <div class="page-num">24 / 45</div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════════
-     SECTION 6 — THE PRIZE ECOSYSTEM
-     ════════════════════════════════════════════════════════════════ -->
-
-<!-- ── SLIDE 25: SECTION DIVIDER 05 ── -->
-<section class="slide divider" id="slide-24">
-  <div class="divider-num">Section 05</div>
-  <div class="divider-name">THE PRIZE<br><em style="color:var(--accent);font-style:normal;">ECOSYSTEM</em></div>
-  <div class="divider-line"></div>
-  <div class="page-num">25 / 45</div>
-</section>
-
-<!-- ── SLIDE 26: FIVE PRIZE TRACKS ── -->
-<section class="slide dense" id="slide-25">
-  <div class="slide-label">05.01 · The Prize Stack</div>
-  <h2>$5M+ AT LAUNCH.<br>$10M+ BY <em>YEAR 3</em>.</h2>
-
-  <div class="prize-tracks">
-    <div class="prize-card">
-      <div class="prize-amount">$3.5M</div>
-      <div class="prize-name">Future Vision XPRIZE</div>
-      <div class="prize-desc">3-minute sci-fi films imagining optimistic futures. Top 10 premiere at the Gathering.</div>
-    </div>
-    <div class="prize-card">
-      <div class="prize-amount">$2M</div>
-      <div class="prize-name">Build with Gemini</div>
-      <div class="prize-desc">Hackathon for AI-driven solutions to real problems. Demo Day on stage.</div>
-    </div>
-    <div class="prize-card">
-      <div class="prize-amount">Fellowship</div>
-      <div class="prize-name">Moonshot Fellowship</div>
-      <div class="prize-desc">Thiel-style cohort of young builders. Multi-year capital and access.</div>
-    </div>
-    <div class="prize-card">
-      <div class="prize-amount">Recognition</div>
-      <div class="prize-name">Moonshot of the Year</div>
-      <div class="prize-desc">Annual award for the single most consequential breakthrough shipped that year.</div>
-    </div>
-    <div class="prize-card">
-      <div class="prize-amount">Y2</div>
-      <div class="prize-name">Hardware Shark Tank</div>
-      <div class="prize-desc">Live deep-tech pitch competition. Capital committed on stage.</div>
-    </div>
-  </div>
-  <div class="page-num">26 / 45</div>
-</section>
-
-<!-- ── SLIDE 27: FVXP DETAIL ── -->
-<section class="slide" id="slide-26">
-  <div class="slide-label">05.02 · Future Vision XPRIZE</div>
-  <h2>$3.5M.<br>FICTION AS <em>BLUEPRINT</em>.</h2>
-  <p class="body-text lg">Three-minute sci-fi films imagining optimistic futures for humanity. Presented by Google. Administered by XPRIZE. Range Media filters submissions. The top 10 screen at the Gathering. The grand prize winner's film goes into production with Range and Republic.</p>
-  <p class="body-text">The story machine that pulls the rest of the platform forward.</p>
-  <div class="page-num">27 / 45</div>
-</section>
-
-<!-- ── SLIDE 28: HACKATHON DETAIL ── -->
-<section class="slide" id="slide-27">
-  <div class="slide-label">05.03 · Build with Gemini</div>
-  <h2>$2M.<br>AI BUILT FOR <em>REAL PROBLEMS</em>.</h2>
-  <p class="body-text lg">Anchored by Google. Open to teams worldwide. Submissions screened down to a Demo Day cohort that pitches at the Gathering. Top teams enter our capital pipeline as the platform's first equity positions.</p>
-  <p class="body-text">A hackathon that closes funding rounds.</p>
-  <div class="page-num">28 / 45</div>
-</section>
-
-<!-- ── SLIDE 29: FELLOWSHIP + MoY + HARDWARE ── -->
-<section class="slide" id="slide-28">
-  <div class="slide-label">05.04 · The Recurring Programs</div>
-  <h2>THE NARRATIVES<br>THAT <em>RUN ALL YEAR</em>.</h2>
-  <p class="body-text lg"><strong style="color:var(--white);">Moonshot Fellowship.</strong> Thiel-style cohort of young builders. Multi-year capital and platform access. The pipeline that produces our next anchor creators and founders.</p>
-  <p class="body-text"><strong style="color:var(--white);">Moonshot of the Year.</strong> Annual recognition for the single most consequential breakthrough shipped that year. The award the entire industry watches for.</p>
-  <p class="body-text"><strong style="color:var(--white);">Hardware Shark Tank.</strong> Live pitch competition for deep-tech projects, starting Y2. Capital partners commit checks on stage. The hardware equivalent of Demo Day.</p>
-  <div class="page-num">29 / 45</div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════════
-     SECTION 7 — THE MEDIA ENGINE
-     ════════════════════════════════════════════════════════════════ -->
-
-<!-- ── SLIDE 30: SECTION DIVIDER 06 ── -->
-<section class="slide divider" id="slide-29">
-  <div class="divider-num">Section 06</div>
-  <div class="divider-name">ALWAYS-ON<br><em style="color:var(--accent);font-style:normal;">MEDIA</em></div>
-  <div class="divider-line"></div>
-  <div class="page-num">30 / 45</div>
-</section>
-
-<!-- ── SLIDE 31: BLOOMBERG FOR THE FUTURE ── -->
-<section class="slide" id="slide-30">
-  <div class="slide-label">06.01 · The Engine</div>
-  <h2>THE BLOOMBERG<br>FOR THE <em>FUTURE</em>.</h2>
-  <p class="body-text lg">A daily heartbeat. Premium documentaries. A creator network. A living directory. The publisher of record for the optimistic future.</p>
-  <p class="body-text">Twelve months a year, Moonshots is the place builders go to track what's happening, patrons go to track what's worth funding, and the rest of the world goes to see what gets built next.</p>
-  <div class="page-num">31 / 45</div>
-</section>
-
-<!-- ── SLIDE 32: CHANNEL LINEUP ── -->
-<section class="slide dense" id="slide-31">
-  <div class="slide-label">06.02 · The Channel Lineup</div>
-  <h2>A TV NETWORK<br>FOR <em>BUILDERS</em>.</h2>
-
-  <div class="channels">
-    <div class="channel">
-      <div class="channel-num">CH 01</div>
-      <div>
-        <div class="channel-name">DAY 1</div>
-        <div class="channel-desc">Daily news show. The single feed for moonshot signal.</div>
-      </div>
-    </div>
-    <div class="channel">
-      <div class="channel-num">CH 02</div>
-      <div>
-        <div class="channel-name">DIAMANDIS</div>
-        <div class="channel-desc">Flagship long-form interview. Peter and the people building it.</div>
-      </div>
-    </div>
-    <div class="channel">
-      <div class="channel-num">CH 03</div>
-      <div>
-        <div class="channel-name">BUILDERS</div>
-        <div class="channel-desc">Acquired-style deep dives on the companies defining each bet.</div>
-      </div>
-    </div>
-    <div class="channel">
-      <div class="channel-num">CH 04</div>
-      <div>
-        <div class="channel-name">INSIDE THE LAB</div>
-        <div class="channel-desc">Documentary access inside the research that becomes industry.</div>
-      </div>
-    </div>
-    <div class="channel">
-      <div class="channel-num">CH 05</div>
-      <div>
-        <div class="channel-name">WILL WE MAKE IT?</div>
-        <div class="channel-desc">Debate-format show on the live question of each bet's odds.</div>
-      </div>
-    </div>
-    <div class="channel">
-      <div class="channel-num">CH 06</div>
-      <div>
-        <div class="channel-name">THE PITCH</div>
-        <div class="channel-desc">Founders pitch on camera. Capital partners react in real time.</div>
-      </div>
-    </div>
-    <div class="channel">
-      <div class="channel-num">CH 07</div>
-      <div>
-        <div class="channel-name">FVXP REACTION ROOM</div>
-        <div class="channel-desc">Live co-watch and ELO commentary on the People's Choice voting weeks.</div>
-      </div>
-    </div>
-    <div class="channel">
-      <div class="channel-num">CH 08</div>
-      <div>
-        <div class="channel-name">+ MORE</div>
-        <div class="channel-desc">Channels expand as the Five Bets each spin up their own vertical.</div>
-      </div>
-    </div>
-  </div>
-  <div class="page-num">32 / 45</div>
-</section>
-
-<!-- ── SLIDE 33: CREATOR NETWORK STRATEGY ── -->
-<section class="slide" id="slide-32">
-  <div class="slide-label">06.03 · The Creator Network</div>
-  <h2>ANCHOR CREATORS<br>AT THE <em>CENTER</em>.</h2>
-  <p class="body-text lg"><strong style="color:var(--white);">Anchor tier.</strong> A small set of category-defining creators (Lex Fridman, David Friedberg, Cleo Abram tier) brought in with equity, stage access, and editorial gravity. They give Moonshots reach. The platform gives them institutional weight.</p>
-  <p class="body-text"><strong style="color:var(--white);">Emerging tier.</strong> Bonnaroo-style early bets on the next wave. Fellowship cohort plus a curated pipeline of rising builders and storytellers. The MCN that grows with us.</p>
-  <p class="body-text dim">Specific creator commitments to be locked.</p>
-  <div class="page-num">33 / 45</div>
-</section>
-
-<!-- ── SLIDE 34: MOONSHOTS.COM ── -->
-<section class="slide" id="slide-33">
-  <div class="slide-label">06.04 · The Living Index</div>
-  <h2>moonshots.com.<br>THE <em>IMDb</em> OF<br>BREAKTHROUGH TECH.</h2>
-  <p class="body-text lg">A directory of every moonshot on Earth. Each entry carries the profile, the media library, the current status, capital raised, sources, and the people behind it. Indexed by bet, by stage, by region.</p>
-  <p class="body-text">A reference layer that holds the whole platform together. Builders use it to track competitors. Patrons use it to track positions. Journalists use it as their citation.</p>
-  <div class="page-num">34 / 45</div>
-</section>
-
-<!-- ── SLIDE 35: DISTRIBUTION & REACH ── -->
-<section class="slide" id="slide-34">
-  <div class="slide-label">06.05 · Distribution</div>
-  <h2>5M MONTHLY → <em>25M+ BY Y5</em>.</h2>
-  <p class="body-text lg">YouTube as the anchor channel. Streaming partnerships on the documentary side. A podcast network across the Five Bets. Distribution stack already built around Peter's existing footprint and scaled hard from Y1.</p>
-  <div class="cred-row" style="grid-template-columns: repeat(4, 1fr); margin-top: 32px;">
-    <div class="cred-cell">
-      <div class="cred-num">YouTube</div>
-      <div class="cred-name">Anchor channel</div>
-      <div class="cred-detail">Long-form, daily, premium episodes.</div>
-    </div>
-    <div class="cred-cell">
-      <div class="cred-num">Streaming</div>
-      <div class="cred-name">Documentary partners</div>
-      <div class="cred-detail">Tier-one platform deals for premium series.</div>
-    </div>
-    <div class="cred-cell">
-      <div class="cred-num">Podcast</div>
-      <div class="cred-name">Network across bets</div>
-      <div class="cred-detail">Vertical shows tied to each Bet's narrative.</div>
-    </div>
-    <div class="cred-cell">
-      <div class="cred-num">Social</div>
-      <div class="cred-name">Cross-channel surface</div>
-      <div class="cred-detail">Cut from every piece of long-form output.</div>
-    </div>
-  </div>
-  <div class="page-num">35 / 45</div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════════
-     SECTION 8 — THE CAPITAL ARM
-     ════════════════════════════════════════════════════════════════ -->
-
-<!-- ── SLIDE 36: SECTION DIVIDER 07 ── -->
-<section class="slide divider" id="slide-35">
-  <div class="divider-num">Section 07</div>
-  <div class="divider-name">THE CAPITAL<br><em style="color:var(--accent);font-style:normal;">ARM</em></div>
-  <div class="divider-line"></div>
-  <div class="page-num">36 / 45</div>
-</section>
-
-<!-- ── SLIDE 37: THREE CAPITAL BUCKETS ── -->
-<section class="slide dense" id="slide-36">
-  <div class="slide-label">07.01 · Three Buckets</div>
-  <h2>WHERE THE<br><em>CHECKS GO</em>.</h2>
-  <p class="body-text" style="margin-bottom: 16px;">Each bucket has its own thesis, check size, and capital partner. Structure to finalize.</p>
-
-  <div class="buckets">
-    <div class="bucket">
-      <div class="bucket-num">01</div>
-      <div class="bucket-name">Startup Equity</div>
-      <div class="bucket-desc">Hackathon and fellowship winners enter the capital pipeline. Seed-stage checks, syndicate-style, alongside our patron network.</div>
-      <div class="bucket-flow">Hackathon → Seed</div>
-    </div>
-    <div class="bucket">
-      <div class="bucket-num">02</div>
-      <div class="bucket-name">Film Financing</div>
-      <div class="bucket-desc">FVXP winners go straight into production. Capital flow via Range Media and Republic Film. Ownership stakes in the IP itself.</div>
-      <div class="bucket-flow">FVXP → Production</div>
-    </div>
-    <div class="bucket">
-      <div class="bucket-num">03</div>
-      <div class="bucket-name">Hardware Long-Term</div>
-      <div class="bucket-desc">Hardware Shark Tank winners enter committed deep-tech positions. Patient capital. Multi-year horizons. Larger check sizes.</div>
-      <div class="bucket-flow">Shark Tank → Long Hold</div>
-    </div>
-  </div>
-  <div class="page-num">37 / 45</div>
-</section>
-
-<!-- ── SLIDE 38: FOUNDER'S CIRCLE ── -->
-<section class="slide" id="slide-37">
-  <div class="slide-label">07.02 · The Founder's Circle</div>
-  <h2>$100K+.<br><em>CO-BUILDERS</em>.</h2>
-  <p class="body-text lg">The Patron tier deploys $100K or more directly into the prize pool that funds the year. Names visible on stage at the Gathering. Co-investor rights at Demo Day and the Hardware Shark Tank. Equity exposure to the platform itself.</p>
-  <p class="body-text">A different relationship than sponsorship. Patrons own a piece of what they help build. Full benefit stack lives in the Patron prospectus.</p>
-  <div class="page-num">38 / 45</div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════════
-     SECTION 9 — THE FIVE-YEAR ARC
-     ════════════════════════════════════════════════════════════════ -->
-
-<!-- ── SLIDE 39: GLOBAL EXPANSION ── -->
-<section class="slide dense" id="slide-38">
-  <div class="slide-label">08.01 · The Five-Year Arc</div>
-  <h2>FROM LA<br>TO <em>THE WORLD</em>.</h2>
-  <p class="body-text" style="margin-bottom: 24px;">The Art Basel model. One anchor city, then expand. Each new city gets its own edition, its own sponsor base, its own moonshot field.</p>
-
-  <div class="map-line">
-    <div class="map-city">
-      <div class="map-year">Y1 – Y2</div>
-      <div class="map-name">Los Angeles</div>
-      <div class="map-note">Anchor city. The annual September arc.</div>
-    </div>
-    <div class="map-city">
-      <div class="map-year">Y3</div>
-      <div class="map-name">Dubai</div>
-      <div class="map-note">Capital, infrastructure, exponential ambition.</div>
-    </div>
-    <div class="map-city">
-      <div class="map-year">Y4</div>
-      <div class="map-name">Singapore</div>
-      <div class="map-note">APAC gateway. Biotech, deep tech, sovereign wealth.</div>
-    </div>
-    <div class="map-city">
-      <div class="map-year">Y5</div>
-      <div class="map-name">Tokyo / São Paulo</div>
-      <div class="map-note">Final anchor TBD. New region, new audience.</div>
-    </div>
-    <div class="map-city">
-      <div class="map-year">Y5+</div>
-      <div class="map-name">Permanent Circuit</div>
-      <div class="map-note">Four cities, four moments, one platform.</div>
-    </div>
-  </div>
-  <div class="page-num">39 / 45</div>
-</section>
-
-<!-- ── SLIDE 40: END STATE Y5 ── -->
-<section class="slide" id="slide-39">
-  <div class="slide-label">08.02 · The End State</div>
-  <h2>BY YEAR 5,<br>A <em>CULTURAL INSTITUTION</em>.</h2>
-  <p class="body-text lg">$90M+ in annual revenue. A portfolio of equity stakes in the world's most ambitious companies. An IP library of films and series owned outright. A global circuit running across four cities. A creator network with the largest dedicated audience for optimistic future-tech on Earth.</p>
-  <p class="body-text">Built in five years. Designed to last fifty.</p>
-  <div class="page-num">40 / 45</div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════════
-     SECTION 10 — FINANCIALS
-     ════════════════════════════════════════════════════════════════ -->
-
-<!-- ── SLIDE 41: SECTION DIVIDER 09 ── -->
-<section class="slide divider" id="slide-40">
-  <div class="divider-num">Section 09</div>
-  <div class="divider-name"><em style="color:var(--accent);font-style:normal;">FINANCIALS</em></div>
-  <div class="divider-line"></div>
-  <div class="page-num">41 / 45</div>
-</section>
-
-<!-- ── SLIDE 42: 5-YEAR REVENUE FORECAST ── -->
-<section class="slide dense" id="slide-41">
-  <div class="slide-label">09.01 · 5-Year Revenue Forecast</div>
-  <h2>$90M+ BY <em>YEAR 5</em>.<span class="ph-tag">Directional</span></h2>
-
-  <div class="fin-table-wrap">
-    <table class="fin-table">
-      <thead>
-        <tr>
-          <th>Revenue Line</th>
-          <th>Y1</th>
-          <th>Y2</th>
-          <th>Y3</th>
-          <th>Y4</th>
-          <th>Y5</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Ticketing &amp; passes</td><td>$1.5M</td><td>$4M</td><td>$8M</td><td>$14M</td><td>$22M</td></tr>
-        <tr><td>Sponsorship</td><td>$6M</td><td>$11M</td><td>$18M</td><td>$26M</td><td>$32M</td></tr>
-        <tr><td>Content &amp; media</td><td>$1M</td><td>$3M</td><td>$6M</td><td>$11M</td><td>$16M</td></tr>
-        <tr><td>Expo &amp; marketplace</td><td>$1M</td><td>$3M</td><td>$6M</td><td>$9M</td><td>$12M</td></tr>
-        <tr><td>F&amp;B and merch</td><td>$0.5M</td><td>$1M</td><td>$2M</td><td>$3M</td><td>$4M</td></tr>
-        <tr><td>Capital arm fees</td><td>—</td><td>$1M</td><td>$2M</td><td>$3M</td><td>$5M</td></tr>
-      </tbody>
-      <tfoot>
-        <tr><td>Total Revenue</td><td>$10M</td><td>$23M</td><td>$42M</td><td>$66M</td><td>$91M</td></tr>
-      </tfoot>
-    </table>
-  </div>
-  <div class="fin-note">Directional · to finalize with CFO before pitch use</div>
-  <div class="page-num">42 / 45</div>
-</section>
-
-<!-- ── SLIDE 43: PRO-FORMA P&L ── -->
-<section class="slide dense" id="slide-42">
-  <div class="slide-label">09.02 · Pro-Forma P&amp;L</div>
-  <h2>Y1 PROFITABLE.<br>FREE CASH FLOW <em>POSITIVE Y2</em>.<span class="ph-tag">Directional</span></h2>
-
-  <div class="fin-table-wrap">
-    <table class="fin-table">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Y1</th>
-          <th>Y2</th>
-          <th>Y3</th>
-          <th>Y4</th>
-          <th>Y5</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Revenue</td><td>$10M</td><td>$23M</td><td>$42M</td><td>$66M</td><td>$91M</td></tr>
-        <tr><td>Cost of programs</td><td>($4M)</td><td>($10M)</td><td>($17M)</td><td>($25M)</td><td>($33M)</td></tr>
-        <tr><td>People &amp; G&amp;A</td><td>($2M)</td><td>($5M)</td><td>($9M)</td><td>($14M)</td><td>($19M)</td></tr>
-        <tr><td>Net Income</td><td>$4M</td><td>$8M</td><td>$16M</td><td>$27M</td><td>$39M</td></tr>
-        <tr><td>Cumulative free cash flow</td><td>$2M</td><td>$8M</td><td>$22M</td><td>$48M</td><td>$85M</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="fin-note">Year 1 anchored at ~$4M profit · directional figures · final model from CFO</div>
-  <div class="page-num">43 / 45</div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════════
-     SECTION 11 — THE ASK
-     ════════════════════════════════════════════════════════════════ -->
-
-<!-- ── SLIDE 44: THE ASK ── -->
-<section class="slide dense" id="slide-43">
-  <div class="slide-label">10.01 · The Ask</div>
-  <h2>WHAT WE'RE<br><em>RAISING</em>.</h2>
+  <div class="slide-label">12 · The Ask</div>
+  <h2>RAISE INTO<br>THE <em>TOP</em>.</h2>
 
   <div class="ask-grid">
     <div>
-      <div class="ask-note">Founder's Circle Round</div>
+      <div class="ask-note">Round Size</div>
       <div class="ask-amount">[$X.X]M</div>
-      <p class="body-text">Capital to fund Y1 Gathering execution, media build-out, and seed the capital arm. Patron-tier participants enter under the Founder's Circle structure.</p>
-      <p class="body-text dim">Round size and equity terms to be locked in patron prospectus.</p>
+      <p class="body-text">One round, into the holding company. Not five conversations across five entities. Round size and equity terms locked in the investor prospectus.<span class="ph-tag">To Lock</span></p>
     </div>
     <div>
-      <div class="ask-note">Use of Funds</div>
+      <div class="ask-note">What It Funds</div>
       <ul class="ask-list">
-        <li><span class="nl-num">01</span><span>Y1 Gathering execution — Los Angeles, September 2026.</span></li>
-        <li><span class="nl-num">02</span><span>Media build-out — production, distribution, channel lineup.</span></li>
-        <li><span class="nl-num">03</span><span>Capital arm seed — startup, film, hardware pipeline.</span></li>
-        <li><span class="nl-num">04</span><span>Brand and platform infrastructure across the Five Bets.</span></li>
-        <li><span class="nl-num">05</span><span>Core team build-out across programs, capital, and partnerships.</span></li>
+        <li><span class="nl-num">01</span><span>Singularity University acquisition close.</span></li>
+        <li><span class="nl-num">02</span><span>Y1 Moonshot Gathering execution in Los Angeles.</span></li>
+        <li><span class="nl-num">03</span><span>Media build-out across the existing audience footprint.</span></li>
+        <li><span class="nl-num">04</span><span>Abundance Studio fund seed and operating overhead.</span></li>
+        <li><span class="nl-num">05</span><span>Operating team across media, events, capital.</span></li>
       </ul>
     </div>
   </div>
-  <div class="page-num">44 / 45</div>
+  <div class="page-num">19 / 20</div>
 </section>
 
-<!-- ── SLIDE 45: CLOSING ── -->
-<section class="slide closing" id="slide-44">
-  <div class="slide-label">10.02 · Close</div>
-  <div class="closing-quote">The optimistic future is the <em>only future</em> worth building.<br>Build it <em>with us</em>.</div>
+<!-- ── SLIDE 20: CLOSING ── -->
+<section class="slide closing" id="slide-19">
+  <div class="slide-label">13 · Close</div>
+  <div class="closing-quote">FIVE BRANDS.<br>ONE COMPANY.<br><em>ONE BET</em>.</div>
 
   <div class="contact-grid">
     <div class="contact-cell">
-      <div class="contact-label">Contact</div>
+      <div class="contact-label">From</div>
       <div class="contact-value">Tyler Donahue</div>
       <div class="contact-sub">Moonshots</div>
     </div>
     <div class="contact-cell">
-      <div class="contact-label">Email</div>
-      <div class="contact-value">tyler@moonshots.com</div>
-      <div class="contact-sub">tyler@diamandis.com</div>
+      <div class="contact-label">For</div>
+      <div class="contact-value">Peter H. Diamandis</div>
+      <div class="contact-sub">Founder · Diamandis Universe</div>
     </div>
     <div class="contact-cell">
-      <div class="contact-label">Founder</div>
-      <div class="contact-value">Peter H. Diamandis</div>
-      <div class="contact-sub">XPRIZE · Singularity University · A360</div>
+      <div class="contact-label">Next</div>
+      <div class="contact-value">Walk-through</div>
+      <div class="contact-sub">In person · this week</div>
     </div>
   </div>
 
-  <div class="closing-sign">— Moonshots · 2026</div>
-  <div class="page-num">45 / 45</div>
+  <div class="closing-sign">— Moonshots · The Three-Engine Model</div>
+  <div class="page-num">20 / 20</div>
 </section>
 
 <script>
-  /* Build nav dots dynamically for 45 slides */
   const slides     = document.querySelectorAll('.slide');
   const navDots    = document.getElementById('navDots');
   const total      = slides.length;
@@ -1891,11 +1217,7 @@
     currentSlide = idx;
     dotEls.forEach((d, i) => d.classList.toggle('active', i === idx));
   }
-
-  function scrollToSlide(i) {
-    slides[i].scrollIntoView({ behavior: 'smooth' });
-  }
-
+  function scrollToSlide(i) { slides[i].scrollIntoView({ behavior: 'smooth' }); }
   function nextSlide() { scrollToSlide(Math.min(currentSlide + 1, total - 1)); }
   function prevSlide() { scrollToSlide(Math.max(currentSlide - 1, 0)); }
 
