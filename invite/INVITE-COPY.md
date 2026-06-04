@@ -11,6 +11,19 @@ public moment.
 
 Pair any of these with the invite page: **media.moonshots.com/invite**
 
+### Personalized links (do this for every send)
+
+The page reads a `?name=` parameter and stamps **"RESERVED FOR [NAME] — 1 OF 30"**
+at the top, personalizes the RSVP email, and gives them a unique seat serial. It
+makes each link feel bespoke and un-forwardable — which makes people far more
+likely to say yes *and* screenshot/post it.
+
+- `media.moonshots.com/invite?name=Casey%20Neistat`
+- `media.moonshots.com/invite?name=Marques`
+
+Spaces become `%20`. No name = a clean "Your seat is held" default, so the bare
+link still works fine.
+
 ---
 
 ## 1. Email — primary version
@@ -30,10 +43,10 @@ in one room — and I want you there.
 
 It's the live finale night for **two XPRIZE competitions at once:**
 
-- **Build with Gemini XPRIZE** (presented by Google) — the top 5 founders pitch
-  live for a share of **$1,000,000 in grand prizes**. These are real, profitable
-  AI businesses built in 90 days. The winner walks off stage a million dollars
-  richer.
+- **Build with Gemini XPRIZE** (presented by Google) — **$2M in prizes**, with
+  the top 5 founders pitching live for a share of **$1,000,000 in grand prizes**.
+  These are real, profitable AI businesses built in 90 days. The winner walks off
+  stage a million dollars richer.
 - **Future Vision XPRIZE** — the world's best 3-minute optimistic sci-fi films,
   judged live. The grand prize isn't a check, it's a greenlight: **the winner's
   film actually gets made**, co-produced with Range Media Partners. $3.5M on the
@@ -69,8 +82,8 @@ Can I count you in?
 Hey [First name],
 
 September 25th in LA, we're running the live finale for **two XPRIZE competitions
-in one night**: founders pitching real AI businesses for a share of **$1M**
-(Build with Gemini XPRIZE, presented by Google), and the world's best optimistic
+in one night**: founders pitching real AI businesses (**$2M in prizes**, $1M
+decided live) — Build with Gemini XPRIZE, presented by Google — and the world's best optimistic
 sci-fi films — where the winner's film actually **gets made** (Future Vision XPRIZE,
 $3.5M on the line). Diamandis, Anousheh Ansari, Range, Ben Horowitz, Marc Benioff
 and Cathie Wood are all behind it.
