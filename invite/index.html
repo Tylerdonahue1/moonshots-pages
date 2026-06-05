@@ -225,6 +225,31 @@
     background: var(--accent);
   }
 
+  /* ── WHO'S BEHIND IT ── */
+  .who-grid {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 40px;
+  }
+  .who {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 16px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .who-name {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+  }
+  .who-desc { font-size: 14px; color: var(--gray-2); line-height: 1.5; }
+
   /* ── CLOSING ── */
   .closing {
     background: var(--surface-2);
@@ -364,6 +389,23 @@
     <p class="body-text">That combination has built every good thing we have. Every cure, every breakthrough, every leap forward started with someone who refused to accept that the problem was permanent.</p>
     <p class="body-text">September 25 is a celebration of those people. The builders and the storytellers. The ones who don't wait for the future — they make it.</p>
     <p class="body-text">Come help us decide which futures are worth building.</p>
+  </section>
+
+  <section class="block">
+    <div class="sec-eyebrow">05 — Who's Behind It</div>
+    <h2 class="lead-line">Convened by the people <em>building the future.</em></h2>
+    <p class="body-text">Created by Peter Diamandis — founder of XPRIZE and Singularity University — with the XPRIZE Foundation and Range Media Partners, and backed by the founders, investors, and storytellers shaping what comes next.</p>
+    <div class="who-grid">
+      <div class="who"><div class="who-name">Peter Diamandis</div><div class="who-desc">Founder. Also founded XPRIZE and Singularity University.</div></div>
+      <div class="who"><div class="who-name">Anousheh Ansari</div><div class="who-desc">CEO, XPRIZE Foundation. First female private astronaut.</div></div>
+      <div class="who"><div class="who-name">Range Media</div><div class="who-desc">Produces the winning film. Founder Pete Micelli.</div></div>
+      <div class="who"><div class="who-name">Google</div><div class="who-desc">Presenting partner of the Gemini XPRIZE.</div></div>
+      <div class="who"><div class="who-name">Ben Horowitz</div><div class="who-desc">Backer. Co-founder, Andreessen Horowitz.</div></div>
+      <div class="who"><div class="who-name">Jed McCaleb</div><div class="who-desc">Founding patron. Founded Stellar &amp; Astro Mechanica.</div></div>
+      <div class="who"><div class="who-name">Marc Benioff</div><div class="who-desc">Supporter. Founder &amp; CEO, Salesforce.</div></div>
+      <div class="who"><div class="who-name">Cathie Wood</div><div class="who-desc">Supporter. Founder &amp; CEO, ARK Invest.</div></div>
+      <div class="who"><div class="who-name">Rod Roddenberry</div><div class="who-desc">Judging panel. Star Trek legacy.</div></div>
+    </div>
   </section>
 
   <section class="closing">
