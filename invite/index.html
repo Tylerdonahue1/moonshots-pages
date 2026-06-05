@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Moonshot Gathering — Private Invitation · Sept 25 · LA</title>
-<meta name="description" content="One night in Los Angeles. Two XPRIZE finales. A startup gets funded, a film gets greenlit. $5.5M on the line across the room. A private invitation to the founding circle.">
+<title>The Moonshot Gathering — Sept 25 · Los Angeles</title>
+<meta name="description" content="The only awards night where the audience helps choose who wins — live, on stage, in the room. September 25, Los Angeles. Over $3.5M awarded, including a film that gets made.">
 <meta property="og:title" content="The Moonshot Gathering — You're Invited">
-<meta property="og:description" content="Sept 25, LA. One night, two XPRIZE finales. Founders pitch for $2M. The best optimistic sci-fi film gets made. $5.5M on the line across the room.">
+<meta property="og:description" content="The only awards night where the audience helps choose who wins — live, on stage. Sept 25 · LA. Over $3.5M awarded, including a film that gets made.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://media.moonshots.com/invite/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Moonshot Gathering — You're Invited">
-<meta name="twitter:description" content="One night, two XPRIZE finales. $5.5M on the line. Sept 25 · LA.">
+<meta name="twitter:description" content="The audience helps choose who wins — live, on stage. Sept 25 · LA. Over $3.5M awarded.">
 <meta name="twitter:image" content="https://media.moonshots.com/invite/assets/og-image.png">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
@@ -27,12 +27,10 @@
     --gray-1:      rgba(255,255,255,0.94);
     --gray-2:      rgba(255,255,255,0.74);
     --gray-3:      rgba(255,255,255,0.5);
-    --gray-4:      rgba(255,255,255,0.14);
     --line:        rgba(255,255,255,0.08);
     --line-bright: rgba(255,255,255,0.18);
     --accent:      #1BBFE0;
     --accent-2:    #6EE3F7;
-    --accent-glow: rgba(27,191,224,0.08);
     --accent-dim:  rgba(27,191,224,0.35);
   }
 
@@ -52,7 +50,6 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* ── TICKET SHELL ── */
   .sheet {
     width: 960px;
     max-width: 100%;
@@ -63,7 +60,7 @@
     overflow: hidden;
   }
 
-  /* ── ADMIT-ONE TOP BAR ── */
+  /* ── BRAND STRIP ── */
   .ticketbar {
     display: flex;
     justify-content: space-between;
@@ -79,46 +76,19 @@
     text-transform: uppercase;
     color: var(--gray-3);
   }
-  .ticketbar .seg { display: flex; align-items: center; gap: 10px; }
   .ticketbar b { color: var(--accent); font-weight: 700; }
-  .ticketbar .admit {
-    color: var(--black);
-    background: var(--accent);
-    padding: 4px 10px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-  }
 
   /* ── HERO ── */
   .top {
     background: var(--black);
-    border-bottom: 1px dashed var(--line-bright);
-    padding: 52px 56px 46px;
+    border-bottom: 1px solid var(--line-bright);
+    padding: 60px 56px 52px;
     position: relative;
     overflow: hidden;
-    min-height: 420px;
   }
-  #stars {
-    position: absolute;
-    inset: 0;
-    width: 100%; height: 100%;
-    z-index: 0;
-    pointer-events: none;
-  }
-  .aurora {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-  .aurora span {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.32;
-    mix-blend-mode: screen;
-  }
+  #stars { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+  .aurora { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .aurora span { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.32; mix-blend-mode: screen; }
   .aurora .a1 {
     top: -180px; right: -100px; width: 520px; height: 520px;
     background: radial-gradient(circle, rgba(27,191,224,0.4), transparent 68%);
@@ -133,451 +103,176 @@
   @keyframes drift2 { from { transform: translate(0,0) scale(1); } to { transform: translate(44px,-20px) scale(1.1); } }
 
   .hero-inner { position: relative; z-index: 2; }
-
-  .kicker {
+  .eyebrow {
     font-family: 'Space Mono', monospace;
     font-size: 11px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 22px;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .kicker::before {
-    content: '';
-    width: 6px; height: 6px; border-radius: 50%;
-    background: var(--accent);
-  }
-
-  /* RESERVED STAMP */
-  .reserved {
-    display: inline-flex;
-    flex-direction: column;
-    gap: 5px;
-    border: 1px solid var(--line-bright);
-    border-left: 2px solid var(--accent);
-    background: rgba(27,191,224,0.04);
-    padding: 12px 18px;
-    margin-bottom: 26px;
-    position: relative;
-  }
-  .reserved .rlabel {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
     letter-spacing: 0.3em;
     text-transform: uppercase;
     color: var(--accent);
-  }
-  .reserved .rname {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 900;
-    font-size: 26px;
-    line-height: 1;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-    color: var(--white);
-  }
-  .reserved .rseat {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gray-2);
-  }
-
-  h1 {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 900;
-    font-size: 66px;
-    line-height: 0.88;
-    letter-spacing: -0.018em;
-    text-transform: uppercase;
-  }
-  h1 em { font-style: normal; color: var(--accent); }
-  /* letter-by-letter reveal */
-  h1 .ch {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(0.5em);
-    animation: chIn 0.55s cubic-bezier(.2,.7,.2,1) forwards;
-  }
-  @keyframes chIn { to { opacity: 1; transform: translateY(0); } }
-
-  .when {
-    margin-top: 24px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 26px;
-    font-family: 'Space Mono', monospace;
-    font-size: 13px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gray-1);
-  }
-  .when b { color: var(--accent); font-weight: 700; }
-  .sub {
-    margin-top: 22px;
-    font-size: 18px;
-    max-width: 700px;
-    color: var(--gray-1);
-    font-weight: 400;
-    line-height: 1.6;
-  }
-
-  /* ── PERFORATION TEAR ── */
-  .perf {
-    position: relative;
-    height: 0;
-  }
-  .perf::before, .perf::after {
-    content: '';
-    position: absolute;
-    top: -13px;
-    width: 26px; height: 26px;
-    border-radius: 50%;
-    background: var(--black);
-    border: 1px solid var(--line-bright);
-  }
-  .perf::before { left: -14px; }
-  .perf::after  { right: -14px; }
-
-  /* ── FOUNDING CIRCLE BAND ── */
-  .invite {
-    background: rgba(27,191,224,0.05);
-    border-bottom: 1px solid var(--line-bright);
-    padding: 30px 56px;
-    position: relative;
-  }
-  .invite::before {
-    content: '';
-    position: absolute;
-    top: 30px; left: 0;
-    width: 3px;
-    height: calc(100% - 60px);
-    background: var(--accent);
-  }
-  .invite-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 12px;
-  }
-  .invite p {
-    font-size: 17px;
-    color: var(--white);
-    line-height: 1.65;
-    max-width: 760px;
-  }
-  .invite p strong { color: var(--accent-2); font-weight: 600; }
-
-  /* ── ONE NIGHT TWO PRIZES ── */
-  .grand {
-    background: var(--surface-2);
-    border-bottom: 1px solid var(--line-bright);
-    padding: 36px 56px 32px;
-    position: relative;
-  }
-  .grand::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--accent);
-  }
-  .grand-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 14px;
-  }
-  .grand-headline {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 900;
-    font-size: 42px;
-    line-height: 0.95;
-    letter-spacing: -0.015em;
-    text-transform: uppercase;
-    color: var(--white);
-    margin-bottom: 8px;
-  }
-  .grand-headline em { font-style: normal; color: var(--accent); }
-  .grand-sub {
-    font-size: 16px;
-    color: var(--gray-2);
-    max-width: 720px;
-    line-height: 1.6;
-  }
-  .grand-sub b { color: var(--accent); font-weight: 700; }
-
-  /* ── TWO PRIZE CARDS ── */
-  .prizes {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--line-bright);
-    border-bottom: 1px solid var(--line-bright);
-  }
-  .prize {
-    background: var(--surface);
-    padding: 34px 36px 30px;
-  }
-  .prize-tag {
-    font-family: 'Space Mono', monospace;
-    font-size: 10.5px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 14px;
-  }
-  .prize-name {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 900;
-    font-size: 26px;
-    line-height: 1;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-    color: var(--white);
-    margin-bottom: 18px;
-  }
-  .prize-big {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 900;
-    font-size: 56px;
-    line-height: 0.95;
-    letter-spacing: -0.025em;
-    color: var(--accent);
-    font-variant-numeric: tabular-nums;
-  }
-  .prize-big-label {
-    margin-top: 6px;
-    font-family: 'Space Mono', monospace;
-    font-size: 10.5px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--gray-2);
-  }
-  .prize-desc {
-    margin-top: 20px;
-    font-size: 15.5px;
-    color: var(--gray-1);
-    line-height: 1.65;
-  }
-  .prize-desc strong { color: var(--accent-2); font-weight: 600; }
-
-  /* ── STAKES STRIP ── */
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: var(--line-bright);
-    border-bottom: 1px solid var(--line-bright);
-  }
-  .stat {
-    background: var(--surface);
-    padding: 22px 24px;
-  }
-  .stat b {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 900;
-    font-size: 30px;
-    color: var(--accent);
-    display: block;
-    line-height: 1;
-    letter-spacing: -0.01em;
-    font-variant-numeric: tabular-nums;
-  }
-  .stat span {
-    display: block;
-    margin-top: 10px;
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--gray-2);
-  }
-
-  /* ── WHO'S IN THE ROOM ── */
-  .room { padding: 40px 56px 34px; }
-  .section-eyebrow {
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 12px;
-  }
-  .section-headline {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 900;
-    font-size: 32px;
-    line-height: 1;
-    letter-spacing: -0.015em;
-    text-transform: uppercase;
-    color: var(--white);
     margin-bottom: 26px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--accent-dim);
+    display: flex; align-items: center; gap: 10px;
   }
-  .names {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 36px;
-  }
-  .who {
-    display: grid;
-    grid-template-columns: 150px 1fr;
-    gap: 18px;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--line);
-    align-items: baseline;
-  }
-  .who-name {
+  .eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+  .hero-h1 {
     font-family: 'Barlow', sans-serif;
     font-weight: 800;
-    font-size: 16px;
-    letter-spacing: 0.005em;
-    color: var(--white);
-    text-transform: uppercase;
-  }
-  .who-desc { font-size: 14px; color: var(--gray-2); line-height: 1.5; }
-
-  /* ── THESIS ── */
-  .thesis {
-    padding: 36px 56px;
-    border-top: 1px solid var(--line-bright);
-    border-bottom: 1px solid var(--line-bright);
-    background: rgba(27,191,224,0.03);
-    position: relative;
-  }
-  .thesis::before {
-    content: '';
-    position: absolute;
-    top: 36px; left: 0;
-    width: 3px;
-    height: calc(100% - 72px);
-    background: var(--accent);
-  }
-  .thesis p {
-    font-family: 'Barlow', sans-serif;
-    font-style: italic;
-    font-weight: 500;
-    font-size: 21px;
-    color: var(--white);
-    line-height: 1.4;
-    max-width: 780px;
-  }
-  .thesis cite {
-    display: block;
-    margin-top: 16px;
-    font-style: normal;
-    font-family: 'Space Mono', monospace;
-    font-size: 10.5px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-
-  /* ── RSVP CTA ── */
-  .rsvp {
-    background: var(--surface-2);
-    border-bottom: 1px dashed var(--line-bright);
-    padding: 44px 56px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .rsvp::before {
-    content: '';
-    position: absolute;
-    top: -120px; left: 50%;
-    transform: translateX(-50%);
-    width: 600px; height: 360px;
-    background: radial-gradient(ellipse, rgba(27,191,224,0.16) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .rsvp-head {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 900;
-    font-size: 38px;
-    line-height: 0.95;
+    font-size: clamp(30px, 4.6vw, 50px);
+    line-height: 1.04;
     letter-spacing: -0.015em;
-    text-transform: uppercase;
-    position: relative;
-    z-index: 1;
+    max-width: 17ch;
+    text-wrap: balance;
   }
-  .rsvp-head em { font-style: normal; color: var(--accent); }
-  .rsvp-sub {
-    margin-top: 14px;
-    font-size: 16px;
-    color: var(--gray-1);
-    max-width: 560px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.6;
-    position: relative;
-    z-index: 1;
-  }
-  .rsvp-btn {
-    display: inline-block;
+  .hero-h1 em { font-style: normal; color: var(--accent); }
+  .hero-lead {
     margin-top: 26px;
+    font-size: 18px;
+    max-width: 620px;
+    color: var(--gray-1);
+    line-height: 1.62;
+  }
+  .reveal { opacity: 0; transform: translateY(14px); animation: rise 0.7s cubic-bezier(.2,.7,.2,1) forwards; }
+
+  @keyframes rise { to { opacity: 1; transform: none; } }
+
+  .btn {
+    display: inline-block;
+    margin-top: 30px;
     font-family: 'Barlow', sans-serif;
     font-weight: 900;
-    font-size: 16px;
-    letter-spacing: 0.04em;
+    font-size: 15px;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--black);
     background: var(--accent);
-    padding: 16px 38px;
+    padding: 16px 34px;
     text-decoration: none;
-    position: relative;
-    z-index: 1;
-    box-shadow: 0 0 0 0 rgba(27,191,224,0.5);
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
   }
-  .rsvp-btn:hover {
-    background: var(--accent-2);
-    transform: translateY(-2px);
-    box-shadow: 0 14px 40px -10px rgba(27,191,224,0.6);
+  .btn:hover { background: var(--accent-2); transform: translateY(-2px); box-shadow: 0 14px 40px -12px rgba(27,191,224,0.6); }
+
+  /* ── SECTIONS ── */
+  .block {
+    padding: 52px 56px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .sec-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .lead-line {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: clamp(26px, 3.4vw, 38px);
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .lead-line em { font-style: normal; color: var(--accent); }
+  .body-text {
+    font-size: 17px;
+    color: var(--gray-1);
+    line-height: 1.68;
+    max-width: 660px;
+  }
+  .body-text + .body-text { margin-top: 18px; }
+  .body-text em { font-style: italic; color: var(--white); }
+
+  /* ── PRIZE BLOCKS ── */
+  .prize { background: var(--surface); }
+  .prize.alt { background: var(--surface-2); }
+  .bignum {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: clamp(64px, 11vw, 120px);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .subnum {
+    margin-top: 8px;
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gray-2);
+  }
+  .prize-h {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin: 18px 0 24px;
   }
 
-  /* ── BARCODE FOOTER ── */
+  /* ── THESIS ── */
+  .thesis { background: rgba(27,191,224,0.03); }
+  .thesis::before {
+    content: '';
+    position: absolute;
+    top: 52px; left: 0;
+    width: 3px;
+    height: calc(100% - 104px);
+    background: var(--accent);
+  }
+
+  /* ── CLOSING ── */
+  .closing {
+    background: var(--surface-2);
+    text-align: center;
+    padding: 64px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .closing::before {
+    content: '';
+    position: absolute;
+    top: -140px; left: 50%;
+    transform: translateX(-50%);
+    width: 640px; height: 400px;
+    background: radial-gradient(ellipse, rgba(27,191,224,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .closing-h {
+    position: relative; z-index: 1;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+  .closing-detail {
+    position: relative; z-index: 1;
+    margin-top: 16px;
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gray-1);
+  }
+  .closing .btn { position: relative; z-index: 1; }
+
+  /* ── FOOTER ── */
   .foot {
     background: var(--black);
-    padding: 24px 56px 28px;
-  }
-  .barcode {
-    height: 34px;
-    width: 100%;
-    background-image: repeating-linear-gradient(
-      90deg,
-      var(--gray-3) 0, var(--gray-3) 2px,
-      transparent 2px, transparent 4px,
-      var(--gray-3) 4px, var(--gray-3) 5px,
-      transparent 5px, transparent 9px,
-      var(--gray-3) 9px, var(--gray-3) 12px,
-      transparent 12px, transparent 14px
-    );
-    opacity: 0.4;
-    margin-bottom: 18px;
-  }
-  .foot-row {
+    padding: 26px 56px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 12px;
   }
-  .foot .cta {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 700;
-    font-size: 17px;
-    color: var(--gray-1);
-    letter-spacing: -0.005em;
-  }
+  .foot .cta { font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 16px; color: var(--gray-1); }
   .foot .cta b { color: var(--accent); font-weight: 900; }
   .foot .meta {
     font-family: 'Space Mono', monospace;
@@ -594,38 +289,20 @@
     .sheet { box-shadow: none; width: 100%; border: none; }
     #stars, .aurora { display: none; }
   }
-
   @media (prefers-reduced-motion: reduce) {
-    .aurora span, .kicker::before { animation: none; }
-    h1 .ch { opacity: 1; transform: none; animation: none; }
+    .aurora span { animation: none; }
+    .reveal { opacity: 1; transform: none; animation: none; }
   }
 
   @media (max-width: 720px) {
     body { padding: 18px 10px; }
-    .ticketbar { padding: 10px 18px; font-size: 9px; gap: 6px; }
-    .top { padding: 34px 24px; min-height: 0; }
-    h1 { font-size: 40px; }
-    .sub { font-size: 15px; }
-    .when { font-size: 12px; gap: 8px 16px; }
-    .reserved .rname { font-size: 22px; }
-    .invite { padding: 26px 24px 26px 28px; }
-    .invite p { font-size: 15.5px; }
-    .grand { padding: 28px 24px; }
-    .grand-headline { font-size: 30px; }
-    .prizes { grid-template-columns: 1fr; }
-    .prize { padding: 28px 24px; }
-    .prize-big { font-size: 48px; }
-    .stats { grid-template-columns: 1fr 1fr; }
-    .room { padding: 28px 24px; }
-    .section-headline { font-size: 24px; }
-    .names { grid-template-columns: 1fr; }
-    .who { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; }
-    .thesis { padding: 28px 28px 28px 32px; }
-    .thesis p { font-size: 17px; }
-    .rsvp { padding: 34px 24px; }
-    .rsvp-head { font-size: 28px; }
-    .foot { padding: 22px 24px; }
-    .foot-row { flex-direction: column; align-items: flex-start; }
+    .ticketbar { padding: 10px 18px; font-size: 9px; }
+    .top { padding: 40px 24px 38px; }
+    .hero-lead { font-size: 16px; }
+    .block { padding: 40px 24px; }
+    .thesis::before { top: 40px; height: calc(100% - 80px); }
+    .closing { padding: 48px 24px; }
+    .foot { padding: 22px 24px; flex-direction: column; align-items: flex-start; }
     .foot .meta { text-align: left; }
   }
 </style>
@@ -635,8 +312,8 @@
 <div class="sheet">
 
   <div class="ticketbar">
-    <div class="seg"><span class="admit">Admit One</span><span>Founding Circle</span></div>
-    <div class="seg"><span>Seat <b id="seat-no">1 / 30</b></span><span>·</span><span>No. <b id="serial">MXS-0925</b></span></div>
+    <span>The Moonshot Gathering</span>
+    <span><b>Sept 25 · 2026</b> · Downtown LA</span>
   </div>
 
   <header class="top">
@@ -644,94 +321,60 @@
     <div class="aurora"><span class="a1"></span><span class="a2"></span></div>
 
     <div class="hero-inner">
-      <div class="kicker">Private Invitation</div>
-
-      <div class="reserved">
-        <span class="rlabel">Reserved For</span>
-        <span class="rname" id="reserved-name">Your Seat Is Held</span>
-        <span class="rseat">Founding Circle · 1 of 30 · Non-Transferable</span>
-      </div>
-
-      <h1 data-text="THE MOONSHOT|GATHERING"></h1>
-
-      <div class="when">
-        <span><b>Sept 25, 2026</b></span>
-        <span>Los Angeles, CA</span>
-        <span>One Night · Two XPRIZE Finales</span>
-      </div>
-      <p class="sub">The one night a year the people building the future are in the same room. A startup gets funded live. A film gets greenlit live. You're being invited before anyone else knows it's happening.</p>
+      <div class="eyebrow reveal" style="animation-delay:.05s">Private Invitation · Sept 25 · Los Angeles</div>
+      <h1 class="hero-h1 reveal" style="animation-delay:.15s">The only awards night where <em>the audience helps choose who wins</em> — live, on stage, in the room.</h1>
+      <p class="hero-lead reveal" style="animation-delay:.3s">September 25 · Los Angeles. Ten builders and filmmakers pitch their vision of an optimistic future, live on stage. A panel of directors, founders, and investors judges them — and the audience helps decide. Over $3.5M is awarded in the room, including a film that gets made into a real feature.</p>
+      <a class="btn reveal" style="animation-delay:.42s" href="mailto:tyler@moonshots.com?subject=Request%20Your%20Invitation%20%E2%80%94%20Moonshot%20Gathering%20Sept%2025&amp;body=I'd%20like%20to%20request%20an%20invitation%20to%20the%20Moonshot%20Gathering%20on%20Sept%2025%20in%20LA.">Request Your Invitation</a>
     </div>
   </header>
 
-  <div class="perf"></div>
-
-  <section class="invite">
-    <div class="invite-label">Why you're getting this</div>
-    <p>Before tickets open to the public, we're hand-picking a <strong>founding circle of ~30 builders, creators, and operators</strong> whose work and audience define what's next — and announcing them together. <strong>You're one of the names we want in that first wave.</strong> No ask beyond showing up. Say the word and we'll hold your spot before this goes wide.</p>
+  <section class="block">
+    <div class="sec-eyebrow">01 — The Night</div>
+    <h2 class="lead-line">This is <em>not another summit.</em></h2>
+    <p class="body-text">No keynotes you'll forget by the parking lot. No panels about what <em>might</em> happen someday. The Moonshot Gathering is a live competition with real stakes, decided in real time, in front of you.</p>
+    <p class="body-text">Ten builders and creators walk on stage. They pitch the future they're trying to make real. The judges weigh in. You weigh in. And before the night is over, the money is awarded and the winners are named — live.</p>
+    <p class="body-text">You won't be watching the future get discussed. You'll be helping choose which one gets built.</p>
   </section>
 
-  <section class="grand">
-    <div class="grand-label">The Main Event</div>
-    <div class="grand-headline">ONE NIGHT. <em>TWO XPRIZES.</em></div>
-    <p class="grand-sub">Two global competitions reach their live finale on the same stage, the same night — with <b>$5.5M on the line</b> across the room.</p>
+  <section class="block prize">
+    <div class="sec-eyebrow">02 — Future Vision XPRIZE</div>
+    <div class="bignum" data-count="2.5" data-prefix="$" data-suffix="M">$0M</div>
+    <div class="subnum">One story. Made real.</div>
+    <h2 class="prize-h">The winner's film <em style="color:var(--accent);font-style:normal">gets made.</em></h2>
+    <p class="body-text">Five filmmakers take the stage, each with a three-minute vision of an optimistic, technology-forward future. A panel of directors, actors, and creators weighs in — and so does the room.</p>
+    <p class="body-text">The winner doesn't just take home $2.5M. Their film gets made into an actual feature.</p>
+    <p class="body-text">Think about what that means. The audience that night helps decide which vision of tomorrow gets pulled out of someone's imagination and put on screen — where it can inspire the people who go build it. Star Trek did exactly that. So did the stories that gave us the cell phone, the tablet, the private spaceflight company.</p>
+    <p class="body-text">We're not just rewarding a film. We're incentivizing hope — and betting that the right story, seen by enough people, becomes the blueprint for what comes next.</p>
   </section>
 
-  <section class="prizes">
-    <div class="prize">
-      <div class="prize-tag">Presented by Google</div>
-      <div class="prize-name">Build with<br>Gemini XPRIZE</div>
-      <div class="prize-big" data-count="2" data-prefix="$" data-suffix="M">$0M</div>
-      <div class="prize-big-label">In prizes · $1M decided live on stage</div>
-      <p class="prize-desc">Founders spent 90 days building <strong>real, profitable AI businesses</strong>. The top 5 pitch live on the night for a share of $1,000,000 in grand prizes — first place walks off stage a millionaire.</p>
-    </div>
-    <div class="prize">
-      <div class="prize-tag">In partnership with Range Media</div>
-      <div class="prize-name">Future Vision<br>XPRIZE</div>
-      <div class="prize-big" data-count="3.5" data-prefix="$" data-suffix="M">$0M</div>
-      <div class="prize-big-label">Total purse · the film gets made</div>
-      <p class="prize-desc">The world's best 3-minute optimistic sci-fi films, judged live. The grand prize isn't a check — it's a greenlight: <strong>the winner's film actually gets produced</strong>, co-produced with Range Media Partners.</p>
-    </div>
+  <section class="block prize alt">
+    <div class="sec-eyebrow">03 — Gemini XPRIZE Hackathon</div>
+    <div class="bignum" data-count="1" data-prefix="$" data-suffix="M">$0M</div>
+    <div class="subnum">Decided live · $500K to first place</div>
+    <h2 class="prize-h">Built now. <em style="color:var(--accent);font-style:normal">Scaled next.</em></h2>
+    <p class="body-text">Five builders take the stage with solutions to real problems — the kind that could change thousands of lives. A panel of founders and investors weighs in, and the audience helps decide.</p>
+    <p class="body-text">One million dollars in prizes, awarded in the room. First place walks away with $500K in cash and the momentum to go further.</p>
+    <p class="body-text">These aren't pitches for someday. They're things people built, working now, competing live for the capital to scale.</p>
   </section>
 
-  <section class="stats">
-    <div class="stat"><b>Sept 25</b><span>One Night · LA</span></div>
-    <div class="stat"><b class="cnt" data-count="5.5" data-prefix="$" data-suffix="M">$0M</b><span>On The Line</span></div>
-    <div class="stat"><b>1 Film</b><span>Greenlit That Night</span></div>
-    <div class="stat"><b class="cnt" data-count="30" data-suffix="">0</b><span>Founding Circle</span></div>
+  <section class="block thesis">
+    <div class="sec-eyebrow">04 — The Thesis</div>
+    <h2 class="lead-line">Here's what the night is <em>really about.</em></h2>
+    <p class="body-text">Optimism isn't the belief that everything will be fine. That's naive, and it's lazy. Real optimism is the belief that problems are <em>solvable</em> — paired with the willingness to actually go solve them.</p>
+    <p class="body-text">That combination has built every good thing we have. Every cure, every breakthrough, every leap forward started with someone who refused to accept that the problem was permanent.</p>
+    <p class="body-text">September 25 is a celebration of those people. The builders and the storytellers. The ones who don't wait for the future — they make it.</p>
+    <p class="body-text">Come help us decide which futures are worth building.</p>
   </section>
 
-  <section class="room">
-    <div class="section-eyebrow">The room</div>
-    <h2 class="section-headline">WHO'S BEHIND IT.</h2>
-    <div class="names">
-      <div class="who"><div class="who-name">Peter Diamandis</div><div class="who-desc">Founder. Also founded XPRIZE and Singularity University.</div></div>
-      <div class="who"><div class="who-name">Anousheh Ansari</div><div class="who-desc">CEO, XPRIZE Foundation.</div></div>
-      <div class="who"><div class="who-name">Range Media</div><div class="who-desc">Produces the winning film. Founder Pete Micelli.</div></div>
-      <div class="who"><div class="who-name">Ben Horowitz</div><div class="who-desc">Backer. Co-founder, Andreessen Horowitz.</div></div>
-      <div class="who"><div class="who-name">Jed McCaleb</div><div class="who-desc">Founding patron. Founded Stellar &amp; Astro Mechanica.</div></div>
-      <div class="who"><div class="who-name">Marc Benioff</div><div class="who-desc">Supporter. Founder &amp; CEO, Salesforce.</div></div>
-      <div class="who"><div class="who-name">Cathie Wood</div><div class="who-desc">Supporter. Founder &amp; CEO, ARK Invest.</div></div>
-      <div class="who"><div class="who-name">Rod Roddenberry</div><div class="who-desc">Judging panel. Star Trek legacy.</div></div>
-    </div>
-  </section>
-
-  <section class="thesis">
-    <p>"Fiction is the blueprint. Engineering is the execution. Star Trek's communicator became the smartphone. Clarke's satellites became GPS. Show us the future worth building, and we'll fund it."</p>
-    <cite>The Moonshots Thesis</cite>
-  </section>
-
-  <section class="rsvp">
-    <div class="rsvp-head">CAN WE COUNT <em>YOU</em> IN?</div>
-    <p class="rsvp-sub">Reply to the message that sent you here and we'll hold your seat in the founding circle — before this opens to the public.</p>
-    <a class="rsvp-btn" id="rsvp-btn" href="mailto:tyler@moonshots.com?subject=I'm%20in%20%E2%80%94%20Moonshot%20Gathering%20Sept%2025&amp;body=Count%20me%20in%20for%20Sept%2025%20in%20LA.">Claim my seat →</a>
+  <section class="closing">
+    <h2 class="closing-h">The room only holds so many.</h2>
+    <div class="closing-detail">September 25, 2026 · Downtown Los Angeles</div>
+    <a class="btn" href="mailto:tyler@moonshots.com?subject=Request%20Your%20Invitation%20%E2%80%94%20Moonshot%20Gathering%20Sept%2025&amp;body=I'd%20like%20to%20request%20an%20invitation%20to%20the%20Moonshot%20Gathering%20on%20Sept%2025%20in%20LA.">Request Your Invitation</a>
   </section>
 
   <footer class="foot">
-    <div class="barcode" aria-hidden="true"></div>
-    <div class="foot-row">
-      <div class="cta">The Moonshot Gathering · <b>Sept 25 · Los Angeles</b></div>
-      <div class="meta">Tyler Donahue · Moonshots<br>tyler@moonshots.com</div>
-    </div>
+    <div class="cta">The Moonshot Gathering · <b>Sept 25 · Los Angeles</b></div>
+    <div class="meta">Tyler Donahue · Moonshots<br>tyler@moonshots.com</div>
   </footer>
 
 </div>
@@ -740,62 +383,12 @@
 (function () {
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ── C · Reserved-for-[Name] from ?name= ── */
-  function param(keys) {
-    var q = new URLSearchParams(window.location.search);
-    for (var i = 0; i < keys.length; i++) {
-      var v = q.get(keys[i]);
-      if (v) return v;
-    }
-    return null;
-  }
-  var raw = param(['name', 'to', 'n']);
-  if (raw) {
-    var name = raw.replace(/[^\p{L}\p{N}\s.'\-]/gu, '').trim().slice(0, 28);
-    if (name) {
-      var el = document.getElementById('reserved-name');
-      el.textContent = name;
-      el.style.color = 'var(--accent)';
-      // personalize RSVP subject + seat serial
-      var first = name.split(/\s+/)[0];
-      var btn = document.getElementById('rsvp-btn');
-      btn.href = "mailto:tyler@moonshots.com?subject=" +
-        encodeURIComponent("I'm in — Moonshot Gathering Sept 25") +
-        "&body=" + encodeURIComponent(name + " here. Count me in for Sept 25 in LA — hold my seat in the founding circle.");
-      var serial = 'MXS-0925-' + first.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 6);
-      document.getElementById('serial').textContent = serial;
-    }
-  }
-
-  /* ── A · Letter-by-letter headline reveal ── */
-  var h1 = document.querySelector('h1');
-  var spec = h1.getAttribute('data-text') || '';
-  var lines = spec.split('|');
-  h1.textContent = '';
-  var idx = 0;
-  lines.forEach(function (line, li) {
-    if (li > 0) h1.appendChild(document.createElement('br'));
-    for (var i = 0; i < line.length; i++) {
-      var c = line[i];
-      var s = document.createElement('span');
-      s.className = 'ch';
-      s.textContent = c === ' ' ? ' ' : c;
-      if (reduce) { s.style.animation = 'none'; s.style.opacity = 1; s.style.transform = 'none'; }
-      else { s.style.animationDelay = (0.25 + idx * 0.035) + 's'; }
-      h1.appendChild(s);
-      idx++;
-    }
-  });
-
-  /* ── D · Count-up numbers on scroll into view ── */
-  function fmt(v, decimals) {
-    return decimals ? v.toFixed(decimals) : Math.round(v).toString();
-  }
+  /* Count-up numbers on scroll into view */
+  function fmt(v, d) { return d ? v.toFixed(d) : Math.round(v).toString(); }
   function animateCount(node) {
     var target = parseFloat(node.getAttribute('data-count'));
     var prefix = node.getAttribute('data-prefix') || '';
-    var suffix = node.getAttribute('data-suffix');
-    if (suffix === null) suffix = '';
+    var suffix = node.getAttribute('data-suffix'); if (suffix === null) suffix = '';
     var decimals = (String(target).split('.')[1] || '').length;
     if (reduce) { node.textContent = prefix + fmt(target, decimals) + suffix; return; }
     var dur = 1100, start = null;
@@ -812,16 +405,12 @@
   var counters = document.querySelectorAll('[data-count]');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { animateCount(e.target); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.5 });
+      entries.forEach(function (e) { if (e.isIntersecting) { animateCount(e.target); io.unobserve(e.target); } });
+    }, { threshold: 0.6 });
     counters.forEach(function (c) { io.observe(c); });
-  } else {
-    counters.forEach(animateCount);
-  }
+  } else { counters.forEach(animateCount); }
 
-  /* ── A · Drifting parallax starfield ── */
+  /* Drifting parallax starfield */
   var canvas = document.getElementById('stars');
   if (canvas && !reduce) {
     var ctx = canvas.getContext('2d');
@@ -834,12 +423,7 @@
       var count = Math.min(80, Math.round(W * H / 17000));
       stars = [];
       for (var i = 0; i < count; i++) {
-        stars.push({
-          x: Math.random() * W, y: Math.random() * H,
-          z: Math.random() * 0.8 + 0.2,
-          r: Math.random() * 1.3 + 0.3,
-          tw: Math.random() * Math.PI * 2
-        });
+        stars.push({ x: Math.random() * W, y: Math.random() * H, z: Math.random() * 0.8 + 0.2, r: Math.random() * 1.3 + 0.3, tw: Math.random() * Math.PI * 2 });
       }
     }
     function draw(t) {
