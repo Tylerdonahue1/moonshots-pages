@@ -252,29 +252,97 @@
   }
 
   /* ── WHO'S BEHIND IT ── */
-  .who-grid {
-    margin-top: 30px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 40px;
+  .tier-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gray-3);
+    margin: 34px 0 16px;
   }
-  .who {
-    display: grid;
-    grid-template-columns: 160px 1fr;
-    gap: 16px;
-    padding: 15px 0;
-    border-bottom: 1px solid var(--line);
-    align-items: baseline;
+  /* Tier 1 — institution logo strip */
+  .logo-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 22px 40px;
   }
-  .who-name {
+  .logo { display: inline-flex; align-items: center; }
+  .logo-img {
+    height: 36px; width: auto; max-width: 160px;
+    filter: grayscale(100%);
+    opacity: 0.72;
+  }
+  .logo-txt {
     font-family: 'Barlow', sans-serif;
     font-weight: 800;
-    font-size: 16px;
-    color: var(--white);
+    font-size: 20px;
+    letter-spacing: 0.01em;
     text-transform: uppercase;
-    letter-spacing: 0.005em;
+    color: rgba(255,255,255,0.6);
   }
-  .who-desc { font-size: 14px; color: var(--gray-2); line-height: 1.5; }
+  /* Tier 2 — people headshot grid */
+  .people-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px 20px;
+  }
+  .person { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .person-photo {
+    width: 92px; height: 92px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 35%, #1b1f1d, #0c0e0d);
+    border: 1px solid var(--line-bright);
+    position: relative;
+    margin-bottom: 14px;
+  }
+  .person-photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); display: block; }
+  .person-photo.noimg::after {
+    content: attr(data-initials);
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Barlow', sans-serif; font-weight: 800; font-size: 30px;
+    letter-spacing: 0.02em; color: rgba(255,255,255,0.55);
+  }
+  .person-name {
+    display: block;
+    font-family: 'Barlow', sans-serif; font-weight: 800; font-size: 15px;
+    text-transform: uppercase; letter-spacing: 0.005em; color: var(--white);
+  }
+  .person-role { display: block; margin-top: 5px; font-size: 12.5px; color: var(--gray-2); line-height: 1.45; max-width: 22ch; }
+
+  /* ── PROOF IMAGE (thesis) ── */
+  .proof {
+    margin-top: 36px;
+    position: relative;
+    border: 1px solid var(--line-bright);
+    overflow: hidden;
+    background: var(--black);
+  }
+  .proof img { display: block; width: 100%; height: auto; }
+  .proof::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background:
+      linear-gradient(to top, rgba(5,6,5,0.94) 0%, rgba(5,6,5,0) 46%),
+      linear-gradient(to bottom, rgba(5,6,5,0.45) 0%, rgba(5,6,5,0) 24%);
+  }
+  .proof-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 30px 24px; z-index: 1; }
+  .proof-cap-tag {
+    display: block;
+    font-family: 'Space Mono', monospace; font-size: 10.5px; letter-spacing: 0.24em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+  }
+  .proof-cap-h {
+    display: block; font-family: 'Barlow', sans-serif; font-weight: 800;
+    font-size: clamp(18px, 2.6vw, 26px); line-height: 1.08; letter-spacing: -0.01em;
+    text-transform: uppercase; color: var(--white); max-width: 24ch;
+  }
+  .proof-cap-sub {
+    display: block; margin-top: 10px;
+    font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--gray-2); line-height: 1.5; max-width: 42ch;
+  }
 
   /* ── CLOSING ── */
   .closing {
@@ -352,6 +420,11 @@
     .hero-lead { font-size: 16px; }
     .block { padding: 40px 24px; }
     .thesis::before { top: 40px; height: calc(100% - 80px); }
+    .logo-strip { gap: 18px 28px; }
+    .logo-img { height: 28px; }
+    .logo-txt { font-size: 17px; }
+    .people-grid { grid-template-columns: repeat(2, 1fr); gap: 26px 16px; }
+    .proof-cap { padding: 18px 18px 16px; }
     .closing { padding: 48px 24px; }
     .foot { padding: 22px 24px; flex-direction: column; align-items: flex-start; }
     .foot .meta { text-align: left; }
@@ -379,7 +452,7 @@
       </div>
       <h1 class="hero-h1 reveal" style="animation-delay:.15s">Over $3.5M, ten finalists, one night — and the winners are <em>decided live by the judges and the audience.</em></h1>
       <p class="hero-lead reveal" style="animation-delay:.3s">September 25 · Los Angeles. Ten builders and filmmakers pitch their vision of an optimistic future, live on stage. A panel of directors, founders, and investors judges them — and the audience helps decide. Over $3.5M is awarded in the room, including a film that gets made into a real feature.</p>
-      <a class="btn reveal" style="animation-delay:.42s" href="mailto:tyler@moonshots.com?subject=Request%20Your%20Invitation%20%E2%80%94%20Moonshot%20Gathering%20Sept%2025&amp;body=I'd%20like%20to%20request%20an%20invitation%20to%20the%20Moonshot%20Gathering%20on%20Sept%2025%20in%20LA.">Request Your Invitation</a>
+      <a class="btn reveal" style="animation-delay:.42s" href="mailto:tyler@moonshots.com?subject=Confirm%20Your%20Seat%20%E2%80%94%20Moonshot%20Gathering%20Sept%2025&amp;body=I'd%20like%20to%20confirm%20my%20seat%20at%20the%20Moonshot%20Gathering%20on%20Sept%2025%20in%20LA.">Confirm Your Seat.</a>
     </div>
   </header>
 
@@ -419,29 +492,73 @@
     <p class="body-text">That combination has built every good thing we have. Every cure, every breakthrough, every leap forward started with someone who refused to accept that the problem was permanent.</p>
     <p class="body-text">September 25 is a celebration of those people. The builders and the storytellers. The ones who don't wait for the future — they make it.</p>
     <p class="body-text">Come help us decide which futures are worth building.</p>
+
+    <figure class="proof" id="proof-fig">
+      <picture>
+        <source srcset="/invite/assets/spaceshipone.avif" type="image/avif">
+        <source srcset="/invite/assets/spaceshipone.webp" type="image/webp">
+        <img src="/invite/assets/spaceshipone.jpg" alt="SpaceShipOne climbing toward space on the flight that won the $10M Ansari XPRIZE in 2004 and launched the private spaceflight industry" loading="lazy" onerror="document.getElementById('proof-fig').style.display='none'">
+      </picture>
+      <figcaption class="proof-cap">
+        <span class="proof-cap-tag">The Proof · Ansari XPRIZE, 2004</span>
+        <span class="proof-cap-h">A $10M prize created the private spaceflight industry.</span>
+        <span class="proof-cap-sub">That's what we do — turn an audacious goal into something real.</span>
+      </figcaption>
+    </figure>
   </section>
 
   <section class="block">
     <div class="sec-eyebrow">05 — Who's Behind It</div>
     <h2 class="lead-line">Convened by the people <em>building the future.</em></h2>
     <p class="body-text">Created by Peter Diamandis — founder of XPRIZE and Singularity University — with the XPRIZE Foundation and Range Media Partners, and backed by the founders, investors, and storytellers shaping what comes next.</p>
-    <div class="who-grid">
-      <div class="who"><div class="who-name">Peter Diamandis</div><div class="who-desc">Founder. Also founded XPRIZE and Singularity University.</div></div>
-      <div class="who"><div class="who-name">Anousheh Ansari</div><div class="who-desc">CEO, XPRIZE Foundation. First female private astronaut.</div></div>
-      <div class="who"><div class="who-name">Range Media</div><div class="who-desc">Produces the winning film. Founder Pete Micelli.</div></div>
-      <div class="who"><div class="who-name">Google</div><div class="who-desc">Presenting partner of the Gemini XPRIZE.</div></div>
-      <div class="who"><div class="who-name">Ben Horowitz</div><div class="who-desc">Backer. Co-founder, Andreessen Horowitz.</div></div>
-      <div class="who"><div class="who-name">Jed McCaleb</div><div class="who-desc">Founding patron. Founded Stellar &amp; Astro Mechanica.</div></div>
-      <div class="who"><div class="who-name">Marc Benioff</div><div class="who-desc">Supporter. Founder &amp; CEO, Salesforce.</div></div>
-      <div class="who"><div class="who-name">Cathie Wood</div><div class="who-desc">Supporter. Founder &amp; CEO, ARK Invest.</div></div>
-      <div class="who"><div class="who-name">Rod Roddenberry</div><div class="who-desc">Judging panel. Star Trek legacy.</div></div>
+    <div class="tier-label">Backed by</div>
+    <div class="logo-strip">
+      <span class="logo"><img class="logo-img" src="/invite/assets/logos/google.svg" alt="Google" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="logo-txt" style="display:none">Google</span></span>
+      <span class="logo"><img class="logo-img" src="/invite/assets/logos/xprize.svg" alt="XPRIZE" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="logo-txt" style="display:none">XPRIZE</span></span>
+      <span class="logo"><img class="logo-img" src="/invite/assets/logos/range-media.svg" alt="Range Media" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="logo-txt" style="display:none">Range Media</span></span>
+      <span class="logo"><img class="logo-img" src="/invite/assets/logos/salesforce.svg" alt="Salesforce" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="logo-txt" style="display:none">Salesforce</span></span>
+      <span class="logo"><img class="logo-img" src="/invite/assets/logos/a16z.svg" alt="Andreessen Horowitz" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="logo-txt" style="display:none">a16z</span></span>
+      <span class="logo"><img class="logo-img" src="/invite/assets/logos/ark-invest.svg" alt="ARK Invest" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="logo-txt" style="display:none">ARK Invest</span></span>
+      <span class="logo"><img class="logo-img" src="/invite/assets/logos/stellar.svg" alt="Stellar" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="logo-txt" style="display:none">Stellar</span></span>
+    </div>
+
+    <div class="tier-label">The people</div>
+    <div class="people-grid">
+      <figure class="person">
+        <div class="person-photo"><img src="/invite/assets/people/diamandis.jpg" alt="Peter Diamandis" loading="lazy" onerror="this.parentElement.classList.add('noimg');this.parentElement.setAttribute('data-initials','PD');this.remove()"></div>
+        <figcaption><span class="person-name">Peter Diamandis</span><span class="person-role">Founder. Also founded XPRIZE and Singularity University.</span></figcaption>
+      </figure>
+      <figure class="person">
+        <div class="person-photo"><img src="/invite/assets/people/ansari.jpg" alt="Anousheh Ansari" loading="lazy" onerror="this.parentElement.classList.add('noimg');this.parentElement.setAttribute('data-initials','AA');this.remove()"></div>
+        <figcaption><span class="person-name">Anousheh Ansari</span><span class="person-role">CEO, XPRIZE Foundation. First female private astronaut.</span></figcaption>
+      </figure>
+      <figure class="person">
+        <div class="person-photo"><img src="/invite/assets/people/horowitz.jpg" alt="Ben Horowitz" loading="lazy" onerror="this.parentElement.classList.add('noimg');this.parentElement.setAttribute('data-initials','BH');this.remove()"></div>
+        <figcaption><span class="person-name">Ben Horowitz</span><span class="person-role">Co-founder, Andreessen Horowitz.</span></figcaption>
+      </figure>
+      <figure class="person">
+        <div class="person-photo"><img src="/invite/assets/people/benioff.jpg" alt="Marc Benioff" loading="lazy" onerror="this.parentElement.classList.add('noimg');this.parentElement.setAttribute('data-initials','MB');this.remove()"></div>
+        <figcaption><span class="person-name">Marc Benioff</span><span class="person-role">Founder &amp; CEO, Salesforce.</span></figcaption>
+      </figure>
+      <figure class="person">
+        <div class="person-photo"><img src="/invite/assets/people/wood.jpg" alt="Cathie Wood" loading="lazy" onerror="this.parentElement.classList.add('noimg');this.parentElement.setAttribute('data-initials','CW');this.remove()"></div>
+        <figcaption><span class="person-name">Cathie Wood</span><span class="person-role">Founder &amp; CEO, ARK Invest.</span></figcaption>
+      </figure>
+      <figure class="person">
+        <div class="person-photo"><img src="/invite/assets/people/mccaleb.jpg" alt="Jed McCaleb" loading="lazy" onerror="this.parentElement.classList.add('noimg');this.parentElement.setAttribute('data-initials','JM');this.remove()"></div>
+        <figcaption><span class="person-name">Jed McCaleb</span><span class="person-role">Founding patron. Founded Stellar &amp; Astro Mechanica.</span></figcaption>
+      </figure>
+      <figure class="person">
+        <div class="person-photo"><img src="/invite/assets/people/roddenberry.jpg" alt="Rod Roddenberry" loading="lazy" onerror="this.parentElement.classList.add('noimg');this.parentElement.setAttribute('data-initials','RR');this.remove()"></div>
+        <figcaption><span class="person-name">Rod Roddenberry</span><span class="person-role">Judging panel. Star Trek legacy.</span></figcaption>
+      </figure>
     </div>
   </section>
 
   <section class="closing">
     <h2 class="closing-h">The room only holds so many.</h2>
     <div class="closing-detail">September 25, 2026 · Downtown Los Angeles</div>
-    <a class="btn" href="mailto:tyler@moonshots.com?subject=Request%20Your%20Invitation%20%E2%80%94%20Moonshot%20Gathering%20Sept%2025&amp;body=I'd%20like%20to%20request%20an%20invitation%20to%20the%20Moonshot%20Gathering%20on%20Sept%2025%20in%20LA.">Request Your Invitation</a>
+    <a class="btn" href="mailto:tyler@moonshots.com?subject=Confirm%20Your%20Seat%20%E2%80%94%20Moonshot%20Gathering%20Sept%2025&amp;body=I'd%20like%20to%20confirm%20my%20seat%20at%20the%20Moonshot%20Gathering%20on%20Sept%2025%20in%20LA.">Confirm Your Seat.</a>
   </section>
 
   <footer class="foot">
@@ -467,8 +584,8 @@
     if (name) {
       document.getElementById('invited-name').textContent = name;
       document.getElementById('invited-for').hidden = false;
-      var subject = encodeURIComponent("Request Your Invitation — Moonshot Gathering Sept 25");
-      var body = encodeURIComponent(name + " here — I'd like to claim my invitation to the Moonshot Gathering on Sept 25 in LA.");
+      var subject = encodeURIComponent("Confirm Your Seat — Moonshot Gathering Sept 25");
+      var body = encodeURIComponent(name + " here — I'd like to confirm my seat at the Moonshot Gathering on Sept 25 in LA.");
       var mailto = "mailto:tyler@moonshots.com?subject=" + subject + "&body=" + body;
       [].forEach.call(document.querySelectorAll('a.btn'), function (b) { b.href = mailto; });
     }
