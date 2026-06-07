@@ -251,6 +251,19 @@
     background: var(--accent);
   }
 
+  /* ── "WHY YOU'RE GETTING THIS" BAND ── */
+  .invite-band { background: rgba(27,191,224,0.04); }
+  .invite-band::before {
+    content: '';
+    position: absolute;
+    top: 52px; left: 0;
+    width: 3px;
+    height: calc(100% - 104px);
+    background: var(--accent);
+  }
+  .invite-band .body-text { max-width: 720px; }
+  .invite-band .body-text strong { color: var(--accent-2); font-weight: 600; }
+
   /* ── WHO'S BEHIND IT ── */
   .tier-label {
     font-family: 'Space Mono', monospace;
@@ -419,7 +432,7 @@
     .top { padding: 40px 24px 38px; }
     .hero-lead { font-size: 16px; }
     .block { padding: 40px 24px; }
-    .thesis::before { top: 40px; height: calc(100% - 80px); }
+    .thesis::before, .invite-band::before { top: 40px; height: calc(100% - 80px); }
     .logo-strip { gap: 18px 28px; }
     .logo-img { height: 28px; }
     .logo-txt { font-size: 17px; }
@@ -455,6 +468,11 @@
       <a class="btn reveal" style="animation-delay:.42s" href="mailto:tyler@moonshots.com?subject=Confirm%20Your%20Seat%20%E2%80%94%20Moonshot%20Gathering%20Sept%2025&amp;body=I'd%20like%20to%20confirm%20my%20seat%20at%20the%20Moonshot%20Gathering%20on%20Sept%2025%20in%20LA.">Confirm Your Seat.</a>
     </div>
   </header>
+
+  <section class="block invite-band">
+    <div class="sec-eyebrow">Why you're getting this</div>
+    <p class="body-text">Before tickets open to the public, we're hand-picking a <strong>founding circle of ~30 builders, creators, and operators</strong> whose work and audience define what's next — and announcing them together. <strong>You're one of the names we want in that first wave.</strong> No ask beyond showing up. Say the word and we'll hold your spot before this goes wide.</p>
+  </section>
 
   <section class="block">
     <div class="sec-eyebrow">01 — The Night</div>
