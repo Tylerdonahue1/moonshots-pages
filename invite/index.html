@@ -238,6 +238,7 @@
     transition: border-color 0.2s, background 0.2s;
   }
   .press-card:hover { border-color: var(--accent-dim); background: var(--surface-2); }
+  .press-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
   .press-outlet {
     font-family: 'Space Mono', monospace;
     font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
@@ -480,22 +481,29 @@
     <p class="body-text">Before tickets open to the public, we're hand-picking a <strong>founding circle of ~30 builders, creators, and operators</strong> whose work and audience define what's next — and announcing them together. <strong>You're one of the names we want in that first wave.</strong> No ask beyond showing up. Say the word and we'll hold your spot before this goes wide.</p>
   </section>
 
-  <!-- IN THE PRESS — hidden until real, attributed press is supplied.
-       To enable: remove the `hidden` attribute on the <section> below, then for each
-       card set the outlet name, the real headline, and the article href. Add or remove
-       .press-card <a> blocks as needed (the grid is 2-up on desktop, 1-up on mobile). -->
-  <section class="block" id="press" hidden>
+  <section class="block" id="press">
     <div class="sec-eyebrow">In the Press</div>
     <div class="press-grid">
-      <a class="press-card" href="#" target="_blank" rel="noopener">
-        <div class="press-outlet">Outlet name</div>
-        <div class="press-headline">Future Vision XPRIZE — headline goes here</div>
-        <div class="press-sub">Optional dek / one line</div>
+      <a class="press-card" href="https://fortune.com/2026/03/09/xprize-foundation-future-vision-xprize-peter-diamandis-films-scifi-ai-fears/" target="_blank" rel="noopener">
+        <div class="press-outlet">Fortune</div>
+        <div class="press-headline">Peter Diamandis offers $3.5 million to filmmakers who portray AI as the hero — not the villain</div>
       </a>
-      <a class="press-card" href="#" target="_blank" rel="noopener">
-        <div class="press-outlet">Outlet name</div>
-        <div class="press-headline">Build with Gemini XPRIZE — headline goes here</div>
-        <div class="press-sub">Optional dek / one line</div>
+      <a class="press-card" href="https://techcrunch.com/2026/03/09/xprize-founder-peter-diamandis-launches-new-contest-to-manifest-a-new-star-trek/" target="_blank" rel="noopener">
+        <div class="press-outlet">TechCrunch</div>
+        <div class="press-headline">XPRIZE founder Peter Diamandis launches new contest to manifest a new 'Star Trek'</div>
+      </a>
+      <a class="press-card" href="https://www.hollywoodreporter.com/movies/movie-news/google-range-xprize-sci-fi-competition-1236525384/" target="_blank" rel="noopener">
+        <div class="press-outlet">The Hollywood Reporter</div>
+        <div class="press-headline">Google, Range Partner with XPRIZE for $3.5M Sci-Fi Film Competition</div>
+      </a>
+      <a class="press-card" href="https://www.xprize.org/news/xprize-launches-hackathon-with-2-million-prize-pool-backed-by-google" target="_blank" rel="noopener">
+        <div class="press-outlet">XPRIZE Foundation</div>
+        <div class="press-headline">XPRIZE Launches Hackathon With $2 Million Prize Pool, Backed by Google</div>
+      </a>
+      <a class="press-card" href="https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/" target="_blank" rel="noopener">
+        <div class="press-outlet">Google · The Keyword</div>
+        <div class="press-headline">100 things we announced at I/O 2026</div>
+        <div class="press-sub">Build with Gemini XPRIZE, announced live at I/O 2026</div>
       </a>
     </div>
   </section>
