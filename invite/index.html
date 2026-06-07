@@ -158,7 +158,6 @@
     line-height: 1.62;
   }
   .reveal { opacity: 0; transform: translateY(14px); animation: rise 0.7s cubic-bezier(.2,.7,.2,1) forwards; }
-
   @keyframes rise { to { opacity: 1; transform: none; } }
 
   .btn {
@@ -183,6 +182,7 @@
     border-bottom: 1px solid var(--line);
     position: relative;
   }
+  .block.slim { padding-top: 32px; padding-bottom: 32px; }
   .sec-eyebrow {
     font-family: 'Space Mono', monospace;
     font-size: 11px;
@@ -210,47 +210,6 @@
   .body-text + .body-text { margin-top: 18px; }
   .body-text em { font-style: italic; color: var(--white); }
 
-  /* ── PRIZE BLOCKS ── */
-  .prize { background: var(--surface); }
-  .prize.alt { background: var(--surface-2); }
-  .bignum {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 900;
-    font-size: clamp(64px, 11vw, 120px);
-    line-height: 0.9;
-    letter-spacing: -0.03em;
-    color: var(--accent);
-    font-variant-numeric: tabular-nums;
-  }
-  .subnum {
-    margin-top: 8px;
-    font-family: 'Space Mono', monospace;
-    font-size: 13px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--gray-2);
-  }
-  .prize-h {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 900;
-    font-size: clamp(28px, 4vw, 44px);
-    line-height: 1;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
-    margin: 18px 0 24px;
-  }
-
-  /* ── THESIS ── */
-  .thesis { background: rgba(27,191,224,0.03); }
-  .thesis::before {
-    content: '';
-    position: absolute;
-    top: 52px; left: 0;
-    width: 3px;
-    height: calc(100% - 104px);
-    background: var(--accent);
-  }
-
   /* ── "WHY YOU'RE GETTING THIS" BAND ── */
   .invite-band { background: rgba(27,191,224,0.04); }
   .invite-band::before {
@@ -264,66 +223,110 @@
   .invite-band .body-text { max-width: 720px; }
   .invite-band .body-text strong { color: var(--accent-2); font-weight: 600; }
 
-  /* ── WHO'S BEHIND IT ── */
+  /* ── IN THE PRESS ── */
+  .press-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .press-card {
+    display: block;
+    text-decoration: none;
+    border: 1px solid var(--line-bright);
+    background: var(--surface);
+    padding: 22px 22px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .press-card:hover { border-color: var(--accent-dim); background: var(--surface-2); }
+  .press-outlet {
+    font-family: 'Space Mono', monospace;
+    font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 10px;
+  }
+  .press-headline {
+    font-family: 'Barlow', sans-serif; font-weight: 800;
+    font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; color: var(--white);
+  }
+  .press-sub { margin-top: 8px; font-size: 13px; color: var(--gray-2); }
+
+  /* ── BACKED BY (logo strip) ── */
   .tier-label {
     font-family: 'Space Mono', monospace;
     font-size: 11px;
     letter-spacing: 0.24em;
     text-transform: uppercase;
     color: var(--gray-3);
-    margin: 34px 0 16px;
+    margin-bottom: 18px;
   }
-  /* Tier 1 — institution logo strip */
-  .logo-strip {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 22px 40px;
-  }
+  .logo-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 22px 40px; }
   .logo { display: inline-flex; align-items: center; }
-  .logo-img {
-    height: 36px; width: auto; max-width: 160px;
-    filter: grayscale(100%);
-    opacity: 0.72;
-  }
+  .logo-img { height: 36px; width: auto; max-width: 160px; filter: grayscale(100%); opacity: 0.72; }
   .logo-txt {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 800;
-    font-size: 20px;
-    letter-spacing: 0.01em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.6);
+    font-family: 'Barlow', sans-serif; font-weight: 800; font-size: 20px;
+    letter-spacing: 0.01em; text-transform: uppercase; color: rgba(255,255,255,0.6);
   }
-  /* Tier 2 — people headshot grid */
-  .people-grid {
+
+  /* ── PRIZE DUO (side by side) ── */
+  .prize-duo {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px 20px;
-  }
-  .person { display: flex; flex-direction: column; align-items: center; text-align: center; }
-  .person-photo {
-    width: 92px; height: 92px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: radial-gradient(circle at 50% 35%, #1b1f1d, #0c0e0d);
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line-bright);
     border: 1px solid var(--line-bright);
-    position: relative;
-    margin-bottom: 14px;
   }
-  .person-photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); display: block; }
-  .person-photo.noimg::after {
-    content: attr(data-initials);
-    position: absolute; inset: 0;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Barlow', sans-serif; font-weight: 800; font-size: 30px;
-    letter-spacing: 0.02em; color: rgba(255,255,255,0.55);
+  .pcard { background: var(--surface); padding: 32px 30px; }
+  .pcard.alt { background: var(--surface-2); }
+  .pcard-tag {
+    font-family: 'Space Mono', monospace; font-size: 10.5px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
   }
-  .person-name {
-    display: block;
-    font-family: 'Barlow', sans-serif; font-weight: 800; font-size: 15px;
+  .pcard-num {
+    font-family: 'Barlow', sans-serif; font-weight: 900;
+    font-size: clamp(48px, 7vw, 72px); line-height: 0.9; letter-spacing: -0.03em;
+    color: var(--accent); font-variant-numeric: tabular-nums;
+  }
+  .pcard-sub {
+    margin-top: 8px; font-family: 'Space Mono', monospace; font-size: 11.5px;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray-2);
+  }
+  .pcard-h {
+    font-family: 'Barlow', sans-serif; font-weight: 900; font-size: 22px;
+    line-height: 1.05; letter-spacing: -0.01em; text-transform: uppercase;
+    margin: 18px 0 12px; color: var(--white);
+  }
+  .pcard-desc { font-size: 14.5px; color: var(--gray-1); line-height: 1.6; }
+
+  /* ── WHO'S BEHIND IT (names, no photos) ── */
+  .people-list {
+    margin-top: 26px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 40px;
+  }
+  .pl-item {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    gap: 16px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .pl-name {
+    font-family: 'Barlow', sans-serif; font-weight: 800; font-size: 16px;
     text-transform: uppercase; letter-spacing: 0.005em; color: var(--white);
   }
-  .person-role { display: block; margin-top: 5px; font-size: 12.5px; color: var(--gray-2); line-height: 1.45; max-width: 22ch; }
+  .pl-role { font-size: 14px; color: var(--gray-2); line-height: 1.5; }
+
+  /* ── THESIS ── */
+  .thesis { background: rgba(27,191,224,0.03); }
+  .thesis::before {
+    content: '';
+    position: absolute;
+    top: 52px; left: 0;
+    width: 3px;
+    height: calc(100% - 104px);
+    background: var(--accent);
+  }
 
   /* ── PROOF IMAGE (thesis) ── */
   .proof {
@@ -433,10 +436,13 @@
     .hero-lead { font-size: 16px; }
     .block { padding: 40px 24px; }
     .thesis::before, .invite-band::before { top: 40px; height: calc(100% - 80px); }
+    .press-grid { grid-template-columns: 1fr; }
     .logo-strip { gap: 18px 28px; }
     .logo-img { height: 28px; }
     .logo-txt { font-size: 17px; }
-    .people-grid { grid-template-columns: repeat(2, 1fr); gap: 26px 16px; }
+    .prize-duo { grid-template-columns: 1fr; }
+    .people-list { grid-template-columns: 1fr; }
+    .pl-item { grid-template-columns: 1fr; gap: 4px; padding: 13px 0; }
     .proof-cap { padding: 18px 18px 16px; }
     .closing { padding: 48px 24px; }
     .foot { padding: 22px 24px; flex-direction: column; align-items: flex-start; }
@@ -474,42 +480,80 @@
     <p class="body-text">Before tickets open to the public, we're hand-picking a <strong>founding circle of ~30 builders, creators, and operators</strong> whose work and audience define what's next — and announcing them together. <strong>You're one of the names we want in that first wave.</strong> No ask beyond showing up. Say the word and we'll hold your spot before this goes wide.</p>
   </section>
 
+  <!-- IN THE PRESS — hidden until real, attributed press is supplied.
+       To enable: remove the `hidden` attribute on the <section> below, then for each
+       card set the outlet name, the real headline, and the article href. Add or remove
+       .press-card <a> blocks as needed (the grid is 2-up on desktop, 1-up on mobile). -->
+  <section class="block" id="press" hidden>
+    <div class="sec-eyebrow">In the Press</div>
+    <div class="press-grid">
+      <a class="press-card" href="#" target="_blank" rel="noopener">
+        <div class="press-outlet">Outlet name</div>
+        <div class="press-headline">Future Vision XPRIZE — headline goes here</div>
+        <div class="press-sub">Optional dek / one line</div>
+      </a>
+      <a class="press-card" href="#" target="_blank" rel="noopener">
+        <div class="press-outlet">Outlet name</div>
+        <div class="press-headline">Build with Gemini XPRIZE — headline goes here</div>
+        <div class="press-sub">Optional dek / one line</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="block slim">
+    <div class="tier-label">Backed by</div>
+    <div class="logo-strip">
+      <span class="logo"><img class="logo-img" src="/invite/assets/logos/google.svg" alt="Google" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="logo-txt" style="display:none">Google</span></span>
+      <span class="logo"><img class="logo-img" src="/invite/assets/logos/xprize.svg" alt="XPRIZE" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="logo-txt" style="display:none">XPRIZE</span></span>
+      <span class="logo"><img class="logo-img" src="/invite/assets/logos/range-media.svg" alt="Range Media" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="logo-txt" style="display:none">Range Media</span></span>
+      <span class="logo"><img class="logo-img" src="/invite/assets/logos/salesforce.svg" alt="Salesforce" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="logo-txt" style="display:none">Salesforce</span></span>
+      <span class="logo"><img class="logo-img" src="/invite/assets/logos/a16z.svg" alt="Andreessen Horowitz" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="logo-txt" style="display:none">a16z</span></span>
+      <span class="logo"><img class="logo-img" src="/invite/assets/logos/ark-invest.svg" alt="ARK Invest" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="logo-txt" style="display:none">ARK Invest</span></span>
+      <span class="logo"><img class="logo-img" src="/invite/assets/logos/stellar.svg" alt="Stellar" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="logo-txt" style="display:none">Stellar</span></span>
+    </div>
+  </section>
+
   <section class="block">
-    <div class="sec-eyebrow">01 — The Night</div>
-    <h2 class="lead-line">This is <em>not another summit.</em></h2>
-    <p class="body-text">No keynotes you'll forget by the parking lot. No panels about what <em>might</em> happen someday. The Moonshot Gathering is a live competition with real stakes, decided in real time, in front of you.</p>
-    <p class="body-text">Ten builders and creators walk on stage. They pitch the future they're trying to make real. The judges weigh in. You weigh in. And before the night is over, the money is awarded and the winners are named — live.</p>
-    <p class="body-text">You won't be watching the future get discussed. You'll be helping choose which one gets built.</p>
+    <div class="sec-eyebrow">Two prizes · One night</div>
+    <div class="prize-duo">
+      <div class="pcard">
+        <div class="pcard-tag">Future Vision XPRIZE</div>
+        <div class="pcard-num" data-count="2.5" data-prefix="$" data-suffix="M">$0M</div>
+        <div class="pcard-sub">The winner's film gets made</div>
+        <h3 class="pcard-h">A story, greenlit live.</h3>
+        <p class="pcard-desc">Five filmmakers pitch a three-minute vision of an optimistic future. The grand prize isn't a check — it's a greenlight: the winner's film gets produced with Range Media Partners.</p>
+      </div>
+      <div class="pcard alt">
+        <div class="pcard-tag">Build with Gemini XPRIZE</div>
+        <div class="pcard-num" data-count="1" data-prefix="$" data-suffix="M">$0M</div>
+        <div class="pcard-sub">$500K to first place</div>
+        <h3 class="pcard-h">A business, funded live.</h3>
+        <p class="pcard-desc">Five builders pitch real, profitable AI businesses built in 90 days. One million dollars in prizes, decided in the room — first place walks away with $500K.</p>
+      </div>
+    </div>
   </section>
 
-  <section class="block prize">
-    <div class="sec-eyebrow">02 — Future Vision XPRIZE</div>
-    <div class="bignum" data-count="2.5" data-prefix="$" data-suffix="M">$0M</div>
-    <div class="subnum">One story. Made real.</div>
-    <h2 class="prize-h">The winner's film <em style="color:var(--accent);font-style:normal">gets made.</em></h2>
-    <p class="body-text">Five filmmakers take the stage, each with a three-minute vision of an optimistic, technology-forward future. A panel of directors, actors, and creators weighs in — and so does the room.</p>
-    <p class="body-text">The winner doesn't just take home $2.5M. Their film gets made into an actual feature.</p>
-    <p class="body-text">Think about what that means. The audience that night helps decide which vision of tomorrow gets pulled out of someone's imagination and put on screen — where it can inspire the people who go build it. Star Trek did exactly that. So did the stories that gave us the cell phone, the tablet, the private spaceflight company.</p>
-    <p class="body-text">We're not just rewarding a film. We're incentivizing hope — and betting that the right story, seen by enough people, becomes the blueprint for what comes next.</p>
-  </section>
-
-  <section class="block prize alt">
-    <div class="sec-eyebrow">03 — Gemini XPRIZE Hackathon</div>
-    <div class="bignum" data-count="1" data-prefix="$" data-suffix="M">$0M</div>
-    <div class="subnum">Decided live · $500K to first place</div>
-    <h2 class="prize-h">Built now. <em style="color:var(--accent);font-style:normal">Scaled next.</em></h2>
-    <p class="body-text">Five builders take the stage with solutions to real problems — the kind that could change thousands of lives. A panel of founders and investors weighs in, and the audience helps decide.</p>
-    <p class="body-text">One million dollars in prizes, awarded in the room. First place walks away with $500K in cash and the momentum to go further.</p>
-    <p class="body-text">These aren't pitches for someday. They're things people built, working now, competing live for the capital to scale.</p>
+  <section class="block">
+    <div class="sec-eyebrow">Who's Behind It</div>
+    <h2 class="lead-line">Convened by the people <em>building the future.</em></h2>
+    <p class="body-text">Created by Peter Diamandis — founder of XPRIZE and Singularity University — with the XPRIZE Foundation and Range Media Partners, and backed by the founders, investors, and storytellers shaping what comes next.</p>
+    <div class="people-list">
+      <div class="pl-item"><div class="pl-name">Peter Diamandis</div><div class="pl-role">Founder. Also founded XPRIZE and Singularity University.</div></div>
+      <div class="pl-item"><div class="pl-name">Anousheh Ansari</div><div class="pl-role">CEO, XPRIZE Foundation. First female private astronaut.</div></div>
+      <div class="pl-item"><div class="pl-name">Ben Horowitz</div><div class="pl-role">Co-founder, Andreessen Horowitz.</div></div>
+      <div class="pl-item"><div class="pl-name">Marc Benioff</div><div class="pl-role">Founder &amp; CEO, Salesforce.</div></div>
+      <div class="pl-item"><div class="pl-name">Cathie Wood</div><div class="pl-role">Founder &amp; CEO, ARK Invest.</div></div>
+      <div class="pl-item"><div class="pl-name">Jed McCaleb</div><div class="pl-role">Founding patron. Founded Stellar &amp; Astro Mechanica.</div></div>
+      <div class="pl-item"><div class="pl-name">Rod Roddenberry</div><div class="pl-role">Judging panel. Star Trek legacy.</div></div>
+    </div>
   </section>
 
   <section class="block thesis">
-    <div class="sec-eyebrow">04 — The Thesis</div>
+    <div class="sec-eyebrow">The Thesis</div>
     <h2 class="lead-line">Here's what the night is <em>really about.</em></h2>
     <p class="body-text">Optimism isn't the belief that everything will be fine. That's naive, and it's lazy. Real optimism is the belief that problems are <em>solvable</em> — paired with the willingness to actually go solve them.</p>
     <p class="body-text">That combination has built every good thing we have. Every cure, every breakthrough, every leap forward started with someone who refused to accept that the problem was permanent.</p>
     <p class="body-text">September 25 is a celebration of those people. The builders and the storytellers. The ones who don't wait for the future — they make it.</p>
-    <p class="body-text">Come help us decide which futures are worth building.</p>
 
     <figure class="proof" id="proof-fig">
       <picture>
@@ -523,54 +567,6 @@
         <span class="proof-cap-sub">That's what we do — turn an audacious goal into something real.</span>
       </figcaption>
     </figure>
-  </section>
-
-  <section class="block">
-    <div class="sec-eyebrow">05 — Who's Behind It</div>
-    <h2 class="lead-line">Convened by the people <em>building the future.</em></h2>
-    <p class="body-text">Created by Peter Diamandis — founder of XPRIZE and Singularity University — with the XPRIZE Foundation and Range Media Partners, and backed by the founders, investors, and storytellers shaping what comes next.</p>
-    <div class="tier-label">Backed by</div>
-    <div class="logo-strip">
-      <span class="logo"><img class="logo-img" src="/invite/assets/logos/google.svg" alt="Google" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="logo-txt" style="display:none">Google</span></span>
-      <span class="logo"><img class="logo-img" src="/invite/assets/logos/xprize.svg" alt="XPRIZE" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="logo-txt" style="display:none">XPRIZE</span></span>
-      <span class="logo"><img class="logo-img" src="/invite/assets/logos/range-media.svg" alt="Range Media" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="logo-txt" style="display:none">Range Media</span></span>
-      <span class="logo"><img class="logo-img" src="/invite/assets/logos/salesforce.svg" alt="Salesforce" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="logo-txt" style="display:none">Salesforce</span></span>
-      <span class="logo"><img class="logo-img" src="/invite/assets/logos/a16z.svg" alt="Andreessen Horowitz" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="logo-txt" style="display:none">a16z</span></span>
-      <span class="logo"><img class="logo-img" src="/invite/assets/logos/ark-invest.svg" alt="ARK Invest" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="logo-txt" style="display:none">ARK Invest</span></span>
-      <span class="logo"><img class="logo-img" src="/invite/assets/logos/stellar.svg" alt="Stellar" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="logo-txt" style="display:none">Stellar</span></span>
-    </div>
-
-    <div class="tier-label">The people</div>
-    <div class="people-grid">
-      <figure class="person">
-        <div class="person-photo"><img src="/invite/assets/people/diamandis.jpg" alt="Peter Diamandis" loading="lazy" onerror="this.parentElement.classList.add('noimg');this.parentElement.setAttribute('data-initials','PD');this.remove()"></div>
-        <figcaption><span class="person-name">Peter Diamandis</span><span class="person-role">Founder. Also founded XPRIZE and Singularity University.</span></figcaption>
-      </figure>
-      <figure class="person">
-        <div class="person-photo"><img src="/invite/assets/people/ansari.jpg" alt="Anousheh Ansari" loading="lazy" onerror="this.parentElement.classList.add('noimg');this.parentElement.setAttribute('data-initials','AA');this.remove()"></div>
-        <figcaption><span class="person-name">Anousheh Ansari</span><span class="person-role">CEO, XPRIZE Foundation. First female private astronaut.</span></figcaption>
-      </figure>
-      <figure class="person">
-        <div class="person-photo"><img src="/invite/assets/people/horowitz.jpg" alt="Ben Horowitz" loading="lazy" onerror="this.parentElement.classList.add('noimg');this.parentElement.setAttribute('data-initials','BH');this.remove()"></div>
-        <figcaption><span class="person-name">Ben Horowitz</span><span class="person-role">Co-founder, Andreessen Horowitz.</span></figcaption>
-      </figure>
-      <figure class="person">
-        <div class="person-photo"><img src="/invite/assets/people/benioff.jpg" alt="Marc Benioff" loading="lazy" onerror="this.parentElement.classList.add('noimg');this.parentElement.setAttribute('data-initials','MB');this.remove()"></div>
-        <figcaption><span class="person-name">Marc Benioff</span><span class="person-role">Founder &amp; CEO, Salesforce.</span></figcaption>
-      </figure>
-      <figure class="person">
-        <div class="person-photo"><img src="/invite/assets/people/wood.jpg" alt="Cathie Wood" loading="lazy" onerror="this.parentElement.classList.add('noimg');this.parentElement.setAttribute('data-initials','CW');this.remove()"></div>
-        <figcaption><span class="person-name">Cathie Wood</span><span class="person-role">Founder &amp; CEO, ARK Invest.</span></figcaption>
-      </figure>
-      <figure class="person">
-        <div class="person-photo"><img src="/invite/assets/people/mccaleb.jpg" alt="Jed McCaleb" loading="lazy" onerror="this.parentElement.classList.add('noimg');this.parentElement.setAttribute('data-initials','JM');this.remove()"></div>
-        <figcaption><span class="person-name">Jed McCaleb</span><span class="person-role">Founding patron. Founded Stellar &amp; Astro Mechanica.</span></figcaption>
-      </figure>
-      <figure class="person">
-        <div class="person-photo"><img src="/invite/assets/people/roddenberry.jpg" alt="Rod Roddenberry" loading="lazy" onerror="this.parentElement.classList.add('noimg');this.parentElement.setAttribute('data-initials','RR');this.remove()"></div>
-        <figcaption><span class="person-name">Rod Roddenberry</span><span class="person-role">Judging panel. Star Trek legacy.</span></figcaption>
-      </figure>
-    </div>
   </section>
 
   <section class="closing">
