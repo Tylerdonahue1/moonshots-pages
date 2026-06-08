@@ -205,29 +205,29 @@
     drawText(ctx, "THE MOONSHOT GATHERING", cx, Y(0.095), 30, MONO, "700", "#1BBFE0", 7);
     drawText(ctx, "SEP 25 · 2026 · LOS ANGELES", cx, Y(0.125), 22, MONO, "400", "#9fb0ad", 5);
 
-    drawText(ctx, "FOUNDING CIRCLE", cx, Y(0.40), 26, MONO, "700", "#1BBFE0", 9);
+    drawText(ctx, "I'M IN.", cx, Y(0.44), 172, BARLOW, "900", "#FAFAF8", -4);
     if (NAME) {
-      // auto-fit name width
-      var size = 96, maxW = W - 150;
-      ctx.font = "900 " + size + "px " + BARLOW;
-      try { ctx.letterSpacing = "-2px"; } catch (e) {}
-      while (ctx.measureText(NAME).width > maxW && size > 40) { size -= 3; ctx.font = "900 " + size + "px " + BARLOW; }
+      // auto-fit the signature name
+      var size = 46, maxW = W - 200;
+      ctx.font = "800 " + size + "px " + BARLOW;
+      try { ctx.letterSpacing = "-1px"; } catch (e) {}
+      while (ctx.measureText(NAME).width > maxW && size > 22) { size -= 2; ctx.font = "800 " + size + "px " + BARLOW; }
       try { ctx.letterSpacing = "0px"; } catch (e) {}
-      drawText(ctx, NAME, cx, Y(0.475), size, BARLOW, "900", "#FAFAF8", -2);
-      drawText(ctx, "IS GOING.", cx, Y(0.55), 84, BARLOW, "900", "#1BBFE0", -1);
+      drawText(ctx, NAME, cx, Y(0.55), size, BARLOW, "800", "#FAFAF8", -1);
+      drawText(ctx, "FOUNDING CIRCLE", cx, Y(0.595), 24, MONO, "700", "#1BBFE0", 8);
     } else {
-      drawText(ctx, "I'M GOING.", cx, Y(0.50), 110, BARLOW, "900", "#FAFAF8", -2);
+      drawText(ctx, "FOUNDING CIRCLE", cx, Y(0.565), 26, MONO, "700", "#1BBFE0", 9);
     }
 
-    drawText(ctx, "$3.5M AWARDED LIVE", cx, Y(0.70), 58, BARLOW, "900", "#FAFAF8", -1.5);
-    drawText(ctx, "A FILM GETS MADE · A BUSINESS GETS FUNDED", cx, Y(0.735), 22, MONO, "400", "#9fb0ad", 3);
+    drawText(ctx, "$3.5M AWARDED LIVE", cx, Y(0.71), 58, BARLOW, "900", "#FAFAF8", -1.5);
+    drawText(ctx, "A FILM GETS MADE · A BUSINESS GETS FUNDED", cx, Y(0.745), 22, MONO, "400", "#9fb0ad", 3);
 
     var hg = ctx.createLinearGradient(W * 0.18, 0, W * 0.82, 0);
     hg.addColorStop(0, "rgba(27,191,224,0)"); hg.addColorStop(0.5, "rgba(27,191,224,0.85)"); hg.addColorStop(1, "rgba(27,191,224,0)");
-    ctx.fillStyle = hg; ctx.fillRect(W * 0.18, Y(0.82), W * 0.64, 2);
+    ctx.fillStyle = hg; ctx.fillRect(W * 0.18, Y(0.83), W * 0.64, 2);
 
-    drawText(ctx, "APPLY TO ATTEND", cx, Y(0.875), 24, MONO, "700", "#1BBFE0", 6);
-    drawText(ctx, "MOONSHOTS.COM", cx, Y(0.93), 64, BARLOW, "900", "#FAFAF8", -1);
+    drawText(ctx, "APPLY TO ATTEND", cx, Y(0.885), 24, MONO, "700", "#1BBFE0", 6);
+    drawText(ctx, "MOONSHOTS.COM", cx, Y(0.94), 64, BARLOW, "900", "#FAFAF8", -1);
   }
 
   function fileName() {
