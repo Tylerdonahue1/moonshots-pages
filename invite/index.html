@@ -326,6 +326,16 @@
     margin: 18px 0 12px; color: var(--white);
   }
   .pcard-desc { font-size: 14.5px; color: var(--gray-1); line-height: 1.6; }
+  .pcard-link {
+    display: inline-block;
+    margin-top: 16px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid var(--accent-dim); padding-bottom: 2px;
+    transition: color .2s, border-color .2s;
+  }
+  .pcard-link:hover { color: var(--accent-2); border-color: var(--accent); }
 
   /* ── WHO'S BEHIND IT (names, no photos) ── */
   .people-list {
@@ -609,6 +619,7 @@
         <div class="pcard-sub">The winner's film gets made</div>
         <h3 class="pcard-h">A story, greenlit live.</h3>
         <p class="pcard-desc">Five filmmakers pitch a three-minute vision of an optimistic future. The grand prize isn't a check — it's a greenlight: the winner's film gets produced with Range Media Partners.</p>
+        <a class="pcard-link" href="https://futurevisionxprize.com" target="_blank" rel="noopener">futurevisionxprize.com →</a>
       </div>
       <div class="pcard alt">
         <div class="pcard-tag">Build with Gemini XPRIZE</div>
@@ -616,6 +627,7 @@
         <div class="pcard-sub">$500K to first place</div>
         <h3 class="pcard-h">A business, funded live.</h3>
         <p class="pcard-desc">Five builders pitch real, profitable AI businesses built in 90 days — each taking on a real problem that could change thousands of lives. One million dollars in prizes, decided in the room — first place walks away with $500K.</p>
+        <a class="pcard-link" href="https://geminixprize.com" target="_blank" rel="noopener">geminixprize.com →</a>
       </div>
     </div>
   </section>
