@@ -179,10 +179,16 @@
   /* ── SECTIONS ── */
   .block {
     padding: 52px 56px;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid var(--line-bright);
     position: relative;
   }
   .block.slim { padding-top: 32px; padding-bottom: 32px; }
+  /* section background rhythm + key-section highlight */
+  .block.tint { background: var(--surface); }
+  .block.feature {
+    background: linear-gradient(180deg, rgba(27,191,224,0.07), rgba(27,191,224,0.02));
+    border-top: 3px solid var(--accent);
+  }
   .sec-eyebrow {
     font-family: 'Space Mono', monospace;
     font-size: 11px;
@@ -481,7 +487,7 @@
     <p class="body-text">Before tickets open to the public, we're hand-picking a <strong>founding circle of ~30 builders, creators, and operators</strong> whose work and audience define what's next — and announcing them together. <strong>You're one of the names we want in that first wave.</strong> No ask beyond showing up. Say the word and we'll hold your spot before this goes wide.</p>
   </section>
 
-  <section class="block" id="press">
+  <section class="block tint" id="press">
     <div class="sec-eyebrow">In the Press</div>
     <div class="press-grid">
       <a class="press-card" href="https://fortune.com/2026/03/09/xprize-foundation-future-vision-xprize-peter-diamandis-films-scifi-ai-fears/" target="_blank" rel="noopener">
@@ -519,7 +525,7 @@
     </div>
   </section>
 
-  <section class="block">
+  <section class="block feature">
     <div class="sec-eyebrow">Two prizes · One night</div>
     <div class="prize-duo">
       <div class="pcard">
@@ -539,7 +545,7 @@
     </div>
   </section>
 
-  <section class="block">
+  <section class="block tint">
     <div class="sec-eyebrow">Who's Behind It</div>
     <h2 class="lead-line">Convened by the people <em>building the future.</em></h2>
     <p class="body-text">Created by Peter Diamandis — founder of XPRIZE and Singularity University — with the XPRIZE Foundation and Range Media Partners, and backed by the founders, investors, and storytellers shaping what comes next.</p>
