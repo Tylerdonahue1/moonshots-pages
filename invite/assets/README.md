@@ -11,12 +11,10 @@ Until present, each shows a styled text wordmark fallback.
 | File | Brand |
 |---|---|
 | `logos/google.svg` | Google |
-| `logos/xprize.svg` | XPRIZE |
-| `logos/range-media.svg` | Range Media |
-| `logos/salesforce.svg` | Salesforce |
-| `logos/a16z.svg` | Andreessen Horowitz |
+| `logos/range-media.svg` | Range Media Partners |
 | `logos/ark-invest.svg` | ARK Invest |
-| `logos/stellar.svg` | Stellar |
+| `logos/republic-film.svg` | Republic Film |
+| `logos/salesforce.svg` | Salesforce |
 
 PNG works too — rename the `src` in `index.html` or just use `.svg`. Logos are
 normalized to ~36px height, so provide assets with consistent visual weight.
