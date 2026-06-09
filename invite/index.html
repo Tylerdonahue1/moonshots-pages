@@ -337,6 +337,25 @@
   }
   .pcard-link:hover { color: var(--accent-2); border-color: var(--accent); }
 
+  /* competitors stat */
+  .prize-stat {
+    margin-top: 28px;
+    padding-top: 26px;
+    border-top: 1px solid var(--line-bright);
+    text-align: center;
+  }
+  .ps-num {
+    display: block;
+    font-family: 'Barlow', sans-serif; font-weight: 900;
+    font-size: clamp(44px, 8vw, 72px); line-height: 1; letter-spacing: -0.02em;
+    color: var(--accent); font-variant-numeric: tabular-nums;
+  }
+  .ps-label {
+    display: block; margin-top: 10px;
+    font-family: 'Space Mono', monospace; font-size: 12px;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray-2);
+  }
+
   /* ── WHO'S BEHIND IT (names, no photos) ── */
   .people-list {
     margin-top: 26px;
@@ -630,6 +649,10 @@
         <a class="pcard-link" href="https://geminixprize.com" target="_blank" rel="noopener">geminixprize.com →</a>
       </div>
     </div>
+    <div class="prize-stat">
+      <span class="ps-num" data-count="15000" data-suffix="+">0</span>
+      <span class="ps-label">Competitors across both prizes — and counting</span>
+    </div>
   </section>
 
   <section class="block tint">
@@ -720,7 +743,7 @@
   }
 
   /* Count-up numbers on scroll into view */
-  function fmt(v, d) { return d ? v.toFixed(d) : Math.round(v).toString(); }
+  function fmt(v, d) { return d ? v.toFixed(d) : Math.round(v).toLocaleString('en-US'); }
   function animateCount(node) {
     var target = parseFloat(node.getAttribute('data-count'));
     var prefix = node.getAttribute('data-prefix') || '';
