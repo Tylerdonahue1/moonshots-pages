@@ -621,6 +621,7 @@
         <a class="btn" href="mailto:tyler@moonshots.com?subject=Confirm%20Your%20Seat%20%E2%80%94%20Moonshots%20Gathering%20Sept%2025&amp;body=I'd%20like%20to%20confirm%20my%20seat%20at%20the%20Moonshots%20Gathering%20on%20Sept%2025%20in%20LA.">Confirm Your Seat.</a>
         <a class="btn btn-ghost" href="/invite/assets/moonshot-gathering.ics">Add to Calendar</a>
       </div>
+      <a class="share-link reveal" style="animation-delay:.56s" href="/share">Already confirmed? <b>Get your share kit →</b></a>
     </div>
   </header>
 
@@ -799,8 +800,7 @@
       var body = encodeURIComponent(name + " here — I'd like to confirm my seat at the Moonshots Gathering on Sept 25 in LA.");
       var mailto = "mailto:tyler@moonshots.com?subject=" + subject + "&body=" + body;
       [].forEach.call(document.querySelectorAll('a.btn[href^="mailto:"]'), function (b) { b.href = mailto; });
-      var sl = document.getElementById("share-link");
-      if (sl) sl.href = "/share?name=" + encodeURIComponent(name);
+      [].forEach.call(document.querySelectorAll("a.share-link"), function (s) { s.href = "/share?name=" + encodeURIComponent(name); });
     }
   }
 
