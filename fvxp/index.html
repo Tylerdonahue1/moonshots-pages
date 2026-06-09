@@ -304,7 +304,6 @@
   /* ── PARTNERS SIMPLE LIST (names only) ── */
   .partners-list {
     list-style: none;
-    margin-top: 8px;
     border-top: 1px solid var(--line);
   }
   .partners-list li {
@@ -316,6 +315,24 @@
     letter-spacing: 0.005em;
     color: var(--white);
     text-transform: uppercase;
+  }
+
+  /* ── INVOLVED — TWO COLUMNS (Partners + Supporters) ── */
+  .involved-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    margin-top: 8px;
+  }
+  .sub-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--accent-dim);
   }
 
   /* ── STATS STRIP ── */
@@ -440,6 +457,7 @@
     .backers { padding: 28px 24px; }
     .section-headline { font-size: 24px; }
     .backer { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; }
+    .involved-grid { grid-template-columns: 1fr; gap: 32px; }
     .thesis { padding: 28px 28px 28px 32px; }
     .thesis p { font-size: 17px; }
     .foot { padding: 22px 24px; flex-direction: column; align-items: flex-start; }
@@ -507,19 +525,29 @@
   </div>
 
   <section class="backers">
-    <div class="section-eyebrow">Partners</div>
+    <div class="section-eyebrow">Involved</div>
     <h2 class="section-headline">WHO'S INVOLVED.</h2>
 
-    <ul class="partners-list">
-      <li>Peter Diamandis</li>
-      <li>XPRIZE Foundation</li>
-      <li>Range Media Partners</li>
-      <li>Google</li>
-      <li>Rod Roddenberry</li>
-      <li>Ben Horowitz</li>
-      <li>Marc Benioff</li>
-      <li>Cathie Wood</li>
-    </ul>
+    <div class="involved-grid">
+      <div>
+        <div class="sub-eyebrow">Partners</div>
+        <ul class="partners-list">
+          <li>Peter Diamandis</li>
+          <li>XPRIZE Foundation</li>
+          <li>Range Media Partners</li>
+          <li>Google</li>
+        </ul>
+      </div>
+      <div>
+        <div class="sub-eyebrow">Supporters</div>
+        <ul class="partners-list">
+          <li>Rod Roddenberry</li>
+          <li>Ben Horowitz</li>
+          <li>Marc Benioff</li>
+          <li>Cathie Wood</li>
+        </ul>
+      </div>
+    </div>
 
   </section>
 
