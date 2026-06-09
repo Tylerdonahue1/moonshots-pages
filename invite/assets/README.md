@@ -15,6 +15,7 @@ Until present, each shows a styled text wordmark fallback.
 | `logos/ark-invest.svg` | ARK Invest |
 | `logos/republic-film.svg` | Republic Film |
 | `logos/salesforce.svg` | Salesforce |
+| `logos/xsolla.svg` | Xsolla |
 
 PNG works too — rename the `src` in `index.html` or just use `.svg`. Logos are
 normalized to ~36px height, so provide assets with consistent visual weight.
