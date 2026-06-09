@@ -495,6 +495,16 @@
     margin-top: 26px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
   }
   .closing-cta .btn { margin-top: 0; }
+  .share-link {
+    position: relative; z-index: 1;
+    display: inline-block; margin-top: 22px;
+    font-family: 'Space Mono', monospace; font-size: 12.5px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gray-2); text-decoration: none;
+    border-bottom: 1px solid var(--accent-dim); padding-bottom: 3px;
+    transition: color .2s, border-color .2s;
+  }
+  .share-link b { color: var(--accent); font-weight: 700; }
+  .share-link:hover { color: var(--accent); border-color: var(--accent); }
 
   /* ── FOOTER ── */
   .foot {
@@ -710,6 +720,7 @@
       <a class="btn" href="mailto:tyler@moonshots.com?subject=Confirm%20Your%20Seat%20%E2%80%94%20Moonshot%20Gathering%20Sept%2025&amp;body=I'd%20like%20to%20confirm%20my%20seat%20at%20the%20Moonshot%20Gathering%20on%20Sept%2025%20in%20LA.">Confirm Your Seat.</a>
       <a class="btn btn-ghost" href="/invite/assets/moonshot-gathering.ics">Add to Calendar</a>
     </div>
+    <a class="share-link" id="share-link" href="/share">Already confirmed? <b>Get your share kit →</b></a>
   </section>
 
   <footer class="foot">
@@ -739,6 +750,8 @@
       var body = encodeURIComponent(name + " here — I'd like to confirm my seat at the Moonshot Gathering on Sept 25 in LA.");
       var mailto = "mailto:tyler@moonshots.com?subject=" + subject + "&body=" + body;
       [].forEach.call(document.querySelectorAll('a.btn[href^="mailto:"]'), function (b) { b.href = mailto; });
+      var sl = document.getElementById("share-link");
+      if (sl) sl.href = "/share?name=" + encodeURIComponent(name);
     }
   }
 
