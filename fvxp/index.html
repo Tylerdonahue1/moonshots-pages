@@ -301,6 +301,23 @@
     font-weight: 600;
   }
 
+  /* ── PARTNERS SIMPLE LIST (names only) ── */
+  .partners-list {
+    list-style: none;
+    margin-top: 8px;
+    border-top: 1px solid var(--line);
+  }
+  .partners-list li {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: 0.005em;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+
   /* ── STATS STRIP ── */
   .stats {
     display: grid;
@@ -493,55 +510,16 @@
     <div class="section-eyebrow">Partners</div>
     <h2 class="section-headline">WHO'S INVOLVED.</h2>
 
-    <div class="backer">
-      <div class="backer-name">XPRIZE Foundation</div>
-      <div class="backer-desc">Competition administration. Same foundation that runs the Ansari, Carbon Removal, and Healthspan prizes. CEO Anousheh Ansari.</div>
-    </div>
-
-    <div class="backer">
-      <div class="backer-name">Range Media Partners</div>
-      <div class="backer-desc">Filters submissions and holds first refusal on the grand prize film. Hollywood representation and distribution. Founder Pete Micelli.</div>
-    </div>
-
-    <div class="backer">
-      <div class="backer-name">Google</div>
-      <div class="backer-desc">Presenting partner.</div>
-    </div>
-
-    <div class="backer">
-      <div class="backer-name">Rod Roddenberry</div>
-      <div class="backer-desc">Judging panel.</div>
-    </div>
-
-    <div class="backer">
-      <div class="backer-name">Ben Everard</div>
-      <div class="backer-desc">Judging panel.</div>
-    </div>
-
-    <div class="backer">
-      <div class="backer-name">Peter Diamandis</div>
-      <div class="backer-desc">Competition founder. Also founded XPRIZE and Singularity University.</div>
-    </div>
-
-    <div class="backer">
-      <div class="backer-name">Ben Horowitz</div>
-      <div class="backer-desc">Backer. Co-founded Andreessen Horowitz.</div>
-    </div>
-
-    <div class="backer">
-      <div class="backer-name">Jed McCaleb</div>
-      <div class="backer-desc">Founding patron. Founded Stellar and Astro Mechanica.</div>
-    </div>
-
-    <div class="backer">
-      <div class="backer-name">Marc Benioff</div>
-      <div class="backer-desc">Supporter. Founder and CEO of Salesforce.</div>
-    </div>
-
-    <div class="backer">
-      <div class="backer-name">Cathie Wood</div>
-      <div class="backer-desc">Supporter. Founder and CEO of ARK Invest.</div>
-    </div>
+    <ul class="partners-list">
+      <li>Peter Diamandis</li>
+      <li>XPRIZE Foundation</li>
+      <li>Range Media Partners</li>
+      <li>Google</li>
+      <li>Rod Roddenberry</li>
+      <li>Ben Horowitz</li>
+      <li>Marc Benioff</li>
+      <li>Cathie Wood</li>
+    </ul>
 
   </section>
 
