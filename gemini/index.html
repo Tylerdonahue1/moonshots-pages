@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Build with Gemini XPRIZE — The 60-Second Proof</title>
-<meta name="description" content="A $2M global hackathon for AI-driven solutions to real human problems. Top teams enter the capital pipeline.">
+<meta name="description" content="A $2M hackathon for AI-native businesses across five real-world categories. 25 winning teams.">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
 
@@ -95,10 +95,21 @@
     z-index: 1;
   }
   h1 em { font-style: normal; color: var(--accent); }
+  .tagline {
+    margin-top: 18px;
+    font-family: 'Barlow', sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 24px;
+    color: var(--accent);
+    letter-spacing: -0.005em;
+    position: relative;
+    z-index: 1;
+  }
   .sub {
-    margin-top: 22px;
+    margin-top: 14px;
     font-size: 17px;
-    max-width: 680px;
+    max-width: 720px;
     color: var(--gray-1);
     font-weight: 400;
     line-height: 1.6;
@@ -171,7 +182,6 @@
     display: grid;
     grid-template-columns: auto 40px auto 1fr;
     align-items: center;
-    gap: 0;
     margin-bottom: 16px;
   }
   .grand-num {
@@ -203,6 +213,71 @@
     color: var(--gray-1);
     font-weight: 400;
     line-height: 1.6;
+  }
+
+  /* ── SECONDARY PRIZE BAND ── */
+  .prizeband {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--line-bright);
+    border-bottom: 1px solid var(--line-bright);
+  }
+  .pcell {
+    background: var(--surface);
+    padding: 22px 24px;
+  }
+  .pnum {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: -0.015em;
+    color: var(--accent);
+  }
+  .plabel {
+    margin-top: 12px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gray-2);
+    line-height: 1.55;
+  }
+
+  /* ── CATEGORIES STRIP ── */
+  .categories {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line-bright);
+    padding: 22px 56px;
+  }
+  .categories-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .categories-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .cat-cell {
+    background: var(--surface);
+    padding: 14px 14px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+    display: flex;
+    align-items: center;
   }
 
   /* ── AI NOTE ── */
@@ -253,6 +328,13 @@
     padding-bottom: 16px;
     border-bottom: 1px solid var(--accent-dim);
   }
+  .section-intro {
+    font-size: 15px;
+    color: var(--gray-1);
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
   .backer {
     display: grid;
     grid-template-columns: 220px 1fr;
@@ -295,24 +377,6 @@
     letter-spacing: 0.005em;
     color: var(--white);
     text-transform: uppercase;
-  }
-
-  /* ── INVOLVED TWO COLUMNS ── */
-  .involved-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 56px;
-    margin-top: 8px;
-  }
-  .sub-eyebrow {
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 14px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--accent-dim);
   }
 
   /* ── STATS STRIP ── */
@@ -425,18 +489,21 @@
     .top { padding: 30px 24px; }
     .top::before, .top::after { display: none; }
     h1 { font-size: 44px; }
+    .tagline { font-size: 18px; }
     .sub { font-size: 14.5px; }
     .grand { padding: 28px 24px; }
     .grand-headline { font-size: 28px; }
     .grand-stack { grid-template-columns: 1fr; gap: 14px; }
     .grand-plus { text-align: left; }
     .grand-num { font-size: 42px; }
+    .prizeband { grid-template-columns: 1fr 1fr; }
+    .categories { padding: 18px 24px; }
+    .categories-list { grid-template-columns: 1fr 1fr; }
     .ai-note { padding: 16px 24px; flex-direction: column; gap: 6px; }
     .stats { grid-template-columns: 1fr 1fr; }
     .backers { padding: 28px 24px; }
     .section-headline { font-size: 24px; }
     .backer { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; }
-    .involved-grid { grid-template-columns: 1fr; gap: 32px; }
     .thesis { padding: 28px 28px 28px 32px; }
     .thesis p { font-size: 17px; }
     .foot { padding: 22px 24px; flex-direction: column; align-items: flex-start; }
@@ -451,7 +518,8 @@
   <header class="top">
     <div class="kicker">The 60-Second Proof · Updated June 2026</div>
     <h1>BUILD WITH<br><em>GEMINI XPRIZE</em></h1>
-    <p class="sub">A $2M global hackathon for AI-driven solutions to real human problems. Top teams enter the Moonshots capital pipeline.</p>
+    <div class="tagline">"Pick a problem worth solving."</div>
+    <p class="sub">A $2M hackathon for AI-native businesses. Teams launch a real product, acquire real users, generate real revenue. 25 winners across five categories.</p>
     <div class="presented-by">Presented by</div>
     <div class="partners">
       <span class="pill">Google</span>
@@ -460,64 +528,77 @@
   </header>
 
   <section class="grand">
-    <div class="grand-label">Total Prize Pool</div>
-    <div class="grand-headline">$2M IN PRIZES<br>+ <em>CAPITAL PIPELINE</em>.</div>
+    <div class="grand-label">Top Prize</div>
+    <div class="grand-headline">$500K · 1ST PLACE.<br><em>$2M ACROSS 25 WINNERS.</em></div>
 
-    <p class="grand-note">Cash prizes for top teams plus a direct path into investment consideration by Moonshots and partner funds. Final prize structure to be confirmed.</p>
+    <p class="grand-note">Deep prize structure across five real-world categories. Top five teams take the largest cash awards; 15 runners-up and 5 category winners take additional prizes at $50K each.</p>
+  </section>
+
+  <section class="prizeband">
+    <div class="pcell">
+      <div class="pnum">$200K</div>
+      <div class="plabel">2nd Place</div>
+    </div>
+    <div class="pcell">
+      <div class="pnum">3 × $100K</div>
+      <div class="plabel">3rd – 5th Place</div>
+    </div>
+    <div class="pcell">
+      <div class="pnum">15 × $50K</div>
+      <div class="plabel">Runners-Up</div>
+    </div>
+    <div class="pcell">
+      <div class="pnum">5 × $50K</div>
+      <div class="plabel">Category Winners</div>
+    </div>
+  </section>
+
+  <section class="categories">
+    <div class="categories-label">Eligible Categories</div>
+    <div class="categories-list">
+      <div class="cat-cell">Education &amp; Human Potential</div>
+      <div class="cat-cell">Entrepreneurship &amp; Job Creation</div>
+      <div class="cat-cell">Small Business Services</div>
+      <div class="cat-cell">Money &amp; Financial Access</div>
+      <div class="cat-cell">Professional Services</div>
+    </div>
   </section>
 
   <div class="ai-note">
-    <span class="ai-note-tag">Note on tools</span>
-    <span class="ai-note-text">Submissions must demonstrate meaningful use of Gemini. Teams are free to combine Gemini with any other stack, framework, or model.</span>
+    <span class="ai-note-tag">Tech requirements</span>
+    <span class="ai-note-text">Submissions must use the Gemini API for at least one LLM call and integrate at least one Google Cloud product. Additional LLM providers and frameworks are permitted.</span>
   </div>
 
   <section class="backers">
-    <div class="section-eyebrow">Involved</div>
+    <div class="section-eyebrow">Partners</div>
     <h2 class="section-headline">WHO'S INVOLVED.</h2>
 
-    <div class="involved-grid">
-      <div>
-        <div class="sub-eyebrow">Partners</div>
-        <ul class="partners-list">
-          <li>Peter Diamandis</li>
-          <li>XPRIZE Foundation</li>
-          <li>Google</li>
-        </ul>
-      </div>
-      <div>
-        <div class="sub-eyebrow">Supporters</div>
-        <ul class="partners-list">
-          <li>Ben Horowitz</li>
-          <li>Marc Benioff</li>
-          <li>Cathie Wood</li>
-        </ul>
-      </div>
-    </div>
-
+    <ul class="partners-list">
+      <li>Peter Diamandis</li>
+      <li>XPRIZE Foundation</li>
+      <li>Google</li>
+      <li>Devpost</li>
+    </ul>
   </section>
 
   <section class="backers" style="border-top: 1px solid var(--line-bright);">
     <div class="section-eyebrow">Judging Criteria</div>
     <h2 class="section-headline">WHAT WE'RE LOOKING FOR.</h2>
+    <p class="section-intro">Three categories, equally weighted. Stage 1 is a pass/fail viability assessment. Stage 2 scores the three criteria.</p>
 
     <div class="backer">
-      <div class="backer-name">Real-world impact</div>
-      <div class="backer-desc">Does the solution address a meaningful problem at scale? Who benefits, and how?</div>
+      <div class="backer-name">Business Viability</div>
+      <div class="backer-desc">Teams launch a real business during the hackathon, acquire real users, and generate real revenue.</div>
     </div>
 
     <div class="backer">
-      <div class="backer-name">Use of Gemini</div>
-      <div class="backer-desc">How effectively does the team leverage Gemini's capabilities? Depth of integration over surface use.</div>
+      <div class="backer-name">AI-Native Operations</div>
+      <div class="backer-desc">AI runs live in production, executing key business decisions. Not a wrapper. Operational.</div>
     </div>
 
     <div class="backer">
-      <div class="backer-name">Technical execution</div>
-      <div class="backer-desc">Quality, polish, reliability. Is it shipped or scaffolded?</div>
-    </div>
-
-    <div class="backer">
-      <div class="backer-name">Originality</div>
-      <div class="backer-desc">Novel approach, novel application, or novel combination.</div>
+      <div class="backer-name">Category Impact</div>
+      <div class="backer-desc">The project meaningfully advances its category through fundamental innovation or credible scale.</div>
     </div>
   </section>
 
@@ -527,17 +608,17 @@
 
     <div class="backer">
       <div class="backer-name">Pre-event review</div>
-      <div class="backer-desc">Watch and rate the finalist demos in the weeks leading to Demo Day. A pre-judge expert panel narrows the field before submissions reach the judges.</div>
+      <div class="backer-desc">Review finalist submissions between August 18 and September 15. Stage 1 viability assessment narrows the field before submissions reach the panel.</div>
     </div>
 
     <div class="backer">
       <div class="backer-name">Working sessions</div>
-      <div class="backer-desc">Two or three video calls with the panel to deliberate and align on the winner.</div>
+      <div class="backer-desc">Two or three video calls with the panel to deliberate and align on the winners.</div>
     </div>
 
     <div class="backer">
-      <div class="backer-name">Live Demo Day</div>
-      <div class="backer-desc">September 25 in Los Angeles. Present reasoning on stage. Winner revealed live.</div>
+      <div class="backer-name">Live finale</div>
+      <div class="backer-desc">September 25 in Los Angeles. Winners announced at 2:00 PM PT as part of the Moonshot Gathering.</div>
     </div>
 
     <div class="backer">
@@ -547,14 +628,14 @@
   </section>
 
   <section class="stats">
-    <div class="stat"><b>TBD</b><span>Submissions Close</span></div>
-    <div class="stat"><b>Demo</b><span>Top Teams Present</span></div>
-    <div class="stat"><b>TBD</b><span>Top Teams Named</span></div>
-    <div class="stat"><b>Sept 25</b><span>Demo Day · LA</span></div>
+    <div class="stat"><b>May 19</b><span>Submissions Open</span></div>
+    <div class="stat"><b>Aug 17</b><span>Submissions Close</span></div>
+    <div class="stat"><b>Sept 15</b><span>Judging Ends</span></div>
+    <div class="stat"><b>Sept 25</b><span>Winners Announced · LA</span></div>
   </section>
 
   <section class="thesis">
-    <p>"The models are no longer the bottleneck. Application is. The prize backs the founders who put AI against the problems that matter."</p>
+    <p>"Pick a problem worth solving. Build the business that solves it. Ship to real users, generate real revenue, run AI in production. The prize finds the founders who can do all three."</p>
     <cite>The Build with Gemini XPRIZE Thesis</cite>
   </section>
 
