@@ -35,6 +35,14 @@
   h1 em { font-style:normal; color:var(--accent); }
   .sub { font-size:15.5px; color:var(--gray-2); margin-bottom:26px; max-width:42ch; }
 
+  .toggle { display:flex; gap:8px; margin-bottom:16px; }
+  .toggle button {
+    flex:1; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.16em;
+    text-transform:uppercase; color:var(--gray-2); background:var(--surface);
+    border:1px solid var(--line-bright); padding:11px 8px; cursor:pointer; transition:all .15s;
+  }
+  .toggle button.on { color:var(--black); background:var(--accent); border-color:var(--accent); font-weight:700; }
+
   .preview {
     border:1px solid var(--line-bright); background:var(--black-2);
     display:flex; justify-content:center; align-items:center; padding:16px;
@@ -97,6 +105,11 @@
   <h1 id="headline">You're in — <em>let's tell the world.</em></h1>
   <p class="sub" id="sub">Save your ticket, post it to your story, and drop the link so your people can apply too.</p>
 
+  <div class="toggle">
+    <button id="t-story" class="on" type="button">Story · 9:16</button>
+    <button id="t-square" type="button">Square · 1:1</button>
+  </div>
+
   <div class="preview"><canvas id="card" width="1080" height="1920" aria-label="Your ticket graphic"></canvas></div>
 
   <button class="btn" id="save" type="button">Save Ticket</button>
@@ -129,7 +142,14 @@
   var APPLY = "moonshots.com";
   var HANDLE = "@launchmoonshots";
   var TIER = "FOUNDING CIRCLE";
-  var W = 1080, H = 1920;
+  var fmt = "story";
+
+  var CFG = {
+    story:  { H:1920, tierY:0.085, eyebrowY:0.345, title:[0.42,0.475], titleSize:104,
+              sub:[0.565,0.61], subSize:38, metaY:0.69, perfY:0.775, applyY:0.84, urlY:0.885, urlSize:60, barOff:116, barH:46 },
+    square: { H:1080, tierY:0.075, eyebrowY:0.295, title:[0.39,0.485], titleSize:80,
+              sub:[0.605,0.665], subSize:30, metaY:0.74, perfY:0.80, applyY:0.84, urlY:0.892, urlSize:46, barOff:51, barH:34 }
+  };
 
   function param(keys) {
     var q = new URLSearchParams(location.search);
@@ -154,11 +174,8 @@
 
   var BARLOW = "'Barlow','Arial Black',sans-serif", MONO = "'Space Mono',monospace", INTER = "'Inter',Arial,sans-serif";
   var SUB = [
-    "September 25 · Los Angeles. Ten builders and filmmakers",
-    "pitch their vision of an optimistic future, live on stage.",
-    "A panel of directors, founders, and investors judges them",
-    "— and the audience helps decide. Over $3.5M is awarded in",
-    "the room, including a film that gets made into a real feature."
+    "A film gets made. A business gets funded.",
+    "Over $3.5M awarded — live, in one night."
   ];
 
   function txt(ctx, text, x, y, size, family, weight, color, ls, align) {
@@ -168,7 +185,7 @@
     ctx.fillText(text, x, y);
     try { ctx.letterSpacing = "0px"; } catch (e) {}
   }
-  function radial(ctx, x, y, r, color) {
+  function radial(ctx, x, y, r, color, W, H) {
     var g = ctx.createRadialGradient(x, y, 0, x, y, r);
     g.addColorStop(0, color); g.addColorStop(1, "rgba(27,191,224,0)");
     ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
@@ -183,28 +200,27 @@
     ctx.closePath();
   }
   function render() {
+    var cfg = CFG[fmt];
+    var W = 1080, H = cfg.H, M = 44, px = M + 52, cx = W / 2;
+    var Y = function (f) { return Math.round(H * f); };
     var c = document.getElementById("card");
     c.width = W; c.height = H;
     var ctx = c.getContext("2d");
-    var cx = W / 2, Y = function (f) { return Math.round(H * f); };
-    var M = 44, px = M + 52;
 
     ctx.fillStyle = "#050605"; ctx.fillRect(0, 0, W, H);
-    radial(ctx, W * 0.84, H * 0.06, W * 0.72, "rgba(27,191,224,0.4)");
-    radial(ctx, W * 0.06, H * 0.97, W * 0.66, "rgba(110,227,247,0.18)");
+    radial(ctx, W * 0.84, H * 0.06, W * 0.72, "rgba(27,191,224,0.4)", W, H);
+    radial(ctx, W * 0.06, H * 0.97, W * 0.66, "rgba(110,227,247,0.18)", W, H);
     for (var i = 0; i < Math.round(W * H / 16000); i++) {
       var sx = Math.random() * W, sy = Math.random() * H, sr = Math.random() * 1.5 + 0.3;
       ctx.beginPath(); ctx.arc(sx, sy, sr, 0, Math.PI * 2);
       ctx.fillStyle = "rgba(207,233,242," + (Math.random() * 0.45 + 0.12).toFixed(2) + ")"; ctx.fill();
     }
 
-    // ticket panel
     roundRect(ctx, M, M, W - 2 * M, H - 2 * M, 30);
     ctx.fillStyle = "rgba(10,11,10,0.92)"; ctx.fill();
     ctx.strokeStyle = "rgba(27,191,224,0.45)"; ctx.lineWidth = 2; ctx.stroke();
 
-    // perforation
-    var perfY = Y(0.775);
+    var perfY = Y(cfg.perfY);
     ctx.save();
     ctx.setLineDash([3, 12]); ctx.strokeStyle = "rgba(27,191,224,0.4)"; ctx.lineWidth = 2;
     ctx.beginPath(); ctx.moveTo(M + 30, perfY); ctx.lineTo(W - M - 30, perfY); ctx.stroke();
@@ -215,8 +231,7 @@
       ctx.strokeStyle = "rgba(27,191,224,0.45)"; ctx.lineWidth = 2; ctx.stroke();
     });
 
-    // top row: tier pill + holder name
-    var tierY = Y(0.085);
+    var tierY = Y(cfg.tierY);
     ctx.font = "700 15px " + MONO; try { ctx.letterSpacing = "3px"; } catch (e) {}
     var pillW = Math.ceil(ctx.measureText(TIER).width) + 34;
     try { ctx.letterSpacing = "0px"; } catch (e) {}
@@ -224,34 +239,30 @@
     txt(ctx, TIER, px + pillW / 2, tierY + 25, 15, MONO, "700", "#050605", 3);
     if (NAME) txt(ctx, NAME, W - px, tierY + 25, 17, MONO, "400", "#9fb0ad", 3, "right");
 
-    // core
-    txt(ctx, "I'M ATTENDING", cx, Y(0.36), 26, MONO, "700", "#1BBFE0", 9);
-    txt(ctx, "THE MOONSHOTS", cx, Y(0.43), 104, BARLOW, "900", "#FAFAF8", -3);
-    txt(ctx, "GATHERING", cx, Y(0.485), 104, BARLOW, "900", "#1BBFE0", -3);
+    txt(ctx, "I'M ATTENDING", cx, Y(cfg.eyebrowY), 26, MONO, "700", "#1BBFE0", 9);
+    txt(ctx, "THE MOONSHOTS", cx, Y(cfg.title[0]), cfg.titleSize, BARLOW, "900", "#FAFAF8", -3);
+    txt(ctx, "GATHERING", cx, Y(cfg.title[1]), cfg.titleSize, BARLOW, "900", "#1BBFE0", -3);
 
-    // sub paragraph
-    for (var s = 0; s < SUB.length; s++) txt(ctx, SUB[s], cx, Y(0.56) + s * 40, 25, INTER, "400", "#C9D4D2", 0);
+    txt(ctx, SUB[0], cx, Y(cfg.sub[0]), cfg.subSize, INTER, "500", "#FAFAF8", 0);
+    txt(ctx, SUB[1], cx, Y(cfg.sub[1]), cfg.subSize, INTER, "500", "#FAFAF8", 0);
 
-    // meta
-    txt(ctx, "SEPT 25 · 2026 · DOWNTOWN LOS ANGELES", cx, Y(0.715), 20, MONO, "400", "#9fb0ad", 4);
+    txt(ctx, "SEPT 25 · 2026 · DOWNTOWN LOS ANGELES", cx, Y(cfg.metaY), 20, MONO, "400", "#9fb0ad", 4);
 
-    // stub
-    txt(ctx, "APPLY TO ATTEND", cx, Y(0.84), 22, MONO, "700", "#1BBFE0", 6);
-    txt(ctx, "MOONSHOTS.COM", cx, Y(0.885), 60, BARLOW, "900", "#FAFAF8", -1);
+    txt(ctx, "APPLY TO ATTEND", cx, Y(cfg.applyY), 22, MONO, "700", "#1BBFE0", 6);
+    txt(ctx, "MOONSHOTS.COM", cx, Y(cfg.urlY), cfg.urlSize, BARLOW, "900", "#FAFAF8", -1);
 
-    // barcode
     ctx.fillStyle = "#9fb0ad";
-    var bx = px, by = H - M - 116, bw = W - 2 * px;
+    var bx = px, by = H - M - cfg.barOff, bw = W - 2 * px;
     while (bx < px + bw - 6) {
       var w = [2, 3, 4, 2, 5][Math.floor(Math.random() * 5)] * 3;
-      ctx.fillRect(bx, by, w, 46);
+      ctx.fillRect(bx, by, w, cfg.barH);
       bx += w + (Math.floor(Math.random() * 6) + 4);
     }
   }
 
   function fileName() {
     var slug = (name ? name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") : "guest");
-    return "moonshots-gathering-ticket-" + slug + ".png";
+    return "moonshots-gathering-ticket-" + slug + "-" + fmt + ".png";
   }
   function exportBlob(cb) { document.getElementById("card").toBlob(cb, "image/png"); }
 
@@ -278,11 +289,20 @@
   document.getElementById("copy").addEventListener("click", copyCaption);
   document.getElementById("caption").addEventListener("click", copyCaption);
 
+  function setFmt(f) {
+    fmt = f;
+    document.getElementById("t-story").classList.toggle("on", f === "story");
+    document.getElementById("t-square").classList.toggle("on", f === "square");
+    render();
+  }
+  document.getElementById("t-story").addEventListener("click", function () { setFmt("story"); });
+  document.getElementById("t-square").addEventListener("click", function () { setFmt("square"); });
+
   if (document.fonts && document.fonts.ready) {
     Promise.all([
       document.fonts.load("900 100px Barlow"),
       document.fonts.load("700 30px 'Space Mono'"),
-      document.fonts.load("400 25px Inter")
+      document.fonts.load("500 38px Inter")
     ]).then(render).catch(render);
     document.fonts.ready.then(render);
   } else { render(); }
