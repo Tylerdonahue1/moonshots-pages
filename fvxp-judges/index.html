@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Future Vision XPRIZE — The 60-Second Proof</title>
+<meta name="description" content="A $3.5M global competition rewarding the world's best 3-minute optimistic sci-fi trailers. The grand prize winner's film gets made.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
+  :root {
+    --black:       #050605;
+    --black-2:     #0A0B0A;
+    --surface:     #0E100E;
+    --surface-2:   #14161A;
+    --white:       #FAFAF8;
+    --gray-1:      rgba(255,255,255,0.94);
+    --gray-2:      rgba(255,255,255,0.74);
+    --gray-3:      rgba(255,255,255,0.5);
+    --gray-4:      rgba(255,255,255,0.14);
+    --line:        rgba(255,255,255,0.08);
+    --line-bright: rgba(255,255,255,0.18);
+    --accent:      #1BBFE0;
+    --accent-2:    #6EE3F7;
+    --accent-glow: rgba(27,191,224,0.08);
+    --accent-dim:  rgba(27,191,224,0.35);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .sheet {
+    width: 960px;
+    max-width: 100%;
+    background: var(--black-2);
+    border: 1px solid var(--line-bright);
+    position: relative;
+    box-shadow: 0 40px 100px -30px rgba(0,0,0,0.65);
+    overflow: hidden;
+  }
+
+  /* ── MASTHEAD ── */
+  .top {
+    background: var(--black);
+    border-bottom: 1px solid var(--line-bright);
+    padding: 44px 56px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .top::before {
+    content: '';
+    position: absolute;
+    top: -180px; right: -120px;
+    width: 560px; height: 560px;
+    background: radial-gradient(circle, rgba(27,191,224,0.10) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .top::after {
+    content: '';
+    position: absolute;
+    bottom: -180px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(27,191,224,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .kicker {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  h1 {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 68px;
+    line-height: 0.9;
+    letter-spacing: -0.018em;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+  }
+  h1 em { font-style: normal; color: var(--accent); }
+  .sub {
+    margin-top: 22px;
+    font-size: 17px;
+    max-width: 680px;
+    color: var(--gray-1);
+    font-weight: 400;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+  .presented-by {
+    margin-top: 28px;
+    margin-bottom: 12px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gray-2);
+    position: relative;
+    z-index: 1;
+  }
+  .partners {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+  }
+  .pill {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border: 1px solid var(--line-bright);
+    color: var(--white);
+    background: rgba(255,255,255,0.03);
+  }
+
+  /* ── GRAND PRIZE HERO ── */
+  .grand {
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--line-bright);
+    padding: 36px 56px 32px;
+    position: relative;
+  }
+  .grand::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+  }
+  .grand-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .grand-headline {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 42px;
+    line-height: 0.95;
+    letter-spacing: -0.015em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+  .grand-headline em { font-style: normal; color: var(--accent); }
+  .grand-stack {
+    display: grid;
+    grid-template-columns: auto 40px auto 1fr;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 16px;
+  }
+  .grand-num {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 52px;
+    line-height: 1;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+  }
+  .grand-num-label {
+    margin-top: 6px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gray-2);
+  }
+  .grand-plus {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 36px;
+    color: var(--accent);
+    text-align: center;
+  }
+  .grand-note {
+    margin-top: 14px;
+    font-size: 15px;
+    color: var(--gray-1);
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  /* ── SECONDARY PRIZE BAND ── */
+  .prizeband {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--line-bright);
+    border-bottom: 1px solid var(--line-bright);
+  }
+  .pcell {
+    background: var(--surface);
+    padding: 22px 24px;
+  }
+  .pnum {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: -0.015em;
+    color: var(--accent);
+  }
+  .plabel {
+    margin-top: 12px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gray-2);
+    line-height: 1.55;
+  }
+
+  /* ── AI NOTE ── */
+  .ai-note {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line-bright);
+    padding: 18px 56px;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+  .ai-note-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    flex: none;
+  }
+  .ai-note-text {
+    font-size: 15px;
+    color: var(--white);
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  /* ── BACKERS SECTION ── */
+  .backers {
+    padding: 40px 56px 32px;
+  }
+  .section-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .section-headline {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 1;
+    letter-spacing: -0.015em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--accent-dim);
+  }
+  .backer {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 36px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .backer:last-child { border-bottom: none; }
+  .backer-name {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 0.005em;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+  .backer-desc {
+    font-size: 16px;
+    color: var(--gray-1);
+    font-weight: 400;
+    line-height: 1.65;
+  }
+  .backer-desc strong {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* ── PARTNERS SIMPLE LIST (names only) ── */
+  .partners-list {
+    list-style: none;
+    border-top: 1px solid var(--line);
+  }
+  .partners-list li {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: 0.005em;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+
+  /* ── INVOLVED — TWO COLUMNS (Partners + Supporters) ── */
+  .involved-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    margin-top: 8px;
+  }
+  .sub-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--accent-dim);
+  }
+
+  /* ── STATS STRIP ── */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line-bright);
+    border-top: 1px solid var(--line-bright);
+    border-bottom: 1px solid var(--line-bright);
+  }
+  .stat {
+    background: var(--surface);
+    padding: 22px 24px;
+  }
+  .stat b {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    color: var(--accent);
+    display: block;
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .stat span {
+    display: block;
+    margin-top: 10px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gray-2);
+  }
+
+  /* ── THESIS ── */
+  .thesis {
+    padding: 36px 56px;
+    border-bottom: 1px solid var(--line-bright);
+    background: rgba(27,191,224,0.03);
+    position: relative;
+  }
+  .thesis::before {
+    content: '';
+    position: absolute;
+    top: 36px; left: 0;
+    width: 3px;
+    height: calc(100% - 72px);
+    background: var(--accent);
+  }
+  .thesis p {
+    font-family: 'Barlow', sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 21px;
+    color: var(--white);
+    line-height: 1.4;
+    max-width: 780px;
+  }
+  .thesis cite {
+    display: block;
+    margin-top: 16px;
+    font-style: normal;
+    font-family: 'Space Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* ── FOOTER ── */
+  .foot {
+    background: var(--black);
+    padding: 26px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .foot .cta {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--gray-1);
+    letter-spacing: -0.005em;
+  }
+  .foot .cta b {
+    color: var(--accent);
+    font-weight: 900;
+  }
+  .foot .meta {
+    font-family: 'Space Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gray-3);
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { padding: 0; background: var(--white); }
+    .sheet { box-shadow: none; width: 100%; border: none; }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 720px) {
+    body { padding: 20px 12px; }
+    .top { padding: 30px 24px; }
+    .top::before, .top::after { display: none; }
+    h1 { font-size: 44px; }
+    .sub { font-size: 14.5px; }
+    .grand { padding: 28px 24px; }
+    .grand-headline { font-size: 28px; }
+    .grand-stack { grid-template-columns: 1fr; gap: 14px; }
+    .grand-plus { text-align: left; }
+    .grand-num { font-size: 42px; }
+    .ai-note { padding: 16px 24px; flex-direction: column; gap: 6px; }
+    .prizeband { grid-template-columns: 1fr 1fr; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .backers { padding: 28px 24px; }
+    .section-headline { font-size: 24px; }
+    .backer { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; }
+    .involved-grid { grid-template-columns: 1fr; gap: 32px; }
+    .thesis { padding: 28px 28px 28px 32px; }
+    .thesis p { font-size: 17px; }
+    .foot { padding: 22px 24px; flex-direction: column; align-items: flex-start; }
+    .foot .meta { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <header class="top">
+    <div class="kicker">The 60-Second Proof · Updated June 2026</div>
+    <h1>FUTURE VISION<br><em>XPRIZE</em></h1>
+    <p class="sub">A $3.5M global competition for 3-minute optimistic sci-fi trailers. The grand prize winner's film gets produced.</p>
+    <div class="presented-by">Presented by</div>
+    <div class="partners">
+      <span class="pill">Google</span>
+      <span class="pill">XPRIZE</span>
+      <span class="pill">Range Media Partners</span>
+    </div>
+  </header>
+
+  <section class="grand">
+    <div class="grand-label">Grand Prize</div>
+    <div class="grand-headline">THE WINNER'S FILM<br><em>GETS MADE</em>.</div>
+
+    <div class="grand-stack">
+      <div>
+        <div class="grand-num">$2.5M</div>
+        <div class="grand-num-label">Production Fund</div>
+      </div>
+      <div class="grand-plus">+</div>
+      <div>
+        <div class="grand-num">$100K</div>
+        <div class="grand-num-label">Cash to Winner</div>
+      </div>
+    </div>
+
+    <p class="grand-note">Co-produced with Range Media Partners. Range is raising an additional $10–15M on top of the $2.5M production fund to produce the film.</p>
+  </section>
+
+  <section class="prizeband">
+    <div class="pcell">
+      <div class="pnum">4 × $100K</div>
+      <div class="plabel">Runners-Up<br>(Top 5 finalists)</div>
+    </div>
+    <div class="pcell">
+      <div class="pnum">10 × $10K</div>
+      <div class="plabel">Top 10 Finalists<br>Treatment Development</div>
+    </div>
+    <div class="pcell">
+      <div class="pnum">~$250K</div>
+      <div class="plabel">Crowd-Vote<br>Prizes</div>
+    </div>
+    <div class="pcell">
+      <div class="pnum">$3.5M</div>
+      <div class="plabel">Total Prize Purse<br>All Tracks Combined</div>
+    </div>
+  </section>
+
+  <div class="ai-note">
+    <span class="ai-note-tag">Note on tools</span>
+    <span class="ai-note-text">No AI required to participate. Make your film with any tools: live action, animation, traditional production, or AI workflows. The brief is the future, not the toolkit.</span>
+  </div>
+
+  <section class="backers">
+    <div class="section-eyebrow">Involved</div>
+    <h2 class="section-headline">WHO'S INVOLVED.</h2>
+
+    <div class="involved-grid">
+      <div>
+        <div class="sub-eyebrow">Partners</div>
+        <ul class="partners-list">
+          <li>Peter Diamandis</li>
+          <li>XPRIZE Foundation</li>
+          <li>Range Media Partners</li>
+          <li>Google</li>
+        </ul>
+      </div>
+      <div>
+        <div class="sub-eyebrow">Supporters</div>
+        <ul class="partners-list">
+          <li>Rod Roddenberry</li>
+          <li>Ben Horowitz</li>
+          <li>Marc Benioff</li>
+          <li>Cathie Wood</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="backers" style="border-top: 1px solid var(--line-bright);">
+    <div class="section-eyebrow">Judging Criteria</div>
+    <h2 class="section-headline">WHAT WE'RE LOOKING FOR.</h2>
+
+    <div class="backer">
+      <div class="backer-name">Vision</div>
+      <div class="backer-desc">Clarity of the optimistic future being depicted. What world has the filmmaker built?</div>
+    </div>
+
+    <div class="backer">
+      <div class="backer-name">Story</div>
+      <div class="backer-desc">Narrative craft inside the 3-minute window. Character, stakes, payoff.</div>
+    </div>
+
+    <div class="backer">
+      <div class="backer-name">Craft</div>
+      <div class="backer-desc">Production quality, design, performance, technical execution.</div>
+    </div>
+
+    <div class="backer">
+      <div class="backer-name">Plausibility</div>
+      <div class="backer-desc">Does the future feel buildable. Preparatory sci-fi value.</div>
+    </div>
+  </section>
+
+  <section class="backers" style="border-top: 1px solid var(--line-bright);">
+    <div class="section-eyebrow">For Judges</div>
+    <h2 class="section-headline">WHAT IT TAKES.</h2>
+
+    <div class="backer">
+      <div class="backer-name">Pre-event review</div>
+      <div class="backer-desc">Watch and rate the 10 finalist trailers between late August and mid-September. A pre-judge expert panel narrows the field before submissions reach the judges.</div>
+    </div>
+
+    <div class="backer">
+      <div class="backer-name">Working sessions</div>
+      <div class="backer-desc">Two or three video calls with the panel to deliberate and align on the winner.</div>
+    </div>
+
+    <div class="backer">
+      <div class="backer-name">Live finale</div>
+      <div class="backer-desc">September 25 in Los Angeles. Present reasoning on stage. Winner revealed live.</div>
+    </div>
+
+    <div class="backer">
+      <div class="backer-name">Travel and lodging</div>
+      <div class="backer-desc">Covered.</div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat"><b>Aug 15</b><span>Submissions Close</span></div>
+    <div class="stat"><b>3 min</b><span>Trailer Length</span></div>
+    <div class="stat"><b>Sept 10</b><span>Top 10 Named</span></div>
+    <div class="stat"><b>Sept 25</b><span>Live Finale · LA</span></div>
+  </section>
+
+  <section class="thesis">
+    <p>"Fiction is the blueprint. Engineering is the execution. Star Trek's communicator became the smartphone. Clarke's satellites became GPS. Show us the future worth building, and we'll fund it."</p>
+    <cite>The Future Vision XPRIZE Thesis</cite>
+  </section>
+
+  <footer class="foot">
+    <div class="cta">Register and submit at <b>futurevisionxprize.com</b></div>
+    <div class="meta">Tyler Donahue · Competition Director<br>tyler@moonshots.com</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
