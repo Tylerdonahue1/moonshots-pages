@@ -1218,6 +1218,242 @@
     .press-row { gap: 18px; }
     .press-name { font-size: 16px; }
   }
+
+  /* ── REACH GRID (Slide 2) ── */
+  .reach-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    margin-top: 56px;
+    border: 1px solid var(--border-hi);
+  }
+  .reach-cell {
+    background: var(--black);
+    padding: 28px 24px;
+    position: relative;
+  }
+  .reach-cell::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--teal-glow);
+  }
+  .reach-cell:first-child::before { background: var(--teal); }
+  .reach-num {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 1;
+    color: var(--teal);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+  .reach-name {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--white);
+    margin-bottom: 6px;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+  }
+  .reach-source {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.5;
+  }
+
+  /* ── PRECEDENT CALLOUT (Slide 2) ── */
+  .precedent {
+    margin-top: 32px;
+    padding: 28px 32px;
+    border-left: 3px solid var(--teal);
+    background: var(--teal-glow);
+  }
+  .precedent-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 12px;
+  }
+  .precedent-text {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--white);
+  }
+  .precedent-text strong { color: var(--teal); font-weight: 900; }
+  .precedent-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  /* ── ROOM (Slide 4) — simplified ── */
+  .room-grid {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+  .room-list {
+    list-style: none;
+    border-top: 1px solid var(--border);
+  }
+  .room-list li {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    align-items: baseline;
+  }
+  .room-list li:last-child { border-bottom: none; }
+  .room-name {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--white);
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+  }
+  .room-role {
+    font-size: 14px;
+    color: rgba(255,255,255,0.62);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  .room-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+  .convening-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .convening-chip {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--white);
+    letter-spacing: 0.005em;
+    padding: 10px 16px;
+    border: 1px solid var(--border-hi);
+    background: var(--surface);
+    text-transform: uppercase;
+  }
+  .track-line {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+  }
+  .track-line strong { color: var(--teal); font-weight: 600; }
+
+  /* ── EXAMPLE CONTENT TAG (Slide 5 mockup) ── */
+  .siv-mockup-wrap {
+    position: relative;
+  }
+  .example-tag {
+    position: absolute;
+    top: -12px;
+    right: 12px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    background: var(--black);
+    border: 1px solid var(--teal-dim);
+    padding: 6px 12px;
+    z-index: 5;
+  }
+
+  /* ── CLOSING LINE (Slide 7) ── */
+  .closing-line {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border-hi);
+    font-family: 'Barlow', sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.82);
+    max-width: 760px;
+  }
+
+  /* ── DEADLINE CALLOUT (Slide 7) ── */
+  .deadline-callout {
+    margin-top: 28px;
+    padding: 22px 26px;
+    border: 1px solid var(--teal);
+    background: var(--teal-glow);
+    display: inline-block;
+  }
+  .deadline-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+  .deadline-value {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    color: var(--white);
+    letter-spacing: -0.005em;
+  }
+
+  /* ── HERO FOOTER (Slide 1) ── */
+  .hero-footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.8;
+  }
+  .hero-footer .lockup-placeholder {
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    .reach-grid { grid-template-columns: 1fr 1fr; }
+    .room-grid { grid-template-columns: 1fr; gap: 48px; }
+    .room-list li { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; }
+    .precedent-text { font-size: 18px; }
+  }
 </style>
 </head>
 <body>
@@ -1230,9 +1466,6 @@
   <div class="nav-dot" onclick="scrollToSlide(4)"></div>
   <div class="nav-dot" onclick="scrollToSlide(5)"></div>
   <div class="nav-dot" onclick="scrollToSlide(6)"></div>
-  <div class="nav-dot" onclick="scrollToSlide(7)"></div>
-  <div class="nav-dot" onclick="scrollToSlide(8)"></div>
-  <div class="nav-dot" onclick="scrollToSlide(9)"></div>
 </nav>
 
 <!-- MOBILE PROGRESS BAR -->
@@ -1245,18 +1478,15 @@
     <div class="progress-dot" onclick="scrollToSlide(4)"></div>
     <div class="progress-dot" onclick="scrollToSlide(5)"></div>
     <div class="progress-dot" onclick="scrollToSlide(6)"></div>
-    <div class="progress-dot" onclick="scrollToSlide(7)"></div>
-    <div class="progress-dot" onclick="scrollToSlide(8)"></div>
-    <div class="progress-dot" onclick="scrollToSlide(9)"></div>
   </div>
-  <div class="progress-counter" id="progressCounter">01 / 10</div>
+  <div class="progress-counter" id="progressCounter">01 / 07</div>
   <div class="progress-nav">
     <button class="progress-btn" onclick="prevSlide()" aria-label="Previous">←</button>
     <button class="progress-btn" onclick="nextSlide()" aria-label="Next">→</button>
   </div>
 </div>
 
-<!-- ── SLIDE 1: COVER / HOOK ── -->
+<!-- ── SLIDE 1: COVER ── -->
 <section class="slide hero" id="slide-0">
   <div class="hero-top">
     <div class="logo-lockup">
@@ -1273,7 +1503,7 @@
   <div class="hero-center">
     <div class="hero-eyebrow">Crowd Voting Partnership</div>
     <h1>THE PEOPLE<br>PICK THE <em>FUTURE</em></h1>
-    <p class="hero-sub">Own the public vote at the center of the world's largest competition for optimistic science fiction.</p>
+    <p class="hero-sub">Title sponsor the public vote of the world's largest optimistic sci-fi competition. One brand owns it end to end — built on the voting platform that previously powered a 1M+ submission consumer breakout.</p>
 
     <div class="hero-footer">
       <span class="lockup-placeholder">Crowd Vote presented by ___.</span>
@@ -1289,7 +1519,7 @@
     </div>
     <div class="hero-stat">
       <div class="stat-num">5K+</div>
-      <div class="stat-label">Registrants</div>
+      <div class="stat-label">Registered Creators</div>
     </div>
     <div class="hero-stat">
       <div class="stat-num">1,500</div>
@@ -1297,34 +1527,53 @@
     </div>
   </div>
 
-  <div class="page-num">01 / 10</div>
+  <div class="page-num">01 / 07</div>
 </section>
 
-<!-- ── SLIDE 2: WHY THIS EXISTS ── -->
+<!-- ── SLIDE 2: THE REACH ── -->
 <section class="slide" id="slide-1">
-  <div class="slide-label">02 · Why This Exists</div>
+  <div class="slide-label">02 · Why This Scales</div>
   <div class="two-col">
     <div>
-      <h2>FICTION IS<br>A <em>BLUEPRINT</em></h2>
+      <h2>SAME PLATFORM.<br>ALREADY WENT <em>VIRAL</em>.</h2>
     </div>
     <div>
-      <p class="body-text">Star Trek's communicator became the cell phone. Its tricorder became the medical scanner. Stories give engineers something to build toward.</p>
+      <p class="body-text">The voting infrastructure is SIV. Same team, same head-to-head ELO mechanic, same site code that's already shipped consumer breakouts in this format.</p>
 
-      <p class="body-text">For 40 years, sci-fi has been overwhelmingly dystopian. The Future Vision XPRIZE is a deliberate correction. A global call to show a future worth racing toward.</p>
+      <p class="body-text">FVXP plugs this proven primitive into the most participatory part of the most-watched optimistic sci-fi competition ever assembled. The infrastructure side is not the risk.</p>
 
-      <p class="body-text">Content can start in the dark. It has to earn the hope.</p>
-
-      <div class="press-strip">
-        <div class="press-label">As Covered In</div>
-        <div class="press-row">
-          <span class="press-name">Fortune</span>
-          <span class="press-name">TechCrunch</span>
-          <span class="press-name">The Hollywood Reporter</span>
-        </div>
+      <div class="precedent">
+        <div class="precedent-tag">Precedent</div>
+        <div class="precedent-text">SIV's last consumer project — a head-to-head ranking site called <strong>rankthings.io</strong> — collected over <strong>1,000,000</strong> submissions. Same primitive. Same team.</div>
+        <a class="precedent-link" href="https://rankthings.io/" target="_blank">rankthings.io ↗</a>
       </div>
     </div>
   </div>
-  <div class="page-num">02 / 10</div>
+
+  <div class="reach-grid">
+    <div class="reach-cell">
+      <div class="reach-num">1M+</div>
+      <div class="reach-name">Submissions</div>
+      <div class="reach-source">Prior SIV consumer<br>breakout · rankthings.io</div>
+    </div>
+    <div class="reach-cell">
+      <div class="reach-num">5K+</div>
+      <div class="reach-name">FVXP Creators</div>
+      <div class="reach-source">Registered<br>and competing</div>
+    </div>
+    <div class="reach-cell">
+      <div class="reach-num">165K</div>
+      <div class="reach-name">Diamandis Substack</div>
+      <div class="reach-source">Subscribed to<br>Peter's Metatrends</div>
+    </div>
+    <div class="reach-cell">
+      <div class="reach-num">3</div>
+      <div class="reach-name">Tier-One Press</div>
+      <div class="reach-source">Fortune · TechCrunch<br>The Hollywood Reporter</div>
+    </div>
+  </div>
+
+  <div class="page-num">02 / 07</div>
 </section>
 
 <!-- ── SLIDE 3: WHAT FVXP IS ── -->
@@ -1337,11 +1586,9 @@
     <div>
       <p class="body-text">Creators worldwide submit three-minute sci-fi trailers imagining an optimistic future. The grand-prize winner gets a greenlight. Their film is produced with Range Media Partners, with a budget scalable toward $15M via Range and Republic Film.</p>
 
-      <p class="body-text">Presented by Google. Administered by XPRIZE. The live finale on September 25, 2026 in Los Angeles.</p>
+      <p class="body-text">Presented by Google. Administered by XPRIZE. Live finale on September 25, 2026 in Los Angeles.</p>
 
-      <div class="highlight-box">
-        <p>"The voting platform is where a global audience becomes a measurable movement, and your brand is the host."</p>
-      </div>
+      <p class="body-text">The public vote materially weights every finalist's final score. It's the most participatory, most-shared, most emotionally charged part of the entire competition. One brand owns it.</p>
     </div>
   </div>
 
@@ -1356,72 +1603,46 @@
     <figcaption>Example submission — the kind of three-minute future the crowd will be voting on.</figcaption>
   </figure>
 
-  <div class="page-num">03 / 10</div>
+  <div class="page-num">03 / 07</div>
 </section>
 
-<!-- ── SLIDE 4: THE ROOM YOU'RE WALKING INTO ── -->
+<!-- ── SLIDE 4: THE ROOM ── -->
 <section class="slide" id="slide-3">
   <div class="slide-label">04 · The Room You're Walking Into</div>
   <h2>CONVENED BY THE PEOPLE<br>BUILDING THE <em>FUTURE</em></h2>
 
-  <div class="two-col">
+  <div class="room-grid">
     <div>
-      <div class="section-sub">Principals</div>
-      <ul class="principals-list">
-        <li><strong>Peter Diamandis</strong>Host. Founder of XPRIZE and Singularity University.</li>
-        <li><strong>Google</strong>Presenting partner. AI tools include Veo, Imagen, and Gemini.</li>
-        <li><strong>XPRIZE Foundation</strong>Administration. CEO Anousheh Ansari, the first female private astronaut.</li>
-        <li><strong>Range Media Partners</strong>Hollywood representation. Production partner for the grand prize film.</li>
-        <li><strong>Rod Roddenberry</strong>Judging panel.</li>
+      <div class="room-eyebrow">Principals</div>
+      <ul class="room-list">
+        <li><div class="room-name">Peter Diamandis</div><div class="room-role">Host. Founder of XPRIZE and Singularity University.</div></li>
+        <li><div class="room-name">Google</div><div class="room-role">Presenting partner.</div></li>
+        <li><div class="room-name">XPRIZE Foundation</div><div class="room-role">Competition administration. CEO Anousheh Ansari.</div></li>
+        <li><div class="room-name">Range Media Partners</div><div class="room-role">Hollywood representation. Grand prize production partner.</div></li>
+        <li><div class="room-name">Rod Roddenberry</div><div class="room-role">Judging panel.</div></li>
       </ul>
     </div>
 
     <div>
-      <div class="section-sub">Convening Names</div>
-      <ul class="convening-list">
-        <li>Ben Horowitz</li>
-        <li>Marc Benioff</li>
-        <li>Cathie Wood</li>
-        <li>Jed McCaleb</li>
-        <li>Palmer Luckey</li>
-      </ul>
-
-      <div class="track-record">
-        <div class="section-sub">XPRIZE Track Record</div>
-        <p class="body-text">30 years of catalyzing industries through incentive prizes. From the $10M Ansari prize that launched private spaceflight to the $100M Carbon Removal prize. Plus genomics, ocean discovery, and longevity.</p>
+      <div class="room-eyebrow">Convening Names</div>
+      <div class="convening-chips">
+        <span class="convening-chip">Ben Horowitz</span>
+        <span class="convening-chip">Marc Benioff</span>
+        <span class="convening-chip">Cathie Wood</span>
+        <span class="convening-chip">Jed McCaleb</span>
+        <span class="convening-chip">Palmer Luckey</span>
       </div>
+
+      <p class="track-line"><strong>XPRIZE track record:</strong> 30 years of catalyzing industries. $10M Ansari spaceflight. $100M Carbon Removal. Plus genomics, ocean discovery, longevity.</p>
     </div>
   </div>
 
-  <div class="page-num">04 / 10</div>
+  <div class="page-num">04 / 07</div>
 </section>
 
-<!-- ── SLIDE 5: WHERE THE PARTNER COMES IN ── -->
+<!-- ── SLIDE 5: HOW THE VOTE WORKS ── -->
 <section class="slide" id="slide-4">
-  <div class="slide-label">05 · The Opportunity</div>
-  <h2>THE CROWD SHAPES<br>THE OUTCOME. THE CROWD<br>NEEDS A <em>HOME</em>.</h2>
-
-  <div class="two-col">
-    <div>
-      <p class="body-text">The public vote is not ceremonial. It materially weights every finalist's final score.</p>
-
-      <p class="body-text">It is the most participatory part of the competition. The most shared. The most emotionally charged.</p>
-    </div>
-    <div>
-      <p class="body-text">SIV provides verified, transparent infrastructure. One brand owns it end to end. From launch through the live reveal on September 25 at <strong style="color:var(--teal);">fv.siv.org</strong>.</p>
-
-      <div class="highlight-box">
-        <p>"The voting platform is where a global audience becomes a measurable movement, and your brand is the host."</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="page-num">05 / 10</div>
-</section>
-
-<!-- ── SLIDE 6: HOW THE VOTE WORKS ── -->
-<section class="slide" id="slide-5">
-  <div class="slide-label">06 · The Platform</div>
+  <div class="slide-label">05 · The Platform</div>
   <h2>WATCH BOTH.<br>CHOOSE <em>ONE.</em></h2>
 
   <div class="siv-layout">
@@ -1486,111 +1707,41 @@
         <li class="mechanic-item">
           <div class="mechanic-num">01</div>
           <div class="mechanic-text">
-            <h4>Head-to-head matchups</h4>
-            <p>Two trailers shown simultaneously. "If you could have one but not the other, which future do you want to live in?" Forces genuine engagement. You have to watch both to choose meaningfully.</p>
+            <h4>The matchup format</h4>
+            <p>"If you could have one but not the other, which future do you want to live in?" Forces genuine engagement — you watch both to choose meaningfully.</p>
           </div>
         </li>
         <li class="mechanic-item">
           <div class="mechanic-num">02</div>
           <div class="mechanic-text">
             <h4>Live ELO scoring</h4>
-            <p>Each vote adjusts standings using competitive ELO ranking. The leaderboard shifts every round, driving repeat visits and social sharing.</p>
+            <p>Each vote adjusts standings. The leaderboard shifts every round, driving repeat visits and social sharing.</p>
           </div>
         </li>
         <li class="mechanic-item">
           <div class="mechanic-num">03</div>
           <div class="mechanic-text">
-            <h4>Every touchpoint sponsor-branded</h4>
-            <p>Platform header, matchup interface, leaderboard, vote-confirmation screen, and all email triggers carry your sponsorship. No competitor logos.</p>
+            <h4>Sponsor-branded throughout</h4>
+            <p>Platform header, matchup interface, leaderboard, vote-confirmation screen, and all emails carry your sponsorship. No competitor logos.</p>
           </div>
         </li>
         <li class="mechanic-item">
           <div class="mechanic-num">04</div>
           <div class="mechanic-text">
             <h4>Live at the finale</h4>
-            <p>September 25 in Los Angeles. 1,500 attendees vote in real time from their seats. Projected live on stage as finalists' scores are revealed.</p>
+            <p>September 25 in Los Angeles. 1,500 attendees vote in real time from their seats, projected on stage as scores are revealed.</p>
           </div>
         </li>
       </ul>
     </div>
 
   </div>
-  <div class="page-num">06 / 10</div>
+  <div class="page-num">05 / 07</div>
 </section>
 
-<!-- ── SLIDE 7: WHAT THE PARTNER OWNS ── -->
-<section class="slide" id="slide-6">
-  <div class="slide-label">07 · Brand Presence</div>
-  <h2>EVERYWHERE THE<br>VOTE <em>LIVES</em></h2>
-
-  <div class="ownership-grid">
-    <div class="own-card">
-      <div class="own-icon">🗳</div>
-      <h3>Voting Platform</h3>
-      <p>Your brand appears on fv.siv.org. Every page load, every vote cast, every return visit through the full competition window.</p>
-    </div>
-    <div class="own-card">
-      <div class="own-icon">📊</div>
-      <h3>Public Leaderboard</h3>
-      <p>The live standings page is the most-visited destination during the voting period. Sponsored branding on every leaderboard update and share.</p>
-    </div>
-    <div class="own-card">
-      <div class="own-icon">📧</div>
-      <h3>Creator Emails</h3>
-      <p>Vote-open notifications, weekly standings updates, and finale reminders go to 5K+ registered creators with your name in the send.</p>
-    </div>
-    <div class="own-card">
-      <div class="own-icon">📱</div>
-      <h3>Social Amplification</h3>
-      <p>Every vote-milestone post, leaderboard screenshot, and crowd-vote announcement across Moonshots' channels includes sponsor attribution.</p>
-    </div>
-    <div class="own-card">
-      <div class="own-icon">🎬</div>
-      <h3>Live Event Stage</h3>
-      <p>In-room vote at the live finale. Branded on screen in front of 1,500 attendees plus livestream audience.</p>
-    </div>
-    <div class="own-card">
-      <div class="own-icon">🏆</div>
-      <h3>The Winner Moment</h3>
-      <p>The crowd-vote reveal immediately precedes the grand-prize announcement. Your brand is part of the most-shared moment of the night.</p>
-    </div>
-  </div>
-  <div class="page-num">07 / 10</div>
-</section>
-
-<!-- ── SLIDE 8: TIMELINE ── -->
-<section class="slide" id="slide-7">
-  <div class="slide-label">08 · Campaign Timeline</div>
-  <h2>FROM SUBMISSION<br>TO <em>VERDICT</em></h2>
-
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">01</div>
-      <h3>Public Voting Opens</h3>
-      <p>Submissions become publicly visible at fv.siv.org. Global audiences watch, share, and vote on their favorite visions of the future.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">02</div>
-      <h3>Leaderboard Goes Live</h3>
-      <p>A real-time branded leaderboard tracks standings. Your sponsorship appears on every view, every update, every share across the full voting window.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">03</div>
-      <h3>Live Event Vote</h3>
-      <p>September 25 in Los Angeles. 1,500 attendees vote live from their seats as finalists screen on stage. Your brand powers the moment.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">04</div>
-      <h3>Winner Announced</h3>
-      <p>Scores tabulated live. The crowd's voice, powered by your partnership, materially shapes the score that determines the grand prize winner.</p>
-    </div>
-  </div>
-  <div class="page-num">08 / 10</div>
-</section>
-
-<!-- ── SLIDE 9: PARTNERSHIP TIERS ── -->
-<section class="slide" id="slide-8">
-  <div class="slide-label">09 · Partnership Tiers</div>
+<!-- ── SLIDE 6: PARTNERSHIP TIERS ── -->
+<section class="slide" id="slide-5">
+  <div class="slide-label">06 · Partnership Tiers</div>
   <h2>TWO WAYS<br>TO <em>OWN IT</em></h2>
 
   <div class="tiers-wrapper">
@@ -1605,7 +1756,7 @@
       <ul class="benefit-list">
         <li>Branded co-sponsorship of fv.siv.org voting platform</li>
         <li>Logo on public leaderboard across all views and updates</li>
-        <li>Sponsor attribution in all vote-open and reminder emails to 5K+ creators</li>
+        <li>Sponsor attribution in vote-open and reminder emails to 5K+ creators</li>
         <li>Logo in live voting interface at the September 25 finale</li>
       </ul>
 
@@ -1617,7 +1768,7 @@
         <li>Included in FVXP press and partner announcements</li>
       </ul>
 
-      <div class="best-for"><strong>Best for:</strong> Brands seeking cultural association with a high-visibility moment, audience reach across creators and builders, and a clean, low-overhead activation.</div>
+      <div class="best-for"><strong>Best for:</strong> Brands seeking cultural association with a high-visibility moment and clean, low-overhead activation.</div>
     </div>
 
     <!-- TIER 2: $250K -->
@@ -1631,7 +1782,7 @@
         <li>"Crowd Vote presented by [Sponsor]" across all materials and announcements</li>
         <li>Exclusive branding on fv.siv.org — no competing logos on the platform</li>
         <li>Named leaderboard: "[Sponsor] Leaderboard" across all public-facing views</li>
-        <li>Sponsor spotlight in vote-open announcement email to the full creator list</li>
+        <li>Sponsor spotlight in vote-open announcement to the full creator list</li>
       </ul>
 
       <div class="tier-section-label">Amplification</div>
@@ -1647,17 +1798,17 @@
         <li>4 VIP passes plus backstage access at the live finale</li>
         <li>On-stage mention during live crowd-vote reveal at winner announcement</li>
         <li>Brand logo on live event voting screen — 1,500 attendees plus livestream</li>
-        <li>1-on-1 dinner access with Peter Diamandis and competition leadership</li>
+        <li>1-on-1 dinner with Peter Diamandis and competition leadership</li>
       </ul>
 
       <div class="tier-section-label">Post-Competition</div>
       <ul class="benefit-list">
         <li>Named in competition documentary segment covering the public vote</li>
-        <li>Full voting analytics report (participation data, geography, engagement)</li>
+        <li>Full voting analytics report (participation, geography, engagement)</li>
         <li>Case study rights: the story of how the public voted for the future</li>
       </ul>
 
-      <div class="best-for"><strong>Best for:</strong> A single brand that wants exclusive ownership of the public voice — the most democratic, participatory, and emotionally resonant part of the entire competition.</div>
+      <div class="best-for"><strong>Best for:</strong> A single brand that wants exclusive ownership of the public voice — the most democratic, participatory, and emotionally resonant part of the competition.</div>
     </div>
 
   </div>
@@ -1688,12 +1839,12 @@
   </table>
   </div>
 
-  <div class="page-num">09 / 10</div>
+  <div class="page-num">06 / 07</div>
 </section>
 
-<!-- ── SLIDE 10: THE ASK / CLOSE ── -->
-<section class="slide cta-slide" id="slide-9">
-  <div class="slide-label">10 · Next Step</div>
+<!-- ── SLIDE 7: THE ASK / CLOSE ── -->
+<section class="slide cta-slide" id="slide-6">
+  <div class="slide-label">07 · Next Step</div>
   <h2>THE CROWD<br>IS WATCHING.<br><em>YOUR MOVE.</em></h2>
   <p class="body-text">The Presenting tier is exclusive. One brand owns the public voice of the entire competition.</p>
 
@@ -1728,7 +1879,7 @@
     Future Vision XPRIZE · Presented by Google · Administered by XPRIZE Foundation
   </div>
 
-  <div class="page-num">10 / 10</div>
+  <div class="page-num">07 / 07</div>
 </section>
 <script>
   const slides       = document.querySelectorAll('.slide');
