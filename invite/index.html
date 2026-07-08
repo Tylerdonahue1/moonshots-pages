@@ -253,6 +253,32 @@
   .invite-band .body-text { max-width: 720px; }
   .invite-band .body-text strong { color: var(--accent-2); font-weight: 600; }
 
+  /* ── CONFIRMED ATTENDEES ── */
+  .att-intro strong { color: var(--white); font-weight: 600; }
+  .att-grid { margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .att-card { border: 1px solid var(--line-bright); background: var(--surface); padding: 22px 24px; }
+  .att-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
+  .att-tag {
+    font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent-dim);
+    padding: 5px 10px; white-space: nowrap;
+  }
+  .att-metric { text-align: right; flex: none; }
+  .att-metric b {
+    display: block; font-family: 'Barlow', sans-serif; font-weight: 900; font-size: 20px;
+    line-height: 1; letter-spacing: -0.01em; color: var(--accent); white-space: nowrap;
+  }
+  .att-metric.sm b { font-size: 14px; letter-spacing: 0; }
+  .att-metric span {
+    display: block; margin-top: 5px; font-family: 'Space Mono', monospace; font-size: 9.5px;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray-3);
+  }
+  .att-name {
+    font-family: 'Barlow', sans-serif; font-weight: 800; font-size: 18px;
+    text-transform: uppercase; letter-spacing: 0.005em; color: var(--white); margin-bottom: 8px;
+  }
+  .att-desc { font-size: 14px; color: var(--gray-2); line-height: 1.5; }
+
   /* ── IN THE PRESS ── */
   .press-grid {
     display: grid;
@@ -582,6 +608,7 @@
     .prize-duo { grid-template-columns: 1fr; }
     .people-list { grid-template-columns: 1fr; }
     .vip-perks { grid-template-columns: 1fr; }
+    .att-grid { grid-template-columns: 1fr; }
     .xp-stats { grid-template-columns: 1fr; }
     .xp-row { grid-template-columns: 1fr; gap: 5px; padding: 16px 12px; }
     .pl-item { grid-template-columns: 1fr; gap: 4px; padding: 13px 0; }
@@ -628,6 +655,64 @@
   <section class="block invite-band">
     <div class="sec-eyebrow">Why you're getting this</div>
     <p class="body-text">Before tickets open to the public, we're hand-picking a <strong>founding circle of ~30 builders, creators, and operators</strong> whose work and audience define what's next. When the moment's right, <strong>we'll announce the group together</strong> — one shared moment that gives the lineup real momentum. You're one of the names we want in that first wave. Say the word and we'll hold your spot and include you in the announcement, before this goes wide.</p>
+  </section>
+
+  <section class="block">
+    <div class="sec-eyebrow">Who's Coming</div>
+    <h2 class="lead-line">Confirmed <em>Attendees.</em></h2>
+    <p class="body-text att-intro">A room of operators with real audiences and real companies. <strong>Tens of millions of combined following, founders who've raised hundreds of millions, and the creators shaping what people watch next.</strong></p>
+    <div class="att-grid">
+      <div class="att-card">
+        <div class="att-top"><div class="att-tag">Builder · Creator</div><div class="att-metric"><b>~10M</b><span>Followers</span></div></div>
+        <div class="att-name">Peter Hollens</div>
+        <div class="att-desc">AI music pioneer &amp; a cappella creator</div>
+      </div>
+      <div class="att-card">
+        <div class="att-top"><div class="att-tag">Creator</div><div class="att-metric sm"><b>Yes Theory · Airrack</b><span>Channels Operated</span></div></div>
+        <div class="att-name">Zack Honarvar</div>
+        <div class="att-desc">Operator behind two of YouTube's biggest channels</div>
+      </div>
+      <div class="att-card">
+        <div class="att-top"><div class="att-tag">Builder · Creator</div><div class="att-metric"><b>~490K</b><span>Followers</span></div></div>
+        <div class="att-name">Rian Doris</div>
+        <div class="att-desc">CEO, Flow Research Collective</div>
+      </div>
+      <div class="att-card">
+        <div class="att-top"><div class="att-tag">Builder</div><div class="att-metric"><b>~$400M</b><span>Portfolio</span></div></div>
+        <div class="att-name">David &amp; Daniil Liberman</div>
+        <div class="att-desc">Libermans Co. · Humanism, Frank</div>
+      </div>
+      <div class="att-card">
+        <div class="att-top"><div class="att-tag">Creator</div><div class="att-metric"><b>~150K</b><span>Followers</span></div></div>
+        <div class="att-name">Dulma Altan</div>
+        <div class="att-desc">Founder, Makelane; ex-Google</div>
+      </div>
+      <div class="att-card">
+        <div class="att-top"><div class="att-tag">Creator</div><div class="att-metric"><b>~1M</b><span>Followers</span></div></div>
+        <div class="att-name">Jack Gordon</div>
+        <div class="att-desc">Consumer-tech &amp; product creator</div>
+      </div>
+      <div class="att-card">
+        <div class="att-top"><div class="att-tag">Builder</div><div class="att-metric"><b>500+</b><span>Team</span></div></div>
+        <div class="att-name">Russ Perry</div>
+        <div class="att-desc">Founder &amp; CEO, Design Pickle</div>
+      </div>
+      <div class="att-card">
+        <div class="att-top"><div class="att-tag">Builder</div><div class="att-metric"><b>$60M</b><span>Raised</span></div></div>
+        <div class="att-name">Jim Tyler</div>
+        <div class="att-desc">CEO, Erthos · solar/AI power</div>
+      </div>
+      <div class="att-card">
+        <div class="att-top"><div class="att-tag">Builder</div><div class="att-metric"><b>~1M</b><span>Followers</span></div></div>
+        <div class="att-name">Chad Buchanan</div>
+        <div class="att-desc">Founder, Finalmouse · elite gaming hardware</div>
+      </div>
+      <div class="att-card">
+        <div class="att-top"><div class="att-tag">Builder</div><div class="att-metric"><b>SpaceX</b><span>Human Spaceflight</span></div></div>
+        <div class="att-name">Philip Saccullo</div>
+        <div class="att-desc">Human Spaceflight Sales · commercial flights to ISS &amp; lunar orbit</div>
+      </div>
+    </div>
   </section>
 
   <section class="block tint" id="press">
@@ -690,7 +775,7 @@
       </div>
     </div>
     <div class="prize-stat">
-      <span class="ps-num" data-count="15000" data-suffix="+">0</span>
+      <span class="ps-num" data-count="20000" data-suffix="+">0</span>
       <span class="ps-label">Competitors across both prizes — and counting</span>
     </div>
   </section>
