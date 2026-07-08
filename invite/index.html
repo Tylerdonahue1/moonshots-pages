@@ -279,6 +279,23 @@
   }
   .att-desc { font-size: 14px; color: var(--gray-2); line-height: 1.5; }
 
+  /* ── HOST ── */
+  .host-card {
+    margin-top: 28px; display: inline-block;
+    border-left: 2px solid var(--accent); background: rgba(27,191,224,0.05); padding: 16px 24px;
+  }
+  .host-name { font-family: 'Barlow', sans-serif; font-weight: 900; font-size: 22px; text-transform: uppercase; letter-spacing: -0.01em; color: var(--white); }
+  .host-role { margin-top: 5px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+
+  /* ── PODCAST GUESTS ── */
+  .pod-guests strong { color: var(--white); font-weight: 600; }
+
+  /* ── PROGRAMMING ── */
+  .prog-list { margin-top: 24px; border-top: 1px solid var(--line-bright); }
+  .prog-item { padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .prog-title { font-family: 'Barlow', sans-serif; font-weight: 800; font-size: 17px; text-transform: uppercase; letter-spacing: 0.005em; color: var(--white); }
+  .prog-desc { margin-top: 5px; font-size: 14px; color: var(--gray-2); line-height: 1.5; }
+
   /* ── IN THE PRESS ── */
   .press-grid {
     display: grid;
@@ -777,6 +794,40 @@
     <div class="prize-stat">
       <span class="ps-num" data-count="20000" data-suffix="+">0</span>
       <span class="ps-label">Competitors across both prizes — and counting</span>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="sec-eyebrow">Hosted By</div>
+    <h2 class="lead-line">Hosted by <em>Peter Diamandis.</em></h2>
+    <p class="body-text">Founder of XPRIZE and Singularity University, Peter Diamandis has spent three decades turning audacious goals into reality — from private spaceflight to the largest incentive prizes in history. On September 25, 2026 he takes the stage in Los Angeles to host the Gathering: one night where a film gets greenlit, a business gets funded, and over $3.5M is awarded live.</p>
+    <div class="host-card">
+      <div class="host-name">Peter Diamandis</div>
+      <div class="host-role">Founder · XPRIZE &amp; Singularity University</div>
+    </div>
+  </section>
+
+  <section class="block tint">
+    <div class="sec-eyebrow">The Origin</div>
+    <h2 class="lead-line">The Moonshots <em>Podcast.</em></h2>
+    <p class="body-text">Before the prizes, before the stage, there was the show. <em>Moonshots</em> is the weekly conversation that built this community. Every week, Peter and the Moonshots Mates track the future of technology with the people building it.</p>
+    <p class="body-text pod-guests">Guests have included <strong>Elon Musk, Cathie Wood, Ray Kurzweil, Michael Saylor</strong> — and many more.</p>
+  </section>
+
+  <section class="block">
+    <div class="sec-eyebrow">The Day</div>
+    <h2 class="lead-line">Daytime <em>Programming.</em></h2>
+    <p class="body-text">Before the evening finale, a full day of Moonshots training, live pitches, and headline sessions.</p>
+    <div class="prog-list">
+      <div class="prog-item"><div class="prog-title">Registration</div><div class="prog-desc">Doors open · arrivals</div></div>
+      <div class="prog-item"><div class="prog-title">Welcome &amp; Opening</div><div class="prog-desc">Peter Diamandis</div></div>
+      <div class="prog-item"><div class="prog-title">Gemini XPRIZE Pitches</div><div class="prog-desc">Host: Peter Diamandis · five finalists pitch live to the judges</div></div>
+      <div class="prog-item"><div class="prog-title">Alex Wissner-Gross · “Solve Everything”</div><div class="prog-desc">Moonshots Training · 1 hour · one-on-one AMA and open Q&amp;A from the room</div></div>
+      <div class="prog-item"><div class="prog-title">Salim Ismail · “Organizational Singularity”</div><div class="prog-desc">Moonshots Training · 1 hour</div></div>
+      <div class="prog-item"><div class="prog-title">Dave Blundin · “Investing in AI”</div><div class="prog-desc">Moonshots Training session</div></div>
+      <div class="prog-item"><div class="prog-title">Cathie Wood · 2026 “Big Ideas” Report</div><div class="prog-desc">With invited CEOs</div></div>
+      <div class="prog-item"><div class="prog-title">Future Vision XPRIZE</div><div class="prog-desc">Host: Rod Roddenberry · five winning trailers revealed + judging</div></div>
+      <div class="prog-item"><div class="prog-title">Closing &amp; Evening Overview</div><div class="prog-desc">Peter Diamandis</div></div>
     </div>
   </section>
 
