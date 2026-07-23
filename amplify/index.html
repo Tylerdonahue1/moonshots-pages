@@ -1,0 +1,2408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moonshots LIVE — Community Distribution Partnership</title>
+<meta name="description" content="Partner with Moonshots LIVE — the Oscars for Optimists. Bring your community, share in what we build. Sept 25, 2026, Los Angeles.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="robots" content="noindex,nofollow">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
+  /* ── BRAND TOKENS ── */
+  :root {
+    --teal:       #1BBFE0;
+    --teal-mid:   #1498B3;
+    --teal-deep:  #10869E;
+    --teal-glow:  rgba(27, 191, 224, 0.08);
+    --teal-dim:   rgba(27, 191, 224, 0.35);
+
+    --black:      #0B0E0C;
+    --surface:    #111411;
+    --surface2:   #161916;
+    --white:      #F5F5F3;
+    --border:     rgba(255,255,255,0.07);
+    --border-hi:  rgba(27,191,224,0.3);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ── SLIDE SYSTEM ── */
+  .slide {
+    min-height: 100vh;
+    padding: 80px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 32px;
+    opacity: 0.9;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--black);
+    justify-content: space-between;
+    min-height: 100vh;
+  }
+
+  /* Subtle teal radial — matches FVXP site hero glow */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -150px; right: -150px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(27,191,224,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  /* Second glow bottom-left */
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -200px; left: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(27,191,224,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .logo-lockup {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .brand-pill {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    color: rgba(255,255,255,0.35);
+    border-radius: 100px;
+  }
+
+  .brand-pill.active {
+    border-color: var(--teal-dim);
+    color: var(--teal);
+    background: var(--teal-glow);
+  }
+
+  .brand-pill.sep {
+    padding: 0;
+    border: none;
+    background: none;
+    color: rgba(255,255,255,0.2);
+    font-size: 14px;
+  }
+
+  .hero-meta {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.25);
+    text-align: right;
+    line-height: 2;
+  }
+
+  .hero-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0 40px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: clamp(72px, 9vw, 120px);
+    line-height: 0.92;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+
+  h1 em {
+    font-style: normal;
+    color: var(--teal);
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    max-width: 560px;
+    line-height: 1.75;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    margin-top: 72px;
+  }
+
+  .hero-stat {
+    background: var(--black);
+    padding: 28px 32px;
+    position: relative;
+  }
+  .hero-stat::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--teal-glow);
+  }
+  .hero-stat:first-child::before {
+    background: var(--teal);
+  }
+
+  .stat-num {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 42px;
+    line-height: 1;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.38);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── SECTION HEADERS ── */
+  h2 {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: clamp(48px, 6vw, 80px);
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+  }
+
+  h2 em { font-style: normal; color: var(--teal); }
+
+  h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--white);
+  }
+
+  /* ── TWO COLUMN ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .body-text {
+    font-size: 17px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  .highlight-box {
+    border-left: 2px solid var(--teal);
+    padding: 20px 24px;
+    background: var(--teal-glow);
+    margin: 32px 0;
+  }
+
+  .highlight-box p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.75);
+    font-style: italic;
+    line-height: 1.65;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    margin-top: 16px;
+  }
+
+  .step {
+    background: var(--surface);
+    padding: 40px 32px;
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .step-num {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 64px;
+    line-height: 1;
+    color: rgba(27,191,224,0.12);
+    margin-bottom: 20px;
+  }
+
+  .step h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: var(--teal);
+  }
+
+  .step p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.65;
+  }
+
+  /* ── WHAT YOU OWN ── */
+  .ownership-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    margin-top: 16px;
+  }
+
+  .own-card {
+    background: var(--surface);
+    padding: 40px;
+    transition: background 0.2s;
+  }
+  .own-card:hover { background: var(--surface2); }
+
+  .own-icon {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+
+  .own-card h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: var(--white);
+  }
+
+  .own-card p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.65;
+  }
+
+  /* ── TIERS ── */
+  .tiers-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  @media (max-width: 1100px) {
+    .tiers-wrapper { grid-template-columns: 1fr; }
+  }
+
+  .tier-card {
+    border: 1px solid var(--border);
+    padding: 36px 32px;
+    position: relative;
+    background: var(--surface);
+  }
+
+  .tier-card.featured {
+    border-color: var(--teal);
+    background: linear-gradient(135deg, rgba(27,191,224,0.05) 0%, var(--surface) 60%);
+  }
+
+  /* Top accent bar on featured */
+  .tier-card.featured::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--teal-mid));
+  }
+
+  .tier-badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .tier-name {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 44px;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    letter-spacing: 0.01em;
+  }
+
+  .tier-price {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    font-size: 32px;
+    color: var(--teal);
+    margin-bottom: 32px;
+    letter-spacing: 0.01em;
+  }
+
+  .tier-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 24px 0;
+  }
+
+  .tier-section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.28);
+    margin-bottom: 14px;
+  }
+
+  .benefit-list {
+    list-style: none;
+    margin-bottom: 24px;
+  }
+
+  .benefit-list li {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.5;
+  }
+
+  .benefit-list li::before {
+    content: '→';
+    color: var(--teal);
+    font-size: 12px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .best-for {
+    background: rgba(255,255,255,0.025);
+    padding: 16px 20px;
+    margin-top: 24px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.55;
+    border-left: 1px solid var(--teal-dim);
+  }
+
+  .best-for strong {
+    color: rgba(255,255,255,0.65);
+    font-weight: 500;
+  }
+
+  /* ── INLINE TAG ── */
+  .tag {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    background: rgba(27,191,224,0.1);
+    color: var(--teal);
+    border: 1px solid rgba(27,191,224,0.3);
+    border-radius: 100px;
+    vertical-align: middle;
+  }
+
+  /* ── COMPARISON TABLE ── */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 24px;
+  }
+
+  .compare-table th {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 16px 24px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    color: rgba(255,255,255,0.35);
+    font-weight: 400;
+  }
+
+  .compare-table th:not(:first-child) { text-align: center; }
+
+  .compare-table td {
+    padding: 13px 24px;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    color: rgba(255,255,255,0.6);
+  }
+
+  .compare-table td:not(:first-child) { text-align: center; }
+  .compare-table tr:hover td { background: rgba(255,255,255,0.015); }
+
+  .check { color: var(--teal); font-size: 15px; }
+  .dash  { color: rgba(255,255,255,0.18); }
+
+  /* ── CTA SLIDE ── */
+  .cta-slide {
+    background: var(--black);
+    text-align: center;
+    align-items: center;
+  }
+
+  .cta-slide::before {
+    content: '';
+    position: absolute;
+    bottom: -300px; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(27,191,224,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .cta-slide h2 { max-width: 700px; text-align: center; }
+
+  .cta-slide .body-text {
+    max-width: 500px;
+    text-align: center;
+    margin: 0 auto 48px;
+  }
+
+  /* CTA button */
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 16px 36px;
+    background: var(--teal);
+    color: var(--black);
+    border-radius: 100px;
+    text-decoration: none;
+    margin-bottom: 48px;
+    letter-spacing: 0.01em;
+    transition: background 0.2s;
+  }
+  .cta-btn:hover { background: var(--teal-mid); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .contact-cell {
+    background: var(--surface);
+    padding: 28px 32px;
+    text-align: left;
+  }
+
+  .contact-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.28);
+    margin-bottom: 8px;
+  }
+
+  .contact-value {
+    font-size: 14px;
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  .contact-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.38);
+    margin-top: 4px;
+  }
+
+  /* ── NAV DOTS ── */
+  .nav-dots {
+    position: fixed;
+    right: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+  }
+
+  .nav-dot {
+    width: 5px;
+    height: 5px;
+    background: rgba(255,255,255,0.18);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .nav-dot.active {
+    background: var(--teal);
+    transform: scale(1.5);
+  }
+
+  /* ── EXAMPLE VIDEO ── */
+  .example-video {
+    margin: 56px 0 0;
+    padding: 0;
+  }
+  .example-video video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--black);
+    display: block;
+    border: 1px solid var(--border);
+  }
+  .example-video figcaption {
+    margin-top: 14px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  /* ── PAGE NUM ── */
+  .page-num {
+    position: absolute;
+    bottom: 36px;
+    right: 72px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.18);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── SIV PLATFORM MOCKUP ── */
+  .siv-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 72px;
+    align-items: start;
+    margin-top: 8px;
+  }
+
+  .siv-mockup {
+    background: #0f1210;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .siv-mockup-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .siv-mockup-brand {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  .siv-mockup-prompt {
+    padding: 24px 20px 16px;
+    text-align: center;
+  }
+
+  .siv-mockup-prompt-text {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.75);
+    font-style: italic;
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+
+  .siv-mockup-sub {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .siv-matchup {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
+    padding: 0 16px 20px;
+    align-items: center;
+  }
+
+  .siv-film-card {
+    background: #1a1e1c;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .siv-film-thumb {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .siv-film-thumb-a {
+    background: linear-gradient(135deg, #1a3a2a 0%, #0d2018 100%);
+  }
+  .siv-film-thumb-b {
+    background: linear-gradient(135deg, #1a1a2e 0%, #0d0d1a 100%);
+  }
+
+  .siv-play-btn {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px;
+    color: var(--white);
+  }
+
+  .siv-film-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    padding: 8px 10px 4px;
+  }
+
+  .siv-film-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--white);
+    padding: 0 10px 8px;
+  }
+
+  .siv-choose-btn {
+    font-family: 'Space Mono', monospace;
+    font-size: 7px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 8px;
+    background: rgba(255,255,255,0.04);
+    color: rgba(255,255,255,0.5);
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .siv-vs {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.1em;
+  }
+
+  .siv-footer-note {
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.18);
+    padding: 0 16px 14px;
+  }
+
+  /* Mechanic list */
+  .mechanic-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .mechanic-item {
+    display: flex;
+    gap: 20px;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    align-items: flex-start;
+  }
+
+  .mechanic-item:last-child { border-bottom: none; }
+
+  .mechanic-num {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    color: rgba(27,191,224,0.2);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 32px;
+    margin-top: 2px;
+  }
+
+  .mechanic-text h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--teal);
+    margin-bottom: 4px;
+  }
+
+  .mechanic-text p {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+  }
+
+  .engagement-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    margin-top: 48px;
+  }
+
+  .engagement-cell {
+    background: var(--surface);
+    padding: 20px 24px;
+    text-align: center;
+  }
+
+  .engagement-val {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    color: var(--teal);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .engagement-lbl {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+  }
+
+  /* ── MOBILE PROGRESS BAR ── */
+  .mobile-progress {
+    display: none;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 200;
+    background: rgba(11,14,12,0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border);
+    padding: 12px 24px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .progress-dots {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .progress-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.18);
+    transition: all 0.25s;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .progress-dot.active {
+    background: var(--teal);
+    transform: scale(1.4);
+  }
+
+  .progress-counter {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .progress-nav {
+    display: flex;
+    gap: 8px;
+  }
+
+  .progress-btn {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: none;
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .progress-btn:active {
+    border-color: var(--teal);
+    color: var(--teal);
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+
+    /* Core layout */
+    .slide {
+      min-height: auto;
+      padding: 48px 20px 80px; /* extra bottom clears the progress bar */
+      justify-content: flex-start;
+    }
+
+    /* Show mobile progress bar, hide desktop nav dots */
+    .nav-dots { display: none; }
+    .mobile-progress { display: flex; }
+
+    /* Page numbers — hide on mobile (progress bar handles it) */
+    .page-num { display: none; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100svh;
+      justify-content: space-between;
+      padding-bottom: 80px;
+    }
+    .hero-top { flex-direction: column; gap: 12px; }
+    .logo-lockup { flex-wrap: wrap; gap: 6px; }
+    .brand-pill { font-size: 10px; padding: 5px 10px; }
+    .brand-pill.sep { padding: 0 2px; }
+    .hero-meta { text-align: left; font-size: 10px; }
+    .hero-center { padding: 32px 0 24px; }
+    h1 { font-size: clamp(48px, 13vw, 76px); margin-bottom: 20px; }
+    .hero-sub { font-size: 15px; max-width: 100%; line-height: 1.65; }
+    .hero-stats {
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 32px;
+    }
+    .hero-stat { padding: 18px 16px; }
+    .hero-stat::before { display: none; }
+    .stat-num { font-size: 30px; }
+    .stat-label { font-size: 10px; }
+
+    /* ── SECTION HEADERS ── */
+    h2 { font-size: clamp(36px, 10vw, 56px); margin-bottom: 28px; line-height: 1; }
+    .slide-label { font-size: 10px; margin-bottom: 16px; }
+
+    /* ── COMPETITION SLIDE ── */
+    .two-col { grid-template-columns: 1fr; gap: 24px; }
+    .body-text { font-size: 15px; line-height: 1.7; }
+    .highlight-box { padding: 16px 18px; margin: 20px 0; }
+    .highlight-box p { font-size: 14px; }
+
+    /* ── SIV PLATFORM SLIDE ── */
+    .siv-layout {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    /* Scale down the mockup on mobile */
+    .siv-mockup-header {
+      padding: 12px 14px;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .siv-mockup-brand { font-size: 8px; letter-spacing: 0.12em; }
+    .siv-mockup-prompt { padding: 16px 14px 10px; }
+    .siv-mockup-prompt-text { font-size: 13px; }
+    .siv-mockup-sub { font-size: 8px; }
+    .siv-matchup { gap: 8px; padding: 0 12px 14px; }
+    .siv-film-thumb { height: 60px; }
+    .siv-play-btn { width: 22px; height: 22px; font-size: 7px; }
+    .siv-film-label { font-size: 7px; padding: 6px 8px 3px; }
+    .siv-film-title { font-size: 11px; padding: 0 8px 6px; }
+    .siv-choose-btn { font-size: 6px; padding: 6px; }
+    .siv-vs { font-size: 9px; }
+    .siv-footer-note { font-size: 7px; padding: 0 12px 10px; }
+
+    /* Engagement bar — keep 3 cols, tighten up */
+    .engagement-bar { margin-top: 24px; }
+    .engagement-cell { padding: 14px 10px; }
+    .engagement-val { font-size: 22px; margin-bottom: 4px; }
+    .engagement-lbl { font-size: 9px; letter-spacing: 0.05em; }
+
+    /* Mechanic list */
+    .mechanic-item { padding: 18px 0; gap: 14px; }
+    .mechanic-num { font-size: 22px; width: 24px; }
+    .mechanic-text h4 { font-size: 14px; margin-bottom: 3px; }
+    .mechanic-text p { font-size: 13px; line-height: 1.55; }
+
+    /* ── CAMPAIGN TIMELINE SLIDE ── */
+    .steps { grid-template-columns: 1fr 1fr; }
+    .step { padding: 20px 16px; }
+    .step-num { font-size: 40px; margin-bottom: 10px; }
+    .step h3 { font-size: 13px; margin-bottom: 6px; }
+    .step p { font-size: 12px; }
+
+    /* ── BRAND PRESENCE SLIDE ── */
+    .ownership-grid { grid-template-columns: 1fr 1fr; }
+    .own-card { padding: 20px 16px; }
+    .own-icon { font-size: 20px; margin-bottom: 10px; }
+    .own-card h3 { font-size: 13px; }
+    .own-card p { font-size: 12px; }
+
+    /* ── TIERS SLIDE ── */
+    .tiers-wrapper { grid-template-columns: 1fr; gap: 16px; }
+    .tier-card { padding: 28px 20px; }
+    .tier-card.featured::before { height: 2px; }
+    .tier-name { font-size: 34px; }
+    .tier-price { font-size: 24px; margin-bottom: 20px; }
+    .tier-section-label { font-size: 9px; margin-bottom: 10px; }
+    .benefit-list li { font-size: 13px; padding: 7px 0; gap: 8px; }
+    .best-for { font-size: 12px; padding: 12px 14px; }
+    .compare-table-wrapper { display: none; }
+    .tag { border-radius: 100px; }
+
+    /* ── CTA SLIDE ── */
+    .cta-slide { align-items: flex-start; text-align: left; }
+    .cta-slide h2 { text-align: left; }
+    .cta-slide .body-text { text-align: left; margin: 0 0 32px; }
+    .cta-btn {
+      width: 100%;
+      justify-content: center;
+      padding: 16px 24px;
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+    .contact-grid { grid-template-columns: 1fr; max-width: 100%; }
+    .contact-cell { padding: 18px 20px; }
+    .contact-label { font-size: 9px; }
+    .contact-value { font-size: 13px; }
+    .contact-sub { font-size: 11px; }
+  }
+
+  /* ── SMALL PHONES ── */
+  @media (max-width: 390px) {
+    .slide { padding: 40px 16px 80px; }
+    h1 { font-size: 44px; }
+    h2 { font-size: 34px; }
+    .steps { grid-template-columns: 1fr; }
+    .ownership-grid { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    /* SIV mockup gets even more compact */
+    .siv-film-thumb { height: 50px; }
+    .siv-matchup { gap: 6px; padding: 0 10px 12px; }
+  }
+
+  /* ── PRESS STRIP (Slide 2) ── */
+  .press-strip {
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+  }
+  .press-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 18px;
+  }
+  .press-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 36px;
+    align-items: baseline;
+  }
+  .press-name {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -0.005em;
+    color: rgba(255,255,255,0.82);
+  }
+
+  /* ── PRINCIPALS / CREDIBILITY (Slide 4) ── */
+  .section-sub {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-hi);
+  }
+  .principals-list {
+    list-style: none;
+    margin-bottom: 0;
+  }
+  .principals-list li {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.62);
+    font-weight: 300;
+  }
+  .principals-list li:last-child { border-bottom: none; }
+  .principals-list li strong {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--white);
+    display: block;
+    margin-bottom: 5px;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+  }
+  .convening-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 24px;
+  }
+  .convening-list li {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--white);
+    letter-spacing: -0.005em;
+    text-transform: uppercase;
+  }
+  .track-record {
+    margin-top: 36px;
+  }
+
+  /* ── EXAMPLE CONTENT TAG (Slide 6 mockup) ── */
+  .siv-mockup-wrap {
+    position: relative;
+  }
+  .example-tag {
+    position: absolute;
+    top: -12px;
+    right: 12px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    background: var(--black);
+    border: 1px solid var(--teal-dim);
+    padding: 6px 12px;
+    z-index: 5;
+  }
+
+  /* ── CLOSING LINE (Slide 10) ── */
+  .closing-line {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border-hi);
+    font-family: 'Barlow', sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.82);
+    max-width: 760px;
+  }
+
+  /* ── DEADLINE CALLOUT (Slide 10) ── */
+  .deadline-callout {
+    margin-top: 28px;
+    padding: 22px 26px;
+    border: 1px solid var(--teal);
+    background: var(--teal-glow);
+    display: inline-block;
+  }
+  .deadline-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+  .deadline-value {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    color: var(--white);
+    letter-spacing: -0.005em;
+  }
+
+  /* ── HERO FOOTER (Slide 1) ── */
+  .hero-footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.8;
+  }
+  .hero-footer .lockup-placeholder {
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  @media (max-width: 640px) {
+    .convening-list { grid-template-columns: 1fr; }
+    .press-row { gap: 18px; }
+    .press-name { font-size: 16px; }
+  }
+
+  /* ── REACH GRID (Slide 2) ── */
+  .reach-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    margin-top: 56px;
+    border: 1px solid var(--border-hi);
+  }
+  .reach-cell {
+    background: var(--black);
+    padding: 28px 24px;
+    position: relative;
+  }
+  .reach-cell::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--teal-glow);
+  }
+  .reach-cell:first-child::before { background: var(--teal); }
+  .reach-num {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 1;
+    color: var(--teal);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+  .reach-name {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--white);
+    margin-bottom: 6px;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+  }
+  .reach-source {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.5;
+  }
+
+  /* ── PRECEDENT CALLOUT (Slide 2) ── */
+  .precedent {
+    margin-top: 32px;
+    padding: 28px 32px;
+    border-left: 3px solid var(--teal);
+    background: var(--teal-glow);
+  }
+  .precedent-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 12px;
+  }
+  .precedent-text {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--white);
+  }
+  .precedent-text strong { color: var(--teal); font-weight: 900; }
+  .precedent-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  /* ── ROOM (Slide 4) — simplified ── */
+  .room-grid {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+  .room-list {
+    list-style: none;
+    border-top: 1px solid var(--border);
+  }
+  .room-list li {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    align-items: baseline;
+  }
+  .room-list li:last-child { border-bottom: none; }
+  .room-name {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--white);
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+  }
+  .room-role {
+    font-size: 14px;
+    color: rgba(255,255,255,0.62);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  .room-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+  .convening-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .convening-chip {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--white);
+    letter-spacing: 0.005em;
+    padding: 10px 16px;
+    border: 1px solid var(--border-hi);
+    background: var(--surface);
+    text-transform: uppercase;
+  }
+  .track-line {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+  }
+  .track-line strong { color: var(--teal); font-weight: 600; }
+
+  /* ── EXAMPLE CONTENT TAG (Slide 5 mockup) ── */
+  .siv-mockup-wrap {
+    position: relative;
+  }
+  .example-tag {
+    position: absolute;
+    top: -12px;
+    right: 12px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    background: var(--black);
+    border: 1px solid var(--teal-dim);
+    padding: 6px 12px;
+    z-index: 5;
+  }
+
+  /* ── CLOSING LINE (Slide 7) ── */
+  .closing-line {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border-hi);
+    font-family: 'Barlow', sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.82);
+    max-width: 760px;
+  }
+
+  /* ── DEADLINE CALLOUT (Slide 7) ── */
+  .deadline-callout {
+    margin-top: 28px;
+    padding: 22px 26px;
+    border: 1px solid var(--teal);
+    background: var(--teal-glow);
+    display: inline-block;
+  }
+  .deadline-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+  .deadline-value {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    color: var(--white);
+    letter-spacing: -0.005em;
+  }
+
+  /* ── HERO FOOTER (Slide 1) ── */
+  .hero-footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.8;
+  }
+  .hero-footer .lockup-placeholder {
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    .reach-grid { grid-template-columns: 1fr 1fr; }
+    .room-grid { grid-template-columns: 1fr; gap: 48px; }
+    .room-list li { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; }
+    .precedent-text { font-size: 18px; }
+  }
+
+  /* ── VIDEO EMBED (Slide 2) ── */
+  .video-embed {
+    margin-top: 56px;
+  }
+  .video-embed-wrap {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    overflow: hidden;
+  }
+  .video-embed-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: 0;
+  }
+  .video-embed-caption {
+    margin-top: 14px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* ── PRESS GRID (Slide 3) ── */
+  .press-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    margin-top: 32px;
+    border: 1px solid var(--border-hi);
+  }
+  .press-card {
+    background: var(--surface);
+    padding: 56px 36px 40px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 260px;
+  }
+  .press-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--teal-glow);
+  }
+  .press-card:first-child::before { background: var(--teal); }
+  .press-outlet {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 1;
+    color: var(--white);
+    letter-spacing: -0.01em;
+  }
+  .press-meta {
+    margin-top: 24px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    line-height: 1.7;
+  }
+
+  /* ── AUDIENCE GRID (Slide 5) ── */
+  .audience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    margin-top: 32px;
+    border: 1px solid var(--border-hi);
+  }
+  .audience-card {
+    background: var(--surface);
+    padding: 48px 40px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 280px;
+  }
+  .audience-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--teal);
+  }
+  .audience-num {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--teal);
+    margin-bottom: 14px;
+    letter-spacing: -0.015em;
+  }
+  .audience-num.tbc {
+    font-size: 32px;
+    letter-spacing: 0.04em;
+  }
+  .audience-name {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+    color: var(--white);
+    margin-bottom: 14px;
+  }
+  .audience-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+    margin-top: auto;
+  }
+
+  /* ── PRECEDENT CALLOUT (Slide 7) ── */
+  .precedent {
+    margin-top: 32px;
+    padding: 28px 32px;
+    border-left: 3px solid var(--teal);
+    background: var(--teal-glow);
+  }
+  .precedent-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 12px;
+  }
+  .precedent-text {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--white);
+  }
+  .precedent-text strong { color: var(--teal); font-weight: 900; }
+  .precedent-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  /* ── ROOM (Slide 4) — keeps existing styles ── */
+  .room-grid {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+  .room-list {
+    list-style: none;
+    border-top: 1px solid var(--border);
+  }
+  .room-list li {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    align-items: baseline;
+  }
+  .room-list li:last-child { border-bottom: none; }
+  .room-name {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--white);
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+  }
+  .room-role {
+    font-size: 14px;
+    color: rgba(255,255,255,0.62);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  .room-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+  .convening-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .convening-chip {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--white);
+    letter-spacing: 0.005em;
+    padding: 10px 16px;
+    border: 1px solid var(--border-hi);
+    background: var(--surface);
+    text-transform: uppercase;
+  }
+  .track-line {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+  }
+  .track-line strong { color: var(--teal); font-weight: 600; }
+
+  /* ── EXAMPLE CONTENT TAG (Slide 6 mockup) ── */
+  .siv-mockup-wrap {
+    position: relative;
+  }
+  .example-tag {
+    position: absolute;
+    top: -12px;
+    right: 12px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    background: var(--black);
+    border: 1px solid var(--teal-dim);
+    padding: 6px 12px;
+    z-index: 5;
+  }
+
+  /* ── CLOSING LINE (Slide 9) ── */
+  .closing-line {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border-hi);
+    font-family: 'Barlow', sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.82);
+    max-width: 760px;
+  }
+
+  /* ── DEADLINE CALLOUT (Slide 9) ── */
+  .deadline-callout {
+    margin-top: 28px;
+    padding: 22px 26px;
+    border: 1px solid var(--teal);
+    background: var(--teal-glow);
+    display: inline-block;
+  }
+  .deadline-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+  .deadline-value {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    color: var(--white);
+    letter-spacing: -0.005em;
+  }
+
+  /* ── HERO FOOTER (Slide 1) ── */
+  .hero-footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.8;
+  }
+  .hero-footer .lockup-placeholder {
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    .press-grid { grid-template-columns: 1fr; }
+    .audience-grid { grid-template-columns: 1fr; }
+    .room-grid { grid-template-columns: 1fr; gap: 48px; }
+    .room-list li { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; }
+    .precedent-text { font-size: 18px; }
+    .press-outlet { font-size: 28px; }
+  }
+
+  /* ── VIDEO EMBED (Slide 2) ── */
+  .video-embed { margin-top: 56px; }
+  .video-embed-wrap {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    overflow: hidden;
+  }
+  .video-embed-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: 0;
+  }
+  .video-embed-caption {
+    margin-top: 14px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* ── PRESS GRID (Slide 3) ── */
+  .press-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    margin-top: 32px;
+    border: 1px solid var(--border-hi);
+  }
+  .press-card {
+    background: var(--surface);
+    padding: 40px 32px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 280px;
+  }
+  .press-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--teal-glow);
+  }
+  .press-card:first-child::before { background: var(--teal); }
+  .press-outlet {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 1;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+  }
+  .press-headline {
+    font-family: 'Barlow', sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 1.4;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 20px;
+  }
+  .press-meta {
+    margin-top: auto;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  /* ── PRECEDENT CALLOUT (Slide 6) ── */
+  .precedent {
+    margin-top: 32px;
+    padding: 28px 32px;
+    border-left: 3px solid var(--teal);
+    background: var(--teal-glow);
+  }
+  .precedent-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 12px;
+  }
+  .precedent-text {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--white);
+  }
+  .precedent-text strong { color: var(--teal); font-weight: 900; }
+  .precedent-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  /* ── ROOM (Slide 4) ── */
+  .room-grid {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+  .room-list {
+    list-style: none;
+    border-top: 1px solid var(--border);
+  }
+  .room-list li {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    align-items: baseline;
+  }
+  .room-list li:last-child { border-bottom: none; }
+  .room-name {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--white);
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+  }
+  .room-role {
+    font-size: 14px;
+    color: rgba(255,255,255,0.62);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  .room-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+  .convening-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .convening-chip {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--white);
+    letter-spacing: 0.005em;
+    padding: 10px 16px;
+    border: 1px solid var(--border-hi);
+    background: var(--surface);
+    text-transform: uppercase;
+  }
+  .track-line {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+  }
+  .track-line strong { color: var(--teal); font-weight: 600; }
+
+  /* ── EXAMPLE CONTENT TAG (Slide 5 mockup) ── */
+  .siv-mockup-wrap { position: relative; }
+  .example-tag {
+    position: absolute;
+    top: -12px;
+    right: 12px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    background: var(--black);
+    border: 1px solid var(--teal-dim);
+    padding: 6px 12px;
+    z-index: 5;
+  }
+
+  /* ── CLOSING LINE (Slide 8) ── */
+  .closing-line {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border-hi);
+    font-family: 'Barlow', sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.82);
+    max-width: 760px;
+  }
+
+  /* ── DEADLINE CALLOUT (Slide 8) ── */
+  .deadline-callout {
+    margin-top: 28px;
+    padding: 22px 26px;
+    border: 1px solid var(--teal);
+    background: var(--teal-glow);
+    display: inline-block;
+  }
+  .deadline-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+  .deadline-value {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    color: var(--white);
+    letter-spacing: -0.005em;
+  }
+
+  /* ── HERO FOOTER (Slide 1) ── */
+  .hero-footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.8;
+  }
+  .hero-footer .lockup-placeholder {
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    .press-grid { grid-template-columns: 1fr; }
+    .room-grid { grid-template-columns: 1fr; gap: 48px; }
+    .room-list li { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; }
+    .precedent-text { font-size: 18px; }
+    .press-outlet { font-size: 24px; }
+  }
+
+  /* ── AMPLIFY-SPECIFIC ── */
+  .give-get {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border-hi);
+    margin-top: 24px;
+  }
+  .give-get-col {
+    background: var(--surface);
+    padding: 44px 40px;
+  }
+  .give-get-col.get { background: linear-gradient(135deg, rgba(27,191,224,0.06) 0%, var(--surface) 60%); }
+  .gg-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+  .gg-title {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+    color: var(--white);
+  }
+  .gg-list { list-style: none; }
+  .gg-list li {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.72);
+    font-weight: 300;
+    display: grid;
+    grid-template-columns: 26px 1fr;
+    gap: 12px;
+  }
+  .gg-list li:last-child { border-bottom: none; }
+  .gg-list li .ic { font-size: 16px; }
+  .gg-list li strong { color: var(--white); font-weight: 600; }
+
+  @media (max-width: 900px) {
+    .give-get { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav-dots">
+  <div class="nav-dot active" onclick="scrollToSlide(0)"></div>
+  <div class="nav-dot" onclick="scrollToSlide(1)"></div>
+  <div class="nav-dot" onclick="scrollToSlide(2)"></div>
+  <div class="nav-dot" onclick="scrollToSlide(3)"></div>
+  <div class="nav-dot" onclick="scrollToSlide(4)"></div>
+  <div class="nav-dot" onclick="scrollToSlide(5)"></div>
+  <div class="nav-dot" onclick="scrollToSlide(6)"></div>
+  <div class="nav-dot" onclick="scrollToSlide(7)"></div>
+</nav>
+
+<!-- MOBILE PROGRESS BAR -->
+<div class="mobile-progress" id="mobileProgress">
+  <div class="progress-dots">
+    <div class="progress-dot active" onclick="scrollToSlide(0)"></div>
+    <div class="progress-dot" onclick="scrollToSlide(1)"></div>
+    <div class="progress-dot" onclick="scrollToSlide(2)"></div>
+    <div class="progress-dot" onclick="scrollToSlide(3)"></div>
+    <div class="progress-dot" onclick="scrollToSlide(4)"></div>
+    <div class="progress-dot" onclick="scrollToSlide(5)"></div>
+    <div class="progress-dot" onclick="scrollToSlide(6)"></div>
+    <div class="progress-dot" onclick="scrollToSlide(7)"></div>
+  </div>
+  <div class="progress-counter" id="progressCounter">01 / 08</div>
+  <div class="progress-nav">
+    <button class="progress-btn" onclick="prevSlide()" aria-label="Previous">←</button>
+    <button class="progress-btn" onclick="nextSlide()" aria-label="Next">→</button>
+  </div>
+</div>
+
+<!-- ── SLIDE 1: COVER ── -->
+<section class="slide hero" id="slide-0">
+  <div class="hero-top">
+    <div class="logo-lockup">
+      <div class="brand-pill active">Moonshots LIVE</div>
+      <div class="brand-pill sep">×</div>
+      <div class="brand-pill active">Your Community</div>
+    </div>
+    <div class="hero-meta">
+      Community Distribution Partnership<br>
+      Los Angeles · September 25, 2026
+    </div>
+  </div>
+
+  <div class="hero-center">
+    <div class="hero-eyebrow">A Partnership Invitation</div>
+    <h1>BRING YOUR<br>COMMUNITY TO<br>THE <em>FUTURE</em>.</h1>
+    <p class="hero-sub">Moonshots LIVE is the Oscars for Optimists — a night in Los Angeles where $5M+ is awarded to the filmmakers and builders imagining a future worth living in. We're partnering with LA's best founder and creator communities to fill the room. Help us spread the word, and share in what we're building.</p>
+
+    <div class="hero-footer">
+      <span class="lockup-placeholder">The Oscars for Optimists.</span>
+      Hosted by Peter Diamandis · Future Vision XPRIZE + Build with Gemini XPRIZE<br>
+      September 25, 2026 · A restored 1920s movie palace · Downtown LA
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="stat-num">$5M+</div>
+      <div class="stat-label">Awarded Live On Stage</div>
+    </div>
+    <div class="hero-stat">
+      <div class="stat-num">1,500</div>
+      <div class="stat-label">Builders &amp; Creators</div>
+    </div>
+    <div class="hero-stat">
+      <div class="stat-num">Sept 25</div>
+      <div class="stat-label">One Night · Downtown LA</div>
+    </div>
+  </div>
+
+  <div class="page-num">01 / 08</div>
+</section>
+
+<!-- ── SLIDE 2: WHAT IT IS ── -->
+<section class="slide" id="slide-1">
+  <div class="slide-label">02 · What It Is</div>
+  <div class="two-col">
+    <div>
+      <h2>THE OSCARS<br>FOR <em>OPTIMISTS</em>.</h2>
+    </div>
+    <div>
+      <p class="body-text">One night. A restored 1920s movie palace in downtown Los Angeles. 1,500 builders, creators, founders, and investors in one room.</p>
+
+      <p class="body-text">Optimism is the belief that problems are solvable, paired with the willingness to solve them. Moonshots LIVE is where that belief gets celebrated — and funded. Over $5M awarded live on stage to the people building and imagining humanity's future.</p>
+
+      <p class="body-text">The future doesn't happen to us. We are its authors. This is the biggest party of the year for the people who believe that.</p>
+    </div>
+  </div>
+  <div class="page-num">02 / 08</div>
+</section>
+
+<!-- ── SLIDE 3: THE TWO COMPETITIONS ── -->
+<section class="slide" id="slide-2">
+  <div class="slide-label">03 · What Gets Awarded</div>
+  <h2>TWO PRIZES.<br>ONE <em>STAGE</em>.</h2>
+
+  <div class="give-get" style="margin-top: 32px;">
+    <div class="give-get-col">
+      <div class="gg-eyebrow">$3.5M+ · Storytellers</div>
+      <div class="gg-title">Future Vision<br>XPRIZE</div>
+      <p class="body-text" style="margin-bottom: 0; font-size: 16px;">Filmmakers pitch three-minute visions of a future worth living in. The grand prize winner's film gets greenlit and produced with Range Media Partners. Fiction becomes the blueprint the world builds toward.</p>
+    </div>
+    <div class="give-get-col get">
+      <div class="gg-eyebrow">$2M · Builders</div>
+      <div class="gg-title">Build with<br>Gemini XPRIZE</div>
+      <p class="body-text" style="margin-bottom: 0; font-size: 16px;">Builders launch real, profitable AI businesses in 90 days — each taking on a problem that could change thousands of lives. First place takes $500K. A hackathon that ships companies.</p>
+    </div>
+  </div>
+
+  <p class="body-text" style="margin-top: 32px; max-width: 900px;">25,000+ competitors across both. 10 finalists pitch live on stage. Everything decided that night in front of the room.</p>
+
+  <div class="page-num">03 / 08</div>
+</section>
+
+<!-- ── SLIDE 4: WHO'S BEHIND IT ── -->
+<section class="slide" id="slide-3">
+  <div class="slide-label">04 · Who's Behind It</div>
+  <h2>BUILT WITH THE PEOPLE<br>WHO BUILD THE <em>FUTURE</em>.</h2>
+
+  <div class="room-grid">
+    <div>
+      <div class="room-eyebrow">Partners &amp; Brands</div>
+      <ul class="room-list">
+        <li><div class="room-name">Google</div><div class="room-role">Presenting partner of the Build with Gemini XPRIZE.</div></li>
+        <li><div class="room-name">XPRIZE Foundation</div><div class="room-role">30 years of prizes that launch industries. CEO Anousheh Ansari.</div></li>
+        <li><div class="room-name">Range Media Partners</div><div class="room-role">Produces the winning film. Hollywood representation.</div></li>
+        <li><div class="room-name">ARK · Salesforce · Xsolla · Republic Film</div><div class="room-role">Backing the mission across capital, enterprise, and film.</div></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="room-eyebrow">On Stage &amp; In the Room</div>
+      <div class="convening-chips">
+        <span class="convening-chip">Peter Diamandis</span>
+        <span class="convening-chip">Anousheh Ansari</span>
+        <span class="convening-chip">Cathie Wood</span>
+        <span class="convening-chip">Rod Roddenberry</span>
+        <span class="convening-chip">Palmer Luckey</span>
+      </div>
+
+      <p class="track-line"><strong>The pedigree:</strong> XPRIZE catalyzed private spaceflight ($10M Ansari) and carbon removal ($100M). Peter Diamandis founded XPRIZE and Singularity University. This is the team that turns moonshots into industries.</p>
+    </div>
+  </div>
+
+  <div class="page-num">04 / 08</div>
+</section>
+
+<!-- ── SLIDE 5: WHY YOUR COMMUNITY ── -->
+<section class="slide" id="slide-4">
+  <div class="slide-label">05 · Why Your Community</div>
+  <div class="two-col">
+    <div>
+      <h2>THIS IS<br>YOUR ROOM<br><em>TOO</em>.</h2>
+    </div>
+    <div>
+      <p class="body-text">Moonshots LIVE is built for exactly the people your community is made of — founders, creators, builders, and the optimists who show up to make things.</p>
+
+      <p class="body-text">It's happening in your city. The people you already convene are the people who belong in that room on September 25. We'd rather fill it with real LA communities than with ads.</p>
+
+      <p class="body-text">So we're inviting a small set of the best founder and creator communities in Los Angeles to help us bring their people — and to share in what comes from it.</p>
+    </div>
+  </div>
+  <div class="page-num">05 / 08</div>
+</section>
+
+<!-- ── SLIDE 6: THE ASK ── -->
+<section class="slide" id="slide-5">
+  <div class="slide-label">06 · The Ask</div>
+  <h2>WHAT WE'D LOVE<br>YOUR HELP <em>WITH</em>.</h2>
+  <p class="body-text" style="max-width: 900px; margin-bottom: 32px;">Simple, low-lift distribution to your community. Pick what fits — you know your people best.</p>
+
+  <div class="ownership-grid">
+    <div class="own-card">
+      <div class="own-icon">✉️</div>
+      <h3>Email</h3>
+      <p>A mention in a newsletter or a dedicated send to your list. We provide the copy, the assets, and a trackable link.</p>
+    </div>
+    <div class="own-card">
+      <div class="own-icon">📱</div>
+      <h3>Social Posts</h3>
+      <p>A post or story across your channels. We hand you ready-to-go creative — you add your voice.</p>
+    </div>
+    <div class="own-card">
+      <div class="own-icon">📌</div>
+      <h3>Physical Presence</h3>
+      <p>If your community has a space, a flyer or card on the wall or the table. We print and ship it to you.</p>
+    </div>
+  </div>
+
+  <div class="page-num">06 / 08</div>
+</section>
+
+<!-- ── SLIDE 7: THE EXCHANGE ── -->
+<section class="slide" id="slide-6">
+  <div class="slide-label">07 · What You Get</div>
+  <h2>TWO WAYS<br>TO <em>BENEFIT</em>.</h2>
+  <p class="body-text" style="max-width: 900px; margin-bottom: 8px;">Pick whichever serves your community better. We're flexible.</p>
+
+  <div class="give-get">
+    <div class="give-get-col get">
+      <div class="gg-eyebrow">Option A</div>
+      <div class="gg-title">Distribution<br>Exchange</div>
+      <ul class="gg-list">
+        <li><span class="ic">🎤</span><span>Your brand in front of our audience — <strong>the 1,500 in the room and the community around the event</strong></span></li>
+        <li><span class="ic">📣</span><span>A reciprocal shout across Moonshots channels and event materials</span></li>
+        <li><span class="ic">🎟</span><span>Passes for your community leads to be in the room on Sept 25</span></li>
+        <li><span class="ic">🤝</span><span>An ongoing relationship with the Moonshots ecosystem</span></li>
+      </ul>
+    </div>
+    <div class="give-get-col">
+      <div class="gg-eyebrow">Option B</div>
+      <div class="gg-title">Revenue<br>Share</div>
+      <ul class="gg-list">
+        <li><span class="ic">💸</span><span>A <strong>percentage of every Moonshots LIVE ticket</strong> that comes from your effort</span></li>
+        <li><span class="ic">🔗</span><span>A unique trackable link and code, so every sale is attributed to you</span></li>
+        <li><span class="ic">📊</span><span>A simple dashboard — see exactly what your community drove</span></li>
+        <li><span class="ic">💵</span><span>Paid out after the event, no minimums, no games</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-num">07 / 08</div>
+</section>
+
+<!-- ── SLIDE 8: NEXT STEPS ── -->
+<section class="slide cta-slide" id="slide-7">
+  <div class="slide-label">08 · Let's Do It</div>
+  <h2>LET'S FILL<br>THE <em>ROOM</em>.</h2>
+  <p class="body-text" style="max-width: 820px;">If this resonates, reply and tell us which side fits — distribution exchange or revenue share — and what your community looks like. We'll send over the assets, the link, and a short partner one-pager. Takes ten minutes to set up.</p>
+
+  <a class="cta-btn" href="mailto:tyler@moonshots.com?subject=Moonshots%20LIVE%20%C2%B7%20Community%20Partnership">Start the conversation →</a>
+
+  <div class="contact-grid">
+    <div class="contact-cell">
+      <div class="contact-label">Contact</div>
+      <div class="contact-value">Tyler Donahue</div>
+      <div class="contact-sub">Moonshots · Partnerships</div>
+    </div>
+    <div class="contact-cell">
+      <div class="contact-label">Email</div>
+      <div class="contact-value">tyler@moonshots.com</div>
+      <div class="contact-sub">tyler@diamandis.com</div>
+    </div>
+    <div class="contact-cell">
+      <div class="contact-label">The Night</div>
+      <div class="contact-value">Sept 25, 2026</div>
+      <div class="contact-sub">Downtown Los Angeles</div>
+    </div>
+  </div>
+
+  <p class="closing-line">"The future doesn't happen to us. We are its authors. Bring your people, and let's write it together."</p>
+
+  <div class="partner-stamp">
+    Moonshots LIVE · The Oscars for Optimists · Hosted by Peter Diamandis
+  </div>
+
+  <div class="page-num">08 / 08</div>
+</section>
+<script>
+  const slides       = document.querySelectorAll('.slide');
+  const desktopDots  = document.querySelectorAll('.nav-dots .nav-dot');
+  const mobileDots   = document.querySelectorAll('.progress-dots .progress-dot');
+  const counter      = document.getElementById('progressCounter');
+  const total        = slides.length;
+  let currentSlide   = 0;
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function setActive(idx) {
+    currentSlide = idx;
+
+    desktopDots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    mobileDots.forEach((d, i)  => d.classList.toggle('active', i === idx));
+
+    if (counter) counter.textContent = pad(idx + 1) + ' / ' + pad(total);
+  }
+
+  function scrollToSlide(i) {
+    slides[i].scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function nextSlide() {
+    const next = Math.min(currentSlide + 1, total - 1);
+    scrollToSlide(next);
+  }
+
+  function prevSlide() {
+    const prev = Math.max(currentSlide - 1, 0);
+    scrollToSlide(prev);
+  }
+
+  /* Keyboard navigation */
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); nextSlide(); }
+    if (e.key === 'ArrowUp'   || e.key === 'ArrowLeft')  { e.preventDefault(); prevSlide(); }
+  });
+
+  /* IntersectionObserver — fires on both desktop and mobile */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = Array.from(slides).indexOf(entry.target);
+        setActive(idx);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  slides.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
+
